@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="travis_custom" parent="Theme.Sherlock">
+
+    <item name="android:ratingBarStyle">@style/RatingBartravis_custom</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigtravis_custom</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmalltravis_custom</item>
+
+  </style>
+
+</resources>

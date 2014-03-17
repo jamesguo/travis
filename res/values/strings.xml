@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name2">cordenates</string>
+    <string name="action_settings">Settings</string>
+    <string name="make_folder">Marker</string>
+    <string name="textView1">TRAVIS</string>
+    <string name="button1">My Location</string>
+    <string name="button2">Taxi Location</string>
+    <string name="button3">All Location</string>
+    <string name="textView2">GPS: </string>
+    <string name="app_name">TRAVIS</string>
+    <string name="title_activity_markers_taxi">MarkersTaxi</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="swipe">Swipe from left to right</string>
+
+
+    <string name="menu_login">Login</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_closest">Closest</string>
+    <string name="menu_best_rated">Best rated</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_settings">Settings</string>
+
+
+    <string name="action_bar_show_menu">Show Menu</string>
+    <string name="action_bar_search">Search</string>
+
+
+    <string name="closest_map_view">Map</string>
+    <string name="closest_list_view">Details</string>
+
+</resources>

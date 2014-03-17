@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.agimind.widget.SlideHolder
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/sideMenu">
+
+    <!-- Side Menu -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="200dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:background="@color/sideMenuBg">
+
+        <!-- Logout -->
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_logout"
+            android:drawableLeft="@drawable/ic_action_about" />
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mainBg" />
+
+        <!-- Show Closest (Default view) -->
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_closest"
+            android:drawableLeft="@drawable/ic_action_map" />
+
+        <!-- Show Best Rated -->
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_best_rated"
+            android:drawableLeft="@drawable/ic_action_important" />
+
+        <!-- Show Favorites -->
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_favorites"
+            android:drawableLeft="@drawable/ic_action_favorite" />
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mainBg" />
+
+        <!-- Settings -->
+        <Button
+            android:id="@+id/menu_settings"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_settings"
+            android:drawableLeft="@drawable/ic_action_settings" />
+
+    </LinearLayout>
+
+    <!-- And here is your main layout -->
+    <android.support.v4.app.FragmentTabHost
+        android:id="@+id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/mainBg" >
+
+            <FrameLayout
+                android:id="@+id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingTop="48dp" />
+
+    </android.support.v4.app.FragmentTabHost>
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="@color/mainBg" >-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/sideMenuToggle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:text="@string/swipe"-->
+            <!--android:textColor="@color/titleText"-->
+            <!--android:textSize="25sp" />-->
+
+    <!--</RelativeLayout>-->
+
+</com.agimind.widget.SlideHolder>

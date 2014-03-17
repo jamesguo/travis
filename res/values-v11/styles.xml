@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="RatingBartravis_custom" parent="android:Widget.Holo.RatingBar">
+      <item name="android:progressDrawable">@drawable/travis_custom_ratingbar_full_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/travis_custom_ratingbar_full_holo_dark</item>
+  </style>
+
+  <style name="RatingBarBigtravis_custom" parent="android:Widget.Holo.RatingBar.Indicator">
+      <item name="android:progressDrawable">@drawable/travis_custom_ratingbar_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/travis_custom_ratingbar_holo_dark</item>
+  </style>
+
+  <style name="RatingBarSmalltravis_custom" parent="android:Widget.Holo.RatingBar.Small">
+      <item name="android:progressDrawable">@drawable/travis_custom_ratingbar_small_holo_dark</item>
+      <item name="android:indeterminateDrawable">@drawable/travis_custom_ratingbar_small_holo_dark</item>
+  </style>
+
+</resources>
