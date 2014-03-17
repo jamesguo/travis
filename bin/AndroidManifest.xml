@@ -65,7 +65,8 @@
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAiCCVmirp5CcFg68UNTZqf_71yPBwsFxQ"/>
+            android:value="AIzaSyAgSzr3ubuzS5mFR5g8z-weAzsw53MK5KI"/>
+        
         
         <!-- Reference to the Google Play services version -->
         <meta-data
@@ -74,3 +75,5 @@
 
     </application>
 </manifest>
+
+<!-- AIzaSyAiCCVmirp5CcFg68UNTZqf_71yPBwsFxQ -->
