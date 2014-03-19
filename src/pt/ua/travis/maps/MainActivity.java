@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity {
 		// and change perspective when the map is tilted.
 		map.addMarker(new MarkerOptions()
 				.icon(BitmapDescriptorFactory
-						.fromResource(R.drawable.ic_launcher))
+						.fromResource(R.drawable.ic_marker))
 				.position(mapCenter).flat(true).rotation(245));
 
 		CameraPosition cameraPosition = CameraPosition.builder()

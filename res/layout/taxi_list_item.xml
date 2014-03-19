@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="80dip">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="70dip"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_taxi"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@+id/image"
+        android:paddingTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dip"
+        android:textSize="20sp"
+        android:text="Test"/>
+
+    <TextView
+        android:id="@+id/latlng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@id/image"
+        android:layout_below="@+id/text"
+        android:paddingTop="15dp"
+        android:layout_marginLeft="10dip"
+        android:textSize="14sp"
+        android:text="Not found"/>
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@id/latlng"
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="15dp"
+        android:paddingTop="15dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="3.5"
+        style="@style/RatingBarSmall_travis"/>
+
+
+</RelativeLayout>

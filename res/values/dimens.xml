@@ -4,4 +4,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="viewpager_margin">-32dp</dimen>
+    <dimen name="viewpager_margin_tablet">-64dp</dimen>
+
+    <dimen name="taxi_list_width">180dp</dimen>
+
 </resources>

@@ -4,6 +4,9 @@ import android.app.Activity;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.view.Display;
+import android.view.Surface;
+import android.view.WindowManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
@@ -11,7 +14,9 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class Validate {
+public final class Validate {
+
+    private Validate(){}
 
     public static boolean hasGooglePlayServices(Activity activity){
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
@@ -27,5 +32,9 @@ public class Validate {
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+
+    public static boolean isLandscape(Context context){
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 }

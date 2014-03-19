@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="130dp">-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/left_arrow"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:contentDescription="@string/left_arrow"-->
+    <!--android:layout_alignParentLeft="true"/>-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/right_arrow"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:contentDescription="@string/right_arrow"-->
+    <!--android:layout_alignParentRight="true"/>-->
+
+    <!--<pt.ua.travis.gui.gallery.EcoGallery-->
+    <!--android:id="@+id/horizontal_list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="90dip"-->
+    <!--android:fadingEdge="horizontal"-->
+    <!--android:animateLayoutChanges="true"-->
+    <!--android:background="@color/selectorBg"/>-->
+
+    <ListView
+        android:id="@+id/vertical_list"
+        android:layout_width="@dimen/taxi_list_width"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_height="match_parent"
+        android:fadingEdge="horizontal"
+        android:animateLayoutChanges="true"
+        android:background="@color/selectorBg"/>
+
+
+    <!--</RelativeLayout>-->
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/vertical_list"/>
+
+</RelativeLayout>

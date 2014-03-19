@@ -1,8 +1,10 @@
 package pt.ua.travis.gui;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.View;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -10,10 +12,9 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import pt.ua.travis.R;
-import pt.ua.travis.maps.MarkersTaxi;
+import pt.ua.travis.utils.Tools;
 import pt.ua.travis.utils.Validate;
 
 
@@ -24,7 +25,10 @@ import pt.ua.travis.utils.Validate;
 public class ClientMain extends SherlockFragmentActivity {
 
     private SlideHolder sideMenu;
-    private FragmentTabHost mTabHost;
+
+    private PortraitFragment portraitFragment;
+    private LandscapeFragment landscapeFragment;
+    private TravisFragment currentlyShownFragment;
 
 
 
@@ -36,6 +40,7 @@ public class ClientMain extends SherlockFragmentActivity {
         sideMenu.setDirection(SlideHolder.DIRECTION_LEFT);
         sideMenu.setAllowInterceptTouch(false);
         sideMenu.setEnabled(false);
+
         if(Validate.isTablet(this)){
             sideMenu.setAlwaysOpened(true);
         } else {
@@ -47,37 +52,49 @@ public class ClientMain extends SherlockFragmentActivity {
             });
         }
 
-        // Locate android.R.id.tabhost in main_fragment.xml
-        mTabHost = (FragmentTabHost) findViewById(R.id.tabhost);
+        // Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+        if (findViewById(R.id.fragment_container) != null) {
 
-        // Create the tabs in main_fragment.xml
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.tabcontent);
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
 
-        // Create Tab1 with a custom image in res folder
-        mTabHost.addTab(mTabHost.newTabSpec("tab1")
-                .setIndicator("",
-                        getResources().getDrawable(R.drawable.ic_action_map)),
-                SupportMapFragment.class, null);
+            landscapeFragment = new LandscapeFragment();
+            portraitFragment = new PortraitFragment();
 
-        // Create Tab2
-        mTabHost.addTab(mTabHost.newTabSpec("tab2")
-                .setIndicator("",
-                        getResources().getDrawable(R.drawable.ic_action_paste)),
-                TaxiList.class, null);
+            if(Validate.isLandscape(this)) {
+                showFirstFragment(landscapeFragment);
+            } else {
+                showFirstFragment(portraitFragment);
+            }
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            showFragment(landscapeFragment);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            showFragment(portraitFragment);
+        }
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayShowTitleEnabled(false);
 
-        if(Validate.isTablet(this)){
-            getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if (Validate.isTablet(this)) {
             getSupportMenuInflater().inflate(R.menu.client_actions_tablet, menu);
 
         } else {
-            getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-            getSupportActionBar().setDisplayShowTitleEnabled(false);
             getSupportMenuInflater().inflate(R.menu.client_actions, menu);
 
             final MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
@@ -135,10 +152,10 @@ public class ClientMain extends SherlockFragmentActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                List<Taxi> result = new ArrayList<>();
+//                List<TravisTaxi> result = new ArrayList<>();
 //
 //                // looks for matches and adds them to a temporary list
-//                for (Taxi t : taxiList.getList()) {
+//                for (TravisTaxi t : taxiList.getList()) {
 //                    if (newText.isEmpty() || t.toString().contains(newText))
 //                        result.add(t);
 //                }
@@ -150,5 +167,41 @@ public class ClientMain extends SherlockFragmentActivity {
                 return true;
             }
         });
+    }
+
+    private void showFirstFragment(TravisFragment firstFragment){
+        firstFragment.setArguments(getIntent().getExtras());
+
+        // Add the fragment to the 'fragment_container' FrameLayout
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container, firstFragment)
+                .commit();
+
+        currentlyShownFragment = firstFragment;
+    }
+
+    private void showFragment(TravisFragment f){
+        // Pass the currently selected taxi
+        Bundle args = new Bundle();
+//        args.putInt(, position);
+        f.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.fragment_container, f);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+        currentlyShownFragment = f;
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        return super.onMenuItemSelected(featureId, item);
     }
 }

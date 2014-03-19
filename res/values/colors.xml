@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="travis_custom_color">#99cc00</color>
-    <color name="mainBg">#ff222323</color>
-    <color name="sideMenuBg">#ff131414</color>
-    <color name="titleText">#ffd1d6d6</color>
-    <color name="mainText">#ffe5eaea</color>
+    <color name="travis_color">#ffab00</color>
+    <color name="mainBg">#fff7f4f4</color>
+    <color name="selectorBg">#ffdedede</color>
+    <color name="sideMenuBg">#ffffffff</color>
+    <color name="titleText">#ff222323</color>
+    <color name="mainText">#ff131414</color>
 </resources>

@@ -9,7 +9,7 @@
     <string name="button2">Taxi Location</string>
     <string name="button3">All Location</string>
     <string name="textView2">GPS: </string>
-    <string name="app_name">TRAVIS</string>
+    <string name="app_name">Travis</string>
     <string name="title_activity_markers_taxi">MarkersTaxi</string>
     <string name="hello_world">Hello world!</string>
     <string name="swipe">Swipe from left to right</string>
@@ -29,5 +29,8 @@
 
     <string name="closest_map_view">Map</string>
     <string name="closest_list_view">Details</string>
+
+    <string name="left_arrow">Left Arrow</string>
+    <string name="right_arrow">Right Arrow</string>
 
 </resources>
