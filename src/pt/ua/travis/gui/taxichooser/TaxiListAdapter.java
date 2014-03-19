@@ -1,26 +1,22 @@
-package pt.ua.travis.gui;
+package pt.ua.travis.gui.taxichooser;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import pt.ua.travis.R;
+import pt.ua.travis.gui.TaxiItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiListAdapter extends BaseAdapter {
+public class TaxiListAdapter extends BaseAdapter implements TaxiAdapter {
 
     private Bundle savedInstanceState;
     private Activity context;
@@ -36,10 +32,19 @@ public class TaxiListAdapter extends BaseAdapter {
         this.mSelectedItem = 0;
     }
 
-    void add(TaxiItem item){
-        itemList.add(item);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = itemList.get(position).onCreateView(vi, parent, savedInstanceState);
+
+        if (position == mSelectedItem) {
+            v.setBackgroundColor(context.getResources().getColor(R.color.selectorSelectedBg));
+        }
+
+        return v;
     }
 
+    @Override
     public int getItemPosition(Object object) {
         return itemList.indexOf(object);
     }
@@ -59,19 +64,14 @@ public class TaxiListAdapter extends BaseAdapter {
         return itemList.get(position).getId();
     }
 
-    void setSelectedItem(int position){
+
+    @Override
+    public void setSelectedIndex(int position){
         mSelectedItem = position;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = itemList.get(position).onCreateView(vi, parent, savedInstanceState);
-
-        if (position == mSelectedItem) {
-            v.setBackgroundColor(context.getResources().getColor(R.color.selectorSelectedBg));
-        }
-
-        return v;
+    public int getCurrentSelectedIndex(){
+        return mSelectedItem;
     }
 }

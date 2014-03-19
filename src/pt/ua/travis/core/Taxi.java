@@ -8,17 +8,17 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TravisTaxi extends TravisUser implements Serializable {
+public class Taxi extends TravisUser implements Serializable {
 
     private final List<Float> ratings;
     private boolean isBusy;
 
-    public TravisTaxi(final String name, final String imageUrl, final List<Float> ratings){
+    public Taxi(final String name, final String imageUrl, final List<Float> ratings){
         super(name, imageUrl);
         this.ratings = new ArrayList<>(ratings);
     }
 
-    public TravisTaxi addRating(float r){
+    public Taxi addRating(float r){
         ratings.add(r);
         return this;
     }
@@ -32,7 +32,7 @@ public class TravisTaxi extends TravisUser implements Serializable {
         return result / ratings.size();
     }
 
-    public TravisTaxi setBusy(boolean isBusy) {
+    public Taxi setBusy(boolean isBusy) {
         this.isBusy = isBusy;
         return this;
     }

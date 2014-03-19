@@ -10,7 +10,7 @@ import java.sql.Time;
  */
 public class TravisCommit extends TravisObject {
 
-    private final TravisTaxi taxi;
+    private final Taxi taxi;
     private final TravisClient client;
     private final LatLng destination;
     private final Time scheduledTime;
@@ -24,7 +24,7 @@ public class TravisCommit extends TravisObject {
      * @param timeString A String representing the time value in JDBC escape
      *                   format: {@code hh:mm:ss}.
      */
-    public TravisCommit(final TravisTaxi taxi,
+    public TravisCommit(final Taxi taxi,
                         final TravisClient client,
                         final LatLng destination,
                         final String timeString){
@@ -35,7 +35,7 @@ public class TravisCommit extends TravisObject {
         this.scheduledTime = Time.valueOf(timeString);
     }
 
-    public TravisTaxi getTaxi() {
+    public Taxi getTaxi() {
         return taxi;
     }
 

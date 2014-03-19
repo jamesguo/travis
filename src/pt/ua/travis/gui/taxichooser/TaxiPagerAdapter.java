@@ -1,10 +1,10 @@
-package pt.ua.travis.gui;
+package pt.ua.travis.gui.taxichooser;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import pt.ua.travis.gui.TaxiItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,17 +12,15 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiPagerAdapter extends FragmentPagerAdapter {
+public class TaxiPagerAdapter extends FragmentPagerAdapter implements TaxiAdapter {
 
     private List<TaxiItem> itemList;
+    private int mSelectedItem;
 
     TaxiPagerAdapter(FragmentManager manager, List<TaxiItem> itemList){
         super(manager);
         this.itemList = itemList;
-    }
-
-    void add(TaxiItem item){
-        itemList.add(item);
+        this.mSelectedItem = 0;
     }
 
     @Override
@@ -38,5 +36,15 @@ public class TaxiPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return itemList.size();
+    }
+
+    @Override
+    public void setSelectedIndex(int position){
+        mSelectedItem = position;
+    }
+
+    @Override
+    public int getCurrentSelectedIndex(){
+        return mSelectedItem;
     }
 }

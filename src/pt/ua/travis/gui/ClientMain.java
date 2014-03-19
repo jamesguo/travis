@@ -3,9 +3,8 @@ package pt.ua.travis.gui;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -13,9 +12,10 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
-import com.google.android.gms.maps.SupportMapFragment;
 import pt.ua.travis.R;
-import pt.ua.travis.utils.Tools;
+import pt.ua.travis.gui.taxichooser.LandscapeFragment;
+import pt.ua.travis.gui.taxichooser.PortraitFragment;
+import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.utils.Validate;
 
 
@@ -25,19 +25,48 @@ import pt.ua.travis.utils.Validate;
  */
 public class ClientMain extends SherlockFragmentActivity {
 
-    private SlideHolder sideMenu;
+    public static final String CURRENTLY_SELECTED_INDEX = "selected_index";
 
     private PortraitFragment portraitFragment;
     private LandscapeFragment landscapeFragment;
-    private TravisFragment currentlyShownFragment;
-
+    private TaxiChooserFragment currentlyShownFragment;
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_main);
 
-        sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
+
+
+//        // Check that the activity is using the layout version with
+//        // the fragment_container FrameLayout
+//        if (findViewById(R.id.fragment_container) != null) {
+
+//            // However, if we're being restored from a previous state,
+//            // then we don't need to do anything and should return or else
+//            // we could end up with overlapping fragments.
+
+        int selectedIndex = 0;
+        if (savedInstanceState != null) {
+            Log.e("ITS HAS A SAVE!", "");
+            selectedIndex = savedInstanceState.getInt(CURRENTLY_SELECTED_INDEX, 0);
+        }
+
+        if(Validate.isLandscape(this)) {
+            landscapeFragment = new LandscapeFragment();
+            landscapeFragment.setRetainInstance(false);
+            showFragment(landscapeFragment, selectedIndex);
+        } else {
+            portraitFragment = new PortraitFragment();
+            portraitFragment.setRetainInstance(false);
+            showFragment(portraitFragment, selectedIndex);
+        }
+//        }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        final SlideHolder sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
         sideMenu.setDirection(SlideHolder.DIRECTION_LEFT);
         sideMenu.setAllowInterceptTouch(false);
         sideMenu.setEnabled(false);
@@ -53,45 +82,6 @@ public class ClientMain extends SherlockFragmentActivity {
             });
         }
 
-        // Check that the activity is using the layout version with
-        // the fragment_container FrameLayout
-        if (findViewById(R.id.fragment_container) != null) {
-
-            // However, if we're being restored from a previous state,
-            // then we don't need to do anything and should return or else
-            // we could end up with overlapping fragments.
-//            if (savedInstanceState != null) {
-//                return;
-//            }
-
-            landscapeFragment = new LandscapeFragment();
-            portraitFragment = new PortraitFragment();
-            landscapeFragment.setRetainInstance(false);
-            portraitFragment.setRetainInstance(false);
-
-            if(Validate.isLandscape(this)) {
-                showFirstFragment(landscapeFragment);
-            } else {
-                showFirstFragment(portraitFragment);
-            }
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            showFragment(landscapeFragment);
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            showFragment(portraitFragment);
-        }
-
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
         ActionBar bar = getSupportActionBar();
         bar.setDisplayShowTitleEnabled(false);
 
@@ -112,7 +102,6 @@ public class ClientMain extends SherlockFragmentActivity {
         }
 
 //        configureSearchBar(menu);
-
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -156,10 +145,10 @@ public class ClientMain extends SherlockFragmentActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                List<TravisTaxi> result = new ArrayList<>();
+//                List<Taxi> result = new ArrayList<>();
 //
 //                // looks for matches and adds them to a temporary list
-//                for (TravisTaxi t : taxiList.getList()) {
+//                for (Taxi t : taxiList.getList()) {
 //                    if (newText.isEmpty() || t.toString().contains(newText))
 //                        result.add(t);
 //                }
@@ -173,33 +162,18 @@ public class ClientMain extends SherlockFragmentActivity {
         });
     }
 
-    private void showFirstFragment(TravisFragment firstFragment){
-        firstFragment.setArguments(getIntent().getExtras());
+    private void showFragment(TaxiChooserFragment f, int currentSelectedIndex) {
+
+        Bundle args = new Bundle();
+        args.putInt(CURRENTLY_SELECTED_INDEX, currentSelectedIndex);
+        f.setArguments(args);
 
         // Add the fragment to the 'fragment_container' FrameLayout
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, firstFragment)
+                .add(R.id.fragment_container, f)
                 .commit();
 
-        currentlyShownFragment = firstFragment;
-    }
-
-    private void showFragment(TravisFragment f){
-        // Pass the currently selected taxi
-//        Bundle args = new Bundle();
-//        args.putInt(, position);
-//        f.setArguments(args);
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
-        transaction.replace(R.id.fragment_container, f);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
 
         currentlyShownFragment = f;
     }
@@ -214,6 +188,8 @@ public class ClientMain extends SherlockFragmentActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.remove(currentlyShownFragment);
         ft.commit();
+
+        outState.putInt(CURRENTLY_SELECTED_INDEX, currentlyShownFragment.getCurrentSelectedIndex());
 
         super.onSaveInstanceState(outState);
     }
