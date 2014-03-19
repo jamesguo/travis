@@ -3,6 +3,7 @@ package pt.ua.travis.gui;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.core.TravisTaxi;
 
+import java.io.Serializable;
+
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -20,12 +23,16 @@ import pt.ua.travis.core.TravisTaxi;
  */
 public class TaxiItem extends Fragment {
 
-    public static final int HORIZONTAL_MODE = 0;
-    public static final int VERTICAL_MODE = 1;
+    public static final int HORIZONTAL_MODE = 1;
+    public static final int VERTICAL_MODE = 2;
 
-    private final int mode;
-    private final String markerID;
-    private final TravisTaxi travisTaxi;
+    private int mode;
+    private String markerID;
+    private TravisTaxi travisTaxi;
+
+    public TaxiItem(){
+
+    }
 
     public TaxiItem(int mode, String markerID, TravisTaxi travisTaxi){
         this.mode = mode;

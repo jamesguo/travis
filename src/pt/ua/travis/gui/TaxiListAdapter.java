@@ -26,11 +26,14 @@ public class TaxiListAdapter extends BaseAdapter {
     private Activity context;
     private List<TaxiItem> itemList;
 
+    private int mSelectedItem;
+
     TaxiListAdapter(Bundle savedInstanceState, Activity context, List<TaxiItem> itemList){
         super();
         this.savedInstanceState = savedInstanceState;
         this.context = context;
         this.itemList = itemList;
+        this.mSelectedItem = 0;
     }
 
     void add(TaxiItem item){
@@ -56,9 +59,19 @@ public class TaxiListAdapter extends BaseAdapter {
         return itemList.get(position).getId();
     }
 
+    void setSelectedItem(int position){
+        mSelectedItem = position;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        return itemList.get(position).onCreateView(vi, parent, savedInstanceState);
+        View v = itemList.get(position).onCreateView(vi, parent, savedInstanceState);
+
+        if (position == mSelectedItem) {
+            v.setBackgroundColor(context.getResources().getColor(R.color.selectorSelectedBg));
+        }
+
+        return v;
     }
 }

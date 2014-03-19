@@ -1,5 +1,6 @@
 package pt.ua.travis.gui;
 
+import android.view.View;
 import com.actionbarsherlock.app.SherlockFragment;
 
 
@@ -8,6 +9,7 @@ import com.actionbarsherlock.app.SherlockFragment;
  * @version 1.0
  */
 public abstract class TravisFragment extends SherlockFragment {
+
 
 
 }

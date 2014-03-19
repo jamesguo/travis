@@ -41,9 +41,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/cabs"
         android:label="@string/app_name"
-        android:theme="@style/travis_custom">
+        android:theme="@style/_travis">
 
         <uses-library android:name="com.google.android.maps" />
 
@@ -56,7 +56,8 @@
             android:name="pt.ua.travis.maps.MarkersTaxi"
             android:label="@string/title_activity_markers_taxi" />
 
-        <activity android:name=".gui.ClientMain">
+        <activity android:name=".gui.ClientMain"
+                  android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

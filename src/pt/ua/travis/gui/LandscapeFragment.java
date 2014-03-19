@@ -31,7 +31,6 @@ import java.util.Map;
 public class LandscapeFragment extends TravisFragment {
 
     private ListView taxiSelector;
-    private SupportMapFragment mapFragment;
     private GoogleMap map;
     private Map<String, Pair<Marker, TaxiItem>> listItemMarkerLink;
 
@@ -40,20 +39,20 @@ public class LandscapeFragment extends TravisFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.bundle = bundle;
+        this.bundle = savedInstanceState;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.landscape_fragment, null);
+        return inflater.inflate(R.layout.taxi_chooser_landscape, null);
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        taxiSelector = (ListView) getActivity().findViewById(R.id.vertical_list);
-        mapFragment = (SupportMapFragment) getActivity()
+        taxiSelector = (ListView) getActivity().findViewById(R.id.list);
+        SupportMapFragment mapFragment = (SupportMapFragment) getActivity()
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         map = mapFragment.getMap();
@@ -121,6 +120,10 @@ public class LandscapeFragment extends TravisFragment {
                 Log.e("HERE", "PUNTZ");
                 TaxiItem selectedItem = (TaxiItem)mAdapter.getItem(position);
                 Pair<Marker, TaxiItem> matchedPair = listItemMarkerLink.get(selectedItem.getMarkerID());
+                taxiSelector.smoothScrollToPosition(position);
+
+                mAdapter.setSelectedItem(position);
+                mAdapter.notifyDataSetChanged();
 
                 moveMapToMarker(matchedPair.first);
             }
@@ -158,6 +161,8 @@ public class LandscapeFragment extends TravisFragment {
                 int position = mAdapter.getItemPosition(matchedPair.second);
                 taxiSelector.smoothScrollToPosition(position);
                 taxiSelector.setSelection(position);
+                mAdapter.setSelectedItem(position);
+                mAdapter.notifyDataSetChanged();
 
                 return true;
             }

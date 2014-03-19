@@ -43,14 +43,14 @@ public class PortraitFragment extends TravisFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.portrait_fragment, null);
+         return inflater.inflate(R.layout.taxi_chooser_portrait, null);
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-        taxiSelector = (ViewPager) getActivity().findViewById(R.id.horizontal_list);
+        taxiSelector = (ViewPager) getActivity().findViewById(R.id.pager);
         mapFragment = (SupportMapFragment) getActivity()
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.map);

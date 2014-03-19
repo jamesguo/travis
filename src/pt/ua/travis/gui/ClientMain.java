@@ -3,6 +3,7 @@ package pt.ua.travis.gui;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.View;
@@ -59,12 +60,14 @@ public class ClientMain extends SherlockFragmentActivity {
             // However, if we're being restored from a previous state,
             // then we don't need to do anything and should return or else
             // we could end up with overlapping fragments.
-            if (savedInstanceState != null) {
-                return;
-            }
+//            if (savedInstanceState != null) {
+//                return;
+//            }
 
             landscapeFragment = new LandscapeFragment();
             portraitFragment = new PortraitFragment();
+            landscapeFragment.setRetainInstance(false);
+            portraitFragment.setRetainInstance(false);
 
             if(Validate.isLandscape(this)) {
                 showFirstFragment(landscapeFragment);
@@ -84,6 +87,7 @@ public class ClientMain extends SherlockFragmentActivity {
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             showFragment(portraitFragment);
         }
+
     }
 
     @Override
@@ -183,9 +187,9 @@ public class ClientMain extends SherlockFragmentActivity {
 
     private void showFragment(TravisFragment f){
         // Pass the currently selected taxi
-        Bundle args = new Bundle();
+//        Bundle args = new Bundle();
 //        args.putInt(, position);
-        f.setArguments(args);
+//        f.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -203,5 +207,14 @@ public class ClientMain extends SherlockFragmentActivity {
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         return super.onMenuItemSelected(featureId, item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.remove(currentlyShownFragment);
+        ft.commit();
+
+        super.onSaveInstanceState(outState);
     }
 }
