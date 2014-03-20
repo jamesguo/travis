@@ -13,6 +13,11 @@ public class Taxi extends User implements Serializable {
     private final List<Float> ratings;
     private boolean isAvailable;
 
+    public Taxi(final String name, final String imageUrl){
+        super(name, imageUrl);
+        this.ratings = new ArrayList<>();
+    }
+
     public Taxi(final String name, final String imageUrl, final List<Float> ratings){
         super(name, imageUrl);
         this.ratings = new ArrayList<>(ratings);

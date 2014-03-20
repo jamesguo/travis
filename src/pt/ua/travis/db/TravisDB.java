@@ -1,6 +1,7 @@
 package pt.ua.travis.db;
 
 import com.google.android.gms.maps.model.LatLng;
+import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 
 import java.util.ArrayList;
@@ -13,8 +14,16 @@ import java.util.List;
 public final class TravisDB {
     private TravisDB(){}
 
-    public static LatLng getUserCurrentPosition(){
-        return new LatLng(40.646908, -8.662323);
+    public static Client getClientAccount() {
+        Client c = new Client("João Martins", "");
+        c.setPosition(new LatLng(40.646908, -8.662523));
+        return c;
+    }
+
+    public static Taxi getTaxiAccount() {
+        Taxi t = new Taxi("Óscar Cardoso", "");
+        t.setPosition(new LatLng(40.646008, -8.661923));
+        return t;
     }
 
     public static List<Taxi> getTaxiFavorites(){

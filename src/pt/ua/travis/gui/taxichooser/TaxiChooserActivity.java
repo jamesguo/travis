@@ -14,9 +14,6 @@ import pt.ua.travis.R;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.Geolocation;
 import pt.ua.travis.db.TravisDB;
-import pt.ua.travis.gui.taxichooser.TaxiChooserLandscapeFragment;
-import pt.ua.travis.gui.taxichooser.TaxiChooserPortraitFragment;
-import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.utils.Validate;
 
 import java.util.ArrayList;
@@ -66,7 +63,7 @@ public class TaxiChooserActivity extends SherlockFragmentActivity {
         sideMenu.setAllowInterceptTouch(false);
         sideMenu.setEnabled(false);
 
-        if(Validate.isTablet(this)){
+        if(Validate.isTablet(this) && Validate.isLandscape(this)){
             sideMenu.setAlwaysOpened(true);
         } else {
             sideMenu.setOnSlideListener(new SlideHolder.OnSlideListener() {
@@ -80,11 +77,11 @@ public class TaxiChooserActivity extends SherlockFragmentActivity {
         ActionBar bar = getSupportActionBar();
         bar.setDisplayShowTitleEnabled(false);
 
-        if (Validate.isTablet(this)) {
-            getSupportMenuInflater().inflate(R.menu.client_actions_tablet, menu);
+        if (Validate.isTablet(this) && Validate.isLandscape(this)) {
+            getSupportMenuInflater().inflate(R.menu.client_side_menu_tablet, menu);
 
         } else {
-            getSupportMenuInflater().inflate(R.menu.client_actions, menu);
+            getSupportMenuInflater().inflate(R.menu.client_side_menu, menu);
 
             final MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
             toggleItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {

@@ -71,7 +71,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      */
     protected final void finalizeOnStart(){
         final Marker userPosition = map.addMarker(new MarkerOptions()
-                .position(TravisDB.getUserCurrentPosition())
+                .position(TravisDB.getClientAccount().getPosition())
                 .title("You")
                 .visible(true));
 
