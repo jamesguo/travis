@@ -8,10 +8,10 @@ import java.sql.Time;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TravisCommit extends TravisObject {
+public class Commit extends TravisObject {
 
     private final Taxi taxi;
-    private final TravisClient client;
+    private final Client client;
     private final LatLng destination;
     private final Time scheduledTime;
 
@@ -24,10 +24,10 @@ public class TravisCommit extends TravisObject {
      * @param timeString A String representing the time value in JDBC escape
      *                   format: {@code hh:mm:ss}.
      */
-    public TravisCommit(final Taxi taxi,
-                        final TravisClient client,
-                        final LatLng destination,
-                        final String timeString){
+    public Commit(final Taxi taxi,
+                  final Client client,
+                  final LatLng destination,
+                  final String timeString){
         super();
         this.taxi = taxi;
         this.client = client;
@@ -39,7 +39,7 @@ public class TravisCommit extends TravisObject {
         return taxi;
     }
 
-    public TravisClient getClient() {
+    public Client getClient() {
         return client;
     }
 

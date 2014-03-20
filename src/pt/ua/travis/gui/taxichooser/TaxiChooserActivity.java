@@ -1,8 +1,6 @@
-package pt.ua.travis.gui;
+package pt.ua.travis.gui.taxichooser;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
@@ -13,22 +11,31 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
 import pt.ua.travis.R;
-import pt.ua.travis.gui.taxichooser.LandscapeFragment;
-import pt.ua.travis.gui.taxichooser.PortraitFragment;
+import pt.ua.travis.core.Taxi;
+import pt.ua.travis.db.Geolocation;
+import pt.ua.travis.db.TravisDB;
+import pt.ua.travis.gui.taxichooser.TaxiChooserLandscapeFragment;
+import pt.ua.travis.gui.taxichooser.TaxiChooserPortraitFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.utils.Validate;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class ClientMain extends SherlockFragmentActivity {
+public class TaxiChooserActivity extends SherlockFragmentActivity {
 
     public static final String CURRENTLY_SELECTED_INDEX = "selected_index";
 
-    private PortraitFragment portraitFragment;
-    private LandscapeFragment landscapeFragment;
+    private SlideHolder sideMenu;
+    private static List<Taxi> taxiList;
+    private static List<Taxi> filteredTaxiList;
     private TaxiChooserFragment currentlyShownFragment;
 
 
@@ -36,15 +43,11 @@ public class ClientMain extends SherlockFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_main);
 
-
-
-//        // Check that the activity is using the layout version with
-//        // the fragment_container FrameLayout
-//        if (findViewById(R.id.fragment_container) != null) {
-
-//            // However, if we're being restored from a previous state,
-//            // then we don't need to do anything and should return or else
-//            // we could end up with overlapping fragments.
+        if(taxiList==null) {
+            taxiList = TravisDB.getTaxisFromDB();
+            filteredTaxiList = new ArrayList<>(taxiList);
+            Geolocation.sortByProximity(filteredTaxiList);
+        }
 
         int selectedIndex = 0;
         if (savedInstanceState != null) {
@@ -52,21 +55,13 @@ public class ClientMain extends SherlockFragmentActivity {
             selectedIndex = savedInstanceState.getInt(CURRENTLY_SELECTED_INDEX, 0);
         }
 
-        if(Validate.isLandscape(this)) {
-            landscapeFragment = new LandscapeFragment();
-            landscapeFragment.setRetainInstance(false);
-            showFragment(landscapeFragment, selectedIndex);
-        } else {
-            portraitFragment = new PortraitFragment();
-            portraitFragment.setRetainInstance(false);
-            showFragment(portraitFragment, selectedIndex);
-        }
-//        }
+        Log.e("HERE", filteredTaxiList.toString());
+        showFilteredResults(selectedIndex);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        final SlideHolder sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
+        sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
         sideMenu.setDirection(SlideHolder.DIRECTION_LEFT);
         sideMenu.setAllowInterceptTouch(false);
         sideMenu.setEnabled(false);
@@ -162,24 +157,14 @@ public class ClientMain extends SherlockFragmentActivity {
         });
     }
 
-    private void showFragment(TaxiChooserFragment f, int currentSelectedIndex) {
-
-        Bundle args = new Bundle();
-        args.putInt(CURRENTLY_SELECTED_INDEX, currentSelectedIndex);
-        f.setArguments(args);
-
-        // Add the fragment to the 'fragment_container' FrameLayout
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment_container, f)
-                .commit();
-
-
-        currentlyShownFragment = f;
-    }
-
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                return true;
+        }
+
         return super.onMenuItemSelected(featureId, item);
     }
 
@@ -192,5 +177,83 @@ public class ClientMain extends SherlockFragmentActivity {
         outState.putInt(CURRENTLY_SELECTED_INDEX, currentlyShownFragment.getCurrentSelectedIndex());
 
         super.onSaveInstanceState(outState);
+    }
+
+
+
+    private void showFilteredResults(int selectedIndex){
+        if(Validate.isLandscape(this)) {
+            TaxiChooserLandscapeFragment landscapeFragment = new TaxiChooserLandscapeFragment();
+            landscapeFragment.setRetainInstance(false);
+            showFragment(landscapeFragment, selectedIndex);
+        } else {
+            TaxiChooserPortraitFragment portraitFragment = new TaxiChooserPortraitFragment();
+            portraitFragment.setRetainInstance(false);
+            showFragment(portraitFragment, selectedIndex);
+        }
+    }
+
+    private void showFragment(TaxiChooserFragment f, int currentSelectedIndex) {
+
+        Bundle args = new Bundle();
+        args.putInt(CURRENTLY_SELECTED_INDEX, currentSelectedIndex);
+        f.setArguments(args);
+
+        // Add the fragment to the 'fragment_container' FrameLayout
+        if(currentlyShownFragment==null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_container, f)
+                    .commit();
+        } else {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, f)
+                    .addToBackStack(null)
+                    .commit();
+        }
+
+        currentlyShownFragment = f;
+    }
+
+    public void logout(View view){
+
+    }
+
+    public void sortByProximity(View view){
+        filteredTaxiList = new ArrayList<>(taxiList);
+
+        Geolocation.sortByProximity(filteredTaxiList);
+
+
+        showFilteredResults(0);
+        sideMenu.toggle();
+    }
+
+    public void sortByRating(View view){
+        filteredTaxiList = new ArrayList<>(taxiList);
+        Collections.sort(filteredTaxiList, new Comparator<Taxi>() {
+            @Override
+            public int compare(Taxi taxi1, Taxi taxi2) {
+                double t1 = ((double)taxi1.getRatingAverage());
+                double t2 = ((double)taxi2.getRatingAverage());
+
+                return t1 < t2 ? 1 : (t1 > t2 ? -1 : 0);
+            }
+        });
+
+        showFilteredResults(0);
+        sideMenu.toggle();
+    }
+
+    public void showFavorites(View view) {
+        filteredTaxiList = TravisDB.getTaxiFavorites();
+
+        showFilteredResults(0);
+        sideMenu.toggle();
+    }
+
+    public static List<Taxi> getCurrentTaxiListState() {
+        return Collections.unmodifiableList(filteredTaxiList);
     }
 }

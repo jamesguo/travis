@@ -3,7 +3,6 @@ package pt.ua.travis.gui.taxichooser;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import pt.ua.travis.gui.TaxiItem;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiPagerAdapter extends FragmentPagerAdapter implements TaxiAdapter {
+public class TaxiPagerAdapter extends FragmentPagerAdapter implements TaxiItemAdapter {
 
     private List<TaxiItem> itemList;
     private int mSelectedItem;

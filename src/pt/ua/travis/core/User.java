@@ -8,13 +8,13 @@ import java.math.BigDecimal;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-class TravisUser extends TravisObject {
+class User extends TravisObject {
 
     private final String name;
     private final String imageUrl;
     private LatLng actualPosition;
 
-    protected TravisUser(final String name, final String imageUrl){
+    protected User(final String name, final String imageUrl){
         super();
         this.name = name;
         this.imageUrl = imageUrl;
@@ -28,8 +28,9 @@ class TravisUser extends TravisObject {
         return imageUrl;
     }
 
-    public void setPosition(LatLng actualPosition) {
+    public User setPosition(LatLng actualPosition) {
         this.actualPosition = actualPosition;
+        return this;
     }
 
     public LatLng getPosition() {
@@ -45,10 +46,5 @@ class TravisUser extends TravisObject {
         sb.append(new BigDecimal(actualPosition.longitude).setScale(2, BigDecimal.ROUND_HALF_UP));
         sb.append(")");
         return sb.toString();
-    }
-
-    public TravisUser setLatLng(final LatLng newActualPosition) {
-        this.actualPosition = newActualPosition;
-        return this;
     }
 }

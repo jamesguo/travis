@@ -4,7 +4,9 @@ package pt.ua.travis.gui.taxichooser;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public interface TaxiAdapter {
+public interface TaxiItemAdapter {
+
+    int getCount();
 
     Object getItem(int position);
 

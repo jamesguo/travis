@@ -56,7 +56,7 @@
             android:name="pt.ua.travis.maps.MarkersTaxi"
             android:label="@string/title_activity_markers_taxi" />
 
-        <activity android:name=".gui.ClientMain">
+        <activity android:name=".gui.taxichooser.TaxiChooserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

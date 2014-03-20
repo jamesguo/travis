@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Sherlock.ActionButton"
             android:text="@string/menu_logout"
-            android:drawableLeft="@drawable/ic_login" />
+            android:drawableLeft="@drawable/ic_login"
+            android:onClick="logout" />
 
         <!-- Separator -->
         <View
@@ -33,7 +34,8 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Sherlock.ActionButton"
             android:text="@string/menu_closest"
-            android:drawableLeft="@drawable/ic_closest" />
+            android:drawableLeft="@drawable/ic_closest"
+            android:onClick="sortByProximity"/>
 
         <!-- Show Best Rated -->
         <Button
@@ -41,7 +43,8 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Sherlock.ActionButton"
             android:text="@string/menu_best_rated"
-            android:drawableLeft="@drawable/ic_best_rated" />
+            android:drawableLeft="@drawable/ic_best_rated"
+            android:onClick="sortByRating"/>
 
         <!-- Show Favorites -->
         <Button
@@ -49,7 +52,8 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Sherlock.ActionButton"
             android:text="@string/menu_favorites"
-            android:drawableLeft="@drawable/ic_favorites" />
+            android:drawableLeft="@drawable/ic_favorites"
+            android:onClick="showFavorites"/>
 
         <!-- Separator -->
         <View

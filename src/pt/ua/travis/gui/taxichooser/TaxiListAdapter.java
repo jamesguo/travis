@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import pt.ua.travis.R;
-import pt.ua.travis.gui.TaxiItem;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiListAdapter extends BaseAdapter implements TaxiAdapter {
+public class TaxiListAdapter extends BaseAdapter implements TaxiItemAdapter {
 
     private Bundle savedInstanceState;
     private Activity context;

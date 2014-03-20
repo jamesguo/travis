@@ -1,4 +1,4 @@
-package pt.ua.travis.gui;
+package pt.ua.travis.gui.taxichooser;
 
 import android.net.Uri;
 import android.os.Bundle;
