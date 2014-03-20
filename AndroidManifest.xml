@@ -57,12 +57,19 @@
             android:label="@string/title_activity_markers_taxi" />
 
         <activity android:name=".gui.taxichooser.TaxiChooserActivity"
-                  android:configChanges="orientation|keyboardHidden">
+                  android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".gui.clientschedule.ClientScheduleActivity"/>
+        <activity android:name=".wallet.WalletActivity"/>
+        <activity android:name=".gui.travel.DirectionsActivity"/>
+        <activity android:name=".gui.travel.PaymentActivity"/>
+        <activity android:name=".gui.travel.RateAndFavActivity"/>
+        <activity android:name=".gui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".gui.login.RegisterActivity"/>
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

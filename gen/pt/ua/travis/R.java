@@ -1279,8 +1279,8 @@ containing a value of this type.
         public static final int taxi_list_fragment=0x7f03001b;
     }
     public static final class menu {
-        public static final int client_actions=0x7f0b0000;
-        public static final int client_actions_tablet=0x7f0b0001;
+        public static final int client_side_menu =0x7f0b0000;
+        public static final int client_side_menu_tablet =0x7f0b0001;
         public static final int inicial=0x7f0b0002;
         public static final int main=0x7f0b0003;
         public static final int markers_taxi=0x7f0b0004;
@@ -1452,7 +1452,7 @@ containing a value of this type.
         public static final int PopupMenu_Travis_custom=0x7f0a005c;
         public static final int ProgressBar_Travis_custom=0x7f0a0060;
         public static final int RatingBarBigtravis_custom=0x7f0a0064;
-        public static final int RatingBarSmalltravis_custom=0x7f0a0065;
+        public static final int RatingBarSmall_travis_custom =0x7f0a0065;
         public static final int RatingBartravis_custom=0x7f0a0063;
         public static final int Sherlock___TextAppearance_Small=0x7f0a0046;
         public static final int Sherlock___Theme=0x7f0a0051;

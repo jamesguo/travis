@@ -2,6 +2,7 @@ package pt.ua.travis.gui.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import pt.ua.travis.R;
 
 
 /**
@@ -11,5 +12,8 @@ import android.os.Bundle;
 public class RegisterActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.register_layout);
+
+
     }
 }
