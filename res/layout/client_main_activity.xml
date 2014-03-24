@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.agimind.widget.SlideHolder
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sideMenu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Side Menu -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="250dp"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/sideMenuBgV2" >
+
+        <!-- User actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="70dip"
+                android:layout_height="90dip"
+                android:scaleType="centerInside"/>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:text="@string/not_found"
+                android:textColor="@color/sideMenuBg" />
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_rides"
+            android:drawableLeft="@drawable/ic_action_alarms"
+            android:onClick="goToScheduledRidesList"
+            android:textColor="@color/sideMenuBg"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_logout"
+            android:drawableLeft="@drawable/ic_action_about"
+            android:onClick="logout"
+            android:textColor="@color/sideMenuBg"/>
+
+        <!-- Separator -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@color/bthumbnail_border" />
+
+        <!-- Show Closest (Default view) -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_closest"
+            android:drawableLeft="@drawable/ic_action_map"
+            android:onClick="sortByProximity"
+            android:textColor="@color/sideMenuBg"/>
+
+        <!-- Show Best Rated -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Sherlock.ActionButton"
+            android:text="@string/menu_best_rated"
+            android:drawableLeft="@drawable/ic_action_not_important"
+            android:onClick="sortByRating"
+            android:textColor="@color/sideMenuBg"/>
+
+        <!-- Show Favorites -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/favorite_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Sherlock.ActionButton"
+                android:text="@string/menu_favorites"
+                android:drawableLeft="@drawable/ic_action_favorite"
+                android:onClick="showFavorites"
+                android:textColor="@color/sideMenuBg"/>
+            <TextView
+                android:id="@+id/favorites_counter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_alignTop="@id/favorite_button"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="0"
+                android:background="@color/side_menu_counter_bg"
+                android:textColor="@color/side_menu_counter_text"/>
+        </RelativeLayout>
+
+        <!-- Separator -->
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:background="@color/bthumbnail_border" />-->
+
+        <!-- Settings -->
+        <!--<Button-->
+        <!--android:id="@+id/menu_settings"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--style="@style/Widget.Sherlock.ActionButton"-->
+        <!--android:text="@string/menu_settings"-->
+        <!--android:drawableLeft="@drawable/ic_action_settings"-->
+        <!--android:textColor="@color/sideMenuBg" />-->
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                     android:id="@+id/fragment_container"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+</com.agimind.widget.SlideHolder>

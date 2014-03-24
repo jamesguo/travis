@@ -8,13 +8,13 @@ public interface TaxiItemAdapter {
 
     int getCount();
 
-    Object getItem(int position);
+    TaxiItem getItem(int position);
 
     int getItemPosition(Object object);
 
     void setSelectedIndex(int position);
 
-    int getCurrentSelectedIndex();
+    int getSelectedIndex();
 
     void notifyDataSetChanged();
 }

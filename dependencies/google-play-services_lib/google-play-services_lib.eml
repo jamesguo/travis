@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component jdk="Android API 19 Platform (x64)" jdk_type="Android SDK">
+<component inheritJdk="true">
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="google-play-services" value="project"/>
+	</levels>
 </component>

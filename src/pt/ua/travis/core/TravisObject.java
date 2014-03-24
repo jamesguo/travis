@@ -1,39 +1,35 @@
 package pt.ua.travis.core;
 
+import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TravisObject {
-    private static Set<String> usedIDs = new HashSet<>();
+public class TravisObject implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    private final String id;
+    private static Set<Integer> usedIDs = new HashSet<>();
+    private static Random rnd = new Random();
+
+    public final int id;
 
     protected TravisObject(){
         this.id = generateUniqueID();
         usedIDs.add(id);
     }
 
-    private String generateUniqueID(){
-        String possibleNewID = UUID.randomUUID().toString();
+    private int generateUniqueID(){
+        int possibleNewID = rnd.nextInt(999999) + 1;
 
         return usedIDs.contains(possibleNewID) ?
                 generateUniqueID() :
                 possibleNewID;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public TravisObject populateUsedIDs(Set<String> moreIDs){
-        usedIDs.addAll(moreIDs);
-        return this;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,6 +39,10 @@ public class TravisObject {
             return false;
 
         TravisObject other = (TravisObject) o;
-        return this.id.equals(other.id);
+        return this.id == other.id;
+    }
+
+    public static void populateUsedIDs(Set<Integer> moreIDs){
+        usedIDs.addAll(moreIDs);
     }
 }

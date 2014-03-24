@@ -1,8 +1,10 @@
 package pt.ua.travis.gui.taxichooser;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+import android.util.SparseArray;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +13,18 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.androidmapsextensions.GoogleMap;
 import com.androidmapsextensions.Marker;
 import com.androidmapsextensions.MarkerOptions;
+import com.androidmapsextensions.SupportMapFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import pt.ua.travis.R;
+import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
-import pt.ua.travis.db.TravisDB;
+import pt.ua.travis.db.PersistenceManager;
+import pt.ua.travis.gui.taxiridesetup.RideRequestActivity;
+import pt.ua.travis.utils.Keys;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -28,14 +32,23 @@ import java.util.Map;
  * @version 1.0
  */
 public abstract class TaxiChooserFragment extends SherlockFragment {
+
     private static View lastUsedView;
 
+    private SparseArray<Pair<Marker, TaxiItem>> itemToMarkerMappings;
+
     private GoogleMap map;
-    private boolean onMyLocationButtonToggle;
-    private Map<String, Pair<Marker, TaxiItem>> listItemMarkerLink;
+
+    private GoogleMap.OnMyLocationButtonClickListener myLocationListener;
+
+    private boolean myLocationToggle;
+
+    protected TaxiItemAdapter itemAdapter;
+
+
 
     protected TaxiChooserFragment() {
-        listItemMarkerLink = new HashMap<>();
+        itemToMarkerMappings = new SparseArray<>();
     }
 
     @Override
@@ -55,27 +68,25 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
 
 
     /**
-     * This method sets the map to be used by the fragment and that will show the various markers,
-     * each one identifying the taxis or the user himself.
-     * @param map the map to be used by the fragment
+     * When this fragment starts, the map that will be used is set.
+     * This map will show various markers, each one identifying the taxis or the user himself.
      */
-    protected final void setMap(GoogleMap map){
-        this.map = map;
-    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        SupportMapFragment mapFragment = (SupportMapFragment) getActivity()
+                .getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        map = mapFragment.getExtendedMap();
+        map.clear();
 
-
-    /**
-     * Method that must be run at the end of the {@link android.support.v4.app.Fragment#onStart()}
-     * method, that will configure the set map and zoom into the marker corresponding to
-     * the first taxi on the list.
-     */
-    protected final void finalizeOnStart(){
         final Marker userPosition = map.addMarker(new MarkerOptions()
-                .position(TravisDB.getClientAccount().getPosition())
+                .data(0)
+                .position(PersistenceManager.getClientAccount().position())
                 .title("You")
                 .visible(true));
 
-        map.setMyLocationEnabled(true);
+
         map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
@@ -88,6 +99,29 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                 return null;
             }
         });
+        map.setMyLocationEnabled(true);
+        myLocationListener = new GoogleMap.OnMyLocationButtonClickListener() {
+            private Marker lastMarker;
+
+            @Override
+            public boolean onMyLocationButtonClick() {
+                if(!myLocationToggle){
+                    TaxiItem selectedItem = (TaxiItem) itemAdapter.getItem(getCurrentSelectedIndex());
+                    int selectedItemID = selectedItem.getTaxiObject().id;
+
+                    Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
+
+                    lastMarker = matchedPair.first;
+                    moveMapToMarker(userPosition);
+                    myLocationToggle = true;
+                } else {
+                    select(lastMarker);
+                    lastMarker = null;
+                }
+                return true;
+            }
+        };
+        map.setOnMyLocationButtonClickListener(myLocationListener);
         map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
@@ -95,33 +129,24 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                 return true;
             }
         });
-        onMyLocationButtonToggle = false;
-        map.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
-            private Marker lastMarker;
-
+        map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
-            public boolean onMyLocationButtonClick() {
-                if(!onMyLocationButtonToggle){
-                    TaxiItemAdapter adapter = getTaxiAdapter();
-                    TaxiItem selectedItem = (TaxiItem) adapter.getItem(adapter.getCurrentSelectedIndex());
-                    Pair<Marker, TaxiItem> matchedPair = listItemMarkerLink.get(selectedItem.getMarkerID());
+            public void onInfoWindowClick(Marker marker) {
+                int selectedMarkerID = marker.getData();
+                Taxi t = itemToMarkerMappings
+                        .get(selectedMarkerID)
+                        .second
+                        .getTaxiObject();
 
-                    lastMarker = matchedPair.first;
-                    moveMapToMarker(userPosition);
-                    onMyLocationButtonToggle = true;
-                } else {
-                    select(lastMarker);
-                    lastMarker = null;
-                }
-                return true;
+                Intent intent = new Intent(
+                        TaxiChooserFragment.this.getActivity(),
+                        RideRequestActivity.class);
+                intent.putExtra(Keys.SELECTED_TAXI, t);
+                intent.putExtra(Keys.SELECTED_INDEX, getCurrentSelectedIndex());
+                startActivity(intent);
             }
         });
         map.moveCamera(CameraUpdateFactory.zoomTo(15));
-
-
-        // selects the item that was selected in the previous fragment
-        int indexToSelect = getArguments().getInt(TaxiChooserActivity.CURRENTLY_SELECTED_INDEX);
-        select(indexToSelect);
     }
 
 
@@ -136,23 +161,26 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      */
     protected final List<TaxiItem> convertTaxisToItems(List<Taxi> taxis){
         List<TaxiItem> taxiItemList = new ArrayList<>();
+        Client cc = PersistenceManager.getClientAccount();
 
         for (Taxi tt : taxis) {
             Marker m = map.addMarker(new MarkerOptions()
-                    .position(tt.getPosition())
-                    .title(tt.getName())
-                    .snippet(tt.getRatingAverage() + "")
+                    .data(tt.id)
+                    .position(tt.position())
+                    .title(tt.name)
+                    .snippet("Tap to select this Taxi")
                     .visible(true)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)));
 
             TaxiItem item = null;
-            if(this instanceof TaxiChooserPortraitFragment)
-                item = TaxiItem.newInstance(TaxiItem.HORIZONTAL_MODE, m.getId(), tt);
-            else if(this instanceof TaxiChooserLandscapeFragment)
-                item = TaxiItem.newInstance(TaxiItem.VERTICAL_MODE, m.getId(), tt);
+
+            if(this instanceof TaxiChooserPagerFragment)
+                item = TaxiItem.newInstance(cc, tt);
+            else if(this instanceof TaxiChooserListFragment)
+                item = TaxiItem.newInstance(cc, tt);
 
             taxiItemList.add(item);
-            listItemMarkerLink.put(m.getId(), new Pair<>(m, item));
+            itemToMarkerMappings.put(tt.id, new Pair<>(m, item));
         }
 
         return taxiItemList;
@@ -165,13 +193,15 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      * @param position the index of the element that the users wants to scroll to.
      */
     public final void select(int position) {
-        int maxSize = getTaxiAdapter().getCount();
+        int maxSize = itemAdapter.getCount();
         if(position >= maxSize) {
-            Log.e("Position is greater than Adapter size", "Position:"+position+" | AdapterSize:"+maxSize);
+            Log.e("Position is greater than Adapter size", "Position:" + position + " | AdapterSize:" + maxSize);
             return;
         }
-        TaxiItem selectedItem = (TaxiItem) getTaxiAdapter().getItem(position);
-        Pair<Marker, TaxiItem> matchedPair = listItemMarkerLink.get(selectedItem.getMarkerID());
+        TaxiItem selectedItem = (TaxiItem) itemAdapter.getItem(position);
+        int selectedItemID = selectedItem.getTaxiObject().id;
+
+        Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
         finishSelect(position, matchedPair.first);
     }
 
@@ -183,22 +213,32 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      *               to scroll to
      */
     public final void select(Marker marker){
-        Pair<Marker, TaxiItem> matchedPair = listItemMarkerLink.get(marker.getId());
-        int position = getTaxiAdapter().getItemPosition(matchedPair.second);
+        int selectedMarkerID = marker.getData();
+        if (selectedMarkerID == 0) {
+            // its the user marker
+            myLocationListener.onMyLocationButtonClick();
+            return;
+        }
+
+        Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedMarkerID);
+        int position = itemAdapter.getItemPosition(matchedPair.second);
         finishSelect(position, marker);
     }
 
     /**
      * Method used by both "select" methods to do some common selecting operations.
+     * The user must override and implement this method to contain some extra operations
+     * associated with the selector, whose variable this class has no access to. These extra
+     * operations will be executed at every "select" instruction.
+     *
+     * @param position the position of the selected element
+     * @param marker the marker that corresponds to the selected element
      */
-    private void finishSelect(int position, Marker marker){
-        TaxiItemAdapter adapter = getTaxiAdapter();
-
-        doSelectorAction(position);
-        adapter.setSelectedIndex(position);
-        adapter.notifyDataSetChanged();
+    protected void finishSelect(int position, Marker marker){
+        itemAdapter.setSelectedIndex(position);
+        itemAdapter.notifyDataSetChanged();
         moveMapToMarker(marker);
-        onMyLocationButtonToggle = false;
+        myLocationToggle = false;
     }
 
     /**
@@ -210,21 +250,6 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
     }
 
     public final int getCurrentSelectedIndex() {
-        return getTaxiAdapter().getCurrentSelectedIndex();
+        return itemAdapter.getSelectedIndex();
     }
-
-    /**
-     * The user must override and implement this method to provide access to the
-     * taxi elements container adapter to this class.
-     */
-    abstract TaxiItemAdapter getTaxiAdapter();
-
-    /**
-     * The user must override and implement this method to contain some extra operations
-     * associated with the selector, whose variable this class has no access to. These extra
-     * operations will be executed at every "select" instruction.
-     *
-     * @param position the position of the selected element
-     */
-    abstract void doSelectorAction(int position);
 }

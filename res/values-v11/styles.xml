@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
@@ -13,8 +12,6 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
-
-
     </style>
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">

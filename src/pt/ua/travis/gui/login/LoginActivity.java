@@ -5,7 +5,7 @@ import android.os.Bundle;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
-import pt.ua.travis.db.TravisDB;
+import pt.ua.travis.db.PersistenceManager;
 
 
 /**
@@ -18,9 +18,9 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login_layout);
 
 
-        Client c = TravisDB.getClientAccount();
+        Client c = PersistenceManager.getClientAccount();
 
-        Taxi t = TravisDB.getTaxiAccount();
+        Taxi t = PersistenceManager.getTaxiAccount();
 
 
     }

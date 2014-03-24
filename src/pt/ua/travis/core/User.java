@@ -2,17 +2,21 @@ package pt.ua.travis.core;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-class User extends TravisObject {
+class User extends TravisObject implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    private final String name;
-    private final String imageUrl;
-    private LatLng actualPosition;
+    public final String name;
+    public final String imageUrl;
+    private double positionLat;
+    private double positionLng;
+
 
     protected User(final String name, final String imageUrl){
         super();
@@ -20,30 +24,22 @@ class User extends TravisObject {
         this.imageUrl = imageUrl;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public User setPosition(LatLng actualPosition) {
-        this.actualPosition = actualPosition;
+    public User setPosition(LatLng latLng){
+        positionLat = latLng.latitude;
+        positionLng = latLng.longitude;
         return this;
     }
 
-    public LatLng getPosition() {
-        return actualPosition;
+    public LatLng position(){
+        return new LatLng(positionLat, positionLng);
     }
 
     public String getPositionString() {
-
         StringBuilder sb = new StringBuilder();
         sb.append("(");
-        sb.append(new BigDecimal(actualPosition.latitude).setScale(2, BigDecimal.ROUND_HALF_UP));
+        sb.append(new BigDecimal(position().latitude).setScale(2, BigDecimal.ROUND_HALF_UP));
         sb.append("; ");
-        sb.append(new BigDecimal(actualPosition.longitude).setScale(2, BigDecimal.ROUND_HALF_UP));
+        sb.append(new BigDecimal(position().longitude).setScale(2, BigDecimal.ROUND_HALF_UP));
         sb.append(")");
         return sb.toString();
     }

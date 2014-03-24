@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/ride_item_height"
+    android:orientation="vertical"
+    android:background="@color/pagerBorder">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/selectorBg">
+
+        <TextView
+            android:id="@+id/time_to_ride"
+            android:layout_width="0dp"
+            android:layout_weight="0.40"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/destination_label"
+            android:layout_width="0dp"
+            android:layout_weight="0.60"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/taxi_item"/>
+
+
+
+</LinearLayout>

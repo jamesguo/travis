@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name2">cordenates</string>
-    <string name="action_settings">Settings</string>
-    <string name="make_folder">Marker</string>
-    <string name="textView1">TRAVIS</string>
-    <string name="button1">My Location</string>
-    <string name="button2">Taxi Location</string>
-    <string name="button3">All Location</string>
-    <string name="textView2">GPS: </string>
     <string name="app_name">Travis</string>
-    <string name="title_activity_markers_taxi">MarkersTaxi</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="swipe">Swipe from left to right</string>
 
 
-    <string name="menu_login">Login</string>
+    <!-- Dialog strings -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!-- Side menu strings -->
+    <string name="menu_rides">Scheduled rides</string>
     <string name="menu_logout">Logout</string>
-    <string name="menu_closest">Closest</string>
-    <string name="menu_best_rated">Best rated</string>
-    <string name="menu_favorites">Favorites</string>
+    <string name="menu_closest">Closest Taxis</string>
+    <string name="menu_best_rated">Best rated Taxis</string>
+    <string name="menu_favorites">Favorites Taxis</string>
     <string name="menu_settings">Settings</string>
 
 
+    <!-- Action bar menu strings -->
     <string name="action_bar_show_menu">Show Menu</string>
     <string name="action_bar_search">Search</string>
 
 
-    <string name="closest_map_view">Map</string>
-    <string name="closest_list_view">Details</string>
+    <!-- Taxi ride setup strings -->
+    <string name="not_found">Not found</string>
+    <string name="here_and_now">Here &amp; Now</string>
+    <string name="later">Later or at another location</string>
 
-    <string name="left_arrow">Left Arrow</string>
-    <string name="right_arrow">Right Arrow</string>
+
+    <!-- Wait for taxi strings -->
+    <string name="your_scheduled_ride">Your scheduled ride:</string>
+    <string name="see_more">See all your scheduled rides</string>
+    <string name="your_scheduled_rides">Your sheduled rides:</string>
+    <string name="wait_for_taxi">Done! Your taxi will arrive soon…</string>
+    <string name="wait_for_taxi_suggestion">
+        We will notify you when your taxi arrives.
+        \nTip: You should now set the destination to get a move on once
+        your taxi arrives!
+    </string>
+    <string name="set_destination">Set Destination</string>
+    <string name="call_another_taxi">Call another taxi</string>
+    <string name="insert_address">Insert address…</string>
+
+
 
 </resources>

@@ -1273,14 +1273,14 @@ containing a value of this type.
         public static final int activity_inicial=0x7f030015;
         public static final int activity_main=0x7f030016;
         public static final int activity_markers_taxi=0x7f030017;
-        public static final int client_main=0x7f030018;
+        public static final int client_main_activity =0x7f030018;
         public static final int sherlock_spinner_dropdown_item=0x7f030019;
         public static final int sherlock_spinner_item=0x7f03001a;
         public static final int taxi_list_fragment=0x7f03001b;
     }
     public static final class menu {
         public static final int client_side_menu =0x7f0b0000;
-        public static final int client_side_menu_tablet =0x7f0b0001;
+        public static final int actionbar_with_search =0x7f0b0001;
         public static final int inicial=0x7f0b0002;
         public static final int main=0x7f0b0003;
         public static final int markers_taxi=0x7f0b0004;

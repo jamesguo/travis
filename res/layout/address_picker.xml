@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.androidmapsextensions.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/sideMenuBg"
+        android:layout_margin="20dp"
+        android:padding="1dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/search_field"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="@string/insert_address"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/selected_address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/search_field"
+            android:paddingLeft="15dp"
+            android:textSize="13sp"
+            android:gravity="center|left"
+            android:text="Selected: "/>
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/selected_address_button"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/search_field"
+            android:layout_alignParentRight="true"
+            android:textSize="12sp"
+            android:gravity="center|left"
+            bootstrapbutton:bb_icon_left="fa-check"
+            bootstrapbutton:bb_type="success"
+            bootstrapbutton:bb_roundedCorners="false"
+            bootstrapbutton:bb_size="small"
+            android:text="Done"
+            android:onClick="onDoneButtonPressed"/>
+
+        <TextView
+            android:id="@+id/selected_address_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/search_field"
+            android:layout_toLeftOf="@id/selected_address_button"
+            android:layout_toRightOf="@id/selected_address_text"
+            android:paddingLeft="15dp"
+            android:textSize="13sp"
+            android:lines="2"
+            android:ellipsize="end"
+            android:gravity="center|left"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

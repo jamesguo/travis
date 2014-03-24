@@ -9,9 +9,10 @@ import java.util.List;
  * @version 1.0
  */
 public class Taxi extends User implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private final List<Float> ratings;
-    private boolean isAvailable;
+    public boolean isAvailable;
 
     public Taxi(final String name, final String imageUrl){
         super(name, imageUrl);
@@ -35,14 +36,5 @@ public class Taxi extends User implements Serializable {
         }
 
         return result / ratings.size();
-    }
-
-    public Taxi setAvailable(boolean available) {
-        this.isAvailable = available;
-        return this;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
     }
 }

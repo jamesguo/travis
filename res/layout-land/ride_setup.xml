@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <!-- An invisible view aligned to the center of the parent. Allows other
+    views to be arranged on either side -->
+    <View
+        android:id="@+id/centerShim"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <!--Set width to match_parent sets maximum width. alignParentLeft aligns
+    the left edge of this view with the left edge of its parent. toLeftOf
+    sets the right edge of this view to align with the left edge of the
+    given view. The result of all three settings is that this view will
+    always take up exactly half of the width of its parent, however wide
+    that may be. -->
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/centerShim"
+        android:paddingRight="10dp"
+        android:text="@string/here_and_now"
+        android:textSize="40sp"
+        bootstrapbutton:bb_icon_left="fa-map-marker"
+        bootstrapbutton:bb_type="success"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_size="large"
+        android:onClick="onHereAndNowClicked"/>
+
+    <!--Same deal, but on the right -->
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/centerShim"
+        android:paddingLeft="10dp"
+        android:text="@string/later"
+        android:textSize="40sp"
+        bootstrapbutton:bb_icon_left="fa-clock-o"
+        bootstrapbutton:bb_type="warning"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_size="large" />
+</RelativeLayout>
