@@ -19,10 +19,17 @@ import java.util.List;
 public final class PersistenceManager {
     private PersistenceManager(){}
 
+    public static List<Account> accounts = new ArrayList<>();
+
     private static List<Taxi> taxis;
     private static List<Ride> rides = new ArrayList<>();
     private static boolean addedRides = false;
 
+
+    static {
+        accounts.add(new Account(getTaxiAccount(), "taxi", "taxi"));
+        accounts.add(new Account(getClientAccount(), "client", "client"));
+    }
 
     public static Client getClientAccount() {
         Client c = new Client("Joao Martins", "http://www.placecage.com/280/360");
@@ -32,14 +39,6 @@ public final class PersistenceManager {
         c.favorites.add(taxis.get(0).id);
         c.favorites.add(taxis.get(3).id);
         return c;
-    }
-
-    public static Account getClientAccount2(){
-        return new Account(getClientAccount(), "user");
-    }
-
-    public static Account getTaxiAccount2(){
-        return new Account(getTaxiAccount(), "taxi");
     }
 
     public static Taxi getTaxiAccount() {

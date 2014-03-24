@@ -6,12 +6,16 @@ package pt.ua.travis.core;
 public class Account {
 
     public final User user;
+    public final String username;
     public final String pass;
 
-    public Account(User user, String pass){
+    public Account(User user, String pass, String username){
+        this.username=username;
         this.user = user;
         this.pass = pass;
     }
+
+
 
 
 }

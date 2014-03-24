@@ -29,8 +29,6 @@ public class LoginActivity extends Activity {
 
     public double latitude;
     public double longitude;
-    Account a1;
-    Account a2;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,28 +54,40 @@ public class LoginActivity extends Activity {
 
         TextView e = (TextView) findViewById(R.id.textView5);
         e.setText("Searching...");
-        a1 = PersistenceManager.getClientAccount2();
-        a2 = PersistenceManager.getTaxiAccount2();
     }
 
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
-    public void sendMessage2(View view) { // INICIA A ACTIVITY MARKERSTAXI
+    public void sendMessage2(View view) {
         Intent intent;
+        boolean radio;
+
+        Bundle b = getIntent().getExtras();
+        if (getIntent().hasExtra("radio")) {
+          radio  = b.getBoolean("radio");
+        }
+
         EditText name = (EditText) findViewById(R.id.editText2);
         EditText pass = (EditText) findViewById(R.id.editText);
 
-        if(pass.getText().toString().equals(a1.pass) && name.getText().toString().equals(a1.user.name)) {
-            intent = new Intent(this, MainClientActivity.class);
-            startActivity(intent);
+        for(Account a : PersistenceManager.accounts) {
+            if (pass.getText().toString().equals(a.pass) && name.getText().toString().equals(a.username)) {
 
-        }
-        else if(pass.getText().toString().equals(a2.pass) && name.getText().toString().equals(a2.user.name)) {
-            intent = new Intent(this, MainTaxiActivity.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(this, "Dados incorrectos, insira novamente!", Toast.LENGTH_SHORT).show();
+                if(a.user instanceof Client) {
+                    intent = new Intent(this, MainClientActivity.class);
+                    startActivity(intent);
+                } else if (a.user instanceof Taxi){
+                    intent = new Intent(this, MainTaxiActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(this, "Dados incorrectos, insira novamente!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
         }
     }
 

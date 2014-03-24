@@ -67,6 +67,7 @@
         <activity android:name=".gui.taxiridesetup.WaitForTaxiActivity"/>
         <activity android:name=".gui.taxiridesetup.AddressPickerActivity"/>
         <activity android:name=".gui.ridelist.RideListActivity"/>
+        <activity android:name=".gui.main.MainTaxiActivity"/>
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
