@@ -28,7 +28,7 @@ public class RideRequestActivity extends SherlockFragmentActivity {
     private Taxi selectedTaxi;
     private LocalTime scheduledTime;
     private double lat, lng;
-    private String destinationAddress;
+    private String  destinationAddress;
     private FrameLayout buttonsContainer, optionsContainer;
     private RideRequestOptionsFragment optionsFragment;
 
@@ -43,10 +43,10 @@ public class RideRequestActivity extends SherlockFragmentActivity {
         buttonsContainer = (FrameLayout) findViewById(R.id.buttons_fragment_container);
         optionsContainer = (FrameLayout) findViewById(R.id.options_fragment_container);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.buttons_fragment_container, new TitlesFragment())
-                .commit();
+        //getSupportFragmentManager()
+        //        .beginTransaction()
+         //       .add(R.id.buttons_fragment_container, new TitlesFragment())
+          //      .commit();
 
         optionsFragment = new RideRequestOptionsFragment();
 

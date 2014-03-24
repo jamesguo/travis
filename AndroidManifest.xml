@@ -50,17 +50,18 @@
 
         <activity android:name=".gui.main.MainClientActivity"
                   android:configChanges="orientation|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".gui.clientschedule.ClientScheduleActivity"/>
         <activity android:name=".wallet.WalletActivity"/>
         <activity android:name=".gui.travel.DirectionsActivity"/>
         <activity android:name=".gui.travel.PaymentActivity"/>
         <activity android:name=".gui.travel.RateAndFavActivity"/>
-        <activity android:name=".gui.login.LoginActivity"/>
+        <activity android:name=".gui.login.LoginActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+        </activity>
         <activity android:name=".gui.login.RegisterActivity"/>
         <activity android:name=".gui.taxiridesetup.RideRequestActivity"/>
         <activity android:name=".gui.taxiridesetup.WaitForTaxiActivity"/>

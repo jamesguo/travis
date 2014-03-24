@@ -2,6 +2,7 @@ package pt.ua.travis.db;
 
 import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
+import pt.ua.travis.core.Account;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Ride;
 import pt.ua.travis.core.Taxi;
@@ -24,7 +25,7 @@ public final class PersistenceManager {
 
 
     public static Client getClientAccount() {
-        Client c = new Client("João Martins", "http://www.placecage.com/280/360");
+        Client c = new Client("Joao Martins", "http://www.placecage.com/280/360");
         c.setPosition(new LatLng(40.646908, -8.662523));
 
         List<Taxi> taxis = getTaxisFromDB();
@@ -33,8 +34,16 @@ public final class PersistenceManager {
         return c;
     }
 
+    public static Account getClientAccount2(){
+        return new Account(getClientAccount(), "user");
+    }
+
+    public static Account getTaxiAccount2(){
+        return new Account(getTaxiAccount(), "taxi");
+    }
+
     public static Taxi getTaxiAccount() {
-        Taxi t = new Taxi("Óscar Cardoso", "http://www.placecage.com/140/180");
+        Taxi t = new Taxi("Oscar Cardoso","http://www.placecage.com/140/180");
         t.setPosition(new LatLng(40.635411, -8.619823));
         return t;
     }

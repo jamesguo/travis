@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-class User extends TravisObject implements Serializable {
+public class User extends TravisObject implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public final String name;
