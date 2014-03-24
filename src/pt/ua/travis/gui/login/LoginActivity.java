@@ -34,12 +34,16 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
+        final TextView e = (TextView) findViewById(R.id.textView5);
+        e.setText("Searching...");
+
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,0, new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
+                e.setText(String.valueOf(latitude)+","+longitude);
             }
             @Override
             public void onStatusChanged(String s, int i, Bundle bundle) {
@@ -51,9 +55,6 @@ public class LoginActivity extends Activity {
             public void onProviderDisabled(String s) {
             }
         });
-
-        TextView e = (TextView) findViewById(R.id.textView5);
-        e.setText("Searching...");
     }
 
     public void sendMessage(View view) {
@@ -63,12 +64,6 @@ public class LoginActivity extends Activity {
 
     public void sendMessage2(View view) {
         Intent intent;
-        boolean radio;
-
-        Bundle b = getIntent().getExtras();
-        if (getIntent().hasExtra("radio")) {
-          radio  = b.getBoolean("radio");
-        }
 
         EditText name = (EditText) findViewById(R.id.editText2);
         EditText pass = (EditText) findViewById(R.id.editText);

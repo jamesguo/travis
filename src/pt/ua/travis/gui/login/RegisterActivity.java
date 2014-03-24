@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Account;
+import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
 
@@ -31,13 +32,20 @@ public class RegisterActivity extends Activity {
         EditText username = (EditText) findViewById(R.id.editusername);
         RadioButton rd = (RadioButton) findViewById(R.id.radioButtontaxi);
 
+        if(rd.isChecked())
+        {
+            Taxi t = new Taxi(nome.getText().toString(),imagem.getText().toString());
+            Account a = new Account(t, username.getText().toString(), pass.getText().toString());
+            PersistenceManager.accounts.add(a);
+        }
+        else
+        {
+            Client c = new Client(nome.getText().toString(),imagem.getText().toString());
+            Account a = new Account(c, username.getText().toString(), pass.getText().toString());
+            PersistenceManager.accounts.add(a);
+        }
 
-        Taxi t = new Taxi(nome.getText().toString(),imagem.getText().toString());
-        Account a = new Account(t, username.getText().toString(), pass.getText().toString());
-        PersistenceManager.accounts.add(a);
         Toast.makeText(this,"Registo Efectuado!",Toast.LENGTH_SHORT);
-        Intent intent = new Intent(this,LoginActivity.class);
-        intent.putExtra("radio",rd.isChecked());
-        startActivity(intent);
+        startActivity(new Intent(this,LoginActivity.class));
     }
 }
