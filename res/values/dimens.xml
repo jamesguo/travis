@@ -5,8 +5,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
 
-    <dimen name="taxi_list_width">240dp</dimen>
-    <dimen name="taxi_pager_height">90dip</dimen>
+    <dimen name="taxi_item_width">240dp</dimen>
+    <dimen name="taxi_item_height">90dip</dimen>
     <dimen name="viewpager_margin">-32dp</dimen>
     <dimen name="ride_item_height">120dip</dimen>
 

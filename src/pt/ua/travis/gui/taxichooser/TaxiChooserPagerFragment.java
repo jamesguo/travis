@@ -29,7 +29,7 @@ public class TaxiChooserPagerFragment extends TaxiChooserFragment {
         this.itemAdapter = taxiAdapter;
 
         // selector (horizontal list) configurations
-        taxiSelector.setOffscreenPageLimit(3);
+        taxiSelector.setOffscreenPageLimit(5);
         taxiSelector.setAdapter(taxiAdapter);
         taxiSelector.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 

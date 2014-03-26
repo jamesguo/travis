@@ -1,4 +1,4 @@
-package pt.ua.travis.gui.taxiridesetup;
+package pt.ua.travis.gui.addresspicker;
 
 import android.content.Context;
 import android.location.Address;

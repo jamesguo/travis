@@ -23,8 +23,8 @@ public class TaxiItemPagerAdapter extends FragmentStatePagerAdapter implements T
     }
 
     @Override
-    public int getItemPosition(Object object) {
-        return itemList.indexOf(object);
+    public int getItemPosition(TaxiItem item) {
+        return itemList.indexOf(item);
     }
 
     @Override

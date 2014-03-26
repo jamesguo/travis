@@ -35,6 +35,8 @@
     <!-- Allows the API to use the Global Positioning System (GPS) to determine the device's location to within a very small area. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <!-- Specifies application requirement for OpenGL ES version 2. -->
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -48,26 +50,25 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".gui.main.MainClientActivity"
-                  android:configChanges="orientation|keyboardHidden">
-        </activity>
-        <activity android:name=".gui.clientschedule.ClientScheduleActivity"/>
+        <activity android:name=".gui.main.MainClientActivity"/>
+        <activity android:name=".gui.main.MainTaxiActivity"/>
         <activity android:name=".wallet.WalletActivity"/>
-        <activity android:name=".gui.travel.DirectionsActivity"/>
+        <activity android:name=".gui.travel.TravelToDestinationActivity"
+                  android:launchMode="singleTop"/>
         <activity android:name=".gui.travel.PaymentActivity"/>
-        <activity android:name=".gui.travel.RateAndFavActivity"/>
         <activity android:name=".gui.login.LoginActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".gui.login.RegisterActivity"/>
         <activity android:name=".gui.taxiridesetup.RideRequestActivity"/>
         <activity android:name=".gui.taxiridesetup.WaitForTaxiActivity"/>
-        <activity android:name=".gui.taxiridesetup.AddressPickerActivity"/>
-        <activity android:name=".gui.ridelist.RideListActivity"/>
-        <activity android:name=".gui.main.MainTaxiActivity"/>
+        <activity android:name=".gui.addresspicker.AddressPickerActivity"/>
+        <activity android:name=".gui.travel.AuthenticationClientActivity"/>
+        <activity android:name=".gui.travel.TravelToOriginActivity"/>
+        <activity android:name=".gui.travel.AuthenticationTaxiActivity"/>
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

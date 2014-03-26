@@ -1,23 +1,19 @@
 package pt.ua.travis.gui.taxichooser;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageSize;
+import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
+import pt.ua.travis.utils.CommonResources;
 import pt.ua.travis.utils.Keys;
-import pt.ua.travis.utils.Validate;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -25,10 +21,10 @@ import pt.ua.travis.utils.Validate;
  */
 public class TaxiItem extends Fragment {
 
-    private View v;
-    private static Activity parentActivity;
 
-    private Drawable availableDrawable, favoriteDrawable;
+    private View currentView;
+    private Activity parentActivity;
+
     private Client clientObject;
     private Taxi taxiObject;
 
@@ -66,46 +62,45 @@ public class TaxiItem extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         parentActivity = activity;
-
-        if (taxiObject.isAvailable) {
-            availableDrawable = activity.getResources().getDrawable(R.drawable.available_border);
-        } else {
-            availableDrawable = activity.getResources().getDrawable(R.drawable.unavailable_border);
-        }
-        favoriteDrawable = activity.getResources().getDrawable(R.drawable.ic_favorites);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if(currentView==null) {
+            currentView = inflater.inflate(R.layout.taxi_item, null);
+            TaxiItem.paintViewWithTaxi(parentActivity, currentView, clientObject, taxiObject);
+        }
+        return currentView;
+    }
 
-        v = inflater.inflate(R.layout.taxi_item, null);
+    public static void paintViewWithTaxi(Context context, View v, Client clientObject, Taxi taxiObject){
 
-        // set the available color
+        // set the available status shape at the left side of the photo
         ImageView availableStatus = (ImageView) v.findViewById(R.id.available_status);
-        availableStatus.setBackground(availableDrawable);
+        if (taxiObject.isAvailable) {
+            availableStatus.setImageDrawable(CommonResources.AVAILABLE_SHAPE);
+        } else {
+            availableStatus.setImageDrawable(CommonResources.UNAVAILABLE_SHAPE);
+        }
 
         // set the name
         TextView nameView = (TextView) v.findViewById(R.id.text);
-        nameView.setText(taxiObject.name);
+        nameView.setText(taxiObject.realName);
 
         // set the photo
         String imageUrl = taxiObject.imageUrl;
         if (imageUrl != null && !imageUrl.isEmpty()) {
-//            ImageView photoView = (ImageView) v.findViewById(R.id.photo);
-//            Log.e("TAAGG", imageUrl);
-//            ImageLoader loader = Keys.getLoader(parentActivity);
-//            loader.displayImage(imageUrl, photoView);
+            ImageView photoView = (ImageView) v.findViewById(R.id.photo);
+            Picasso.with(context).load(imageUrl).fit().into(photoView);
         }
 
-
+        // set the favorite icon
         ImageView favoriteIcon = (ImageView) v.findViewById(R.id.favorite);
         if(clientObject.favorites.contains(taxiObject.id))
-            favoriteIcon.setImageDrawable(favoriteDrawable);
+            favoriteIcon.setImageDrawable(CommonResources.FAVORITE_ICON);
 
         // set the rating
         RatingBar ratingBar = (RatingBar) v.findViewById(R.id.rating);
         ratingBar.setRating(taxiObject.getRatingAverage());
-        
-        return v;
     }
 }

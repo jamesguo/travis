@@ -10,11 +10,12 @@ public interface TaxiItemAdapter {
 
     TaxiItem getItem(int position);
 
-    int getItemPosition(Object object);
+    int getItemPosition(TaxiItem item);
 
     void setSelectedIndex(int position);
 
     int getSelectedIndex();
 
     void notifyDataSetChanged();
+
 }

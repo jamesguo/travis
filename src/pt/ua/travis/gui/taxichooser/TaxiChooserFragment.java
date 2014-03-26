@@ -1,6 +1,7 @@
 package pt.ua.travis.gui.taxichooser;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -16,12 +17,14 @@ import com.androidmapsextensions.MarkerOptions;
 import com.androidmapsextensions.SupportMapFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.taxiridesetup.RideRequestActivity;
 import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.Tools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,9 +83,11 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
         map = mapFragment.getExtendedMap();
         map.clear();
 
+        Location l = Tools.getCurrentLocation(getActivity());
+        LatLng latLng = new LatLng(l.getLatitude(), l.getLongitude());
         final Marker userPosition = map.addMarker(new MarkerOptions()
                 .data(0)
-                .position(PersistenceManager.getClientAccount().position())
+                .position(latLng)
                 .title("You")
                 .visible(true));
 
@@ -161,13 +166,13 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      */
     protected final List<TaxiItem> convertTaxisToItems(List<Taxi> taxis){
         List<TaxiItem> taxiItemList = new ArrayList<>();
-        Client cc = PersistenceManager.getClientAccount();
+        Client cc = PersistenceManager.selectThisClientAccount();
 
         for (Taxi tt : taxis) {
             Marker m = map.addMarker(new MarkerOptions()
                     .data(tt.id)
-                    .position(tt.position())
-                    .title(tt.name)
+                    .position(new LatLng(tt.positionLat, tt.positionLng))
+                    .title(tt.realName)
                     .snippet("Tap to select this Taxi")
                     .visible(true)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)));
@@ -236,7 +241,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      */
     protected void finishSelect(int position, Marker marker){
         itemAdapter.setSelectedIndex(position);
-        itemAdapter.notifyDataSetChanged();
+//        itemAdapter.notifyDataSetChanged();
         moveMapToMarker(marker);
         myLocationToggle = false;
     }
@@ -252,4 +257,5 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
     public final int getCurrentSelectedIndex() {
         return itemAdapter.getSelectedIndex();
     }
+
 }

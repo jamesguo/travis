@@ -35,14 +35,32 @@
                 android:text="@string/not_found"
                 android:textColor="@color/sideMenuBg" />
         </LinearLayout>
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Sherlock.ActionButton"
-            android:text="@string/menu_rides"
-            android:drawableLeft="@drawable/ic_action_alarms"
-            android:onClick="goToScheduledRidesList"
-            android:textColor="@color/sideMenuBg"/>
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Sherlock.ActionButton"
+                android:text="@string/menu_rides"
+                android:drawableLeft="@drawable/ic_action_alarms"
+                android:onClick="goToScheduledRidesList"
+                android:textColor="@color/sideMenuBg"/>
+            <TextView
+                android:id="@+id/rides_counter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="0"
+                android:background="@color/side_menu_counter_bg"
+                android:textColor="@color/side_menu_counter_text"/>
+        </RelativeLayout>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +103,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/favorite_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.Sherlock.ActionButton"
@@ -98,9 +115,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_alignTop="@id/favorite_button"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:text="0"

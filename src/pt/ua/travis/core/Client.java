@@ -13,8 +13,11 @@ public class Client extends User implements Serializable {
 
     public final List<Integer> favorites;
 
-    public Client(final String name, final String imageUrl){
-        super(name, imageUrl);
+    public Client(final String userName,
+                  final String passwordDigest,
+                  final String realName,
+                  final String imageUrl) {
+        super(userName, passwordDigest, realName, imageUrl);
         this.favorites = new ArrayList<>();
     }
 }

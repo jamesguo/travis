@@ -12,16 +12,20 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.Geolocation;
 import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.ridelist.RideListActivity;
+import pt.ua.travis.gui.login.LoginActivity;
+import pt.ua.travis.gui.ridelist.RideDeletedListener;
+import pt.ua.travis.gui.ridelist.RideItem;
+import pt.ua.travis.gui.ridelist.RideListFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserListFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserPagerFragment;
+import pt.ua.travis.utils.CommonResources;
 import pt.ua.travis.utils.Keys;
 import pt.ua.travis.utils.Validate;
 
@@ -36,7 +40,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class MainClientActivity extends SherlockFragmentActivity {
+public class MainClientActivity extends MainActivity {
 
     private SlideHolder sideMenu;
     private static List<Taxi> taxiList;
@@ -46,10 +50,12 @@ public class MainClientActivity extends SherlockFragmentActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.client_main_activity);
+        setContentView(R.layout.main_client_activity);
+
+        CommonResources.initialize(this);
 
         if(taxiList==null) {
-            taxiList = PersistenceManager.getTaxisFromDB();
+            taxiList = PersistenceManager.selectAllTaxis();
             filteredTaxiList = new ArrayList<>(taxiList);
             Geolocation.sortByProximity(filteredTaxiList);
         }
@@ -59,7 +65,11 @@ public class MainClientActivity extends SherlockFragmentActivity {
         if (savedInstanceState != null) {
             selectedIndex = savedInstanceState.getInt(Keys.SELECTED_INDEX, 0);
         } else if(intent!=null && intent.getExtras()!=null){
-            selectedIndex = intent.getExtras().getInt(Keys.SELECTED_INDEX, 0);
+            selectedIndex = intent.getIntExtra(Keys.SELECTED_INDEX, 0);
+            if(intent.getIntExtra(Keys.GO_TO_RIDE_LIST, 0)==1){
+                goToScheduledRidesList(null);
+                return;
+            }
         }
 
         showFilteredResults(selectedIndex);
@@ -77,8 +87,6 @@ public class MainClientActivity extends SherlockFragmentActivity {
 
         return super.onPrepareOptionsMenu(menu);
     }
-
-
 
     private void configureSideMenu(Menu menu){
         sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
@@ -110,17 +118,20 @@ public class MainClientActivity extends SherlockFragmentActivity {
         }
 
         // load client specific data in the side menu
-        Client thisClient = PersistenceManager.getClientAccount();
+        Client thisClient = PersistenceManager.selectThisClientAccount();
+        int numOfRides = PersistenceManager.selectRidesFromClient().size();
 
         String imageUrl = thisClient.imageUrl;
         if (imageUrl != null && !imageUrl.isEmpty()) {
             ImageView photoView = (ImageView) findViewById(R.id.photo);
-            ImageLoader loader = Keys.getLoader(this);
-            loader.displayImage(imageUrl, photoView);
+            Picasso.with(this).load(imageUrl).into(photoView);
         }
 
         TextView nameView = (TextView) findViewById(R.id.name);
-        nameView.setText(thisClient.name);
+        nameView.setText(thisClient.realName);
+
+        TextView ridesCounter = (TextView) findViewById(R.id.rides_counter);
+        ridesCounter.setText("" + numOfRides);
 
         TextView favoritesCounter = (TextView) findViewById(R.id.favorites_counter);
         favoritesCounter.setText("" + thisClient.favorites.size());
@@ -167,7 +178,7 @@ public class MainClientActivity extends SherlockFragmentActivity {
 
                 // looks for matches and adds them to a temporary list
                 for (Taxi t : taxiList) {
-                    String nameLC = t.name.toLowerCase();
+                    String nameLC = t.realName.toLowerCase();
 
                     if (nameLC.contains(queryLC))
                         filteredTaxiList.add(t);
@@ -187,32 +198,19 @@ public class MainClientActivity extends SherlockFragmentActivity {
         });
     }
 
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.remove(currentlyShownChooserFragment);
-        ft.commit();
-
-        outState.putInt(Keys.SELECTED_INDEX, currentlyShownChooserFragment.getCurrentSelectedIndex());
-
-        super.onSaveInstanceState(outState);
-    }
-
     private void showFilteredResults(int selectedIndex){
         if(Validate.isLandscape(this)) {
             TaxiChooserListFragment landscapeFragment = new TaxiChooserListFragment();
             landscapeFragment.setRetainInstance(false);
-            showFragment(landscapeFragment, selectedIndex);
+            showTaxiChooserFragment(landscapeFragment, selectedIndex);
         } else {
             TaxiChooserPagerFragment portraitFragment = new TaxiChooserPagerFragment();
             portraitFragment.setRetainInstance(false);
-            showFragment(portraitFragment, selectedIndex);
+            showTaxiChooserFragment(portraitFragment, selectedIndex);
         }
     }
 
-    private void showFragment(TaxiChooserFragment f, int currentSelectedIndex) {
+    private void showTaxiChooserFragment(TaxiChooserFragment f, int currentSelectedIndex) {
 
         Bundle args = new Bundle();
         args.putInt(Keys.SELECTED_INDEX, currentSelectedIndex);
@@ -236,12 +234,14 @@ public class MainClientActivity extends SherlockFragmentActivity {
     }
 
     public void goToScheduledRidesList(View view){
-        Intent intent = new Intent(this, RideListActivity.class);
-        startActivity(intent);
-    }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, RideListFragment.newInstance(RideItem.SHOW_TAXI, PersistenceManager.selectRidesFromClient()))
+                .addToBackStack(null)
+                .commit();
 
-    public void logout(View view){
-
+        if(sideMenu!=null)
+            sideMenu.close();
     }
 
     public void sortByProximity(View view){
@@ -251,7 +251,7 @@ public class MainClientActivity extends SherlockFragmentActivity {
 
 
         showFilteredResults(0);
-        sideMenu.toggle();
+        sideMenu.close();
     }
 
     public void sortByRating(View view){
@@ -267,17 +267,39 @@ public class MainClientActivity extends SherlockFragmentActivity {
         });
 
         showFilteredResults(0);
-        sideMenu.toggle();
+        sideMenu.close();
     }
 
     public void showFavorites(View view) {
-        filteredTaxiList = PersistenceManager.getTaxiFavorites();
+        filteredTaxiList = PersistenceManager.getFavoritesFromClient();
 
         showFilteredResults(0);
-        sideMenu.toggle();
+        sideMenu.close();
     }
 
     public static List<Taxi> getCurrentTaxiListState() {
         return Collections.unmodifiableList(filteredTaxiList);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.remove(currentlyShownChooserFragment);
+        ft.commit();
+
+        outState.putInt(Keys.SELECTED_INDEX, currentlyShownChooserFragment.getCurrentSelectedIndex());
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onDeletedRide(){
+        goToScheduledRidesList(null);
+    }
+
+    @Override
+    public void logout(View view) {
+        super.logout(view);
     }
 }

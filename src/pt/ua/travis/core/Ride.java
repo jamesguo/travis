@@ -17,25 +17,13 @@ public class Ride extends TravisObject implements Serializable {
 
     public final Taxi taxi;
     public final Client client;
+    public double originLat;
+    public double originLng;
+    public String originAddress;
     public double destinationLat;
     public double destinationLng;
     public String destinationAddress;
     public final LocalTime scheduledTime;
-
-    /**
-     * Creates a ride performed by a taxi to get the client at the assigned
-     * time and to take him to his destination.
-     *
-     * @param taxi the taxi that is assigned for this commit
-     * @param client the client that arranged this commit
-     * @param timeString the time when the taxi will arrive at
-     *                   the client's position, in "HH:MM:SS" formatted string.
-     */
-    public Ride(final Taxi taxi,
-                final Client client,
-                final String timeString){
-        this(taxi, client, LocalTime.parse(timeString));
-    }
 
     /**
      * Creates a ride performed by a taxi to get the client at the assigned
@@ -61,16 +49,15 @@ public class Ride extends TravisObject implements Serializable {
      */
     public String getRemaining(){
         LocalTime startDate = LocalTime.now();
+        if(startDate.compareTo(scheduledTime)>=0){
+            return "now!";
+        }
 
         Period period = new Period(startDate, scheduledTime, PeriodType.dayTime());
-
         PeriodFormatter formatter = new PeriodFormatterBuilder()
                 .appendHours().appendSuffix(" hour ", " hours ")
                 .appendMinutes().appendSuffix(" minute ", " minutes ")
                 .toFormatter();
-
-        Log.e("TTTTTTOOOOOOOPPP", scheduledTime.toString());
-        Log.e("TTTTTTOOOOOOOPPP", formatter.print(period));
         return "in "+formatter.print(period);
     }
 }

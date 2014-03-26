@@ -1,8 +1,9 @@
-package pt.ua.travis.gui.taxiridesetup;
+package pt.ua.travis.gui.addresspicker;
 
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.util.ArrayMap;
 import android.text.Editable;
@@ -63,8 +64,10 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         map = supportMapFragment.getExtendedMap();
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(PersistenceManager.getClientAccount().position(), 15));
-        map.setMyLocationEnabled(true);
+
+        Location l = Tools.getCurrentLocation(this);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(l.getLatitude(), l.getLongitude()), 15));
+        map.setMyLocationEnabled(false);
 
 
         //
@@ -93,17 +96,17 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
             }
         });
         searchField.addTextChangedListener(new TextWatcher() {
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            public void afterTextChanged(Editable s) {
-            }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() >= 3) {
                     adapter.getFilter().filter(s);
                 }
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void afterTextChanged(Editable s) {
             }
         });
 
@@ -164,5 +167,12 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
             setResult(RESULT_OK, intent);
             finish();
         }
+    }
+
+
+    public void onCancelButtonPressed(View view){
+        Intent intent = new Intent();
+        setResult(RESULT_CANCELED, intent);
+        finish();
     }
 }

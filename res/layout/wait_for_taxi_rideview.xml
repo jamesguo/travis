@@ -13,16 +13,10 @@
         android:layout_height="50dp"
         android:text="@string/see_more"
         android:layout_alignParentBottom="true"
-        bootstrapbutton:bb_type="info"
+        bootstrapbutton:bb_type="warning"
         bootstrapbutton:bb_roundedCorners="false"
-        bootstrapbutton:bb_size="normal"/>
-
-    <FrameLayout
-        android:id="@+id/ride_item_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/ride_item_height"
-        android:layout_above="@id/see_more"
-        android:background="@color/mainBg"/>
+        bootstrapbutton:bb_size="normal"
+        android:onClick="onSeeMoreRidesButtonClicked"/>
 
     <TextView
         android:id="@+id/your_scheduled_ride"
@@ -31,6 +25,13 @@
         android:textSize="18sp"
         android:padding="15dp"
         android:text="@string/your_scheduled_ride"
-        android:layout_above="@id/ride_item_container"
+        android:background="@color/mainBg"/>
+
+    <FrameLayout
+        android:id="@+id/ride_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/your_scheduled_ride"
+        android:layout_above="@id/see_more"
         android:background="@color/mainBg"/>
 </RelativeLayout>

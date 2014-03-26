@@ -27,32 +27,33 @@
     always take up exactly half of the width of its parent, however wide
     that may be. -->
     <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btTop"
+        android:id="@+id/btHereAndNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/centerShim"
-        android:paddingBottom="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/here_and_now"
         android:textSize="40sp"
         bootstrapbutton:bb_icon_left="fa-map-marker"
         bootstrapbutton:bb_type="success"
         bootstrapbutton:bb_roundedCorners="true"
         bootstrapbutton:bb_size="large"
-        android:onClick="onHereAndNowClicked"/>
+        android:onClick="onHereAndNowButtonClicked"/>
 
     <!--Same deal, but on the right -->
     <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btBottom"
+        android:id="@+id/btLater"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/centerShim"
-        android:paddingTop="10dp"
+        android:layout_marginTop="10dp"
         android:text="@string/later"
         android:textSize="40sp"
         bootstrapbutton:bb_icon_left="fa-clock-o"
         bootstrapbutton:bb_type="warning"
         bootstrapbutton:bb_roundedCorners="true"
-        bootstrapbutton:bb_size="large"/>
+        bootstrapbutton:bb_size="large"
+        android:onClick="onLaterButtonClicked"/>
 </RelativeLayout>

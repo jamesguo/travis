@@ -1,5 +1,6 @@
 package pt.ua.travis.gui.ridelist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -9,6 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
+import pt.ua.travis.gui.main.MainActivity;
+import pt.ua.travis.gui.main.MainClientActivity;
+import pt.ua.travis.utils.CommonResources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +23,15 @@ import java.util.List;
  */
 public class RideItemListAdapter extends BaseAdapter implements ListAdapter {
 
-    private Context context;
+    private MainActivity parentActivity;
     private SparseArray<RideItem> itemList;
 
-    int currentlySelectedIndex;
-
-    RideItemListAdapter(Context context, List<Ride> rides) {
-        this.context = context;
+    RideItemListAdapter(MainActivity parentActivity, int showWhat, List<Ride> rides) {
+        this.parentActivity = parentActivity;
         this.itemList = new SparseArray<>();
 
         for (Ride r : rides) {
-            itemList.put(r.id, RideItem.newInstance(r));
+            itemList.put(r.id, RideItem.newInstance(showWhat, r, parentActivity));
         }
     }
 
@@ -55,12 +57,10 @@ public class RideItemListAdapter extends BaseAdapter implements ListAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = getItem(position).onCreateView(vi, parent, null);
-
-        if (position == currentlySelectedIndex) {
-            v.setBackgroundColor(context.getResources().getColor(R.color.selectorSelectedBg));
-        }
+        LayoutInflater vi = (LayoutInflater) parentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        RideItem item = getItem(position);
+        item.onAttach(parentActivity);
+        View v = item.onCreateView(vi, parent, null);
 
         return v;
     }

@@ -1,69 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/pagerBorder">
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="89dip"
-        android:background="@color/mainBg">
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/taxi_item_height"
+    android:background="@color/mainBg">
 
-        <ImageView
-            android:id="@+id/available_status"
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:padding="1dp"/>
+    <ImageView
+        android:id="@+id/available_status"
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:visibility="visible"/>
 
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="70dip"
-            android:layout_height="90dip"
-            android:src="@drawable/ic_taxi"
-            android:scaleType="centerInside"
-            android:layout_toRightOf="@id/available_status"
-            android:layout_marginLeft="-1dp"/>
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="70dip"
+        android:layout_height="90dip"
+        android:src="@drawable/ic_taxi"
+        android:scaleType="centerInside"
+        android:layout_toRightOf="@id/available_status"
+        android:layout_marginLeft="-2dp"/>
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_toRightOf="@+id/photo"
-            android:paddingTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dip"
-            android:textSize="18sp"
-            android:singleLine="true"
-            android:text="@string/not_found"
-            android:ellipsize="end" />
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@+id/photo"
+        android:paddingTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dip"
+        android:textSize="18sp"
+        android:lines="2"
+        android:text="@string/not_found"
+        android:ellipsize="end" />
 
-        <RatingBar
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_toRightOf="@id/photo"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="10dp"
-            android:paddingBottom="13dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="0.5"
-            android:rating="0"
-            style="@style/RatingBarSmall_travis"/>
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@id/photo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="13dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="0"
+        style="@style/RatingBarSmall_travis"/>
 
-        <ImageView
-            android:id="@+id/favorite"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="left|center_vertical"
-            android:layout_toRightOf="@id/rating"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="5dp"/>
+    <ImageView
+        android:id="@+id/favorite"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@id/rating"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"/>
 
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

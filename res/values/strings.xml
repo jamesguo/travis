@@ -3,11 +3,30 @@
 
     <string name="app_name">Travis</string>
 
+    <string name="taxi">Taxi</string>
+    <string name="client">Client</string>
 
     <!-- Dialog strings -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+
+
+    <!-- Login and Register strings-->
+    <string name="remember_password">Remember password</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="login_error">Invalid login!</string>
+    <string name="register_ok">Registered successfully!</string>
+
+
+    <!-- Register strings -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="photo_url">Photo URL</string>
 
 
     <!-- Side menu strings -->
@@ -28,6 +47,7 @@
     <string name="not_found">Not found</string>
     <string name="here_and_now">Here &amp; Now</string>
     <string name="later">Later or at another location</string>
+    <string name="set_origin">Set Origin</string>
 
 
     <!-- Wait for taxi strings -->
@@ -44,6 +64,14 @@
     <string name="call_another_taxi">Call another taxi</string>
     <string name="insert_address">Insert address…</string>
 
+    
+    <!-- Payment strings -->
+    <string name="submit">Submit</string>
+    <string name="dont_rate">Don\'t rate</string>
 
+
+    <!-- Notification strings -->
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 
 </resources>

@@ -1,6 +1,9 @@
 package pt.ua.travis.core;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,22 +14,33 @@ import java.util.List;
 public class Taxi extends User implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final List<Float> ratings;
+    public final List<Float> ratings;
     public boolean isAvailable;
+    public double positionLat;
+    public double positionLng;
 
-    public Taxi(final String name, final String imageUrl){
-        super(name, imageUrl);
+    public Taxi(final String userName,
+                final String passwordDigest,
+                final String realName,
+                final String imageUrl){
+        super(userName, passwordDigest, realName, imageUrl);
         this.ratings = new ArrayList<>();
     }
 
-    public Taxi(final String name, final String imageUrl, final List<Float> ratings){
-        super(name, imageUrl);
-        this.ratings = new ArrayList<>(ratings);
+    public User setPositionFromLatLng(LatLng latLng){
+        positionLat = latLng.latitude;
+        positionLng = latLng.longitude;
+        return this;
     }
 
-    public Taxi addRating(double r){
-        ratings.add((float)r);
-        return this;
+    public String getPositionString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("(");
+        sb.append(new BigDecimal(positionLat).setScale(2, BigDecimal.ROUND_HALF_UP));
+        sb.append("; ");
+        sb.append(new BigDecimal(positionLng).setScale(2, BigDecimal.ROUND_HALF_UP));
+        sb.append(")");
+        return sb.toString();
     }
 
     public float getRatingAverage() {

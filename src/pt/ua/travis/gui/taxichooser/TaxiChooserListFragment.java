@@ -26,7 +26,7 @@ public class TaxiChooserListFragment extends TaxiChooserFragment {
         List<Taxi> taxis = MainClientActivity.getCurrentTaxiListState();
 
         taxiSelector = (ListView) getActivity().findViewById(R.id.list);
-        final TaxiItemListAdapter taxiAdapter = new TaxiItemListAdapter(getArguments(), getActivity(), convertTaxisToItems(taxis));
+        final TaxiItemListAdapter taxiAdapter = new TaxiItemListAdapter(getActivity(), convertTaxisToItems(taxis));
         this.itemAdapter = taxiAdapter;
 
         // selector (vertical list) configurations

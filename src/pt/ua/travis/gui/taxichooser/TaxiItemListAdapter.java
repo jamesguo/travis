@@ -2,8 +2,7 @@ package pt.ua.travis.gui.taxichooser;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,36 +18,43 @@ import java.util.List;
 
 public class TaxiItemListAdapter extends BaseAdapter implements TaxiItemAdapter {
 
-    private Bundle savedInstanceState;
     private Activity context;
     private List<TaxiItem> itemList;
     private int currentlySelectedIndex;
+    private SparseArray<View> loadedViews;
 
-    TaxiItemListAdapter(Bundle savedInstanceState, Activity context, List<TaxiItem> itemList){
+    TaxiItemListAdapter(Activity context, List<TaxiItem> itemList){
         super();
-        this.savedInstanceState = savedInstanceState;
         this.context = context;
         this.itemList = itemList;
         this.currentlySelectedIndex = 0;
+        this.loadedViews = new SparseArray<>();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         TaxiItem item = itemList.get(position);
-        View v = item.onCreateView(vi, parent, savedInstanceState);
+        View v = loadedViews.get(item.getTaxiObject().id);
+
+        if(v==null) {
+            item.onAttach(context);
+            LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = item.onCreateView(vi, null, null);
+            loadedViews.put(item.getTaxiObject().id, v);
+        }
 
         if (position == currentlySelectedIndex) {
-            Log.e("VIEWSSS", item.getTaxiObject().name);
             v.setBackgroundColor(context.getResources().getColor(R.color.selectorSelectedBg));
+        } else {
+            v.setBackgroundColor(context.getResources().getColor(R.color.mainBg));
         }
 
         return v;
     }
 
     @Override
-    public int getItemPosition(Object object) {
-        return itemList.indexOf(object);
+    public int getItemPosition(TaxiItem item) {
+        return itemList.indexOf(item);
     }
 
     @Override
@@ -75,5 +81,4 @@ public class TaxiItemListAdapter extends BaseAdapter implements TaxiItemAdapter 
     public int getSelectedIndex(){
         return currentlySelectedIndex;
     }
-
 }

@@ -56,12 +56,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
                                         resultReturner.onResult(CANCEL_RESULT);
                                     }
                                 })
-                                .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        progressDialog.show();
-                                    }
-                                })
+                                .setPositiveButton("No", null)
                                 .show();
                     }
                 });
@@ -71,7 +66,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
 
     @Override
     protected Integer doInBackground(Void... params) {
-        SystemClock.sleep(3000);
+        SystemClock.sleep(5000);
         return 0;
     }
 
