@@ -23,11 +23,17 @@ The application uses support libraries, allowing it to be compatible with API 7 
 Installation
 ============
 
-Try out the example application using the available apk file in the repository, or download the project and import it (every dependency is already included).
+Try out the example application using the available apk file in the repository:
+https://github.com/edduarte/icm_travis/blob/master/out/artifacts/icm_travis/icm_travis.apk
 
 
 Usage
 =====
 
-To login as a test-acccount of the type "taxi", use the username "aaa" and password "111".
-To login as a test-acccount of the type "client", use the username "bbb" and password "222".
+To login as a test-acccount of the type "taxi", use the username "eee" and password "222".
+To login as a test-acccount of the type "client", use the username "abc" and password "123".
+
+In Taxi account mode, you can see a placeholder list of rides that this taxi is scheduled to give.
+By pressing the menu icon in the upper-right corner, you can see some newer options. Pressing "TEST" will launch a notification to simulate a situation where a User would request a ride from this taxi account.
+
+<TODO>
