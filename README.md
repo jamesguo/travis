@@ -25,11 +25,12 @@ Installation
 ============
 
 Try out the example application using the available apk file in the repository:
-https://github.com/edduarte/icm_travis/blob/master/out/artifacts/icm_travis/icm_travis.apk
+https://github.com/edduarte/icm_travis/blob/master/bin/icm_travis.apk
 
 
 Usage
 =====
+
 
 To login as a taxi test acccount, use the username "eee" and password "222".
 To login as a client test acccount, use the username "abc" and password "123".
