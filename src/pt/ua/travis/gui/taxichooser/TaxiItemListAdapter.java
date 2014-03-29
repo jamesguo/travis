@@ -28,7 +28,7 @@ public class TaxiItemListAdapter extends BaseAdapter implements TaxiItemAdapter 
         this.context = context;
         this.itemList = itemList;
         this.currentlySelectedIndex = 0;
-        this.loadedViews = new SparseArray<>();
+        this.loadedViews = new SparseArray<View>();
     }
 
     @Override

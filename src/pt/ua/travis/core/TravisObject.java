@@ -12,7 +12,7 @@ import java.util.Set;
 public class TravisObject implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private static Set<Integer> usedIDs = new HashSet<>();
+    private static Set<Integer> usedIDs = new HashSet<Integer>();
     private static Random rnd = new Random();
 
     public final int id;

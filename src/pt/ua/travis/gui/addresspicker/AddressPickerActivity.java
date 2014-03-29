@@ -57,7 +57,7 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
         setContentView(R.layout.address_picker);
         getSupportActionBar().hide();
         geocoder = new Geocoder(this);
-        addressLookupHistory = new ArrayMap<>();
+        addressLookupHistory = new ArrayMap<LatLng, String>();
 
 
         // configures the map

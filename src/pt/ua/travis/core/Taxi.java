@@ -24,7 +24,7 @@ public class Taxi extends User implements Serializable {
                 final String realName,
                 final String imageUrl){
         super(userName, passwordDigest, realName, imageUrl);
-        this.ratings = new ArrayList<>();
+        this.ratings = new ArrayList<Float>();
     }
 
     public User setPositionFromLatLng(LatLng latLng){

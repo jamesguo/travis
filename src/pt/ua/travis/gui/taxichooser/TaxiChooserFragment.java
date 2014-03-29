@@ -51,7 +51,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
 
 
     protected TaxiChooserFragment() {
-        itemToMarkerMappings = new SparseArray<>();
+        itemToMarkerMappings = new SparseArray<Pair<Marker, TaxiItem>>();
     }
 
     @Override
@@ -165,7 +165,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      *         marker generation
      */
     protected final List<TaxiItem> convertTaxisToItems(List<Taxi> taxis){
-        List<TaxiItem> taxiItemList = new ArrayList<>();
+        List<TaxiItem> taxiItemList = new ArrayList<TaxiItem>();
         Client cc = PersistenceManager.selectThisClientAccount();
 
         for (Taxi tt : taxis) {
@@ -185,7 +185,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                 item = TaxiItem.newInstance(cc, tt);
 
             taxiItemList.add(item);
-            itemToMarkerMappings.put(tt.id, new Pair<>(m, item));
+            itemToMarkerMappings.put(tt.id, new Pair<Marker, TaxiItem>(m, item));
         }
 
         return taxiItemList;

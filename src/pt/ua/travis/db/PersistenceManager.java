@@ -38,7 +38,7 @@ public final class PersistenceManager {
     }
 
     public static List<Taxi> selectAllTaxis(){
-        List<Taxi> selectResult = new ArrayList<>();
+        List<Taxi> selectResult = new ArrayList<Taxi>();
 
         for(User u : users) {
             if(u instanceof Taxi)
@@ -50,7 +50,7 @@ public final class PersistenceManager {
 
 
     public static List<User> selectUsersWithPasswordDigest(String passwordDigest) {
-        List<User> selectResult = new ArrayList<>();
+        List<User> selectResult = new ArrayList<User>();
 
         for(User u : users) {
             if(u.passwordDigest.equals(passwordDigest))
@@ -62,7 +62,7 @@ public final class PersistenceManager {
 
     public static List<Taxi> getFavoritesFromClient(){
         Client c = selectThisClientAccount();
-        List<Taxi> taxis = new ArrayList<>();
+        List<Taxi> taxis = new ArrayList<Taxi>();
 
         for(Taxi tt : selectAllTaxis()) {
             if (c.favorites.contains(tt.id)) {
@@ -103,7 +103,7 @@ public final class PersistenceManager {
     }
 
     public static List<Ride> selectRidesFromTaxi(){
-        List<Ride> tmp = new ArrayList<>();
+        List<Ride> tmp = new ArrayList<Ride>();
         if(rides.size()>1) {
             tmp.add(rides.get(1));
         }
@@ -111,13 +111,13 @@ public final class PersistenceManager {
     }
 
     static {
-        users = new ArrayList<>();
+        users = new ArrayList<User>();
         Taxi t;
         String password, passwordDigest;
 
 
         passwordDigest = Tools.passwordToDigestSHA1("111");
-        t = new Taxi("aaa", passwordDigest, "Andr√© Figueiredo", "http://placesheen.com/phpthumb/phpthumb.php?src=../uploads/sheen/33.jpeg&w=140&h=180&zc=1");
+        t = new Taxi("aaa", passwordDigest, "AndrÈ Figueiredo", "http://placesheen.com/phpthumb/phpthumb.php?src=../uploads/sheen/33.jpeg&w=140&h=180&zc=1");
         t.setPositionFromLatLng(new LatLng(40.646808, -8.662223));
         t.ratings.add(2.5f);
         t.ratings.add(3f);
@@ -171,7 +171,7 @@ public final class PersistenceManager {
 
 
         passwordDigest = Tools.passwordToDigestSHA1("222");
-        t = new Taxi("eee", passwordDigest, "√ìscar Cardoso", "http://www.placecage.com/140/180");
+        t = new Taxi("eee", passwordDigest, "”scar Cardoso", "http://www.placecage.com/140/180");
         t.setPositionFromLatLng(new LatLng(40.635411, -8.619823));
         t.ratings.add(3f);
         t.isAvailable = false;
@@ -179,14 +179,14 @@ public final class PersistenceManager {
 
 
         passwordDigest = Tools.passwordToDigestSHA1("123");
-        Client c = new Client("abc", passwordDigest, "Jo√£o Martins", "http://www.placecage.com/280/360");
+        Client c = new Client("abc", passwordDigest, "Jo„o Martins", "http://www.placecage.com/280/360");
         c.favorites.add(users.get(2).id);
         c.favorites.add(users.get(0).id);
         users.add(c);
 
 
 
-        rides = new ArrayList<>();
+        rides = new ArrayList<Ride>();
         LocalTime time = LocalTime.now()
                 .withHourOfDay(17)
                 .withMinuteOfHour(28);

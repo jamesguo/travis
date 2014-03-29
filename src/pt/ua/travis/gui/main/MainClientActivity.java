@@ -56,7 +56,7 @@ public class MainClientActivity extends MainActivity {
 
         if(taxiList==null) {
             taxiList = PersistenceManager.selectAllTaxis();
-            filteredTaxiList = new ArrayList<>(taxiList);
+            filteredTaxiList = new ArrayList<Taxi>(taxiList);
             Geolocation.sortByProximity(filteredTaxiList);
         }
 
@@ -173,7 +173,7 @@ public class MainClientActivity extends MainActivity {
                 if (query.isEmpty())
                     return false;
 
-                filteredTaxiList = new ArrayList<>();
+                filteredTaxiList = new ArrayList<Taxi>();
                 String queryLC = query.toLowerCase();
 
                 // looks for matches and adds them to a temporary list
@@ -245,7 +245,7 @@ public class MainClientActivity extends MainActivity {
     }
 
     public void sortByProximity(View view){
-        filteredTaxiList = new ArrayList<>(taxiList);
+        filteredTaxiList = new ArrayList<Taxi>(taxiList);
 
         Geolocation.sortByProximity(filteredTaxiList);
 
@@ -255,7 +255,7 @@ public class MainClientActivity extends MainActivity {
     }
 
     public void sortByRating(View view){
-        filteredTaxiList = new ArrayList<>(taxiList);
+        filteredTaxiList = new ArrayList<Taxi>(taxiList);
         Collections.sort(filteredTaxiList, new Comparator<Taxi>() {
             @Override
             public int compare(Taxi taxi1, Taxi taxi2) {

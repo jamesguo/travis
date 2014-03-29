@@ -28,7 +28,7 @@ public class RideItemListAdapter extends BaseAdapter implements ListAdapter {
 
     RideItemListAdapter(MainActivity parentActivity, int showWhat, List<Ride> rides) {
         this.parentActivity = parentActivity;
-        this.itemList = new SparseArray<>();
+        this.itemList = new SparseArray<RideItem>();
 
         for (Ride r : rides) {
             itemList.put(r.id, RideItem.newInstance(showWhat, r, parentActivity));

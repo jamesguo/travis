@@ -18,6 +18,6 @@ public class Client extends User implements Serializable {
                   final String realName,
                   final String imageUrl) {
         super(userName, passwordDigest, realName, imageUrl);
-        this.favorites = new ArrayList<>();
+        this.favorites = new ArrayList<Integer>();
     }
 }
