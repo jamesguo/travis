@@ -24,8 +24,8 @@ import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.ridelist.RideItem;
 import pt.ua.travis.gui.ridelist.RideListFragment;
 import pt.ua.travis.gui.travel.TravelToOriginActivity;
+import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.CommonRes;
-import pt.ua.travis.utils.Keys;
 import pt.ua.travis.utils.Tools;
 import pt.ua.travis.utils.Validate;
 
@@ -194,7 +194,7 @@ public class MainTaxiActivity extends MainActivity {
         Context context = MainTaxiActivity.this;
 
         Intent resultIntent = new Intent(context, TravelToOriginActivity.class);
-        resultIntent.putExtra(Keys.SCHEDULED_RIDE, thisRide);
+        resultIntent.putExtra(CommonKeys.SCHEDULED_RIDE, thisRide);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         // Because clicking the notification launches a new ("special") activity,

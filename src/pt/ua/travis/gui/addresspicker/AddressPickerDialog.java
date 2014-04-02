@@ -20,6 +20,7 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
+import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Tools;
 
 import java.io.IOException;
@@ -36,8 +37,8 @@ public class AddressPickerDialog extends SherlockDialogFragment {
     public interface OnDoneButtonClickListener {
 
         /**
-         * The action that should occur when the user presses the done button
-         * after picking an address.
+         * The action that should occur when the user presses the "Done"
+         * button after picking an address.
          *
          * @param pickedPosition the picked address's position
          * @param addressText the picked address
@@ -57,9 +58,6 @@ public class AddressPickerDialog extends SherlockDialogFragment {
 
     private TextView selectedMarker;
 
-    private AutoCompleteAdapter adapter;
-
-
 
     /**
      * History of already looked up addresses, having these mapped by location
@@ -70,7 +68,9 @@ public class AddressPickerDialog extends SherlockDialogFragment {
     private LatLng pickedPosition;
 
 
-    public static AddressPickerDialog newInstance(SherlockFragmentActivity parentActivity, OnDoneButtonClickListener onDoneButtonPressed) {
+    public static AddressPickerDialog newInstance(SherlockFragmentActivity parentActivity,
+                                                  OnDoneButtonClickListener onDoneButtonPressed) {
+
         AddressPickerDialog p = new AddressPickerDialog();
         p.parentActivity = parentActivity;
         p.onDoneButtonPressed = onDoneButtonPressed;
@@ -81,6 +81,7 @@ public class AddressPickerDialog extends SherlockDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setRetainInstance(true);
         setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
     }
 
@@ -124,14 +125,14 @@ public class AddressPickerDialog extends SherlockDialogFragment {
 
 
         // sets the indication of the selected address as none
-        selectedMarker = (TextView) v.findViewById(R.id.selected_address_marker);
+        selectedMarker = (TextView) v.findViewById(R.id.selected_address_text);
         selectedMarker.setText("<none>");
 
 
         // configures the auto-complete search field that shows hint-data based
         // on the current geolocation
         final AutoCompleteTextView searchField = (AutoCompleteTextView) v.findViewById(R.id.search_field);
-        adapter = new AutoCompleteAdapter(parentActivity);
+        final AutoCompleteAdapter adapter = new AutoCompleteAdapter(parentActivity);
         searchField.setAdapter(adapter);
         searchField.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -157,11 +158,9 @@ public class AddressPickerDialog extends SherlockDialogFragment {
                 }
             }
 
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) {}
         });
 
         return v;

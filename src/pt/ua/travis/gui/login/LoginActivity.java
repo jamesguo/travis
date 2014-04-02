@@ -20,7 +20,7 @@ import pt.ua.travis.core.User;
 import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.main.MainClientActivity;
 import pt.ua.travis.gui.main.MainTaxiActivity;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
@@ -70,7 +70,7 @@ public class LoginActivity extends SherlockActivity {
         });
 
         rememberPassCheckbox = (CheckBox) findViewById(R.id.remember_pass_checkbox);
-        rememberPassCheckbox.setChecked(prefs.getBoolean(Keys.REMEMBER_PASS_CHECKED, false));
+        rememberPassCheckbox.setChecked(prefs.getBoolean(CommonKeys.REMEMBER_PASS_CHECKED, false));
 
         gpsStatus.setText("Searching...");
     }
@@ -82,7 +82,7 @@ public class LoginActivity extends SherlockActivity {
 
     public void onLoginButtonClicked(View view) {
 
-        prefs.edit().putBoolean(Keys.REMEMBER_PASS_CHECKED, rememberPassCheckbox.isChecked()).commit();
+        prefs.edit().putBoolean(CommonKeys.REMEMBER_PASS_CHECKED, rememberPassCheckbox.isChecked()).commit();
 
         String usernameFieldText = usernameField.getText().toString();
         String passFieldText = passField.getText().toString();

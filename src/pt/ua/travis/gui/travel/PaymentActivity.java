@@ -1,8 +1,6 @@
 package pt.ua.travis.gui.travel;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,16 +10,13 @@ import android.view.View;
 import static android.view.ViewGroup.*;
 
 import android.widget.*;
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.main.MainClientActivity;
-import pt.ua.travis.gui.taxichooser.TaxiItem;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 
 /**
@@ -37,7 +32,7 @@ public class PaymentActivity extends SherlockActivity {
         setContentView(R.layout.payment_activity);
         getSupportActionBar().hide();
 
-        taxiToPay = (Taxi) getIntent().getSerializableExtra(Keys.TAXI_TO_PAY);
+        taxiToPay = (Taxi) getIntent().getSerializableExtra(CommonKeys.TAXI_TO_PAY);
     }
 
     public void onNormalPayButtonClicked(View view) {

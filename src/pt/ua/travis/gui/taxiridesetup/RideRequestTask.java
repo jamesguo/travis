@@ -8,13 +8,16 @@ import android.os.AsyncTask;
 import android.os.SystemClock;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
-import pt.ua.travis.utils.Returner;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
 public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
+
+    public interface OnTaskFinished {
+        void onFinished(int result);
+    }
 
     public static final int OK_RESULT = 111;
     public static final int CANCEL_RESULT = 222;
@@ -23,12 +26,12 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
     private ProgressDialog progressDialog;
     private Context context;
     private Ride ride;
-    private Returner resultReturner;
+    private OnTaskFinished onTaskFinished;
 
-    public RideRequestTask(Context context, Ride ride, Returner resultReturner){
+    public RideRequestTask(Context context, Ride ride, OnTaskFinished onTaskFinished){
         this.context = context;
         this.ride = ride;
-        this.resultReturner = resultReturner;
+        this.onTaskFinished = onTaskFinished;
     }
 
     @Override
@@ -53,7 +56,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         RideRequestTask.this.cancel(true);
-                                        resultReturner.onResult(CANCEL_RESULT);
+                                        onTaskFinished.onFinished(CANCEL_RESULT);
                                     }
                                 })
                                 .setPositiveButton("No", null)
@@ -74,7 +77,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
     protected void onPostExecute(Integer result) {
         if(result==0){
             progressDialog.dismiss();
-            resultReturner.onResult(OK_RESULT);
+            onTaskFinished.onFinished(OK_RESULT);
         }
 
         // after completed finished the progressbar

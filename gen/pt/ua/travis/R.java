@@ -1643,7 +1643,7 @@ containing a value of this type.
         public static final int satellite=0x7f040011;
         public static final int search_field=0x7f040046;
         public static final int see_more=0x7f040089;
-        public static final int selected_address_marker=0x7f040049;
+        public static final int selected_address_text =0x7f040049;
         public static final int showCustom=0x7f04001b;
         public static final int showHome=0x7f040018;
         public static final int showTitle=0x7f04001a;

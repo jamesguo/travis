@@ -1,13 +1,13 @@
 package pt.ua.travis.utils;
 
-import android.app.Activity;
-
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public final class Keys {
-    private Keys(){}
+public final class CommonKeys {
+    private CommonKeys(){}
+
+    public static final String DESTROY_THIS = "destroy_this";
 
     public static final String REMEMBER_PASS_CHECKED = "remember_pass_checked";
 

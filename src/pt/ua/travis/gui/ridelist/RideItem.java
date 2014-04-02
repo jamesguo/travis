@@ -18,7 +18,7 @@ import pt.ua.travis.core.Ride;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.taxichooser.TaxiItem;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -50,7 +50,7 @@ public class RideItem extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(savedInstanceState!=null){
-            rideObject = (Ride) savedInstanceState.getSerializable(Keys.SAVED_RIDE_OBJECT);
+            rideObject = (Ride) savedInstanceState.getSerializable(CommonKeys.SAVED_RIDE_OBJECT);
         }
     }
 
@@ -58,7 +58,7 @@ public class RideItem extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putSerializable(Keys.SAVED_RIDE_OBJECT, rideObject);
+        outState.putSerializable(CommonKeys.SAVED_RIDE_OBJECT, rideObject);
     }
 
     @Override

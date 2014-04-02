@@ -15,7 +15,7 @@ import com.tyczj.mapnavigator.Directions;
 import com.tyczj.mapnavigator.Navigator;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Tools;
 
 
@@ -44,7 +44,7 @@ public class TravelToOriginActivity extends SherlockFragmentActivity implements 
         map = mapFragment.getMap();
 //        routeList = (ListView) findViewById(R.id.route_list);
 
-        thisRide = (Ride) getIntent().getSerializableExtra(Keys.SCHEDULED_RIDE);
+        thisRide = (Ride) getIntent().getSerializableExtra(CommonKeys.SCHEDULED_RIDE);
         Log.e("BAAAAAAAAAAAAAAAAAA", thisRide.destinationLat + " - " + thisRide.destinationLat);
 
 
@@ -83,7 +83,7 @@ public class TravelToOriginActivity extends SherlockFragmentActivity implements 
 
     public void onAuthentButtonClicked(View view){
         Intent intent = new Intent(this, AuthenticationTaxiActivity.class);
-        intent.putExtra(Keys.SCHEDULED_RIDE, thisRide);
+        intent.putExtra(CommonKeys.SCHEDULED_RIDE, thisRide);
         startActivity(intent);
     }
 

@@ -12,19 +12,14 @@
         android:id="@+id/map_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <!--<FrameLayout-->
-        <!--android:id="@+id/picker_map_container"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="110dp"
         android:background="@color/sideMenuBg"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="60dp"
-        android:padding="1dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="15dp">
 
         <AutoCompleteTextView
             android:id="@+id/search_field"
@@ -36,9 +31,9 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_below="@id/search_field"
+            android:layout_height="34dp"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:textSize="12sp"
             bootstrapbutton:bb_icon_left="fa-times"
             bootstrapbutton:bb_type="danger"
@@ -46,32 +41,32 @@
             bootstrapbutton:bb_size="small"
             android:text="@string/cancel"/>
 
+        <TextView
+            android:id="@+id/selected_address_text"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/search_field"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/cancel_button"
+            android:paddingLeft="15dp"
+            android:textSize="13sp"
+            android:lines="4"
+            android:ellipsize="end"
+            android:gravity="center|left"/>
+
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/done_button"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="34dp"
             android:layout_below="@id/search_field"
-            android:layout_toLeftOf="@id/cancel_button"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/selected_address_text"
             android:textSize="12sp"
             bootstrapbutton:bb_icon_left="fa-check"
             bootstrapbutton:bb_type="success"
             bootstrapbutton:bb_roundedCorners="false"
             bootstrapbutton:bb_size="small"
             android:text="@string/done"/>
-
-        <TextView
-            android:id="@+id/selected_address_marker"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_below="@id/search_field"
-            android:layout_toLeftOf="@id/done_button"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="15dp"
-            android:textSize="13sp"
-            android:lines="2"
-            android:ellipsize="end"
-            android:gravity="center|left"/>
-
 
     </RelativeLayout>
 

@@ -12,6 +12,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import pt.ua.travis.R;
@@ -22,7 +23,7 @@ import pt.ua.travis.gui.main.MainTaxiActivity;
 import pt.ua.travis.gui.ridelist.RideDeletedListener;
 import pt.ua.travis.gui.ridelist.RideItem;
 import pt.ua.travis.gui.travel.AuthenticationClientActivity;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 
 /**
@@ -36,7 +37,7 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        newRide = (Ride) getIntent().getSerializableExtra(Keys.SCHEDULED_RIDE);
+        newRide = (Ride) getIntent().getSerializableExtra(CommonKeys.SCHEDULED_RIDE);
 
         refreshActivity(false);
     }
@@ -56,28 +57,16 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
     }
 
     public void onDestinationButtonClicked(View view){
-        Intent intent = new Intent(this, AddressPickerDialog.class);
-        startActivityForResult(intent, Keys.REQUEST_DESTINATION_COORDS);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode==Keys.REQUEST_DESTINATION_COORDS && resultCode==RESULT_OK){
-            double lat = data.getDoubleExtra(Keys.PICKED_POSITION_LAT, 0);
-            double lng = data.getDoubleExtra(Keys.PICKED_POSITION_LNG, 0);
-            String address = data.getStringExtra(Keys.PICKED_POSITION_ADDRESS);
-
-            if((lat==0 && lng!=0) || (lat!=0 && lng==0) || (lat!=0 && lng!=0)) {
-                newRide.destinationLat = lat;
-                newRide.destinationLng = lng;
-                newRide.destinationAddress = address;
-
+        AddressPickerDialog.newInstance(this, new AddressPickerDialog.OnDoneButtonClickListener() {
+            @Override
+            public void onClick(LatLng pickedPosition, String addressText) {
+                newRide.destinationLat = pickedPosition.latitude;
+                newRide.destinationLng = pickedPosition.longitude;
+                newRide.destinationAddress = addressText;
                 refreshActivity(true);
-                // TODO SET THIS CHANGE IN THE DATABASE
+
             }
-        }
+        }).show(getSupportFragmentManager(), "DestinationAddressPickerDialog");
     }
 
     public void onAnotherTaxiButtonClicked(View view){
@@ -87,7 +76,7 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
 
     public void onSeeMoreRidesButtonClicked(View view){
         Intent intent = new Intent(this, MainClientActivity.class);
-        intent.putExtra(Keys.GO_TO_RIDE_LIST, 1);
+        intent.putExtra(CommonKeys.GO_TO_RIDE_LIST, 1);
         startActivity(intent);
     }
 
@@ -124,7 +113,7 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
         });
 
         Intent intent = new Intent(this, AuthenticationClientActivity.class);
-        intent.putExtra(Keys.SCHEDULED_RIDE, newRide);
+        intent.putExtra(CommonKeys.SCHEDULED_RIDE, newRide);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
 

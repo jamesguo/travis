@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -76,10 +75,10 @@ public class MainClientActivity extends MainActivity {
         int selectedIndex = 0;
         Intent intent = getIntent();
         if (savedInstanceState != null) {
-            selectedIndex = savedInstanceState.getInt(Keys.SELECTED_INDEX, 0);
+            selectedIndex = savedInstanceState.getInt(CommonKeys.SELECTED_INDEX, 0);
         } else if(intent!=null && intent.getExtras()!=null){
-            selectedIndex = intent.getIntExtra(Keys.SELECTED_INDEX, 0);
-            if(intent.getIntExtra(Keys.GO_TO_RIDE_LIST, 0)==1){
+            selectedIndex = intent.getIntExtra(CommonKeys.SELECTED_INDEX, 0);
+            if(intent.getIntExtra(CommonKeys.GO_TO_RIDE_LIST, 0)==1){
                 goToScheduledRidesList(null);
                 return;
             }
@@ -124,14 +123,15 @@ public class MainClientActivity extends MainActivity {
             });
         }
 
-        MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
+        final MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
         if (toggleItem != null) {
-            final int toggleButtonID = toggleItem.getItemId();
             toggleItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    if(item.getItemId() == toggleButtonID)
+                    if(item.getItemId() == toggleItem.getItemId()) {
+                        slidingLayer.closeLayer(false);
                         sideMenu.toggle();
+                    }
                     return true;
                 }
             });
@@ -232,7 +232,7 @@ public class MainClientActivity extends MainActivity {
 
     private void showTaxiChooserFragment(TaxiChooserFragment f, int currentSelectedIndex) {
         Bundle args = new Bundle();
-        args.putInt(Keys.SELECTED_INDEX, currentSelectedIndex);
+        args.putInt(CommonKeys.SELECTED_INDEX, currentSelectedIndex);
         f.setArguments(args);
 
         // Add the fragment to the 'fragment_container' FrameLayout
@@ -313,8 +313,15 @@ public class MainClientActivity extends MainActivity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        if (slidingLayer.isOpened() && event.getRawY() < slidingLayer.getHeight()) {
-            slidingLayer.closeLayer(true);
+
+        if (slidingLayer.isOpened()){
+
+            int location[] = { 0, 0 };
+            slidingLayer.getLocationOnScreen(location);
+
+            if(((int)event.getRawY()) < location[1]) {
+                slidingLayer.closeLayer(true);
+            }
         }
 
         return super.dispatchTouchEvent(event);
@@ -346,8 +353,6 @@ public class MainClientActivity extends MainActivity {
     }
 
     public void onOriginButtonClicked(View view){
-//        Intent intent = new Intent(context, AddressPickerDialog.class);
-//        startActivityForResult(intent, Keys.REQUEST_ORIGIN_COORDS);
 
         AddressPickerDialog.newInstance(this, new AddressPickerDialog.OnDoneButtonClickListener() {
             @Override
@@ -356,7 +361,7 @@ public class MainClientActivity extends MainActivity {
                 addressTextView.setText(addressText);
 
             }
-        }).show(getSupportFragmentManager(), "AddressPickerDialog");
+        }).show(getSupportFragmentManager(), "OriginAddressPickerDialog");
     }
 
     /**
@@ -379,16 +384,16 @@ public class MainClientActivity extends MainActivity {
 
     private void requestRideToTaxi(final Ride newRide){
 
-        new RideRequestTask(MainClientActivity.this, newRide, new Returner() {
+        new RideRequestTask(MainClientActivity.this, newRide, new RideRequestTask.OnTaskFinished() {
             @Override
-            public void onResult(int result) {
+            public void onFinished(int result) {
                 if (result == RideRequestTask.OK_RESULT) {
                     PersistenceManager.addRide(newRide);
 
                     Intent intent = new Intent(
                             MainClientActivity.this,
                             WaitForTaxiActivity.class);
-                    intent.putExtra(Keys.SCHEDULED_RIDE, newRide);
+                    intent.putExtra(CommonKeys.SCHEDULED_RIDE, newRide);
                     startActivity(intent);
                 } else if(result == RideRequestTask.CANCEL_RESULT) {
                     // TODO THE TAXI DENIED THE REQUEST
@@ -409,7 +414,7 @@ public class MainClientActivity extends MainActivity {
         ft.remove(currentlyShownChooserFragment);
         ft.commit();
 
-        outState.putInt(Keys.SELECTED_INDEX, currentlyShownChooserFragment.getCurrentSelectedIndex());
+        outState.putInt(CommonKeys.SELECTED_INDEX, currentlyShownChooserFragment.getCurrentSelectedIndex());
 
         super.onSaveInstanceState(outState);
     }

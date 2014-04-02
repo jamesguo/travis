@@ -87,7 +87,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                 .position(latLng)
                 .title("You")
                 .visible(true));
-        
+
         map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override

@@ -12,8 +12,8 @@ import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
+import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.CommonRes;
-import pt.ua.travis.utils.Keys;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -45,8 +45,8 @@ public class TaxiItem extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(savedInstanceState!=null){
-            taxiObject = (Taxi) savedInstanceState.getSerializable(Keys.SAVED_TAXI_OBJECT);
-            clientObject = (Client) savedInstanceState.getSerializable(Keys.SAVED_CLIENT_OBJECT);
+            taxiObject = (Taxi) savedInstanceState.getSerializable(CommonKeys.SAVED_TAXI_OBJECT);
+            clientObject = (Client) savedInstanceState.getSerializable(CommonKeys.SAVED_CLIENT_OBJECT);
         }
     }
 
@@ -54,8 +54,8 @@ public class TaxiItem extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putSerializable(Keys.SAVED_TAXI_OBJECT, taxiObject);
-        outState.putSerializable(Keys.SAVED_CLIENT_OBJECT, clientObject);
+        outState.putSerializable(CommonKeys.SAVED_TAXI_OBJECT, taxiObject);
+        outState.putSerializable(CommonKeys.SAVED_CLIENT_OBJECT, clientObject);
     }
 
     @Override

@@ -23,7 +23,7 @@ import pt.ua.travis.core.Ride;
 import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.gui.main.MainTaxiActivity;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 
 /**
@@ -55,8 +55,8 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
         Intent intent = getIntent();
 
-        userType = intent.getStringExtra(Keys.USER_TYPE);
-        thisRide = (Ride) intent.getSerializableExtra(Keys.SCHEDULED_RIDE);
+        userType = intent.getStringExtra(CommonKeys.USER_TYPE);
+        thisRide = (Ride) intent.getSerializableExtra(CommonKeys.SCHEDULED_RIDE);
         double destLat = thisRide.destinationLat;
         double destLng = thisRide.destinationLng;
 
@@ -65,7 +65,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
         if(userType.equals("client")) {
             if(destLat == 0 && destLng == 0) {
                 Intent newIntent = new Intent(this, AddressPickerDialog.class);
-                startActivityForResult(newIntent, Keys.REQUEST_DESTINATION_COORDS);
+                startActivityForResult(newIntent, CommonKeys.REQUEST_DESTINATION_COORDS);
             } else {
                 getDirection(new LatLng(destLat, destLng));
             }
@@ -74,7 +74,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
             getDirection(new LatLng(destLat, destLng));
         }
 
-        Ride incomingRide = (Ride) intent.getSerializableExtra(Keys.NEW_REQUEST_ACCEPTED_DURING_TRAVEL);
+        Ride incomingRide = (Ride) intent.getSerializableExtra(CommonKeys.NEW_REQUEST_ACCEPTED_DURING_TRAVEL);
         if(incomingRide!=null){
             PersistenceManager.addRide(incomingRide);
         }
@@ -84,14 +84,14 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==Keys.REQUEST_DESTINATION_COORDS && resultCode==RESULT_OK){
-            double lat = data.getDoubleExtra(Keys.PICKED_POSITION_LAT, 0);
-            double lng = data.getDoubleExtra(Keys.PICKED_POSITION_LNG, 0);
+        if(requestCode== CommonKeys.REQUEST_DESTINATION_COORDS && resultCode==RESULT_OK){
+            double lat = data.getDoubleExtra(CommonKeys.PICKED_POSITION_LAT, 0);
+            double lng = data.getDoubleExtra(CommonKeys.PICKED_POSITION_LNG, 0);
 
             if((lat==0 && lng!=0) || (lat!=0 && lng==0) || (lat!=0 && lng!=0)) {
                 getDirection(new LatLng(lat, lng));
             }
-        } else if(requestCode==Keys.WAIT_FOR_DESTINATION){
+        } else if(requestCode== CommonKeys.WAIT_FOR_DESTINATION){
             // TODO (*1)
         }
     }
@@ -122,7 +122,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
         if(userType.equals("client")) {
             Intent intent = new Intent(this, PaymentActivity.class);
-            intent.putExtra(Keys.TAXI_TO_PAY, thisRide.taxi);
+            intent.putExtra(CommonKeys.TAXI_TO_PAY, thisRide.taxi);
             startActivity(intent);
         } else if(userType.equals("taxi")){
             Intent intent = new Intent(this, MainTaxiActivity.class);
@@ -139,9 +139,9 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
                 LocalTime.now().plusHours(1));
 
         Intent resultIntent = new Intent(this, TravelToDestinationActivity.class);
-        resultIntent.putExtra(Keys.USER_TYPE, userType);
-        resultIntent.putExtra(Keys.SCHEDULED_RIDE, thisRide);
-        resultIntent.putExtra(Keys.NEW_REQUEST_ACCEPTED_DURING_TRAVEL, incomingRide);
+        resultIntent.putExtra(CommonKeys.USER_TYPE, userType);
+        resultIntent.putExtra(CommonKeys.SCHEDULED_RIDE, thisRide);
+        resultIntent.putExtra(CommonKeys.NEW_REQUEST_ACCEPTED_DURING_TRAVEL, incomingRide);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         // Because clicking the notification launches a new ("special") activity,
@@ -150,8 +150,8 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         Intent dismissIntent = new Intent(this, TravelToDestinationActivity.class);
-        dismissIntent.putExtra(Keys.USER_TYPE, userType);
-        dismissIntent.putExtra(Keys.SCHEDULED_RIDE, thisRide);
+        dismissIntent.putExtra(CommonKeys.USER_TYPE, userType);
+        dismissIntent.putExtra(CommonKeys.SCHEDULED_RIDE, thisRide);
 //        dismissIntent.setAction(CommonConstants.ACTION_DISMISS);
         PendingIntent piDecline = PendingIntent.getActivity(this, 0, dismissIntent, 0);
 

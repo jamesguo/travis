@@ -5,7 +5,7 @@ import com.androidmapsextensions.Marker;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.gui.main.MainClientActivity;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;
 
@@ -54,7 +54,7 @@ public class TaxiChooserPagerFragment extends TaxiChooserFragment {
 //        }
 
         // selects the item that was selected in the previous fragment
-        int indexToSelect = getArguments().getInt(Keys.SELECTED_INDEX);
+        int indexToSelect = getArguments().getInt(CommonKeys.SELECTED_INDEX);
         select(indexToSelect);
     }
 

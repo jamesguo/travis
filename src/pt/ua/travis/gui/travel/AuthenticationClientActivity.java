@@ -6,7 +6,7 @@ import android.view.View;
 import com.actionbarsherlock.app.SherlockActivity;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.utils.CommonKeys;
 
 
 /**
@@ -22,13 +22,13 @@ public class AuthenticationClientActivity extends SherlockActivity {
         setContentView(R.layout.authent_client_activity);
         getSupportActionBar().hide();
 
-        thisRide = (Ride) getIntent().getSerializableExtra(Keys.SCHEDULED_RIDE);
+        thisRide = (Ride) getIntent().getSerializableExtra(CommonKeys.SCHEDULED_RIDE);
     }
 
     public void onAuthentButtonClicked(View view){
         Intent intent = new Intent(this, TravelToDestinationActivity.class);
-        intent.putExtra(Keys.SCHEDULED_RIDE, thisRide);
-        intent.putExtra(Keys.USER_TYPE, "client");
+        intent.putExtra(CommonKeys.SCHEDULED_RIDE, thisRide);
+        intent.putExtra(CommonKeys.USER_TYPE, "client");
         startActivity(intent);
     }
 }
