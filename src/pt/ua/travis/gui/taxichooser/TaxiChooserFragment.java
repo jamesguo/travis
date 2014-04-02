@@ -1,20 +1,17 @@
 package pt.ua.travis.gui.taxichooser;
 
-import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.util.SparseArray;
-import android.view.InflateException;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.androidmapsextensions.GoogleMap;
 import com.androidmapsextensions.Marker;
 import com.androidmapsextensions.MarkerOptions;
 import com.androidmapsextensions.SupportMapFragment;
+import com.androidmapsextensions.lazy.LazyMarker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -22,8 +19,7 @@ import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.taxiridesetup.RideRequestActivity;
-import pt.ua.travis.utils.Keys;
+import pt.ua.travis.gui.main.MainClientActivity;
 import pt.ua.travis.utils.Tools;
 
 import java.util.ArrayList;
@@ -85,13 +81,13 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
 
         Location l = Tools.getCurrentLocation(getActivity());
         LatLng latLng = new LatLng(l.getLatitude(), l.getLongitude());
+
         final Marker userPosition = map.addMarker(new MarkerOptions()
                 .data(0)
                 .position(latLng)
                 .title("You")
                 .visible(true));
-
-
+        
         map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
@@ -138,17 +134,13 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 int selectedMarkerID = marker.getData();
+
                 Taxi t = itemToMarkerMappings
                         .get(selectedMarkerID)
                         .second
                         .getTaxiObject();
 
-                Intent intent = new Intent(
-                        TaxiChooserFragment.this.getActivity(),
-                        RideRequestActivity.class);
-                intent.putExtra(Keys.SELECTED_TAXI, t);
-                intent.putExtra(Keys.SELECTED_INDEX, getCurrentSelectedIndex());
-                startActivity(intent);
+                ((MainClientActivity)getActivity()).showOptionsPane(t);
             }
         });
         map.moveCamera(CameraUpdateFactory.zoomTo(15));
@@ -169,6 +161,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
         Client cc = PersistenceManager.selectThisClientAccount();
 
         for (Taxi tt : taxis) {
+
             Marker m = map.addMarker(new MarkerOptions()
                     .data(tt.id)
                     .position(new LatLng(tt.positionLat, tt.positionLng))

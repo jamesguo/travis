@@ -16,13 +16,12 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
-import pt.ua.travis.gui.addresspicker.AddressPickerActivity;
+import pt.ua.travis.gui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.gui.main.MainClientActivity;
 import pt.ua.travis.gui.main.MainTaxiActivity;
 import pt.ua.travis.gui.ridelist.RideDeletedListener;
 import pt.ua.travis.gui.ridelist.RideItem;
 import pt.ua.travis.gui.travel.AuthenticationClientActivity;
-import pt.ua.travis.gui.travel.TravelToOriginActivity;
 import pt.ua.travis.utils.Keys;
 
 
@@ -57,7 +56,7 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
     }
 
     public void onDestinationButtonClicked(View view){
-        Intent intent = new Intent(this, AddressPickerActivity.class);
+        Intent intent = new Intent(this, AddressPickerDialog.class);
         startActivityForResult(intent, Keys.REQUEST_DESTINATION_COORDS);
     }
 
@@ -109,7 +108,7 @@ public class WaitForTaxiActivity extends SherlockFragmentActivity implements Rid
                 .setTicker(newRide.taxi.realName + " has arrived!")
                 .setWhen(System.currentTimeMillis());
 
-        Picasso.with(context).load(newRide.taxi.imageUrl).into(new Target() {
+        Picasso.with(context).load(newRide.taxi.imageUri).into(new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                 builder.setLargeIcon(bitmap);

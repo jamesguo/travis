@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Taxi;
-import pt.ua.travis.utils.CommonResources;
+import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Keys;
 
 /**
@@ -78,9 +78,9 @@ public class TaxiItem extends Fragment {
         // set the available status shape at the left side of the photo
         ImageView availableStatus = (ImageView) v.findViewById(R.id.available_status);
         if (taxiObject.isAvailable) {
-            availableStatus.setImageDrawable(CommonResources.AVAILABLE_SHAPE);
+            availableStatus.setImageDrawable(CommonRes.AVAILABLE_SHAPE);
         } else {
-            availableStatus.setImageDrawable(CommonResources.UNAVAILABLE_SHAPE);
+            availableStatus.setImageDrawable(CommonRes.UNAVAILABLE_SHAPE);
         }
 
         // set the name
@@ -88,7 +88,7 @@ public class TaxiItem extends Fragment {
         nameView.setText(taxiObject.realName);
 
         // set the photo
-        String imageUrl = taxiObject.imageUrl;
+        String imageUrl = taxiObject.imageUri;
         if (imageUrl != null && !imageUrl.isEmpty()) {
             ImageView photoView = (ImageView) v.findViewById(R.id.photo);
             Picasso.with(context).load(imageUrl).fit().into(photoView);
@@ -97,7 +97,7 @@ public class TaxiItem extends Fragment {
         // set the favorite icon
         ImageView favoriteIcon = (ImageView) v.findViewById(R.id.favorite);
         if(clientObject.favorites.contains(taxiObject.id))
-            favoriteIcon.setImageDrawable(CommonResources.FAVORITE_ICON);
+            favoriteIcon.setImageDrawable(CommonRes.FAVORITE_ICON);
 
         // set the rating
         RatingBar ratingBar = (RatingBar) v.findViewById(R.id.rating);

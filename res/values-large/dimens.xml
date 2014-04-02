@@ -6,5 +6,6 @@
     -->
 
     <dimen name="viewpager_margin">-64dp</dimen>
+    <dimen name="options_pane_height">500dp</dimen>
 
 </resources>

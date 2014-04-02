@@ -20,12 +20,12 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class AddressPickerAdapter extends ArrayAdapter<Address> implements Filterable {
+public class AutoCompleteAdapter extends ArrayAdapter<Address> implements Filterable {
 
         private LayoutInflater inflater;
         private Geocoder geocoder;
 
-        public AddressPickerAdapter(final Context context) {
+        public AutoCompleteAdapter(final Context context) {
             super(context, -1);
             inflater = LayoutInflater.from(context);
             geocoder = new Geocoder(context);

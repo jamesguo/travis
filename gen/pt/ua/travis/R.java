@@ -1575,7 +1575,7 @@ containing a value of this type.
         public static final int btOrigin=0x7f040078;
         public static final int cancel_button=0x7f040047;
         public static final int centerShim=0x7f040074;
-        public static final int container=0x7f04004f;
+        public static final int container =0x7f04004f;
         public static final int creditCard=0x7f040005;
         public static final int custom=0x7f04000b;
         public static final int date=0x7f04000e;
@@ -1705,8 +1705,8 @@ containing a value of this type.
         public static final int payment_activity=0x7f030021;
         public static final int ranking_dialog=0x7f030022;
         public static final int register_activity=0x7f030023;
-        public static final int ride_item_show_client=0x7f030024;
-        public static final int ride_item_show_taxi=0x7f030025;
+        public static final int ride_client_item =0x7f030024;
+        public static final int ride_taxi_item =0x7f030025;
         public static final int ride_setup=0x7f030026;
         public static final int ride_setup_buttons=0x7f030027;
         public static final int ride_setup_options=0x7f030028;

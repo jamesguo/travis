@@ -5,44 +5,29 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import pt.ua.travis.R;
-import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Ride;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.login.LoginActivity;
-import pt.ua.travis.gui.ridelist.RideDeletedListener;
 import pt.ua.travis.gui.ridelist.RideItem;
 import pt.ua.travis.gui.ridelist.RideListFragment;
-import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
-import pt.ua.travis.gui.taxichooser.TaxiItem;
 import pt.ua.travis.gui.travel.TravelToOriginActivity;
-import pt.ua.travis.utils.CommonResources;
+import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Keys;
 import pt.ua.travis.utils.Tools;
 import pt.ua.travis.utils.Validate;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 // TODO: BACK STACK NEEDS WORK!
 
@@ -58,7 +43,7 @@ public class MainTaxiActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_taxi_activity);
 
-        CommonResources.initialize(this);
+        CommonRes.initialize(this);
 
         goToScheduledRidesList(null);
     }
@@ -109,7 +94,7 @@ public class MainTaxiActivity extends MainActivity {
         Taxi thisTaxi = PersistenceManager.selectThisTaxiAccount();
         int numOfRides = PersistenceManager.selectRidesFromTaxi().size();
 
-        String imageUrl = thisTaxi.imageUrl;
+        String imageUrl = thisTaxi.imageUri;
         if (imageUrl != null && !imageUrl.isEmpty()) {
             ImageView photoView = (ImageView) findViewById(R.id.photo);
             Picasso.with(this).load(imageUrl).into(photoView);

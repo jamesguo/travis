@@ -1,6 +1,5 @@
 package pt.ua.travis.gui.ridelist;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -8,13 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
-import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
 import pt.ua.travis.gui.main.MainActivity;
-import pt.ua.travis.gui.main.MainClientActivity;
-import pt.ua.travis.utils.CommonResources;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

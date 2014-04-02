@@ -8,11 +8,14 @@
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.androidmapsextensions.SupportMapFragment"
+    <FrameLayout
+        android:id="@+id/map_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <!--<FrameLayout-->
+        <!--android:id="@+id/picker_map_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,8 +44,7 @@
             bootstrapbutton:bb_type="danger"
             bootstrapbutton:bb_roundedCorners="false"
             bootstrapbutton:bb_size="small"
-            android:text="@string/cancel"
-            android:onClick="onCancelButtonPressed"/>
+            android:text="@string/cancel"/>
 
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/done_button"
@@ -55,8 +57,7 @@
             bootstrapbutton:bb_type="success"
             bootstrapbutton:bb_roundedCorners="false"
             bootstrapbutton:bb_size="small"
-            android:text="@string/done"
-            android:onClick="onDoneButtonPressed"/>
+            android:text="@string/done"/>
 
         <TextView
             android:id="@+id/selected_address_marker"

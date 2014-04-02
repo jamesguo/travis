@@ -9,5 +9,8 @@
     <dimen name="taxi_item_height">90dip</dimen>
     <dimen name="viewpager_margin">-32dp</dimen>
     <dimen name="ride_item_height">120dip</dimen>
+    <dimen name="options_pane_height">300dp</dimen>
+    <dimen name="options_pane_shadow_width">8dp</dimen>
+    <dimen name="options_pane_offset_width">48dp</dimen>
 
 </resources>

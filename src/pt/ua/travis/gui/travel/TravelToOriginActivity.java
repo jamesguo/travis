@@ -14,10 +14,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.tyczj.mapnavigator.Directions;
 import com.tyczj.mapnavigator.Navigator;
 import pt.ua.travis.R;
-import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Ride;
-import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.addresspicker.AddressPickerActivity;
 import pt.ua.travis.utils.Keys;
 import pt.ua.travis.utils.Tools;
 

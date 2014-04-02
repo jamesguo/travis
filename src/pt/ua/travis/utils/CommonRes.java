@@ -9,7 +9,7 @@ import pt.ua.travis.R;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public final class CommonResources {
+public final class CommonRes {
 
     private static boolean isInitialized = false;
 

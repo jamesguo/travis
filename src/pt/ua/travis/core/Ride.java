@@ -1,12 +1,14 @@
 package pt.ua.travis.core;
 
 import android.util.Log;
+import com.squareup.picasso.Picasso;
 import org.joda.time.LocalTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
 import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
 
+import java.io.File;
 import java.io.Serializable;
 
 /**

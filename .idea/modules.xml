@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/dependencies/actionbarsherlock/actionbarsherlock.iml" filepath="$PROJECT_DIR$/dependencies/actionbarsherlock/actionbarsherlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/dependencies/android-edittext-validator/android-edittext-validator.iml" filepath="$PROJECT_DIR$/dependencies/android-edittext-validator/android-edittext-validator.iml" />
       <module fileurl="file://$PROJECT_DIR$/dependencies/android-maps-extensions/android-maps-extensions.iml" filepath="$PROJECT_DIR$/dependencies/android-maps-extensions/android-maps-extensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencies/android-sliding-layer/android-sliding-layer.iml" filepath="$PROJECT_DIR$/dependencies/android-sliding-layer/android-sliding-layer.iml" />
       <module fileurl="file://$PROJECT_DIR$/dependencies/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/dependencies/google-play-services_lib/google-play-services_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/icm_travis.iml" filepath="$PROJECT_DIR$/icm_travis.iml" />
     </modules>

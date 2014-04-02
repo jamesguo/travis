@@ -25,7 +25,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Integer>{
     private Ride ride;
     private Returner resultReturner;
 
-    RideRequestTask(Context context, Ride ride, Returner resultReturner){
+    public RideRequestTask(Context context, Ride ride, Returner resultReturner){
         this.context = context;
         this.ride = ride;
         this.resultReturner = resultReturner;

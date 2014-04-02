@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -22,11 +21,9 @@ import org.joda.time.LocalTime;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Ride;
 import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.addresspicker.AddressPickerActivity;
-import pt.ua.travis.gui.main.MainClientActivity;
+import pt.ua.travis.gui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.gui.main.MainTaxiActivity;
 import pt.ua.travis.utils.Keys;
-import pt.ua.travis.utils.Tools;
 
 
 /**
@@ -67,7 +64,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
         if(userType.equals("client")) {
             if(destLat == 0 && destLng == 0) {
-                Intent newIntent = new Intent(this, AddressPickerActivity.class);
+                Intent newIntent = new Intent(this, AddressPickerDialog.class);
                 startActivityForResult(newIntent, Keys.REQUEST_DESTINATION_COORDS);
             } else {
                 getDirection(new LatLng(destLat, destLng));

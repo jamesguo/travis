@@ -1,26 +1,25 @@
 package pt.ua.travis.gui.addresspicker;
 
-import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.util.ArrayMap;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
+import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.androidmapsextensions.GoogleMap;
-import com.androidmapsextensions.Marker;
-import com.androidmapsextensions.MarkerOptions;
-import com.androidmapsextensions.SupportMapFragment;
+import com.androidmapsextensions.*;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
-import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.utils.Keys;
 import pt.ua.travis.utils.Tools;
 
 import java.io.IOException;
@@ -32,7 +31,25 @@ import java.util.Map;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class AddressPickerActivity extends SherlockFragmentActivity {
+public class AddressPickerDialog extends SherlockDialogFragment {
+
+    public interface OnDoneButtonClickListener {
+
+        /**
+         * The action that should occur when the user presses the done button
+         * after picking an address.
+         *
+         * @param pickedPosition the picked address's position
+         * @param addressText the picked address
+         */
+        void onClick(LatLng pickedPosition, String addressText);
+    }
+
+    private SherlockFragmentActivity parentActivity;
+
+    private OnDoneButtonClickListener onDoneButtonPressed;
+
+    private SupportMapFragment mapFragment;
 
     private GoogleMap map;
 
@@ -40,7 +57,7 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
 
     private TextView selectedMarker;
 
-    private AddressPickerAdapter adapter;
+    private AutoCompleteAdapter adapter;
 
 
 
@@ -52,32 +69,69 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
     private Map<LatLng, String> addressLookupHistory;
     private LatLng pickedPosition;
 
+
+    public static AddressPickerDialog newInstance(SherlockFragmentActivity parentActivity, OnDoneButtonClickListener onDoneButtonPressed) {
+        AddressPickerDialog p = new AddressPickerDialog();
+        p.parentActivity = parentActivity;
+        p.onDoneButtonPressed = onDoneButtonPressed;
+        return p;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.address_picker);
-        getSupportActionBar().hide();
-        geocoder = new Geocoder(this);
+
+        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.address_picker, null);
+
+        geocoder = new Geocoder(parentActivity);
         addressLookupHistory = new ArrayMap<LatLng, String>();
 
 
-        // configures the map
-        SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        map = supportMapFragment.getExtendedMap();
+        // configures the button click listeners, where done button runs the
+        // implemented interface specified in the constructor
+        BootstrapButton done = (BootstrapButton) v.findViewById(R.id.done_button);
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pickedPosition!=null) {
+                    onDoneButtonPressed.onClick(
+                            pickedPosition,
+                            addressLookupHistory.get(pickedPosition));
+                    dismiss();
+                }
+            }
+        });
+        BootstrapButton cancel = (BootstrapButton) v.findViewById(R.id.cancel_button);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
-        Location l = Tools.getCurrentLocation(this);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(l.getLatitude(), l.getLongitude()), 15));
-        map.setMyLocationEnabled(false);
+
+        // configures the map fragment to occupy it's container
+        mapFragment = SupportMapFragment.newInstance();
+        getChildFragmentManager()
+                .beginTransaction()
+                .add(R.id.map_container, mapFragment)
+                .commit();
 
 
-        //
-        selectedMarker = (TextView) findViewById(R.id.selected_address_marker);
+        // sets the indication of the selected address as none
+        selectedMarker = (TextView) v.findViewById(R.id.selected_address_marker);
         selectedMarker.setText("<none>");
 
 
-        //
-        final AutoCompleteTextView searchField = (AutoCompleteTextView) findViewById(R.id.search_field);
-        adapter = new AddressPickerAdapter(this);
+        // configures the auto-complete search field that shows hint-data based
+        // on the current geolocation
+        final AutoCompleteTextView searchField = (AutoCompleteTextView) v.findViewById(R.id.search_field);
+        adapter = new AutoCompleteAdapter(parentActivity);
         searchField.setAdapter(adapter);
         searchField.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -110,6 +164,18 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
             }
         });
 
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Location l = Tools.getCurrentLocation(parentActivity);
+
+        map = mapFragment.getExtendedMap();
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(l.getLatitude(), l.getLongitude()), 15));
+        map.setMyLocationEnabled(false);
         map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng position) {
@@ -128,7 +194,7 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
             try {
                 List<Address> addresses = geocoder.getFromLocation(position.latitude, position.longitude, 1);
                 if (addresses.isEmpty()) {
-                    Toast.makeText(AddressPickerActivity.this,
+                    Toast.makeText(parentActivity,
                             "No addresses at the tapped location were found!",
                             Toast.LENGTH_SHORT)
                             .show();
@@ -155,24 +221,5 @@ public class AddressPickerActivity extends SherlockFragmentActivity {
         selectedMarker.setText(addressLine);
         map.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()), 500, null);
         pickedPosition = position;
-    }
-
-
-    public void onDoneButtonPressed(View view){
-        if(pickedPosition!=null){
-            Intent intent = new Intent();
-            intent.putExtra(Keys.PICKED_POSITION_LAT, pickedPosition.latitude);
-            intent.putExtra(Keys.PICKED_POSITION_LNG, pickedPosition.longitude);
-            intent.putExtra(Keys.PICKED_POSITION_ADDRESS, addressLookupHistory.get(pickedPosition));
-            setResult(RESULT_OK, intent);
-            finish();
-        }
-    }
-
-
-    public void onCancelButtonPressed(View view){
-        Intent intent = new Intent();
-        setResult(RESULT_CANCELED, intent);
-        finish();
     }
 }

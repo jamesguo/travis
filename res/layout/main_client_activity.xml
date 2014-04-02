@@ -2,6 +2,7 @@
 
 <com.agimind.widget.SlideHolder
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/pt.ua.travis"
     android:id="@+id/sideMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -144,14 +145,32 @@
     </LinearLayout>
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                     android:id="@+id/fragment_container"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:layout_alignParentRight="true"/>
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.slidinglayer.SlidingLayer
+            android:id="@+id/sliding_layer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/options_pane_height"
+            android:layout_alignParentBottom="true"
+            slidingLayer:closeOnTapEnabled="false">
+
+            <pt.ua.travis.gui.taxiridesetup.RideRequestViewPager
+                android:id="@+id/options_pane"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/options_pane_shadow"/>
+
+        </com.slidinglayer.SlidingLayer>
+
     </RelativeLayout>
 
 

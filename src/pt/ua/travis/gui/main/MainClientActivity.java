@@ -1,33 +1,41 @@
 package pt.ua.travis.gui.main;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.agimind.widget.SlideHolder;
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.google.android.gms.maps.model.LatLng;
+import com.slidinglayer.SlidingLayer;
 import com.squareup.picasso.Picasso;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalTime;
 import pt.ua.travis.R;
 import pt.ua.travis.core.Client;
+import pt.ua.travis.core.Ride;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.Geolocation;
 import pt.ua.travis.db.PersistenceManager;
-import pt.ua.travis.gui.login.LoginActivity;
-import pt.ua.travis.gui.ridelist.RideDeletedListener;
+import pt.ua.travis.gui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.gui.ridelist.RideItem;
 import pt.ua.travis.gui.ridelist.RideListFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserListFragment;
 import pt.ua.travis.gui.taxichooser.TaxiChooserPagerFragment;
-import pt.ua.travis.utils.CommonResources;
-import pt.ua.travis.utils.Keys;
-import pt.ua.travis.utils.Validate;
+import pt.ua.travis.gui.taxiridesetup.*;
+import pt.ua.travis.utils.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,13 +54,18 @@ public class MainClientActivity extends MainActivity {
     private static List<Taxi> taxiList;
     private static List<Taxi> filteredTaxiList;
 
+    private RideBuilder rideBuilder;
+    private RideRequestViewPager pager;
+    private SlidingLayer slidingLayer;
+    private TextView addressTextView;
+
     private TaxiChooserFragment currentlyShownChooserFragment;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_client_activity);
-
-        CommonResources.initialize(this);
+        CommonRes.initialize(this);
+        rideBuilder = new RideBuilder(this);
 
         if(taxiList==null) {
             taxiList = PersistenceManager.selectAllTaxis();
@@ -80,6 +93,13 @@ public class MainClientActivity extends MainActivity {
         ActionBar bar = getSupportActionBar();
         bar.setDisplayShowTitleEnabled(false);
         getSupportMenuInflater().inflate(R.menu.actionbar_with_search, menu);
+
+        pager = (RideRequestViewPager) findViewById(R.id.options_pane);
+        pager.setPageTransformer(false, new SlidePageTransformer(pager));
+        pager.setAdapter(new RideRequestPagerAdapter(getSupportFragmentManager()));
+        pager.setOffscreenPageLimit(1);
+        slidingLayer = (SlidingLayer) findViewById(R.id.sliding_layer);
+        slidingLayer.setStickTo(SlidingLayer.STICK_TO_BOTTOM);
 
         configureSideMenu(menu);
 
@@ -121,7 +141,7 @@ public class MainClientActivity extends MainActivity {
         Client thisClient = PersistenceManager.selectThisClientAccount();
         int numOfRides = PersistenceManager.selectRidesFromClient().size();
 
-        String imageUrl = thisClient.imageUrl;
+        String imageUrl = thisClient.imageUri;
         if (imageUrl != null && !imageUrl.isEmpty()) {
             ImageView photoView = (ImageView) findViewById(R.id.photo);
             Picasso.with(this).load(imageUrl).into(photoView);
@@ -211,7 +231,6 @@ public class MainClientActivity extends MainActivity {
     }
 
     private void showTaxiChooserFragment(TaxiChooserFragment f, int currentSelectedIndex) {
-
         Bundle args = new Bundle();
         args.putInt(Keys.SELECTED_INDEX, currentSelectedIndex);
         f.setArguments(args);
@@ -259,8 +278,8 @@ public class MainClientActivity extends MainActivity {
         Collections.sort(filteredTaxiList, new Comparator<Taxi>() {
             @Override
             public int compare(Taxi taxi1, Taxi taxi2) {
-                double t1 = ((double)taxi1.getRatingAverage());
-                double t2 = ((double)taxi2.getRatingAverage());
+                double t1 = ((double) taxi1.getRatingAverage());
+                double t2 = ((double) taxi2.getRatingAverage());
 
                 return t1 < t2 ? 1 : (t1 > t2 ? -1 : 0);
             }
@@ -275,6 +294,108 @@ public class MainClientActivity extends MainActivity {
 
         showFilteredResults(0);
         sideMenu.close();
+    }
+
+    // ----------------------------------------------
+    // ------------ OPTIONS PANE METHODS ------------
+    // ----------------------------------------------
+
+    public void showOptionsPane(Taxi selectedTaxi){
+        rideBuilder.setTaxi(selectedTaxi);
+        pager.setCurrentItem(0, true);
+
+        BootstrapButton hereAndNowButton = (BootstrapButton) findViewById(R.id.btHereAndNow);
+        hereAndNowButton.setEnabled(selectedTaxi.isAvailable);
+        hereAndNowButton.setClickable(selectedTaxi.isAvailable);
+
+        slidingLayer.openLayer(true);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (slidingLayer.isOpened() && event.getRawY() < slidingLayer.getHeight()) {
+            slidingLayer.closeLayer(true);
+        }
+
+        return super.dispatchTouchEvent(event);
+    }
+
+    public void onHereAndNowButtonClicked(View view){
+        rideBuilder.resetToHereAndNow();
+        Ride newRide = rideBuilder.build();
+
+        // sends a request of created ride to the taxi
+        requestRideToTaxi(newRide);
+    }
+
+    public void onLaterButtonClicked(View view){
+        Location currentLocation = Tools.getCurrentLocation(this);
+        String currentAddress = Tools.latlngToAddressString(this,
+                currentLocation.getLatitude(), currentLocation.getLongitude());
+
+        rideBuilder.resetToHereAndNow();
+        pager.setCurrentItem(1, true);
+        addressTextView = (TextView) findViewById(R.id.origin_address);
+        addressTextView.setText(currentAddress);
+
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        timePicker.setIs24HourView(true);
+        LocalTime now = LocalTime.now();
+        timePicker.setCurrentHour(now.getHourOfDay());
+        timePicker.setCurrentMinute(now.minuteOfHour().get());
+    }
+
+    public void onOriginButtonClicked(View view){
+//        Intent intent = new Intent(context, AddressPickerDialog.class);
+//        startActivityForResult(intent, Keys.REQUEST_ORIGIN_COORDS);
+
+        AddressPickerDialog.newInstance(this, new AddressPickerDialog.OnDoneButtonClickListener() {
+            @Override
+            public void onClick(LatLng pickedPosition, String addressText) {
+                rideBuilder.setOrigin(pickedPosition.latitude, pickedPosition.longitude, addressText);
+                addressTextView.setText(addressText);
+
+            }
+        }).show(getSupportFragmentManager(), "AddressPickerDialog");
+    }
+
+    /**
+     * Creates the ride based on the parameters set on the options pane.
+     */
+    public void onDoneButtonClicked(View view){
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        rideBuilder.setScheduledTime(new LocalTime(DateTimeZone.forID("GMT"))
+                .withHourOfDay(timePicker.getCurrentHour())
+                .withMinuteOfHour(timePicker.getCurrentMinute()));
+        Ride newRide = rideBuilder.build();
+
+        // sends a request of created ride to the taxi
+        requestRideToTaxi(newRide);
+    }
+
+    public void onCancelButtonClicked(View view){
+        pager.setCurrentItem(0, true);
+    }
+
+    private void requestRideToTaxi(final Ride newRide){
+
+        new RideRequestTask(MainClientActivity.this, newRide, new Returner() {
+            @Override
+            public void onResult(int result) {
+                if (result == RideRequestTask.OK_RESULT) {
+                    PersistenceManager.addRide(newRide);
+
+                    Intent intent = new Intent(
+                            MainClientActivity.this,
+                            WaitForTaxiActivity.class);
+                    intent.putExtra(Keys.SCHEDULED_RIDE, newRide);
+                    startActivity(intent);
+                } else if(result == RideRequestTask.CANCEL_RESULT) {
+                    // TODO THE TAXI DENIED THE REQUEST
+
+                }
+            }
+        }).execute();
     }
 
     public static List<Taxi> getCurrentTaxiListState() {

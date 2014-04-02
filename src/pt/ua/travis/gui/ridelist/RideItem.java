@@ -75,19 +75,19 @@ public class RideItem extends Fragment {
             Taxi taxiObject = rideObject.taxi;
 
             if(showWhat == SHOW_TAXI) {
-                currentView = inflater.inflate(R.layout.ride_item_show_taxi, null);
+                currentView = inflater.inflate(R.layout.ride_taxi_item, null);
 
                 TaxiItem.paintViewWithTaxi(parentActivity, currentView, clientObject, taxiObject);
 
             } else if(showWhat == SHOW_CLIENT){
-                currentView = inflater.inflate(R.layout.ride_item_show_taxi, null);
+                currentView = inflater.inflate(R.layout.ride_taxi_item, null);
 
                 // set the name
                 TextView nameView = (TextView) currentView.findViewById(R.id.text);
                 nameView.setText(clientObject.realName);
 
                 // set the photo
-                String imageUrl = clientObject.imageUrl;
+                String imageUrl = clientObject.imageUri;
                 if (imageUrl != null && !imageUrl.isEmpty()) {
                     ImageView photoView = (ImageView) currentView.findViewById(R.id.photo);
                     Picasso.with(parentActivity).load(imageUrl).fit().into(photoView);
