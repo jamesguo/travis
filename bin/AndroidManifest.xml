@@ -2,11 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pt.ua.travis"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
     <uses-sdk
-        android:minSdkVersion="7"
-        android:maxSdkVersion="19"
-        android:targetSdkVersion="16" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
 
     <permission
         android:name="pt.ua.travis.maps.permission.MAPS_RECEIVE"
@@ -63,12 +62,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".gui.login.RegisterActivity"/>
-        <activity android:name=".gui.taxiridesetup.RideRequestActivity"/>
         <activity android:name=".gui.taxiridesetup.WaitForTaxiActivity"/>
-        <activity android:name=".gui.addresspicker.AddressPickerDialog"/>
         <activity android:name=".gui.travel.AuthenticationClientActivity"/>
         <activity android:name=".gui.travel.TravelToOriginActivity"/>
         <activity android:name=".gui.travel.AuthenticationTaxiActivity"/>
+
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

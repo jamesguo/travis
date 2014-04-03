@@ -15,9 +15,9 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
-import com.agimind.widget.SlideHolder;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
+import pt.ua.travis.core.Client;
 import pt.ua.travis.core.Ride;
 import pt.ua.travis.core.Taxi;
 import pt.ua.travis.db.PersistenceManager;
@@ -29,6 +29,8 @@ import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Tools;
 import pt.ua.travis.utils.Validate;
 
+import java.util.List;
+
 // TODO: BACK STACK NEEDS WORK!
 
 /**
@@ -37,146 +39,60 @@ import pt.ua.travis.utils.Validate;
  */
 public class MainTaxiActivity extends MainActivity {
 
-    private SlideHolder sideMenu;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_taxi_activity);
-
-        CommonRes.initialize(this);
 
         goToScheduledRidesList(null);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowTitleEnabled(false);
-        getSupportMenuInflater().inflate(R.menu.actionbar_with_search, menu);
-
-        configureSideMenu(menu);
-
-        configureSearchBar(menu);
+//        getSupportMenuInflater().inflate(R.menu.actionbar_with_search, menu);
 
         return super.onPrepareOptionsMenu(menu);
     }
 
-    private void configureSideMenu(Menu menu){
-        sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
-        sideMenu.setDirection(SlideHolder.DIRECTION_LEFT);
-        sideMenu.setAllowInterceptTouch(false);
-        sideMenu.setEnabled(false);
-        if(Validate.isTablet(this) && Validate.isLandscape(this)){
-            sideMenu.setAlwaysOpened(true);
-        } else {
-            sideMenu.setOnSlideListener(new SlideHolder.OnSlideListener() {
-                @Override
-                public void onSlideCompleted(boolean b) {
-                    sideMenu.setEnabled(b);
-                }
-            });
-        }
+    /**
+     * Populates the drawer navigation menu.
+     *
+     * @param drawerViews the list that must be populated to translate into
+     *                    items or indicators in the drawer navigation menu
+     */
+    @Override
+    protected void fillDrawerNavigation(List<DrawerView> drawerViews) {
 
-        MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
-        if (toggleItem != null) {
-            final int toggleButtonID = toggleItem.getItemId();
-            toggleItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    if(item.getItemId() == toggleButtonID)
-                        sideMenu.toggle();
-                    return true;
-                }
-            });
-        }
+        // TODO get logged in account
+        Taxi loggedInAccount = PersistenceManager.selectThisTaxiAccount();
+        // ----------------------
 
-        // load client specific data in the side menu
-        Taxi thisTaxi = PersistenceManager.selectThisTaxiAccount();
+
         int numOfRides = PersistenceManager.selectRidesFromTaxi().size();
-
-        String imageUrl = thisTaxi.imageUri;
-        if (imageUrl != null && !imageUrl.isEmpty()) {
-            ImageView photoView = (ImageView) findViewById(R.id.photo);
-            Picasso.with(this).load(imageUrl).into(photoView);
-        }
-
-        TextView nameView = (TextView) findViewById(R.id.name);
-        nameView.setText(thisTaxi.realName);
-
-        TextView ridesCounter = (TextView) findViewById(R.id.rides_counter);
-        ridesCounter.setText("" + numOfRides);
+        drawerViews.add(new DrawerUser(loggedInAccount));
+        drawerViews.add(new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, numOfRides));
+        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
+        drawerViews.add(new DrawerSeparator());
+        drawerViews.add(new DrawerItem(3, R.string.yes, R.drawable.ic_action_accept));
+//        drawerViews.add(new DrawerView(5, R.string.menu_settings, R.drawable.ic_action_settings));
     }
 
+    @Override
+    protected void onDrawerItemClick(int itemID) {
+        switch (itemID){
+            case 1: goToScheduledRidesList(null); break;
+            case 2: logout(null); break;
+            case 3: onAuthentButtonClicked(null); break;
+            default: break;
+        }
 
-
-    private void configureSearchBar(Menu menu){
-
-        final MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-
-        // if a search item is collapsed, resets the shown taxis
-        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                return true;
-            }
-
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                goToScheduledRidesList(null);
-                return true;
-            }
-        });
-
-        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                searchItem.collapseActionView();
-            }
-        });
-
-        // sets a listener to filter results when the user submits a query in the search box
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if (query.isEmpty())
-                    return false;
-
-//                filteredTaxiList = new ArrayList<>();
-//                String queryLC = query.toLowerCase();
-//
-//                // looks for matches and adds them to a temporary list
-//                for (Taxi t : taxiList) {
-//                    String nameLC = t.realName.toLowerCase();
-//
-//                    if (nameLC.contains(queryLC))
-//                        filteredTaxiList.add(t);
-//                }
-//
-//
-//                // resets the fragments and subsequent adapter to show the filtered list with matches
-//                showFilteredResults(0);
-
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+        super.onDrawerItemClick(itemID);
     }
 
     public void goToScheduledRidesList(View view){
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_container, RideListFragment.newInstance(RideItem.SHOW_CLIENT, PersistenceManager.selectRidesFromTaxi()))
+                .replace(R.id.content_frame, RideListFragment.newInstance(RideItem.SHOW_CLIENT, PersistenceManager.selectRidesFromTaxi()))
                 .addToBackStack(null)
                 .commit();
-
-        if(sideMenu!=null)
-            sideMenu.close();
     }
 
     @Override

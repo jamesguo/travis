@@ -21,6 +21,7 @@ import pt.ua.travis.db.PersistenceManager;
 import pt.ua.travis.gui.main.MainClientActivity;
 import pt.ua.travis.gui.main.MainTaxiActivity;
 import pt.ua.travis.utils.CommonKeys;
+import pt.ua.travis.utils.CommonRes;
 
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
@@ -42,6 +43,7 @@ public class LoginActivity extends SherlockActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+        CommonRes.initialize(this);
         getSupportActionBar().hide();
 
         prefs = this.getSharedPreferences("TravisPreferences", MODE_PRIVATE);

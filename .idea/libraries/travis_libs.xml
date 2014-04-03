@@ -2,7 +2,6 @@
   <library name="travis-libs">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/libs/robotium-solo-5.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/sidemenu.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/CWAC-SackOfViewsAdapter.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/ActiveAndroid.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/adapter-1.0.1.jar!/" />

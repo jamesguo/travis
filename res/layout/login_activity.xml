@@ -7,6 +7,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <!-- An invisible view aligned to the center of the parent. Allows other
+        views to be arranged on either side -->
+    <View
+        android:id="@+id/centerShim"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="46dp"
@@ -14,7 +23,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/cabs"/>
 
     <com.beardedhen.androidbootstrap.BootstrapEditText
@@ -58,8 +67,8 @@
         android:text="@string/create_new_account"
         android:layout_marginTop="15dp"
         android:layout_below="@id/remember_pass_checkbox"
+        android:layout_toRightOf="@id/centerShim"
         android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginRight="30dp"
         android:onClick="onRegisterButtonClicked"/>
 
@@ -70,7 +79,7 @@
         android:text="@string/login"
         android:layout_marginTop="15dp"
         android:layout_below="@id/remember_pass_checkbox"
-        android:layout_toLeftOf="@id/register_button"
+        android:layout_toLeftOf="@id/centerShim"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="30dp"
         android:onClick="onLoginButtonClicked"/>

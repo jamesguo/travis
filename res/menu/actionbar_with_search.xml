@@ -9,9 +9,4 @@
           android:showAsAction="always|collapseActionView"
           android:actionViewClass="com.actionbarsherlock.widget.SearchView" />
 
-    <!-- Side Menu button -->
-    <item android:id="@+id/action_side_menu_toggle"
-          android:icon="@drawable/ic_navigation_drawer"
-          android:title="@string/action_bar_show_menu"
-          android:showAsAction="always" />
 </menu>

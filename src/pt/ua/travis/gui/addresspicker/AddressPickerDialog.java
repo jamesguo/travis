@@ -82,7 +82,7 @@ public class AddressPickerDialog extends SherlockDialogFragment {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
-        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
+        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
     }
 
     @Override
@@ -126,7 +126,7 @@ public class AddressPickerDialog extends SherlockDialogFragment {
 
         // sets the indication of the selected address as none
         selectedMarker = (TextView) v.findViewById(R.id.selected_address_text);
-        selectedMarker.setText("<none>");
+        selectedMarker.setText("<none selected>");
 
 
         // configures the auto-complete search field that shows hint-data based
@@ -213,10 +213,10 @@ public class AddressPickerDialog extends SherlockDialogFragment {
     private void select(LatLng position, String addressLine){
         map.clear();
         Marker marker = map.addMarker(new MarkerOptions()
-                .title(addressLine)
+//                .title(addressLine)
                 .position(position));
 
-        marker.showInfoWindow();
+//        marker.showInfoWindow();
         selectedMarker.setText(addressLine);
         map.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()), 500, null);
         pickedPosition = position;

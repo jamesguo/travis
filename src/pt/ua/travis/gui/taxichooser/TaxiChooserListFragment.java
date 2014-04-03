@@ -1,5 +1,6 @@
 package pt.ua.travis.gui.taxichooser;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;

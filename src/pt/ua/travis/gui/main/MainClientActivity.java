@@ -1,24 +1,23 @@
 package pt.ua.travis.gui.main;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.TimePicker;
+import android.widget.*;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
-import com.agimind.widget.SlideHolder;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.model.LatLng;
 import com.slidinglayer.SlidingLayer;
-import com.squareup.picasso.Picasso;
 import org.joda.time.DateTimeZone;
 import org.joda.time.LocalTime;
 import pt.ua.travis.R;
@@ -49,7 +48,6 @@ import java.util.List;
  */
 public class MainClientActivity extends MainActivity {
 
-    private SlideHolder sideMenu;
     private static List<Taxi> taxiList;
     private static List<Taxi> filteredTaxiList;
 
@@ -62,10 +60,8 @@ public class MainClientActivity extends MainActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_client_activity);
-        CommonRes.initialize(this);
-        rideBuilder = new RideBuilder(this);
 
+        rideBuilder = new RideBuilder(this);
         if(taxiList==null) {
             taxiList = PersistenceManager.selectAllTaxis();
             filteredTaxiList = new ArrayList<Taxi>(taxiList);
@@ -84,15 +80,6 @@ public class MainClientActivity extends MainActivity {
             }
         }
 
-        showFilteredResults(selectedIndex);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayShowTitleEnabled(false);
-        getSupportMenuInflater().inflate(R.menu.actionbar_with_search, menu);
-
         pager = (RideRequestViewPager) findViewById(R.id.options_pane);
         pager.setPageTransformer(false, new SlidePageTransformer(pager));
         pager.setAdapter(new RideRequestPagerAdapter(getSupportFragmentManager()));
@@ -100,63 +87,17 @@ public class MainClientActivity extends MainActivity {
         slidingLayer = (SlidingLayer) findViewById(R.id.sliding_layer);
         slidingLayer.setStickTo(SlidingLayer.STICK_TO_BOTTOM);
 
-        configureSideMenu(menu);
+        showFilteredResults(selectedIndex);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        getSupportMenuInflater().inflate(R.menu.actionbar_with_search, menu);
 
         configureSearchBar(menu);
 
         return super.onPrepareOptionsMenu(menu);
     }
-
-    private void configureSideMenu(Menu menu){
-        sideMenu = (SlideHolder) findViewById(R.id.sideMenu);
-        sideMenu.setDirection(SlideHolder.DIRECTION_LEFT);
-        sideMenu.setAllowInterceptTouch(false);
-        sideMenu.setEnabled(false);
-        if(Validate.isTablet(this) && Validate.isLandscape(this)){
-            sideMenu.setAlwaysOpened(true);
-        } else {
-            sideMenu.setOnSlideListener(new SlideHolder.OnSlideListener() {
-                @Override
-                public void onSlideCompleted(boolean b) {
-                    sideMenu.setEnabled(b);
-                }
-            });
-        }
-
-        final MenuItem toggleItem = menu.findItem(R.id.action_side_menu_toggle);
-        if (toggleItem != null) {
-            toggleItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    if(item.getItemId() == toggleItem.getItemId()) {
-                        slidingLayer.closeLayer(false);
-                        sideMenu.toggle();
-                    }
-                    return true;
-                }
-            });
-        }
-
-        // load client specific data in the side menu
-        Client thisClient = PersistenceManager.selectThisClientAccount();
-        int numOfRides = PersistenceManager.selectRidesFromClient().size();
-
-        String imageUrl = thisClient.imageUri;
-        if (imageUrl != null && !imageUrl.isEmpty()) {
-            ImageView photoView = (ImageView) findViewById(R.id.photo);
-            Picasso.with(this).load(imageUrl).into(photoView);
-        }
-
-        TextView nameView = (TextView) findViewById(R.id.name);
-        nameView.setText(thisClient.realName);
-
-        TextView ridesCounter = (TextView) findViewById(R.id.rides_counter);
-        ridesCounter.setText("" + numOfRides);
-
-        TextView favoritesCounter = (TextView) findViewById(R.id.favorites_counter);
-        favoritesCounter.setText("" + thisClient.favorites.size());
-    }
-
 
 
     private void configureSearchBar(Menu menu){
@@ -218,6 +159,7 @@ public class MainClientActivity extends MainActivity {
         });
     }
 
+
     private void showFilteredResults(int selectedIndex){
         if(Validate.isLandscape(this)) {
             TaxiChooserListFragment landscapeFragment = new TaxiChooserListFragment();
@@ -239,12 +181,12 @@ public class MainClientActivity extends MainActivity {
         if(currentlyShownChooserFragment ==null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment_container, f)
+                    .add(R.id.content_frame, f)
                     .commit();
         } else {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, f)
+                    .replace(R.id.content_frame, f)
                     .addToBackStack(null)
                     .commit();
         }
@@ -252,15 +194,52 @@ public class MainClientActivity extends MainActivity {
         currentlyShownChooserFragment = f;
     }
 
+    /**
+     * Populates the drawer navigation menu.
+     *
+     * @param drawerViews the list that must be populated to translate into
+     *                    items or indicators in the drawer navigation menu
+     */
+    @Override
+    protected void fillDrawerNavigation(List<DrawerView> drawerViews) {
+
+        // TODO get logged in account
+        Client loggedInAccount = PersistenceManager.selectThisClientAccount();
+        // ----------------------
+
+        int numOfFavorites = loggedInAccount.favorites.size();
+        int numOfRides = PersistenceManager.selectRidesFromClient().size();
+        drawerViews.add(new DrawerUser(loggedInAccount));
+        drawerViews.add(new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, numOfRides));
+        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
+        drawerViews.add(new DrawerSeparator());
+        drawerViews.add(new DrawerItem(3, R.string.menu_closest, R.drawable.ic_action_map));
+        drawerViews.add(new DrawerItem(4, R.string.menu_best_rated, R.drawable.ic_action_not_important));
+        drawerViews.add(new DrawerItem(5, R.string.menu_favorites, R.drawable.ic_action_favorite, numOfFavorites));
+//        drawerViews.add(new DrawerView(5, R.string.menu_settings, R.drawable.ic_action_settings));
+    }
+
+
+    @Override
+    protected void onDrawerItemClick(int itemID) {
+        switch (itemID){
+            case 1: goToScheduledRidesList(null); break;
+            case 2: logout(null); break;
+            case 3: sortByProximity(null); break;
+            case 4: sortByRating(null); break;
+            case 5: showFavorites(null); break;
+            default: break;
+        }
+
+        super.onDrawerItemClick(itemID);
+    }
+
     public void goToScheduledRidesList(View view){
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_container, RideListFragment.newInstance(RideItem.SHOW_TAXI, PersistenceManager.selectRidesFromClient()))
+                .replace(R.id.content_frame, RideListFragment.newInstance(RideItem.SHOW_TAXI, PersistenceManager.selectRidesFromClient()))
                 .addToBackStack(null)
                 .commit();
-
-        if(sideMenu!=null)
-            sideMenu.close();
     }
 
     public void sortByProximity(View view){
@@ -270,7 +249,6 @@ public class MainClientActivity extends MainActivity {
 
 
         showFilteredResults(0);
-        sideMenu.close();
     }
 
     public void sortByRating(View view){
@@ -286,14 +264,12 @@ public class MainClientActivity extends MainActivity {
         });
 
         showFilteredResults(0);
-        sideMenu.close();
     }
 
     public void showFavorites(View view) {
         filteredTaxiList = PersistenceManager.getFavoritesFromClient();
 
         showFilteredResults(0);
-        sideMenu.close();
     }
 
     // ----------------------------------------------
@@ -331,7 +307,7 @@ public class MainClientActivity extends MainActivity {
         rideBuilder.resetToHereAndNow();
         Ride newRide = rideBuilder.build();
 
-        // sends a request of created ride to the taxi
+        // sends a request of the created ride to the associated taxi
         requestRideToTaxi(newRide);
     }
 

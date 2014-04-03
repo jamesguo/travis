@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.agimind.widget.SlideHolder
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/sideMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                     android:id="@+id/content_frame"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <!-- Side Menu -->
     <LinearLayout
@@ -86,16 +98,5 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                     android:id="@+id/fragment_container"
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent"
-                     android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-
-</com.agimind.widget.SlideHolder>
+</android.support.v4.widget.DrawerLayout>
