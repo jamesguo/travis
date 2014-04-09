@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sideMenu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.slidinglayer.SlidingLayer
+            android:id="@+id/sliding_layer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/options_pane_height"
+            android:layout_alignParentBottom="true"
+            slidingLayer:closeOnTapEnabled="false">
+
+            <pt.ua.travis.gui.taxiridesetup.RideRequestViewPager
+                android:id="@+id/options_pane"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/options_pane_shadow"/>
+
+        </com.slidinglayer.SlidingLayer>
+
+    </RelativeLayout>
+
+    <ListView android:id="@+id/left_drawer"
+              android:layout_width="250dp"
+              android:layout_height="match_parent"
+              android:layout_gravity="start"
+              android:choiceMode="singleChoice"
+              android:divider="@android:color/transparent"
+              android:dividerHeight="0dp"
+              android:background="@color/sideMenuBgV2"/>
+
+</android.support.v4.widget.DrawerLayout><!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/layout/main_activity.xml -->

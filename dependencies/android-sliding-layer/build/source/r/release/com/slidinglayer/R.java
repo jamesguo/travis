@@ -113,7 +113,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:closeOnTapEnabled
+          @attr name com.slidinglayer:closeOnTapEnabled
         */
         public static final int SlidingLayer_closeOnTapEnabled = 2;
         /**
@@ -129,7 +129,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:offsetWidth
+          @attr name com.slidinglayer:offsetWidth
         */
         public static final int SlidingLayer_offsetWidth = 4;
         /**
@@ -143,7 +143,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:openOnTapEnabled
+          @attr name com.slidinglayer:openOnTapEnabled
         */
         public static final int SlidingLayer_openOnTapEnabled = 3;
         /**
@@ -157,7 +157,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:shadowDrawable
+          @attr name com.slidinglayer:shadowDrawable
         */
         public static final int SlidingLayer_shadowDrawable = 0;
         /**
@@ -173,7 +173,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:shadowWidth
+          @attr name com.slidinglayer:shadowWidth
         */
         public static final int SlidingLayer_shadowWidth = 1;
         /**
@@ -194,7 +194,7 @@ containing a value of this type.
 <tr><td><code>top</code></td><td>-4</td><td></td></tr>
 <tr><td><code>bottom</code></td><td>-5</td><td></td></tr>
 </table>
-          @attr name android:stickTo
+          @attr name com.slidinglayer:stickTo
         */
         public static final int SlidingLayer_stickTo = 5;
     };

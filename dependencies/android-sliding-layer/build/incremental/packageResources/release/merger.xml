@@ -48,6 +48,7 @@
             </file>
         </source>
         <source path="C:\projects-android\icm_travis\dependencies\android-sliding-layer\build\res\rs\release" />
+        <source path="C:\projects-android\icm_travis\dependencies\android-sliding-layer\build\res\generated\release" />
     </dataSet>
     <dataSet config="release" >
         <source path="C:\projects-android\icm_travis\dependencies\android-sliding-layer\src\release\res" />

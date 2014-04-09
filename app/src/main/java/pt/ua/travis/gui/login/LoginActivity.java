@@ -89,12 +89,6 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         CommonRes.initialize(this);
-//        try {
-//            CloudEntity ce = new CloudEntity("test");
-//            CloudBackend cb = new CloudBackend();
-//            cb.insert(ce);
-//
-//        }catch (Exception e){}
         getSupportActionBar().hide();
 
         if (!Validate.hasGooglePlayServices(this)) {
@@ -163,6 +157,10 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
 //        }
 
         populateAutoComplete();
+
+//        Log.e("----", CloudBackendManager.select().rides().execute().toString());
+//        Log.e("----", CloudBackendManager.select().clients().execute().toString());
+//        Log.e("----", CloudBackendManager.select().taxis().execute().toString());
     }
 
     private void populateAutoComplete() {

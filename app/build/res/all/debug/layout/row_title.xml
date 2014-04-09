@@ -13,4 +13,4 @@
     	android:id="@+id/lblTitle"
     	android:gravity="left"
         />
-</LinearLayout><!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/layout/row_title.xml --><!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-bundles/Icm_travisDependenciesAndroidBootstrapUnspecified.aar/res/layout/row_title.xml -->
+</LinearLayout><!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/layout/row_title.xml --><!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/layout/row_title.xml -->

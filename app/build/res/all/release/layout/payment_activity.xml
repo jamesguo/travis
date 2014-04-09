@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/pay_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        bootstrapbutton:bb_type="primary"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_size="normal"
+        android:text="Pay normally"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp"
+        android:onClick="onNormalPayButtonClicked"/>
+
+    <ImageButton
+        android:id="@+id/pay_google_wallet"
+        android:layout_width="208dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/pay_normal"
+        android:minWidth="200dp"
+        android:background="@drawable/wallet_button_background"
+        android:src="@drawable/wallet_button_buy_with_foreground"
+        android:onClick="onWalletPayButtonClicked"/>
+
+</RelativeLayout><!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/layout/payment_activity.xml -->

@@ -48,232 +48,28 @@ public final class CloudBackendManager {
         private Select(){}
 
         public SelectRides rides(){
-            return new SelectRides();
+            return new SelectRides(cb);
         }
 
         public SelectUsers<Client> clients() {
-            return new SelectUsers<Client>(Client.class, Client.KIND_NAME);
+            return new SelectUsers<Client>(cb, thisLoggedInUser, Client.class, Client.KIND_NAME);
         }
 
         public SelectTaxis taxis() {
-            return new SelectTaxis();
+            return new SelectTaxis(cb, thisLoggedInUser);
         }
 
         public SelectUsers<User> users() {
-            return new SelectUsers<User>(User.class, null);
-        }
-
-        public static final class SelectRides {
-            private List<Filter> filters;
-            private boolean sorted;
-
-            private SelectRides() {
-                filters = Lists.newArrayList();
-                sorted = false;
-            }
-
-            public List<Ride> execute() {
-                List<Ride> selectedRides = Lists.newArrayList();
-
-                try {
-                    CloudQuery cq = new CloudQuery(Ride.KIND_NAME);
-                    if(!filters.isEmpty()){
-                        cq.setFilter(Filter.and(filters.toArray(new Filter[filters.size()])));
-                    }
-                    List<CloudEntity> entities = cb.list(cq);
-
-                    for (CloudEntity ce : entities) {
-                        selectedRides.add(new Ride(ce));
-                    }
-
-                    if(sorted){
-                        sort(selectedRides);
-                    }
-
-                } catch (IOException ex) {
-                    Log.e("ERROR QUERYING TAXIS (CloudBackendManager selectRidesWithUser())", ex.toString());
-                }
-
-                return selectedRides;
-            }
-
-            public SelectRides sortedByTime(){
-                this.sorted = true;
-                return this;
-            }
-
-            public SelectRides completed() {
-                filters.add(Filter.eq(Ride.COMPLETED_FLAG, Boolean.TRUE));
-                return this;
-            }
-
-            public SelectRides uncompleted() {
-                filters.add(Filter.eq(Ride.COMPLETED_FLAG, Boolean.FALSE));
-                return this;
-            }
-
-            public SelectRides with(User u) {
-                if (u instanceof Taxi) {
-                    filters.add(Filter.eq(Ride.TAXI, u.getId()));
-                } else if (u instanceof Client) {
-                    filters.add(Filter.eq(Ride.CLIENT, u.getId()));
-                }
-                return this;
-            }
-
-            private void sort(List<Ride> selectedRides){
-
-                Collections.sort(selectedRides, new Comparator<Ride>() {
-                    @Override
-                    public int compare(Ride r1, Ride r2) {
-//                Integer hour1 = r1.scheduledTime.hourOfDay().get();
-//                Integer hour2 = r2.scheduledTime.hourOfDay().get();
-//                int hourCompare = hour1.compareTo(hour2);
-//                Integer minute1 = r1.scheduledTime.minuteOfHour().get();
-//                Integer minute2 = r2.scheduledTime.minuteOfHour().get();
-//                int minuteCompare = minute1.compareTo(minute2);
-                        Calendar scheduledTime1 = r1.getScheduledTime();
-                        Calendar scheduledTime2 = r2.getScheduledTime();
-                        return scheduledTime1.compareTo(scheduledTime2);
-                    }
-                });
-            }
-        }
-
-        public static class SelectUsers<T extends User> {
-            private Class<T> tClass;
-            private String kindName;
-            private List<Filter> filters;
-
-            private SelectUsers(Class<T> tClass, String kindName) {
-                this.tClass = tClass;
-                this.kindName = kindName;
-                this.filters = Lists.newArrayList();
-            }
-
-            public T loggedInThisDevice() {
-                return (T) thisLoggedInUser;
-            }
-
-            public T from(Ride r){
-                Object obtainedObject = r.ce.get(Ride.TAXI);
-
-                if(obtainedObject==null)
-                    return null;
-
-                String id = (String) obtainedObject;
-                try {
-                    CloudEntity entity = cb.get(Taxi.KIND_NAME, id);
-                    return tClass.getConstructor(CloudEntity.class).newInstance(entity);
-
-                } catch (IOException ex) {
-                    Log.e("ERROR QUERYING TAXIS (CloudBackendManager SelectUsers.from(Ride)", ex.toString());
-                } catch (ReflectiveOperationException ex){
-                    Log.e("BAD CONSTRUCTOR (CloudBackendManager SelectUsers.from(Ride)", ex.toString());
-                }
-
-                return null;
-            }
-
-            public List<T> execute() {
-                List<T> selectedUser = Lists.newArrayList();
-
-                try {
-                    Filter finalFilter = Filter.and(filters.toArray(new Filter[filters.size()]));
-                    if (kindName == null) {
-                        // if no kind name was provided, then select from both user entities (Client and Taxi)
-
-                        CloudQuery cq = new CloudQuery(Client.KIND_NAME);
-                        if (!filters.isEmpty()) {
-                            cq.setFilter(finalFilter);
-                        }
-                        List<CloudEntity> selectedClients = cb.list(cq);
-                        for(CloudEntity ce : selectedClients) {
-                            T u = (T) new Client(ce);
-                            selectedUser.add(u);
-                        }
-
-                        cq = new CloudQuery(Taxi.KIND_NAME);
-                        if (!filters.isEmpty()) {
-                            cq.setFilter(finalFilter);
-                        }
-                        List<CloudEntity> selectedTaxis = cb.list(cq);
-                        for(CloudEntity ce : selectedTaxis) {
-                            T u = (T) new Taxi(ce);
-                            selectedUser.add(u);
-                        }
-
-                    } else {
-                        CloudQuery cq = new CloudQuery(kindName);
-                        if (!filters.isEmpty()) {
-                            cq.setFilter(finalFilter);
-                        }
-                        List<CloudEntity> entities = cb.list(cq);
-
-                        for (CloudEntity ce : entities) {
-                            if (tClass.isInstance(Client.class))
-                                selectedUser.add(tClass.getConstructor(CloudEntity.class).newInstance(ce));
-                        }
-                    }
-
-                } catch (IOException ex) {
-                    Log.e("ERROR QUERYING USERS (CloudBackendManager SelectUsers.execute())", ex.toString());
-                } catch (ReflectiveOperationException ex){
-                    Log.e("BAD CONSTRUCTOR (CloudBackendManager SelectUsers.execute())", ex.toString());
-                }
-
-                return selectedUser;
-            }
-
-            public SelectUsers<T> withEmail(String email){
-                filters.add(Filter.eq(User.EMAIL, email));
-                return this;
-            }
-
-            public SelectUsers<T> withPasswordDigest(String passwordDigest){
-                filters.add(Filter.eq(User.PASSWORD_DIGEST, passwordDigest));
-                return this;
-            }
-
-            public SelectUsers<T> withName(String name){
-                filters.add(Filter.eq(User.NAME, name));
-                return this;
-            }
-
-            public SelectUsers<T> withImageUri(String imageUri){
-                filters.add(Filter.eq(User.IMAGE_URI, imageUri));
-                return this;
-            }
-        }
-
-
-        public static final class SelectTaxis extends SelectUsers<Taxi> {
-
-            private SelectTaxis(){
-                super(Taxi.class, Taxi.KIND_NAME);
-            }
-
-            public List<Taxi> favoritedBy(Client c){
-                List<String> taxiIds = c.favoriteTaxisIdsList();
-                ArrayList<Taxi> result = Lists.newArrayList();
-                result.ensureCapacity(taxiIds.size());
-
-                try {
-                    List<CloudEntity> entities = cb.getAll(Taxi.KIND_NAME, taxiIds);
-
-                    for(CloudEntity ce : entities){
-                        result.add(new Taxi(ce));
-                    }
-
-                } catch (IOException ex) {
-                    Log.e("ERROR QUERYING TAXIS (CloudBackendManager favoriteTaxisList())", ex.toString());
-                }
-
-                return result;
-            }
+            return new SelectUsers<User>(cb, thisLoggedInUser, User.class, null);
         }
 
     }
+
+
+
+
+
+
 
 //    static {
 //        try{

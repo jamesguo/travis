@@ -7,4 +7,4 @@
         android:title="@string/action_settings"/>
 
 </menu>
-<!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/menu/main.xml --><!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-bundles/Icm_travisDependenciesAndroidBootstrapUnspecified.aar/res/menu/main.xml -->
+<!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/menu/main.xml --><!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/menu/main.xml -->

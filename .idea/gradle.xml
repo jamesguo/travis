@@ -7,11 +7,11 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/dependencies" />
-            <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap" />
-            <option value="$PROJECT_DIR$/dependencies/android-sliding-layer" />
+            <option value="C:\projects-android\icm_travis" />
+            <option value="C:\projects-android\icm_travis\app" />
+            <option value="C:\projects-android\icm_travis\dependencies" />
+            <option value="C:\projects-android\icm_travis\dependencies\AndroidBootstrap" />
+            <option value="C:\projects-android\icm_travis\dependencies\android-sliding-layer" />
           </set>
         </option>
       </GradleProjectSettings>

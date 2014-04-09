@@ -307,10 +307,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #BootstrapButton_android_enabled com.beardedhen.androidbootstrap:android_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapButton_android_layout_width com.beardedhen.androidbootstrap:android_layout_width}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapButton_android_text com.beardedhen.androidbootstrap:android_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapButton_android_textSize com.beardedhen.androidbootstrap:android_textSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapButton_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapButton_android_layout_width android:layout_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapButton_android_text android:text}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapButton_android_textSize android:textSize}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapButton_bb_icon_left com.beardedhen.androidbootstrap:bb_icon_left}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapButton_bb_icon_right com.beardedhen.androidbootstrap:bb_icon_right}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapButton_bb_roundedCorners com.beardedhen.androidbootstrap:bb_roundedCorners}</code></td><td></td></tr>
@@ -337,27 +337,27 @@ containing a value of this type.
             0x7f010004, 0x7f010005, 0x7f010006
         };
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_enabled}
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
           attribute's value can be found in the {@link #BootstrapButton} array.
-          @attr name android:android_enabled
+          @attr name android:enabled
         */
         public static final int BootstrapButton_android_enabled = 0;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_layout_width}
+          <p>This symbol is the offset where the {@link android.R.attr#layout_width}
           attribute's value can be found in the {@link #BootstrapButton} array.
-          @attr name android:android_layout_width
+          @attr name android:layout_width
         */
         public static final int BootstrapButton_android_layout_width = 2;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_text}
+          <p>This symbol is the offset where the {@link android.R.attr#text}
           attribute's value can be found in the {@link #BootstrapButton} array.
-          @attr name android:android_text
+          @attr name android:text
         */
         public static final int BootstrapButton_android_text = 3;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_textSize}
+          <p>This symbol is the offset where the {@link android.R.attr#textSize}
           attribute's value can be found in the {@link #BootstrapButton} array.
-          @attr name android:android_textSize
+          @attr name android:textSize
         */
         public static final int BootstrapButton_android_textSize = 1;
         /**
@@ -371,7 +371,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_icon_left
+          @attr name com.beardedhen.androidbootstrap:bb_icon_left
         */
         public static final int BootstrapButton_bb_icon_left = 5;
         /**
@@ -385,7 +385,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_icon_right
+          @attr name com.beardedhen.androidbootstrap:bb_icon_right
         */
         public static final int BootstrapButton_bb_icon_right = 6;
         /**
@@ -399,7 +399,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_roundedCorners
+          @attr name com.beardedhen.androidbootstrap:bb_roundedCorners
         */
         public static final int BootstrapButton_bb_roundedCorners = 7;
         /**
@@ -413,7 +413,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_size
+          @attr name com.beardedhen.androidbootstrap:bb_size
         */
         public static final int BootstrapButton_bb_size = 9;
         /**
@@ -427,7 +427,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_text_alignment
+          @attr name com.beardedhen.androidbootstrap:bb_text_alignment
         */
         public static final int BootstrapButton_bb_text_alignment = 8;
         /**
@@ -441,7 +441,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_text_gravity
+          @attr name com.beardedhen.androidbootstrap:bb_text_gravity
         */
         public static final int BootstrapButton_bb_text_gravity = 10;
         /**
@@ -455,7 +455,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bb_type
+          @attr name com.beardedhen.androidbootstrap:bb_type
         */
         public static final int BootstrapButton_bb_type = 4;
         /** Attributes that can be used with a BootstrapCircleThumbnail.
@@ -464,7 +464,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #BootstrapCircleThumbnail_android_text com.beardedhen.androidbootstrap:android_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapCircleThumbnail_android_text android:text}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapCircleThumbnail_bct_image com.beardedhen.androidbootstrap:bct_image}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapCircleThumbnail_bct_minimal com.beardedhen.androidbootstrap:bct_minimal}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapCircleThumbnail_bct_size com.beardedhen.androidbootstrap:bct_size}</code></td><td></td></tr>
@@ -478,9 +478,9 @@ containing a value of this type.
             0x0101014f, 0x7f010007, 0x7f010008, 0x7f010009
         };
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_text}
+          <p>This symbol is the offset where the {@link android.R.attr#text}
           attribute's value can be found in the {@link #BootstrapCircleThumbnail} array.
-          @attr name android:android_text
+          @attr name android:text
         */
         public static final int BootstrapCircleThumbnail_android_text = 0;
         /**
@@ -494,7 +494,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bct_image
+          @attr name com.beardedhen.androidbootstrap:bct_image
         */
         public static final int BootstrapCircleThumbnail_bct_image = 1;
         /**
@@ -508,7 +508,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bct_minimal
+          @attr name com.beardedhen.androidbootstrap:bct_minimal
         */
         public static final int BootstrapCircleThumbnail_bct_minimal = 3;
         /**
@@ -522,7 +522,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bct_size
+          @attr name com.beardedhen.androidbootstrap:bct_size
         */
         public static final int BootstrapCircleThumbnail_bct_size = 2;
         /** Attributes that can be used with a BootstrapEditText.
@@ -531,10 +531,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #BootstrapEditText_android_enabled com.beardedhen.androidbootstrap:android_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapEditText_android_hint com.beardedhen.androidbootstrap:android_hint}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapEditText_android_text com.beardedhen.androidbootstrap:android_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #BootstrapEditText_android_textSize com.beardedhen.androidbootstrap:android_textSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapEditText_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapEditText_android_hint android:hint}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapEditText_android_text android:text}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapEditText_android_textSize android:textSize}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapEditText_be_roundedCorners com.beardedhen.androidbootstrap:be_roundedCorners}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapEditText_be_state com.beardedhen.androidbootstrap:be_state}</code></td><td></td></tr>
            </table>
@@ -550,27 +550,27 @@ containing a value of this type.
             0x7f01000a, 0x7f01000b
         };
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_enabled}
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
           attribute's value can be found in the {@link #BootstrapEditText} array.
-          @attr name android:android_enabled
+          @attr name android:enabled
         */
         public static final int BootstrapEditText_android_enabled = 0;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_hint}
+          <p>This symbol is the offset where the {@link android.R.attr#hint}
           attribute's value can be found in the {@link #BootstrapEditText} array.
-          @attr name android:android_hint
+          @attr name android:hint
         */
         public static final int BootstrapEditText_android_hint = 3;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_text}
+          <p>This symbol is the offset where the {@link android.R.attr#text}
           attribute's value can be found in the {@link #BootstrapEditText} array.
-          @attr name android:android_text
+          @attr name android:text
         */
         public static final int BootstrapEditText_android_text = 2;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_textSize}
+          <p>This symbol is the offset where the {@link android.R.attr#textSize}
           attribute's value can be found in the {@link #BootstrapEditText} array.
-          @attr name android:android_textSize
+          @attr name android:textSize
         */
         public static final int BootstrapEditText_android_textSize = 1;
         /**
@@ -584,7 +584,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:be_roundedCorners
+          @attr name com.beardedhen.androidbootstrap:be_roundedCorners
         */
         public static final int BootstrapEditText_be_roundedCorners = 4;
         /**
@@ -598,7 +598,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:be_state
+          @attr name com.beardedhen.androidbootstrap:be_state
         */
         public static final int BootstrapEditText_be_state = 5;
         /** Attributes that can be used with a BootstrapThumbnail.
@@ -607,7 +607,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #BootstrapThumbnail_android_text com.beardedhen.androidbootstrap:android_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #BootstrapThumbnail_android_text android:text}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapThumbnail_bt_height com.beardedhen.androidbootstrap:bt_height}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapThumbnail_bt_image com.beardedhen.androidbootstrap:bt_image}</code></td><td></td></tr>
            <tr><td><code>{@link #BootstrapThumbnail_bt_inside_padding com.beardedhen.androidbootstrap:bt_inside_padding}</code></td><td></td></tr>
@@ -626,9 +626,9 @@ containing a value of this type.
             0x7f01000f, 0x7f010010
         };
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_text}
+          <p>This symbol is the offset where the {@link android.R.attr#text}
           attribute's value can be found in the {@link #BootstrapThumbnail} array.
-          @attr name android:android_text
+          @attr name android:text
         */
         public static final int BootstrapThumbnail_android_text = 0;
         /**
@@ -644,7 +644,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bt_height
+          @attr name com.beardedhen.androidbootstrap:bt_height
         */
         public static final int BootstrapThumbnail_bt_height = 4;
         /**
@@ -658,7 +658,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bt_image
+          @attr name com.beardedhen.androidbootstrap:bt_image
         */
         public static final int BootstrapThumbnail_bt_image = 2;
         /**
@@ -674,7 +674,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bt_inside_padding
+          @attr name com.beardedhen.androidbootstrap:bt_inside_padding
         */
         public static final int BootstrapThumbnail_bt_inside_padding = 5;
         /**
@@ -688,7 +688,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bt_roundedCorners
+          @attr name com.beardedhen.androidbootstrap:bt_roundedCorners
         */
         public static final int BootstrapThumbnail_bt_roundedCorners = 1;
         /**
@@ -704,7 +704,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:bt_width
+          @attr name com.beardedhen.androidbootstrap:bt_width
         */
         public static final int BootstrapThumbnail_bt_width = 3;
         /** Attributes that can be used with a FontAwesomeText.
@@ -713,8 +713,8 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #FontAwesomeText_android_textColor com.beardedhen.androidbootstrap:android_textColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #FontAwesomeText_android_textSize com.beardedhen.androidbootstrap:android_textSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #FontAwesomeText_android_textColor android:textColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #FontAwesomeText_android_textSize android:textSize}</code></td><td></td></tr>
            <tr><td><code>{@link #FontAwesomeText_fa_icon com.beardedhen.androidbootstrap:fa_icon}</code></td><td></td></tr>
            </table>
            @see #FontAwesomeText_android_textColor
@@ -725,15 +725,15 @@ containing a value of this type.
             0x01010095, 0x01010098, 0x7f010011
         };
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_textColor}
+          <p>This symbol is the offset where the {@link android.R.attr#textColor}
           attribute's value can be found in the {@link #FontAwesomeText} array.
-          @attr name android:android_textColor
+          @attr name android:textColor
         */
         public static final int FontAwesomeText_android_textColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.beardedhen.androidbootstrap.R.attr#android_textSize}
+          <p>This symbol is the offset where the {@link android.R.attr#textSize}
           attribute's value can be found in the {@link #FontAwesomeText} array.
-          @attr name android:android_textSize
+          @attr name android:textSize
         */
         public static final int FontAwesomeText_android_textSize = 0;
         /**
@@ -747,7 +747,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:fa_icon
+          @attr name com.beardedhen.androidbootstrap:fa_icon
         */
         public static final int FontAwesomeText_fa_icon = 2;
     };

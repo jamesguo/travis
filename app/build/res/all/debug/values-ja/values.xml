@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4323.aar/res/values-ja/strings.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-ja/strings.xml -->
     <eat-comment />
 
     <string name="auth_client_needs_enabling_title" msgid="3983201110833868073">"アプリではGoogle Play開発者サービスを有効にする必要があります。"</string>
@@ -30,7 +30,7 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Play開発者サービスの更新"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"ログイン"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Googleでログイン"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-bundles/ComAndreabaccegaAndroidFormEdittext105.aar/res/values-ja/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-ja/values.xml -->
     <eat-comment />
 
     <string name="error_creditcard_number_not_valid">有効なクレジットカード番号ではありません。</string>

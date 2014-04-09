@@ -467,6 +467,7 @@
             </file>
         </source>
         <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\res\rs\release" />
+        <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\res\generated\release" />
     </dataSet>
     <dataSet config="release" >
         <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\src\release\res" />
