@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/dependencies/android-sliding-layer/android-sliding-layer.iml" filepath="$PROJECT_DIR$/dependencies/android-sliding-layer/android-sliding-layer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/icm_travis.iml" filepath="$PROJECT_DIR$/icm_travis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/icm_travis1.iml" filepath="$PROJECT_DIR$/icm_travis1.iml" />
     </modules>
   </component>
 </project>
