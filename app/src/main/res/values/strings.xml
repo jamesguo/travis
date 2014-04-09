@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Travis</string>
+
+    <string name="taxi">Taxi</string>
+    <string name="client">Client</string>
+
+
+    <!-- AppEngineSample strings -->
+    <string name="hello_world">Hello world!</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="view_intro">View Intro</string>
+    <string name="skip_intro">Skip intro next time</string>
+    <string name="announce_success">YOU HAVE JOINED</string>
+    <string name="announce_fail">CONNECTION FAILED</string>
+    <string name="send">Send</string>
+    <string name="send_message">sendMessage</string>
+    <string name="empty_string"></string>
+    <string name="no_messages">No messages yet</string>
+    <string name="intro_1_title">Guest Book Sample App</string>
+    <string name="intro_1_dscrp">Welcome to the Mobile Backend Starter sample guestbook Android app. This simple app allows users to send messages to other instances of the app running on Android or iOS devices. Play with this application to get started.  There is no additional backend coding required.</string>
+    <string name="intro_2_title">Mobile Backend Starter</string>
+    <string name="intro_2_dscrp">The guestbook app uses the Mobile Backend Starter for messaging and user authentication. The backend also provides a cloud datastore, with public and private objects, and a subscription service to give your apps real time interactivity.</string>
+    <string name="intro_3_title">Now it’s your turn</string>
+    <string name="intro_3_dscrp">Play around with this app and the source code to become familiar with the Mobile Backend Starter. When you are ready, replace the Guestbook sample code with your own app or game code.</string>
+
+
+    <!-- Dialog strings -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+
+
+    <!-- Login strings-->
+    <string name="auto_login">Automatically login every time</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="login_error">Invalid login!</string>
+    <string name="unknown_address">Unknown Address</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="plus_sign_out">Switch Google+ account</string>
+    <string name="plus_disconnect">Disconnect from Google+</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+
+    <!-- Register strings -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="photo_url">Photo URL</string>
+    <string name="register_ok">Registered successfully!</string>
+    <string name="type_invalid">Please choose a user type…</string>
+
+
+    <!-- Side menu strings -->
+    <string name="menu_rides">Scheduled rides</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_closest">Closest Taxis</string>
+    <string name="menu_best_rated">Best rated Taxis</string>
+    <string name="menu_favorites">Favorites Taxis</string>
+    <string name="menu_settings">Settings</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+
+
+    <!-- Action bar menu strings -->
+    <string name="action_bar_search">Search</string>
+
+
+    <!-- Taxi ride setup strings -->
+    <string name="not_found">Not found</string>
+    <string name="here_and_now">Here &amp; Now</string>
+    <string name="later">Later or at another location</string>
+    <string name="set_origin">Set Origin</string>
+
+
+    <!-- Wait for taxi strings -->
+    <string name="your_scheduled_ride">Your scheduled ride:</string>
+    <string name="see_more">See all your scheduled rides</string>
+    <string name="your_scheduled_rides">Your sheduled rides:</string>
+    <string name="wait_for_taxi">Done! Your taxi will arrive soon…</string>
+    <string name="wait_for_taxi_suggestion">
+        We will notify you when your taxi arrives.
+        \nTip: You should now set the destination to get a move on once
+        your taxi arrives!
+    </string>
+    <string name="set_destination">Set Destination</string>
+    <string name="call_another_taxi">Call another taxi</string>
+    <string name="insert_address">Insert address…</string>
+
+
+    <!-- Payment strings -->
+    <string name="submit">Submit</string>
+    <string name="dont_rate">Don\'t rate</string>
+
+
+    <!-- Notification strings -->
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+
+</resources>

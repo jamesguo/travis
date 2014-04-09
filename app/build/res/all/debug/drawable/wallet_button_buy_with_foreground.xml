@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@drawable/wallet_button_buy_with_foreground_enabled" />
+
+</selector><!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/drawable/wallet_button_buy_with_foreground.xml -->
