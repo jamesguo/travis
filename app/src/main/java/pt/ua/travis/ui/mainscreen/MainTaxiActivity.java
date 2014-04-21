@@ -11,11 +11,7 @@ import android.view.View;
 import com.actionbarsherlock.view.Menu;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.Callback;
-import pt.ua.travis.backend.entities.PersistenceManager;
-import pt.ua.travis.backend.entities.Ride;
-import pt.ua.travis.backend.entities.Taxi;
-import pt.ua.travis.backend.Geolocation;
+import pt.ua.travis.backend.*;
 import pt.ua.travis.ui.drawer.DrawerItem;
 import pt.ua.travis.ui.drawer.DrawerSeparator;
 import pt.ua.travis.ui.drawer.DrawerUser;
@@ -35,11 +31,13 @@ import java.util.List;
  */
 public class MainTaxiActivity extends MainActivity {
 
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         goToScheduledRidesList(null);
     }
+
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -47,6 +45,7 @@ public class MainTaxiActivity extends MainActivity {
 
         return super.onPrepareOptionsMenu(menu);
     }
+
 
     /**
      * Populates the drawer navigation menu.
@@ -59,36 +58,42 @@ public class MainTaxiActivity extends MainActivity {
 
         final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
 
+        drawerViews.add(new DrawerUser(loggedInTaxi));
+
+        final DrawerItem item = new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, 0);
+        drawerViews.add(item);
+
+        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
+        drawerViews.add(new DrawerSeparator());
+        drawerViews.add(new DrawerItem(3, R.string.menu_settings, R.drawable.ic_action_settings));
+
         PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().later(new Callback<List<Ride>>() {
             @Override
             public void onResult(List<Ride> result) {
-                int numOfRides = result.size();
-                drawerViews.add(new DrawerUser(loggedInTaxi));
-                drawerViews.add(new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, numOfRides));
-                drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
-                drawerViews.add(new DrawerSeparator());
-                drawerViews.add(new DrawerItem(3, R.string.yes, R.drawable.ic_action_accept));
-//                drawerViews.add(new DrawerView(5, R.string.menu_settings, R.drawable.ic_action_settings));
+                item.setItemCounter(result.size());
+                updateDrawerList();
             }
         });
     }
+
 
     @Override
     protected void onDrawerItemClick(int itemID) {
         switch (itemID){
             case 1: goToScheduledRidesList(null); break;
             case 2: logout(null); break;
-            case 3: onAuthentButtonClicked(null); break;
             default: break;
         }
 
         super.onDrawerItemClick(itemID);
     }
 
+
     public void goToScheduledRidesList(View view){
-        Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
-        PersistenceManager.query()
-                .rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
+        final Context context = MainTaxiActivity.this;
+        final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
+
+        PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
             @Override
             public void onResult(List<Ride> result) {
                 getSupportFragmentManager()
@@ -98,31 +103,18 @@ public class MainTaxiActivity extends MainActivity {
                         .commit();
             }
         });
-    }
 
-    @Override
-    public void onDeletedRide(){
-        goToScheduledRidesList(null);
-    }
-
-    public void onAuthentButtonClicked(View view){
-        final Context context = MainTaxiActivity.this;
-
-        Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
-
-        PersistenceManager.query()
-                .rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
+        PersistenceManager.stopWatchingRides();
+        PersistenceManager.startWatchingNewRidesForTaxi(loggedInTaxi, new WatchEvent<Ride>() {
             @Override
-            public void onResult(List<Ride> result) {
+            public void onEvent(Ride newRide) {
 
-                final Ride thisRide = result.get(0);
-                LatLng latLng = Geolocation.getCurrentPosition();
-                thisRide.setOriginLocation(latLng.latitude, latLng.longitude);
+                LatLng latLng = getCurrentLocation();
+                newRide.setOriginLocation(latLng.latitude, latLng.longitude);
 
                 Intent resultIntent = new Intent(context, TravelToOriginActivity.class);
-
-                resultIntent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
-                PersistenceManager.addToCache(thisRide);
+                resultIntent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, newRide.id());
+                PersistenceManager.addToCache(newRide);
 
                 resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -132,15 +124,15 @@ public class MainTaxiActivity extends MainActivity {
                         PendingIntent.FLAG_UPDATE_CURRENT);
 
                 Intent dismissIntent = new Intent(context, MainTaxiActivity.class);
-//        dismissIntent.setAction(CommonConstants.ACTION_DISMISS);
+//                dismissIntent.setAction(CommonConstants.ACTION_DISMISS);
                 PendingIntent piDecline = PendingIntent.getActivity(context, 0, dismissIntent, 0);
 
-                String clientName = thisRide.client().name();
+                String clientName = newRide.client().name();
 
                 String msg = clientName + " requested you a ride " +
-                        thisRide.getRemaining() + ".";
+                        newRide.getRemaining() + ".";
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                        .setPriority(Notification.PRIORITY_MAX)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setAutoCancel(true)
                         .setSmallIcon(R.drawable.cabs)
                         .setContentTitle("Ride Request from " + clientName)
@@ -163,8 +155,23 @@ public class MainTaxiActivity extends MainActivity {
         });
     }
 
+
+    @Override
+    public void onDeletedRide(){
+        goToScheduledRidesList(null);
+    }
+
+
     @Override
     public void logout(View view) {
         super.logout(view);
+    }
+
+
+    @Override
+    public void onLocationChanged(LatLng latLng) {
+        Taxi loggedInUser = PersistenceManager.query().taxis().loggedInThisDevice();
+        loggedInUser.setCurrentLocation(latLng.latitude, latLng.longitude);
+        PersistenceManager.save(loggedInUser, null);
     }
 }

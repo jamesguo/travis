@@ -4,15 +4,12 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.SystemClock;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.Callback;
-import pt.ua.travis.backend.entities.PersistenceManager;
-import pt.ua.travis.backend.entities.Ride;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
-import pt.ua.travis.utils.CommonKeys;
+import pt.ua.travis.backend.Callback;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Ride;
+import pt.ua.travis.backend.WatchEvent;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -21,12 +18,13 @@ import pt.ua.travis.utils.CommonKeys;
 public class RideRequestTask extends AsyncTask<Void, Void, Void>{
 
     public interface OnTaskFinished {
-        void onFinished(int result, Ride ride);
+        void onFinished(String response, Ride ride);
     }
 
-    public static final int OK_RESULT = 111;
-    public static final int CANCEL_RESULT = 222;
-    public static final int NOT_FOUND_RESULT = 333;
+    public static final String RESPONSE_ACCEPTED = "accepted";
+    public static final String RESPONSE_REFUSED  = "refused";
+    public static final String RESPONSE_TIMEOUT  = "timeout";
+    public static final String RESPONSE_WAITING  = "waiting_for_request";
 
     private ProgressDialog progressDialog;
     private Context context;
@@ -62,7 +60,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Void>{
                                     public void onClick(DialogInterface dialog, int which) {
                                         PersistenceManager.delete(ride);
                                         RideRequestTask.this.cancel(true);
-                                        onTaskFinished.onFinished(CANCEL_RESULT, null);
+                                        onTaskFinished.onFinished(RESPONSE_REFUSED, null);
                                     }
                                 })
                                 .setPositiveButton("No", null)
@@ -78,17 +76,28 @@ public class RideRequestTask extends AsyncTask<Void, Void, Void>{
         // saves the ride to request into the database
         PersistenceManager.save(ride, new Callback<Ride>() {
             @Override
-            public void onResult(Ride result) {
+            public void onResult(final Ride result) {
+                PersistenceManager.waitForRideResponse(result, new WatchEvent<String>() {
+                    @Override
+                    public void onEvent(String response) {
 
-                SystemClock.sleep(5000);
+                        if(response.equals(RESPONSE_ACCEPTED)){
+                            progressDialog.dismiss();
+                            onTaskFinished.onFinished(RESPONSE_ACCEPTED, result);
 
-                int resultCode = 0;
-                if(resultCode==0){
-                    progressDialog.dismiss();
-                    onTaskFinished.onFinished(OK_RESULT, result);
-                }
+                        } else if (response.equals(RESPONSE_REFUSED)){
+                            progressDialog.dismiss();
+                            PersistenceManager.delete(result);
+                            onTaskFinished.onFinished(RESPONSE_REFUSED, null);
 
-                // after completed finished the progressbar
+                        } else if (response.equals(RESPONSE_TIMEOUT)){
+                            progressDialog.dismiss();
+                            PersistenceManager.delete(result);
+                            onTaskFinished.onFinished(RESPONSE_TIMEOUT, null);
+
+                        }
+                    }
+                });
             }
         });
         return null;

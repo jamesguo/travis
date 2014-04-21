@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
-import pt.ua.travis.backend.entities.Ride;
+import pt.ua.travis.backend.Ride;
 import pt.ua.travis.ui.mainscreen.MainActivity;
 import pt.ua.travis.utils.Utils;
 

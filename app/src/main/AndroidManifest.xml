@@ -91,7 +91,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="pt.ua.travis.ui.mainscreen.MainTaxiActivity" />
+        <activity android:name="pt.ua.travis.ui.mainscreen.MainTaxiActivity" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name="pt.ua.travis.ui.taxiridesetup.WaitForTaxiActivity" />
         <activity android:name="pt.ua.travis.ui.travel.AuthenticationClientActivity" />
         <activity android:name="pt.ua.travis.ui.travel.AuthenticationTaxiActivity" />

@@ -10,11 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.PersistenceManager;
+import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.ui.login.LoginActivity;
 import pt.ua.travis.ui.drawer.DrawerItem;
 import pt.ua.travis.ui.drawer.DrawerView;
@@ -28,7 +27,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends SherlockFragmentActivity implements RideDeletedListener {
+public abstract class MainActivity extends GeoLocationActivity implements RideDeletedListener {
 
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -47,16 +46,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         drawerLayout = (DrawerLayout) findViewById(R.id.sideMenu);
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         drawerList = (ListView) findViewById(R.id.left_drawer);
-        drawerList.setAdapter(new DrawerViewAdapter(this, drawerViews));
-        drawerList.setOnItemClickListener(new ListView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DrawerView clickedView = (DrawerView) drawerList.getAdapter().getItem(position);
-                if(clickedView instanceof DrawerItem){
-                    onDrawerItemClick(((DrawerItem) clickedView).itemID);
-                }
-            }
-        });
+        updateDrawerList();
 
         ActionBar bar = getSupportActionBar();
         bar.setDisplayShowTitleEnabled(false);
@@ -78,6 +68,19 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
+    }
+
+    protected final void updateDrawerList(){
+        drawerList.setAdapter(new DrawerViewAdapter(this, drawerViews));
+        drawerList.setOnItemClickListener(new ListView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DrawerView clickedView = (DrawerView) drawerList.getAdapter().getItem(position);
+                if(clickedView instanceof DrawerItem){
+                    onDrawerItemClick(((DrawerItem) clickedView).itemID);
+                }
+            }
+        });
     }
 
     /**

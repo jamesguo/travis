@@ -1,6 +1,5 @@
 package pt.ua.travis.ui.taxichooser;
 
-import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.*;
@@ -14,12 +13,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.Client;
-import pt.ua.travis.backend.entities.Taxi;
-import pt.ua.travis.backend.Geolocation;
-import pt.ua.travis.backend.entities.PersistenceManager;
+import pt.ua.travis.backend.Client;
+import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.ui.mainscreen.GeoLocationActivity;
 import pt.ua.travis.ui.mainscreen.MainClientActivity;
-import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Utils;
 
@@ -93,12 +91,6 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
             }
         });
         map.setMyLocationEnabled(true);
-        map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-            @Override
-            public void onMyLocationChange(Location location) {
-                Geolocation.setCurrentLocation(location.getLatitude(), location.getLongitude());
-            }
-        });
         myLocationListener = new GoogleMap.OnMyLocationButtonClickListener() {
             private Marker lastMarker;
 
@@ -111,8 +103,8 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                     Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
 
                     lastMarker = matchedPair.first;
-                    LatLng userPosition = Geolocation.getCurrentPosition();
-                    map.animateCamera(CameraUpdateFactory.newLatLng(userPosition), 500, null);
+                    LatLng userPosition = ((GeoLocationActivity)getActivity()).getCurrentLocation();
+                    map.animateCamera(CameraUpdateFactory.newLatLng(userPosition), 900, null);
                     myLocationToggle = true;
                 } else {
                     select(lastMarker);
@@ -142,7 +134,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                 ((MainClientActivity)getActivity()).showOptionsPane(t);
             }
         });
-        map.moveCamera(CameraUpdateFactory.zoomTo(15));
+        map.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
     }
 
 
@@ -273,6 +265,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
      */
     private void moveMapToMarker(final Marker marker){
         marker.showInfoWindow();
+        map.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
         map.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()), 900, null);
     }
 

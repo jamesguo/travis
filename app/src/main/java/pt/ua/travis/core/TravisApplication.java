@@ -8,7 +8,7 @@ import com.chute.android.photopickerplus.models.enums.DisplayType;
 import com.chute.sdk.v2.api.Chute;
 import com.chute.sdk.v2.api.authentication.AuthConstants;
 import com.chute.sdk.v2.model.enums.AccountType;
-import pt.ua.travis.backend.entities.PersistenceManager;
+import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Utils;
 

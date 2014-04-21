@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
@@ -14,14 +13,13 @@ import com.actionbarsherlock.widget.SearchView;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
+import pt.ua.travis.backend.*;
 import pt.ua.travis.ui.drawer.DrawerItem;
 import pt.ua.travis.ui.drawer.DrawerSeparator;
 import pt.ua.travis.ui.drawer.DrawerUser;
 import pt.ua.travis.ui.drawer.DrawerView;
 import pt.ua.travis.ui.taxichooser.SlidingLayer;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.*;
-import pt.ua.travis.backend.Geolocation;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
@@ -57,14 +55,15 @@ public class MainClientActivity extends MainActivity {
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e("**************", "******************************************");
+        // TODO: SHOW LOADING BAR
+
         if(taxiList==null) {
             PersistenceManager.query().taxis().later(new Callback<List<Taxi>>() {
                 @Override
                 public void onResult(final List<Taxi> result) {
                     taxiList = result;
                     filteredTaxiList = Lists.newArrayList(taxiList);
-                    Geolocation.sortByProximity(filteredTaxiList);
+                    Utils.sortByProximity(filteredTaxiList);
 
                     continueCreateProcess(savedInstanceState);
                 }
@@ -74,9 +73,15 @@ public class MainClientActivity extends MainActivity {
         }
     }
 
-    private void continueCreateProcess(Bundle savedInstanceState){
-        rideBuilder = new RideBuilder();
 
+    @Override
+    public void onConnected(Bundle bundle) {
+        super.onConnected(bundle);
+        rideBuilder = new RideBuilder(getCurrentLocation());
+    }
+
+
+    private void continueCreateProcess(Bundle savedInstanceState){
         int selectedIndex = 0;
         Intent intent = getIntent();
         if (savedInstanceState != null) {
@@ -98,6 +103,7 @@ public class MainClientActivity extends MainActivity {
 
         showFilteredResults(selectedIndex);
     }
+
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -177,8 +183,8 @@ public class MainClientActivity extends MainActivity {
             portraitFragment.setRetainInstance(false);
             showTaxiChooserFragment(portraitFragment, selectedIndex);
         }
-        Log.e("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", "222222222222222222222");
     }
+
 
     private void showTaxiChooserFragment(TaxiChooserFragment f, final int currentSelectedIndex) {
         Bundle args = new Bundle();
@@ -209,6 +215,7 @@ public class MainClientActivity extends MainActivity {
         });
     }
 
+
     /**
      * Populates the drawer navigation menu.
      *
@@ -218,16 +225,14 @@ public class MainClientActivity extends MainActivity {
     @Override
     protected void fillDrawerNavigation(final List<DrawerView> drawerViews) {
         final Client loggedInClient = PersistenceManager.query().clients().loggedInThisDevice();
-
-        int numOfRides = Utils.lockThreadAndExecute(new Utils.Code<Integer>() {
-            @Override
-            public Integer execute() {
-                return PersistenceManager.query().rides().withUser(loggedInClient).scheduled().now().size();
-            }
-        });
         int numOfFavorites = loggedInClient.numberOfFavorites();
+
+
         drawerViews.add(new DrawerUser(loggedInClient));
-        drawerViews.add(new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, numOfRides));
+
+        final DrawerItem item = new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, 0);
+        drawerViews.add(item);
+
         drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
         drawerViews.add(new DrawerSeparator());
         drawerViews.add(new DrawerItem(3, R.string.menu_closest, R.drawable.ic_action_map));
@@ -235,6 +240,13 @@ public class MainClientActivity extends MainActivity {
         drawerViews.add(new DrawerItem(5, R.string.menu_favorites, R.drawable.ic_action_favorite, numOfFavorites));
         drawerViews.add(new DrawerItem(6, R.string.menu_settings, R.drawable.ic_action_settings));
 
+        PersistenceManager.query().rides().withUser(loggedInClient).scheduled().later(new Callback<List<Ride>>() {
+            @Override
+            public void onResult(List<Ride> result) {
+                item.setItemCounter(result.size());
+                updateDrawerList();
+            }
+        });
     }
 
 
@@ -252,6 +264,7 @@ public class MainClientActivity extends MainActivity {
         super.onDrawerItemClick(itemID);
     }
 
+
     public void goToScheduledRidesList(View view){
         final Client loggedInClient = PersistenceManager.query().clients().loggedInThisDevice();
 
@@ -268,14 +281,15 @@ public class MainClientActivity extends MainActivity {
 
     }
 
+
     public void sortByProximity(View view){
         filteredTaxiList = Lists.newArrayList(taxiList);
 
-        Geolocation.sortByProximity(filteredTaxiList);
-
+        Utils.sortByProximity(filteredTaxiList);
 
         showFilteredResults(0);
     }
+
 
     public void sortByRating(View view){
         filteredTaxiList = Lists.newArrayList(taxiList);
@@ -291,6 +305,7 @@ public class MainClientActivity extends MainActivity {
 
         showFilteredResults(0);
     }
+
 
     public void showFavorites(View view) {
         Client loggedInClient = PersistenceManager.query().clients().loggedInThisDevice();
@@ -320,6 +335,7 @@ public class MainClientActivity extends MainActivity {
         slidingLayer.openLayer(true);
     }
 
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
 
@@ -336,19 +352,21 @@ public class MainClientActivity extends MainActivity {
         return super.dispatchTouchEvent(event);
     }
 
+
     public void onHereAndNowButtonClicked(View view){
-        rideBuilder.resetToHereAndNow();
+        rideBuilder.resetToHereAndNow(getCurrentLocation());
         Ride newRide = rideBuilder.build();
 
         // sends a request of the created ride to the associated taxi
         requestRideToTaxi(newRide);
     }
 
+
     public void onLaterButtonClicked(View view) {
-        LatLng pos = Geolocation.getCurrentPosition();
+        LatLng pos = getCurrentLocation();
         Address currentAddress = Utils.addressesFromLocation(this, pos.latitude, pos.longitude).get(0);
 
-        rideBuilder.resetToHereAndNow();
+        rideBuilder.resetToHereAndNow(getCurrentLocation());
         pager.setCurrentItem(1, true);
         addressTextView = (TextView) findViewById(R.id.origin_address);
         addressTextView.setText(Utils.addressToString(currentAddress));
@@ -363,6 +381,7 @@ public class MainClientActivity extends MainActivity {
         timePicker.setCurrentMinute(minute);
     }
 
+
     public void onOriginButtonClicked(View view){
 
         AddressPickerDialog.newInstance(this, new AddressPickerDialog.OnDoneButtonClickListener() {
@@ -374,6 +393,7 @@ public class MainClientActivity extends MainActivity {
             }
         }).show(getSupportFragmentManager(), "OriginAddressPickerDialog");
     }
+
 
     /**
      * Creates the ride based on the parameters set on the options pane.
@@ -387,17 +407,20 @@ public class MainClientActivity extends MainActivity {
         requestRideToTaxi(newRide);
     }
 
+
     public void onCancelButtonClicked(View view){
         pager.setCurrentItem(0, true);
     }
+
 
     private void requestRideToTaxi(Ride newRide){
 
         new RideRequestTask(MainClientActivity.this, newRide, new RideRequestTask.OnTaskFinished() {
             @Override
-            public void onFinished(int result, Ride ride) {
-                if (result == RideRequestTask.OK_RESULT) {
+            public void onFinished(String result, Ride ride) {
+                if (result.equals(RideRequestTask.RESPONSE_ACCEPTED)) {
 
+                    PersistenceManager.stopWatchingTaxis();
                     Intent intent = new Intent(
                             MainClientActivity.this,
                             WaitForTaxiActivity.class);
@@ -405,14 +428,20 @@ public class MainClientActivity extends MainActivity {
                     PersistenceManager.addToCache(ride);
                     startActivity(intent);
 
-                } else if (result == RideRequestTask.CANCEL_RESULT) {
-                    // TODO: THE TAXI_ID DENIED THE REQUEST
+                } else if (result.equals(RideRequestTask.RESPONSE_REFUSED)) {
+                    // THE TAXI DENIED THE REQUEST
+
+
+                } else if (result.equals(RideRequestTask.RESPONSE_TIMEOUT)) {
+                    // THE TAXI DID NOT RESPOND TO THE REQUEST
+
 
                 }
             }
         }).execute();
 
     }
+
 
     public static List<Taxi> getCurrentTaxiListState() {
         return Collections.unmodifiableList(filteredTaxiList);
@@ -430,13 +459,26 @@ public class MainClientActivity extends MainActivity {
         super.onSaveInstanceState(outState);
     }
 
+
     @Override
     public void onDeletedRide(){
         goToScheduledRidesList(null);
     }
 
+
     @Override
     public void logout(View view) {
         super.logout(view);
+    }
+
+
+    @Override
+    public void onLocationChanged(LatLng latLng) {
+        // DO NOTHING
+//        new AlertDialog.Builder(this)
+//                .setTitle("LOCATION")
+//                .setMessage("LOCATION CHANGED! "+latLng.latitude+" "+latLng.longitude)
+//                .create()
+//                .show();
     }
 }

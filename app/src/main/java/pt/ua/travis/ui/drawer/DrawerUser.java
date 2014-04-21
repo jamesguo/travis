@@ -1,6 +1,6 @@
 package pt.ua.travis.ui.drawer;
 
-import pt.ua.travis.backend.entities.User;
+import pt.ua.travis.backend.User;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

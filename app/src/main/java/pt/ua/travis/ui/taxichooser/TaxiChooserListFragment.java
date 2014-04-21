@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.androidmapsextensions.Marker;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.Taxi;
+import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.ui.mainscreen.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 

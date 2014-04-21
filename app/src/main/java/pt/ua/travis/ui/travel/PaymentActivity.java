@@ -12,9 +12,9 @@ import static android.view.ViewGroup.*;
 import android.widget.*;
 import com.actionbarsherlock.app.SherlockActivity;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.Client;
-import pt.ua.travis.backend.entities.PersistenceManager;
-import pt.ua.travis.backend.entities.Taxi;
+import pt.ua.travis.backend.Client;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.ui.mainscreen.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 

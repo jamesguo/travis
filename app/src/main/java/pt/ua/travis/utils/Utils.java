@@ -19,6 +19,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import pt.ua.travis.backend.Taxi;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -174,6 +175,11 @@ public final class Utils {
         sb.append(new BigDecimal(latLng.longitude).setScale(2, BigDecimal.ROUND_HALF_UP));
         sb.append(")");
         return sb.toString();
+    }
+
+
+    public static void sortByProximity(List<Taxi> taxis){
+
     }
 
 

@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import com.actionbarsherlock.app.SherlockActivity;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.PersistenceManager;
-import pt.ua.travis.backend.entities.Ride;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Ride;
 import pt.ua.travis.utils.CommonKeys;
 
 

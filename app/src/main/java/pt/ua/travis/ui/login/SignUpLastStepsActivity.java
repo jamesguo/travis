@@ -14,7 +14,7 @@ import com.chute.sdk.v2.model.AssetModel;
 import com.chute.sdk.v2.model.enums.AccountType;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.entities.*;
+import pt.ua.travis.backend.*;
 import pt.ua.travis.ui.mainscreen.MainClientActivity;
 import pt.ua.travis.ui.mainscreen.MainTaxiActivity;
 import pt.ua.travis.utils.Validate;
@@ -116,7 +116,7 @@ public class SignUpLastStepsActivity extends SherlockActivity {
 
 
             if(u instanceof Client) {
-                PersistenceManager.save((Client)u, new Callback<Client>() {
+                PersistenceManager.save((Client) u, new Callback<Client>() {
                     @Override
                     public void onResult(Client result) {
                         Intent intent = new Intent(SignUpLastStepsActivity.this, MainClientActivity.class);
