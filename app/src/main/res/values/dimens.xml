@@ -14,4 +14,7 @@
     <dimen name="options_pane_shadow_width">8dp</dimen>
     <dimen name="options_pane_offset_width">48dp</dimen>
 
+
+    <dimen name="choose_service_fragment_size">300dp</dimen>
+
 </resources>

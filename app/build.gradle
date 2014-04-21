@@ -5,40 +5,76 @@ android {
     buildToolsVersion "19.0.2"
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 11
         targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
     }
-
     buildTypes {
         release {
-            runProguard true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt', 'proguard-google-api-client.txt'
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
     }
 }
 
 dependencies {
-    androidTestCompile 'com.jayway.android.robotium:robotium-solo:4.3.1'
+    // Unit and Integration testing libraries
+    //    androidTestCompile 'com.jayway.android.robotium:robotium-solo:4.3.1'
+
+    // SupportLib v4
     compile 'com.android.support:support-v4:+'
-    compile 'com.google.android.gms:play-services:4.3.23'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.google.code.gson:gson:+'
-    compile 'com.andreabaccega:android-form-edittext:1.0.5@aar'
+
+    // SupportLib v4 extension library that facilitates action bar implementation
+    compile ('com.actionbarsherlock:actionbarsherlock:4.4.0@aar'){
+        exclude group: 'com.android.support'
+    }
+
+    // Parse API to manage persistence of entities
+    compile fileTree(dir: 'src/main/libs/Parse-1.4.3', include: '*.jar')
+
+    // Firebase API to manage real-time push-based queries
+    compile 'com.firebase:firebase-client:+'
+//    compile 'com.firebase:firebase-simple-login:+'
+
+    // Imageshack API to store user photos
+    compile files('src/main/libs/android-async-http-1.4.4.jar')
+
+    // Geohashing tool
+    compile files('src/main/libs/geohash-1.0.10.jar')
+
+    // Google Play services library to provide maps
+    compile 'com.google.android.gms:play-services:+'
+
+    // Maps v2 extension library that supports data storage in Markers and clustering management
     compile 'com.androidmapsextensions:android-maps-extensions:2.1.+'
-    compile files('libs/gcm.jar')
-    compile files('libs/guava-16.0.1.jar')
-    compile files('libs/picasso-2.2.0.jar')
-    compile files('libs/google-api-client-1.15.0-rc.jar')
-    compile files('libs/google-api-client-android-1.15.0-rc.jar')
-    compile files('libs/google-http-client-1.15.0-rc.jar')
-    compile files('libs/google-http-client-android-1.15.0-rc.jar')
-    compile files('libs/google-http-client-gson-1.15.0-rc.jar')
-    compile files('libs/google-http-client-jackson-1.15.0-rc.jar')
-    compile files('libs/google-http-client-jackson2-1.15.0-rc.jar')
-    compile files('libs/google-oauth-client-1.15.0-rc.jar')
-    compile files('libs/jackson-core-2.1.3.jar')
-    compile files('libs/jackson-core-asl-1.9.11.jar')
-    compile files('libs/jsr305-1.3.9.jar')
-    compile project(':dependencies:AndroidBootstrap')
-    compile project(':dependencies:android-sliding-layer')
+
+    // Asynchronous image downloading, handling and caching
+    compile 'com.squareup.picasso:picasso:2.2.0'
+
+    // Photo picker API to pick user photos from gallery, camera or social networks
+//       compile 'com.getchute.android.sdk.v2:chute-sdk-v2-android:2.2.0'
+//    compile project(':dependencies:photoPicker')
+    compile fileTree(dir: '../../../dependencies/ChutePhotoPickerPlus/libs', include: '*.jar')
+    compile project(':dependencies:ChutePhotoPickerPlus'){
+        transitive = false
+    }
+
+//    // Honeycomb animation compatibility for SDK versions lower than 3.0
+//    compile 'com.nineoldandroids:library:2.4.0'
+
+    // Java primitives and data structure utils
+    compile 'com.google.guava:guava:16.0.1'
+
+    // Form validation
+    compile 'com.andreabaccega:android-form-edittext:1.0.5@aar'
+
+    // Styled buttons and edit-texts and circle thumbnails
+    compile project(':dependencies:AndroidBootstrap'){
+        transitive = false
+    }
 }

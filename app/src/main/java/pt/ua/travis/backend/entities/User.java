@@ -1,7 +1,7 @@
 package pt.ua.travis.backend.entities;
 
 import com.google.common.base.Strings;
-import pt.ua.travis.backend.core.CloudEntity;
+import com.parse.ParseObject;
 
 import java.io.Serializable;
 
@@ -9,35 +9,36 @@ import java.io.Serializable;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class User extends CloudEntityWrapper implements Serializable {
-    private static final long serialVersionUID = 1L;
+public abstract class User extends ParseObjectWrapper {
+//    private static final long serialVersionUID = 1L;
 
+    // Parse data column keys (DO NOT CHANGE)
     public static final String EMAIL = "email";
     public static final String PASSWORD_DIGEST = "password";
     public static final String NAME = "name";
     public static final String IMAGE_URI = "imageuri";
 
 
-    protected User(CloudEntity ce){
-        super(ce);
+    protected User(ParseObject po){
+        super(po);
     }
 
 
     /**
-     * Puts the specified email in the wrapped {@link CloudEntity} parameter "email".
+     * Puts the specified email in the wrapped {@link ParseObject} parameter "email".
      */
     public User setEmail(String email) {
         if(Strings.isNullOrEmpty(email))
             return this;
 
-        ce.put(EMAIL, email);
+        po.put(EMAIL, email);
         return this;
     }
 
 
     /**
      * Puts the specified {@link java.security.MessageDigest} sequence generated from
-     * the real password, using the SHA1 algorithm, in the wrapped {@link CloudEntity}
+     * the real password, using the SHA1 algorithm, in the wrapped {@link ParseObject}
      * parameter "password".
      * The real password is never stored in the backend for security reasons.
      */
@@ -45,40 +46,40 @@ public abstract class User extends CloudEntityWrapper implements Serializable {
         if(Strings.isNullOrEmpty(passwordDigest))
             return this;
 
-        ce.put(PASSWORD_DIGEST, passwordDigest);
+        po.put(PASSWORD_DIGEST, passwordDigest);
         return this;
     }
 
 
     /**
-     * Puts the specified name in the wrapped {@link CloudEntity} parameter "name".
+     * Puts the specified name in the wrapped {@link ParseObject} parameter "name".
      */
     public User setName(String name) {
         if(Strings.isNullOrEmpty(name))
             return this;
 
-        ce.put(NAME, name);
+        po.put(NAME, name);
         return this;
     }
 
 
     /**
-     * Puts the specified name in the wrapped {@link CloudEntity} parameter "imageuri".
+     * Puts the specified name in the wrapped {@link ParseObject} parameter "imageuri".
      */
     public User setImageUri(String imageUri) {
         if(Strings.isNullOrEmpty(imageUri))
             return this;
 
-        ce.put(IMAGE_URI, imageUri);
+        po.put(IMAGE_URI, imageUri);
         return this;
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} email parameter.
+     * Returns the wrapped {@link ParseObject} email parameter.
      */
     public String email() {
-        return (String) ce.get(EMAIL);
+        return po.getString(EMAIL);
     }
 
 
@@ -88,22 +89,28 @@ public abstract class User extends CloudEntityWrapper implements Serializable {
      * The real password is never stored in the backend for security reasons.
      */
     public String passwordDigest() {
-        return (String) ce.get(PASSWORD_DIGEST);
+        return po.getString(PASSWORD_DIGEST);
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} name parameter.
+     * Returns the wrapped {@link ParseObject} name parameter.
      */
     public String name() {
-        return (String) ce.get(NAME);
+        return po.getString(NAME);
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} image URI parameter.
+     * Returns the wrapped {@link ParseObject} image URI parameter.
      */
     public String imageUri() {
-        return (String) ce.get(IMAGE_URI);
+        return po.getString(IMAGE_URI);
+    }
+
+
+    @Override
+    public String toString() {
+        return name()+" | "+email();
     }
 }

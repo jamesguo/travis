@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Account type -->
+    <string name="take_photos">Nehmen Sie ein Foto</string>
+    <string name="last_photo">Neue Foto aufgenommen</string>
+    <string name="record_video">Aufnehmen eines Videos</string>
+    <string name="last_video_captured">Letztes Video eingefangen</string>
+    <string name="all_media">Alle Medien</string>
+    <string name="camera_media">Kamera-Medien</string>
+
+    <!-- Exceptions -->
+    <string name="parsing_exception">Schlechte Antwort-Format</string>
+    <string name="http_exception">Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut</string>
+    <string name="http_error">Server-Problem, es erneut zu versuchen</string>
+    <string name="general_error">Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal</string>
+
+    <!-- UI -->
+    <string name="cancel">Stornieren</string>
+    <string name="ok">OK</string>
+    <string name="albums">Alben</string>
+    <string name="loading_albums">Lädt Alben...</string>
+    <string name="loading_media">Einlegen von Medien ...</string>
+    <string name="select_a_photo">Wählen Sie ein Foto</string>
+    <string name="select_photos">Wählen Sie Fotos</string>
+    <string name="select_an_album">Wählen Foto Quelle</string>
+    <string name="title_default">Standard</string>
+    <string name="title_user">Benutzer</string>
+    <string name="select_a_video">Wählen Sie ein Video</string>
+    <string name="select_videos">Wählen Videos</string>
+    <string name="select_media">Wählen Sie Medien</string>
+    <string name="select_media_source">Wählen Sie die Medienquelle</string>
+    <string name="select_photo_source">Wählen Sie Foto Quelle</string>
+
+    <!-- Toast -->
+    <string name="toast_choose_photos">Bitte wählen Sie Fotos</string>
+    <string name="toast_feature_camera">Ihr Gerät verfügt nicht über eine Kamera</string>
+    <string name="no_camera_photos">Keine Kamera Fotos gefunden</string>
+    <string name="no_albums_found">Keine Alben gefunden</string>
+    <string name="no_album_selected">kein Album ausgewählt</string>
+    <string name="connect_to_internet_to_cofigure_services">Verbinden Sie das Gerät mit dem Internet für die Konfiguration der Dienste</string>
+    <string name="expired_session_logging_in">Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut</string>
+
+</resources>

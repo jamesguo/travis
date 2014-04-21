@@ -10,6 +10,13 @@
     <attr name="height" format="dimension" />
     <attr name="subtitleTextStyle" format="reference" />
     <attr name="titleTextStyle" format="reference" />
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/attr.xml -->
+    <eat-comment />
+
+    <attr name="topBarBackground" format="reference" />
+    <attr name="topBarTextColor" format="color" />
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <eat-comment />
 
     <bool name="abs__action_bar_embed_tabs">false</bool>
     <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
@@ -17,6 +24,12 @@
     <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
     <bool name="abs__split_action_bar_is_narrow">true</bool>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/layouts.xml -->
+    <eat-comment />
+
+    <bool name="has_two_panes">false</bool>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <eat-comment />
 
     <color name="abs__background_holo_dark">#ff000000</color>
     <color name="abs__background_holo_light">#fff3f3f3</color>
@@ -24,6 +37,11 @@
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
     <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="album_name">#1e4761</color>
+    <color name="album_title">#506f82</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.androidmapsextensions/android-maps-extensions/2.1.0/res/values/values.xml -->
     <eat-comment />
 
@@ -34,6 +52,11 @@
     <color name="ame_default_cluster_circle_shadow_color">#8000</color>
     <color name="ame_default_cluster_text_color">#FFF</color>
     <color name="ame_default_cluster_text_shadow_color">#000</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="background_activity">#2d2d2d</color>
+    <color name="background_title">#413a36</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
     <eat-comment />
 
@@ -109,24 +132,33 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
+    <color name="dark_gray">#333333</color>
     <color name="dark_grey">#212121</color>
+    <color name="gray_light">#C0C0C0</color>
+    <color name="grey">#5f5f5f</color>
     <color name="light_grey">#acacac</color>
     <color name="mainBg">#fff0eded</color>
     <color name="mainText">#ff131414</color>
     <color name="medium_grey">#333333</color>
     <color name="offwhite">#eeeeee</color>
+    <color name="orange">#ffb449</color>
     <color name="pagerBorder">#ff909494</color>
+    <color name="row_selector_color">#29413a36</color>
     <color name="selectorBg">#ffdedede</color>
     <color name="selectorSelectedBg">#ffffd376</color>
     <color name="sideMenuBg">#ffffffff</color>
     <color name="sideMenuBgV2">#ff222323</color>
     <color name="side_menu_counter_bg">#ff292929</color>
     <color name="side_menu_counter_text">#ffb2b2b2</color>
+    <color name="sky_blue">#40c1f4</color>
     <color name="taxi_available_bg">#ff42ff18</color>
     <color name="taxi_available_border">#ff2bd12c</color>
     <color name="taxi_unavailable_bg">#ffff3126</color>
     <color name="taxi_unavailable_border">#ffdf211d</color>
+    <color name="title_name">#1e4761</color>
+    <color name="transparent">#09000000</color>
     <color name="travis_color">#ffab00</color>
+    <color name="welcome_messages_text">#ff757575</color>
     <color name="white">#ffffff</color>
     <color name="yellow">#ffbb33</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/ads_attrs.xml -->
@@ -694,7 +726,7 @@
     <declare-styleable name="SherlockView">
         <attr name="android:focusable" />
     </declare-styleable>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-sliding-layer/unspecified/res/values/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/slidinglayer-attrs.xml -->
     <eat-comment />
 
     <declare-styleable name="SlidingLayer">
@@ -753,6 +785,7 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
+    <dimen name="choose_service_fragment_size">300dp</dimen>
     <dimen name="options_pane_height">300dp</dimen>
     <dimen name="options_pane_offset_width">48dp</dimen>
     <dimen name="options_pane_shadow_width">8dp</dimen>
@@ -790,6 +823,21 @@
     <eat-comment />
 
     <integer name="single_line">1</integer>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/layouts.xml -->
+    <eat-comment />
+
+    <item name="main_layout" type="layout">@layout/gc_onepane</item>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/plurals.xml -->
+    <eat-comment />
+
+    <plurals name="numberOfLoadedAlbums">
+        <item quantity="one">Loaded 1 album</item>
+        <item quantity="other">Loaded %d albums</item>
+    </plurals>
+    <plurals name="numberOfLoadedPhotos">
+        <item quantity="one">Loaded 1 item in this album</item>
+        <item quantity="other">Loaded %d items in this album</item>
+    </plurals>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -820,6 +868,8 @@
 
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="albums">Albums</string>
+    <string name="all_media">All media</string>
     <string name="announce_fail">CONNECTION FAILED</string>
     <string name="announce_success">YOU HAVE JOINED</string>
     <string name="app_name">Travis</string>
@@ -837,6 +887,7 @@
 
     <string name="auto_login">Automatically login every time</string>
     <string name="call_another_taxi">Call another taxi</string>
+    <string name="camera_media">Camera media</string>
     <string name="cancel">Cancel</string>
     <string name="client">Client</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
@@ -865,13 +916,12 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
-    <string name="create_new_account">Create new account</string>
+    <string name="connect_to_internet_to_cofigure_services">Connect your device to the Internet to configure the services</string>
     <string name="decline">Decline</string>
     <string name="done">Done</string>
     <string name="dont_rate">Don\'t rate</string>
     <string name="drawer_close">Close drawer</string>
     <string name="drawer_open">Open drawer</string>
-    <string name="empty_string"></string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
     <eat-comment />
 
@@ -901,10 +951,17 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="expired_session_logging_in">Your session has expired. Logging in again…</string>
+    <string name="facebook">Facebook</string>
     <string name="first_name">First name</string>
+    <string name="flickr">Flickr</string>
+    <string name="general_error">An error has occurred. Please try again later.</string>
     <string name="hello_world">Hello world!</string>
     <string name="here_and_now">Here &amp; Now</string>
+    <string name="http_error">Server Problem. Please try again later.</string>
+    <string name="http_exception">Check your internet connection and try again.</string>
     <string name="insert_address">Insert address…</string>
+    <string name="instagram">Instagram</string>
     <string name="intro_1_dscrp">Welcome to the Mobile Backend Starter sample guestbook Android app. This simple app allows users to send messages to other instances of the app running on Android or iOS devices. Play with this application to get started.  There is no additional backend coding required.</string>
     <string name="intro_1_title">Guest Book Sample App</string>
     <string name="intro_2_dscrp">The guestbook app uses the Mobile Backend Starter for messaging and user authentication. The backend also provides a cloud datastore, with public and private objects, and a subscription service to give your apps real time interactivity.</string>
@@ -912,7 +969,11 @@
     <string name="intro_3_dscrp">Play around with this app and the source code to become familiar with the Mobile Backend Starter. When you are ready, replace the Guestbook sample code with your own app or game code.</string>
     <string name="intro_3_title">Now it’s your turn</string>
     <string name="last_name">Last name</string>
+    <string name="last_photo">Last photo taken</string>
+    <string name="last_video_captured">Last video captured</string>
     <string name="later">Later or at another location</string>
+    <string name="loading_albums">Loading albums…</string>
+    <string name="loading_media">Loading media…</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
     <eat-comment />
 
@@ -929,32 +990,58 @@
     <string name="menu_rides">Scheduled rides</string>
     <string name="menu_settings">Settings</string>
     <string name="no">No</string>
+    <string name="no_album_selected">No album selected</string>
+    <string name="no_albums_found">No albums found</string>
+    <string name="no_camera_photos">No photos in camera roll</string>
     <string name="no_messages">No messages yet</string>
     <string name="not_found">Not found</string>
-    <string name="password">Password</string>
-    <string name="photo_url">Photo URL</string>
+    <string name="ok">OK</string>
+    <string name="parsing_exception">Invalid response format.</string>
+    <string name="picasa">Picasa</string>
+    <string name="pick_a_photo">Pick a Photo</string>
     <string name="plus_disconnect">Disconnect from Google+</string>
     <string name="plus_sign_out">Switch Google+ account</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
+    <string name="record_video">Record a video</string>
     <string name="register_ok">Registered successfully!</string>
     <string name="see_more">See all your scheduled rides</string>
+    <string name="select_a_photo">Select a Photo</string>
+    <string name="select_a_video">Select a Video</string>
+    <string name="select_media">Select Media</string>
+    <string name="select_media_source">Select Media Source</string>
+    <string name="select_photo_source">Select Photo Source</string>
+    <string name="select_photos">Select Photos</string>
+    <string name="select_video_source">Select Video Source</string>
+    <string name="select_videos">Select Videos</string>
     <string name="send">Send</string>
     <string name="send_message">sendMessage</string>
     <string name="set_destination">Set Destination</string>
     <string name="set_origin">Set Origin</string>
+    <string name="sign_out">Sign out</string>
     <string name="skip_intro">Skip intro next time</string>
+    <string name="start_using_travis">Start using Travis</string>
     <string name="submit">Submit</string>
     <string name="switch_account">Switch Account</string>
+    <string name="take_photos">Take a photo</string>
     <string name="taxi">Taxi</string>
+    <string name="title_default">Default</string>
+    <string name="title_user">User</string>
+    <string name="toast_choose_photos">Please select photos</string>
+    <string name="toast_feature_camera">Your device doesn\'t have a camera</string>
+    <string name="toast_signed_out">Signed out</string>
     <string name="type_invalid">Please choose a user type…</string>
     <string name="unknown_address">Unknown Address</string>
-    <string name="username">Username</string>
     <string name="view_intro">View Intro</string>
     <string name="wait_for_taxi">Done! Your taxi will arrive soon…</string>
     <string name="wait_for_taxi_suggestion">        We will notify you when your taxi arrives.
         \nTip: You should now set the destination to get a move on once
         your taxi arrives!</string>
+    <string name="welcome_text1">Welcome to Travis!</string>
+    <string name="welcome_text2">It looks like you are a new user.
+Before you start using Travis, please insert your name …</string>
+    <string name="welcome_text3">… then choose a good photo for your profile …</string>
+    <string name="welcome_text4">… and finally pick what type of user are you.</string>
     <string name="yes">Yes</string>
     <string name="your_scheduled_ride">Your scheduled ride:</string>
     <string name="your_scheduled_rides">Your sheduled rides:</string>
@@ -1027,6 +1114,17 @@
         <item name="android:textColor">@color/yellow</item>
         <item name="android:textSize">20sp</item>
     </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="PhotoPickerBaseTheme" parent="android:Theme.Light.NoTitleBar" />
+
+    <style name="PhotoPickerTheme" parent="PhotoPickerBaseTheme">
+        <item name="topBarBackground">@drawable/gradient_blue</item>
+        <item name="topBarTextColor">@color/white</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
+    <eat-comment />
 
     <style name="PopupMenu.Travis" parent="@style/Widget.Sherlock.Light.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_travis</item>
@@ -1694,6 +1792,76 @@
         <item name="android:textAppearance">@style/TextAppearance.Sherlock.Widget.TextView.SpinnerItem</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="imageViewDefaultAssets">
+        <item name="android:background">@drawable/photo_placeholder</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="linearLayoutEmptyFragmentLabel" parent="android:Widget.TextView">
+        <!-- <item name="android:background">?topBarBackground</item> -->
+    </style>
+
+    <style name="linearLayoutNotificationDialog" parent="linearLayoutProgressDialog">
+        <item name="android:background">@drawable/notification_window</item>
+    </style>
+
+    <style name="linearLayoutProgressDialog">
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/progress_bar_window</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="relativeLayoutAdapterItemHolder">
+        <item name="android:background">@color/gray_light</item>
+        <item name="android:padding">1dp</item>
+    </style>
+
+    <style name="relativeLayoutAssetFragment">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="textViewDefaultSmall" parent="android:Widget.TextView">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmallInverse</item>
+    </style>
+
+    <style name="textViewFragmentLabel" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <!-- <item name="android:background">?topBarBackground</item> -->
+        <!-- <item name="android:textAllCaps">true</item> -->
+        <item name="android:textSize">@dimen/fragment_title</item>
+        <!-- <item name="android:textColor">?topBarTextColor</item> -->
+    </style>
+
+    <style name="textViewNotificationDialog" parent="textViewDefaultSmall">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textViewProgressDialog" parent="textViewDefaultSmall">
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="textViewServiceName" parent="android:Widget.TextView">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_service_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="textViewSignOut" parent="android:Widget.TextView">
+        <item name="android:gravity">center</item>
+        <!-- <item name="android:background">?topBarBackground</item> -->
+        <item name="android:textSize">@dimen/sign_out</item>
+        <!-- <item name="android:textColor">?topBarTextColor</item> -->
     </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/themes.xml -->
     <eat-comment />

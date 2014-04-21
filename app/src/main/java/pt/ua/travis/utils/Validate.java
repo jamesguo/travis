@@ -2,6 +2,7 @@ package pt.ua.travis.utils;
 
 import android.app.Activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,7 +31,7 @@ public final class Validate {
         if(allPrefs==null)
             return false;
 
-        // Attempts to return a preference with the provided key.
+        // Attempts to return a preference withUser the provided key.
         Object obtainedPref = allPrefs.get(prefKey);
         return argExistsAux(obtainedPref);
     }
@@ -44,7 +45,7 @@ public final class Validate {
         if(extras==null)
             return false;
 
-        // Attempts to return a extra with the provided key.
+        // Attempts to return a extra withUser the provided key.
         Object obtainedExtra = extras.get(extraKey);
         return argExistsAux(obtainedExtra);
     }
@@ -63,12 +64,17 @@ public final class Validate {
         }
     }
 
+    /**
+     * Check if the device supports Google Play Services.
+     *
+     * @return whether the device supports Google Play Services
+     */
     public static boolean hasGooglePlayServices(Activity activity){
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
         if(status == ConnectionResult.SUCCESS)
             return true;
         else {
-            GooglePlayServicesUtil.getErrorDialog(status, activity, 5).show();
+            GooglePlayServicesUtil.getErrorDialog(status, activity, 5);
             return false;
         }
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-port-xhdpi/layouts.xml -->
+    <eat-comment />
+
+    <bool name="has_two_panes">false</bool>
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-port-xhdpi/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="album_name">16dp</dimen>
+    <dimen name="fragment_title">16dp</dimen>
+    <dimen name="sign_out">14dp</dimen>
+    <dimen name="text_size_service_title">9dp</dimen>
+
+    <integer name="grid_columns_assets">3</integer>
+    <integer name="grid_columns_services">4</integer>
+    <integer name="image_dimensions_assets">80</integer>
+    <integer name="image_dimensions_services">70</integer>
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-port-xhdpi/layouts.xml -->
+    <eat-comment />
+
+    <item name="main_layout" type="layout">@layout/gc_onepane</item>
+
+</resources>

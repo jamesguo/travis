@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
+    <plurals name="numberOfLoadedAlbums">
+        <item quantity="one">Caricato 1 album</item>
+        <item quantity="other">%d album caricati</item>
+    </plurals>
+    <plurals name="numberOfLoadedPhotos">
+        <item quantity="one">Caricato 1 foto in questo album</item>
+        <item quantity="other">%d foto caricate in questo album</item>
+    </plurals>
+
+    <string name="albums">Album</string>
+    <string name="all_media">Tutti i supporti</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-it/strings.xml -->
     <eat-comment />
 
@@ -10,6 +24,14 @@
     <string name="auth_client_play_services_err_notification_msg" msgid="3635065018897986478">"Errore Google Play Services"</string>
     <string name="auth_client_requested_by_msg" msgid="6304135633531965756">"Richiesta da <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
     <string name="auth_client_using_bad_version_title" msgid="2534454398764507874">"Un\'app ha tentato di usare una versione non valida di Play Services."</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="camera_media">Supporti per fotocamere</string>
+    <string name="cancel">Cancellare</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-it/strings.xml -->
+    <eat-comment />
+
     <string name="common_google_play_services_enable_button" msgid="4181637455539816337">"Attiva Google Play Services"</string>
     <string name="common_google_play_services_enable_text" msgid="7627896071867667758">"L\'app non funzionerà se non attivi Google Play Services."</string>
     <string name="common_google_play_services_enable_title" msgid="529078775174559253">"Attiva Google Play Services"</string>
@@ -30,6 +52,10 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Aggiorna Google Play Services"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Accedi"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Accedi con Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="connect_to_internet_to_cofigure_services">Collegare il dispositivo a Internet per la configurazione dei servizi</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-it/values.xml -->
     <eat-comment />
 
@@ -46,5 +72,36 @@
     <string name="error_phone_not_valid">L\'indirizzo di telefono non è velido</string>
     <string name="error_this_field_cannot_contain_special_character">Il campo non può contenere caratteri speciali</string>
     <string name="error_url_not_valid">Il sito web non è valido</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="expired_session_logging_in">La sessione è scaduta. Si prega di accedere di nuovo</string>
+    <string name="general_error">Si è verificato un errore. Riprovare più tardi</string>
+    <string name="http_error">Problema del server, riprovare</string>
+    <string name="http_exception">Controlla la tua connessione a Internet e riprova</string>
+    <string name="last_photo">Ultima foto scattata</string>
+    <string name="last_video_captured">Ultimo video catturato</string>
+    <string name="loading_albums">Caricamento album...</string>
+    <string name="loading_media">Caricamento dei supporti ...</string>
+    <string name="no_album_selected">Nessun album selezionato</string>
+    <string name="no_albums_found">Nessun album trovato</string>
+    <string name="no_camera_photos">Nessuna foto a rullino fotografico</string>
+    <string name="ok">OK</string>
+    <string name="parsing_exception">Formato di risposta cattiva</string>
+    <string name="record_video">Registrare un video</string>
+    <string name="select_a_photo">Seleziona una foto</string>
+    <string name="select_a_video">Selezionare un video</string>
+    <string name="select_an_album">Selezionare Foto Fonte</string>
+    <string name="select_media">Selezionare la voce dei media</string>
+    <string name="select_media_source">Selezionare la sorgente multimediale</string>
+    <string name="select_photo_source">Selezionare Foto Fonte</string>
+    <string name="select_photos">Selezionare le foto</string>
+    <string name="select_video_source">Selezionare la sorgente video</string>
+    <string name="select_videos">Seleziona i video</string>
+    <string name="take_photos">Scattare una foto</string>
+    <string name="title_default">Predefinito</string>
+    <string name="title_user">Utente</string>
+    <string name="toast_choose_photos">Si prega di selezionare le foto</string>
+    <string name="toast_feature_camera">Il dispositivo non dispone di una fotocamera</string>
 
 </resources>

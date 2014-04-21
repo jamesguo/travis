@@ -1,11 +1,9 @@
 package pt.ua.travis.backend.entities;
 
 import com.google.android.gms.maps.model.LatLng;
-import pt.ua.travis.backend.core.CloudEntity;
+import com.parse.ParseObject;
 import pt.ua.travis.utils.Utils;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,199 +19,178 @@ import java.util.Date;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public final class Ride extends CloudEntityWrapper implements Serializable {
-    private static final long serialVersionUID = 1L;
+public final class Ride extends ParseObjectWrapper {
+//    private static final long serialVersionUID = 1L;
 
-    public static final String KIND_NAME = "Ride";
+    public static final String OBJECT_NAME = "Ride";
 
-    public static final String TAXI = "taxi";
-    public static final String CLIENT = "client";
-    public static final String ORIGIN_LAT = "originlat";
-    public static final String ORIGIN_LNG = "originlng";
-    public static final String DESTINATION_LAT = "destinationlat";
-    public static final String DESTINATION_LNG = "destinationlng";
-    public static final String SCHEDULED_HOUR = "scheduledhour";
-    public static final String SCHEDULED_MINUTE = "scheduledminute";
-    public static final String COMPLETED_FLAG = "iscompleted";
+    // Parse data column keys (DO NOT CHANGE)
+    public static final String CLIENT_ID = "client_id";
+    public static final String TAXI_ID = "taxi_id";
+    public static final String ORIGIN_LAT = "origin_lat";
+    public static final String ORIGIN_LNG = "origin_lng";
+    public static final String DESTINATION_LAT = "destination_lat";
+    public static final String DESTINATION_LNG = "destination_lng";
+    public static final String SCHEDULED_TIME = "scheduled_time";
+    public static final String COMPLETED_FLAG = "is_completed";
 
+    private transient Client client;
+    private transient Taxi taxi;
 
     public Ride(){
-        super(new CloudEntity(KIND_NAME));
+        super(new ParseObject(OBJECT_NAME));
+        po.put(COMPLETED_FLAG, false);
     }
 
-    protected Ride(CloudEntity ce){
-        super(ce);
-        if(!ce.getKindName().equals(KIND_NAME)){
-            throw new IllegalArgumentException("The specified CloudEntity denotes a " +
-                    ce.getKindName()+". Should denote a "+KIND_NAME+" entity instead.");
+    Ride(ParseObject po, Client client, Taxi taxi){
+        super(po);
+        this.client = client;
+        this.taxi = taxi;
+        if(!po.getClassName().equals(OBJECT_NAME)){
+            throw new IllegalArgumentException("The specified ParseObject denotes a " +
+                    po.getClassName()+". Should denote a "+ OBJECT_NAME +" entity instead.");
         }
+        po.put(COMPLETED_FLAG, false);
     }
 
-    public boolean isCompleted;
+    @Override
+    protected String thisObjectName() {
+        return OBJECT_NAME;
+    }
 
 
     /**
      * Puts the specified client that requested the ride in the wrapped
-     * {@link CloudEntity} parameter "client".
+     * {@link ParseObject} parameter "client_object".
      */
     public Ride setClient(Client client) {
         if(client==null)
             return this;
 
-        ce.put(CLIENT, client.getId());
+        po.put(CLIENT_ID, client.id());
+        this.client = client;
         return this;
     }
 
 
     /**
      * Puts the specified taxi that performs the ride in the wrapped
-     * {@link CloudEntity} parameter "taxi".
+     * {@link ParseObject} parameter "taxi_object".
      */
     public Ride setTaxi(Taxi taxi) {
         if(taxi==null)
             return this;
 
-        ce.put(TAXI, taxi.getId());
+        po.put(TAXI_ID, taxi.id());
+        this.taxi = taxi;
         return this;
     }
 
 
     /**
-     * Puts the specified latitude and longitude in the wrapped {@link CloudEntity}
+     * Puts the specified latitude and longitude in the wrapped {@link ParseObject}
      * parameter "originlat" and "originlng" respectively.
      */
-    public Ride setOriginPosition(double lat, double lng){
-        ce.put(ORIGIN_LAT, lat);
-        ce.put(ORIGIN_LNG, lng);
+    public Ride setOriginLocation(double lat, double lng){
+        po.put(ORIGIN_LAT, lat);
+        po.put(ORIGIN_LNG, lng);
         return this;
     }
 
 
     /**
-     * Puts the specified {@link LatLng} in the wrapped {@link CloudEntity} parameter
-     * "originlat" and "originlng" respectively.
-     */
-    public Ride setOriginPositionFromLatLng(LatLng latLng){
-        ce.put(ORIGIN_LAT, latLng.latitude);
-        ce.put(ORIGIN_LNG, latLng.longitude);
-        return this;
-    }
-
-
-    /**
-     * Puts the specified latitude and longitude in the wrapped {@link CloudEntity}
+     * Puts the specified latitude and longitude in the wrapped {@link ParseObject}
      * parameter "destinationlat" and "destinationlng" respectively.
      */
-    public Ride setDestinationPosition(double lat, double lng){
-        ce.put(DESTINATION_LAT, lat);
-        ce.put(DESTINATION_LNG, lng);
-        return this;
-    }
-
-
-    /**
-     * Puts the specified {@link LatLng} in the wrapped {@link CloudEntity} parameter
-     * "destinationlat" and "destinationlng" respectively.
-     */
-    public Ride setDestinationPositionFromLatLng(LatLng latLng){
-        ce.put(DESTINATION_LAT, latLng.latitude);
-        ce.put(DESTINATION_LNG, latLng.longitude);
+    public Ride setDestinationLocation(double lat, double lng){
+        po.put(DESTINATION_LAT, lat);
+        po.put(DESTINATION_LNG, lng);
         return this;
     }
 
     /**
-     * Puts the specified hour and minute in the wrapped {@link CloudEntity} parameters
+     * Puts the specified hour and minute in the wrapped {@link ParseObject} parameters
      * "hour" and "minute" respectively.
      */
     public Ride setScheduledTime(int hour, int minute){
-        ce.put(SCHEDULED_HOUR, hour);
-        ce.put(SCHEDULED_MINUTE, minute);
+        Date d = Utils.newTime().withHourAndMinute(hour, minute);
+        po.put(SCHEDULED_TIME, d);
+//        po.put(SCHEDULED_HOUR, hour);
+//        po.put(SCHEDULED_MINUTE, minute);
         return this;
     }
 
     /**
-     * Puts the specified hour and minute in the wrapped {@link CloudEntity} parameters
+     * Puts the specified hour and minute in the wrapped {@link ParseObject} parameters
      * "hour" and "minute" respectively.
      */
-    public Ride setScheduledTime(Calendar time) {
-        int hour = time.get(Calendar.HOUR_OF_DAY);
-        int minute = time.get(Calendar.MINUTE);
-
-        return setScheduledTime(hour, minute);
+    public Ride setScheduledTime(Date d) {
+        po.put(SCHEDULED_TIME, d);
+        return this;
     }
 
 
     /**
-     * Sets this ride as completed by flagging the wrapped {@link CloudEntity} parameter
+     * Sets this ride as completed by flagging the wrapped {@link ParseObject} parameter
      * "iscompleted" as true.
      */
     public Ride setAsCompleted(){
-        ce.put(COMPLETED_FLAG, Boolean.TRUE);
+        po.put(COMPLETED_FLAG, true);
         return this;
     }
 
 
     /**
-     * Returns the Client object that corresponds to the wrapped {@link CloudEntity} client id.
+     * Returns the Client object that corresponds to the wrapped {@link ParseObject} client.
      */
     public Client client() {
-        return CloudBackendManager.select().clients().from(this);
+        return client;
     }
 
 
     /**
-     * Returns the Taxi object that corresponds to the wrapped {@link CloudEntity} taxi id.
+     * Returns the Taxi object that corresponds to the wrapped {@link ParseObject} taxi.
      */
     public Taxi taxi() {
-        return CloudBackendManager.select().taxis().from(this);
+        return taxi;
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} origin position's latitude.
+     * Returns the wrapped {@link ParseObject} origin position's latitude.
      */
-    private double originLat(){
-        return (Double) ce.get(ORIGIN_LAT);
+    private double originLat() {
+        return po.getDouble(ORIGIN_LAT);
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} origin position's longitude.
+     * Returns the wrapped {@link ParseObject} origin position's longitude.
      */
     private double originLng(){
-        return (Double) ce.get(ORIGIN_LNG);
+        return po.getDouble(ORIGIN_LNG);
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} destination position's latitude.
+     * Returns the wrapped {@link ParseObject} destination position's latitude.
      * This value can be null.
      */
     private double destinationLat(){
-        Object obtainedObject = ce.get(DESTINATION_LAT);
-
-        if(obtainedObject == null){
-            return 0;
-        }
-        return (Double) obtainedObject;
+        return po.getDouble(DESTINATION_LAT);
     }
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} destination position's longitude.
+     * Returns the wrapped {@link ParseObject} destination position's longitude.
      * This value can be null.
      */
     private double destinationLng(){
-        Object obtainedObject = ce.get(DESTINATION_LNG);
-
-        if(obtainedObject == null){
-            return 0;
-        }
-        return (Double) obtainedObject;
+        return po.getDouble(DESTINATION_LNG);
     }
 
     /**
-     * Returns the wrapped {@link CloudEntity} origin position.
+     * Returns the wrapped {@link ParseObject} origin position.
      */
     public LatLng originPosition(){
         double lat = originLat();
@@ -223,7 +200,7 @@ public final class Ride extends CloudEntityWrapper implements Serializable {
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} destination position.
+     * Returns the wrapped {@link ParseObject} destination position.
      */
     public LatLng destinationPosition(){
         double lat = destinationLat();
@@ -233,42 +210,13 @@ public final class Ride extends CloudEntityWrapper implements Serializable {
 
 
     /**
-     * Returns the wrapped {@link CloudEntity} origin position in a formatted String.
-     */
-    public String originPositionToString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        sb.append(new BigDecimal(originLat()).setScale(2, BigDecimal.ROUND_HALF_UP));
-        sb.append("; ");
-        sb.append(new BigDecimal(originLng()).setScale(2, BigDecimal.ROUND_HALF_UP));
-        sb.append(")");
-        return sb.toString();
-    }
-
-
-    /**
-     * Returns the wrapped {@link CloudEntity} destination position in a formatted String.
-     */
-    public String destinationPositionToString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        sb.append(new BigDecimal(destinationLat()).setScale(2, BigDecimal.ROUND_HALF_UP));
-        sb.append("; ");
-        sb.append(new BigDecimal(destinationLng()).setScale(2, BigDecimal.ROUND_HALF_UP));
-        sb.append(")");
-        return sb.toString();
-    }
-
-
-    /**
-     * Returns the wrapped {@link CloudEntity} scheduled time as a {@link Calendar}.
-     * The date is set to 1-1-1, only the HOUR_OF_DAY and MINUTE fields are used.
+     * Returns the wrapped {@link ParseObject} scheduled time as a {@link Calendar}.
      */
     public Calendar getScheduledTime() {
-        int hour = (Integer) ce.get(SCHEDULED_HOUR);
-        int minute = (Integer) ce.get(SCHEDULED_MINUTE);
-
-        return Utils.newTime().withHourOfDay(hour).andWithMinute(minute);
+//        int hour = (Integer) po.get(SCHEDULED_HOUR);
+//        int minute = (Integer) po.get(SCHEDULED_MINUTE);
+        Date d = po.getDate(SCHEDULED_TIME);
+        return Utils.calendarFromDate(d);
     }
 
 
@@ -277,8 +225,7 @@ public final class Ride extends CloudEntityWrapper implements Serializable {
      * in a String.
      */
     public String getRemaining() {
-        Calendar calendar = Utils.newTime().toNow();
-        Date now = calendar.getTime();
+        Date now = Calendar.getInstance().getTime();
 
         Calendar scheduledC = getScheduledTime();
         Date scheduled = scheduledC.getTime();
@@ -309,19 +256,43 @@ public final class Ride extends CloudEntityWrapper implements Serializable {
 
 
     /**
-     * Checks if the wrapped {@link CloudEntity} contains a "true" flag that defines this
+     * Checks if the wrapped {@link ParseObject} contains a "true" flag that defines this
      * Ride as completed.
      */
     public boolean isCompleted() {
-        Object obtainedObject = ce.get(COMPLETED_FLAG);
-
-        if(obtainedObject == null)
-            return false;
-
-        if(!(obtainedObject instanceof Boolean)){
-            return false;
-        }
-
-        return (Boolean)obtainedObject;
+        return po.getBoolean(COMPLETED_FLAG);
     }
+
+    @Override
+    public String toString() {
+
+        return "< "+Ride.OBJECT_NAME +
+                " | Completed="+isCompleted()+
+                " | Client="+client().name()+
+                " | Taxi="+taxi().name()+
+                " | "+ id()+" >";
+    }
+
+//    @Override
+//    protected void writeObject(ObjectOutputStream stream) throws IOException {
+//        super.writeObject(stream);
+//
+//        Log.e("++++++++++++++++++++++++++++++++++++++++++++++++++", "++++++++++++++++++++++++++++++++++++++++++++++++++");
+//    }
+//
+//    @Override
+//    protected void readObject(java.io.ObjectInputStream stream) throws IOException, ClassNotFoundException {
+//        super.readObject(stream);
+//
+//        Log.e("++++++++++++++++++++++++++++++++++++++++++++++++++", "++++++++++++++++++++++++++++++++++++++++++++++++++");
+//
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
+//        try {
+//            client = new Client(po.getParseObject(CLIENT_ID).fetch());
+//            taxi = new Taxi(po.getParseObject(TAXI_ID).fetch());
+//        } catch (ParseException ex) {
+//            throw new RuntimeException(ex);
+//        }
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
+//    }
 }

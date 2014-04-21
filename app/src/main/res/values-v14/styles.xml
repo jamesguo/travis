@@ -1,12 +1,40 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
 
-    <!--
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_travis</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Travis</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Travis</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Travis</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Travis</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Travis</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_travis</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
+    </style>
+
+    <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_background_textured_travis</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_travis</item>
+        <item name="android:backgroundSplit">@drawable/ab_background_textured_travis</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Travis" parent="@style/Widget.Sherlock.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_travis</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Travis.Widget" parent="@style/Theme.Sherlock">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Travis</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Travis</item>
+    </style>
+
+    <style name="RatingBarSmall_travis" parent="android:Widget.Holo.Light.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/travis_ratingbar_small_holo_light</item>
+        <item name="android:indeterminateDrawable">@drawable/travis_ratingbar_small_holo_light</item>
     </style>
 
 </resources>

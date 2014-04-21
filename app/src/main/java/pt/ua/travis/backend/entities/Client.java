@@ -1,7 +1,7 @@
 package pt.ua.travis.backend.entities;
 
 import com.google.common.collect.Lists;
-import pt.ua.travis.backend.core.CloudEntity;
+import com.parse.ParseObject;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,49 +15,57 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public final class Client extends User implements Serializable {
-    private static final long serialVersionUID = 1L;
+public final class Client extends User {
+//    private static final long serialVersionUID = 1L;
 
-    public static final String KIND_NAME = "Client";
+    public static final String OBJECT_NAME = "Client";
 
-    public static final String FAVORITE_TAXIS_IDS = "favoritetaxisids";
+    // Parse data column keys (DO NOT CHANGE)
+    public static final String FAVORITE_TAXIS_IDS = "favorite_taxis_ids";
 
     public Client() {
-        super(new CloudEntity(KIND_NAME));
+        super(new ParseObject(OBJECT_NAME));
     }
 
-    Client(CloudEntity ce){
+    Client(ParseObject ce){
         super(ce);
-        if(!ce.getKindName().equals(KIND_NAME)){
-            throw new IllegalArgumentException("The specified CloudEntity denotes a " +
-                    ce.getKindName()+". Should denote a "+KIND_NAME+" entity instead.");
+        if(!ce.getClassName().equals(OBJECT_NAME)){
+            throw new IllegalArgumentException("The specified ParseObject denotes a " +
+                    ce.getClassName()+". Should denote a "+ OBJECT_NAME +" entity instead.");
         }
+    }
+
+    @Override
+    protected String thisObjectName() {
+        return OBJECT_NAME;
     }
 
     /**
      * Sets the specified taxi as a favorite of this user by adding it to the wrapped
-     * {@link CloudEntity} parameter "ratings".
+     * {@link ParseObject} parameter "ratings".
      */
-    public Client addTaxiAsFavorite(Taxi taxiToFavorite){
-        if(taxiToFavorite==null)
+    public Client addTaxiAsFavorite(Taxi taxi) {
+        if (taxi == null)
             return this;
 
-        List<String> taxiIds = favoriteTaxisIdsList();
-        taxiIds.add(taxiToFavorite.getId());
+        List<String> taxiIds = favoriteTaxisList();
+        taxiIds.add(taxi.id());
+        po.put(FAVORITE_TAXIS_IDS, taxiIds);
 
         return this;
     }
 
     /**
      * Removes the specified taxi as a favorite of this user by removing it from the
-     * wrapped {@link CloudEntity} parameter "ratings".
+     * wrapped {@link ParseObject} parameter "ratings".
      */
-    public Client removeTaxiAsFavorite(Taxi taxiToUnfavorite){
-        if(taxiToUnfavorite==null)
+    public Client removeTaxiAsFavorite(Taxi taxi){
+        if (taxi == null)
             return this;
 
-        List<String> taxiIds = favoriteTaxisIdsList();
-        taxiIds.remove(taxiToUnfavorite.getId());
+        List<String> favorites = favoriteTaxisList();
+        favorites.remove(taxi.id());
+        po.put(FAVORITE_TAXIS_IDS, favorites);
 
         return this;
     }
@@ -69,29 +77,35 @@ public final class Client extends User implements Serializable {
         if(taxi==null)
             return false;
 
-        List<String> taxiIds = favoriteTaxisIdsList();
-        return taxiIds.contains(taxi.getId());
+        List<String> favorites = favoriteTaxisList();
+        return favorites.contains(taxi.id());
     }
 
-    /**
-     * Returns the wrapped {@link CloudEntity} list of this user's favorite taxis ids.
-     */
-    List<String> favoriteTaxisIdsList(){
-        Object obtainedObject = ce.get(FAVORITE_TAXIS_IDS);
 
-        if(obtainedObject==null){
+    /**
+     * Returns the wrapped {@link ParseObject} number of taxis that this set as favorite.
+     */
+    public int numberOfFavorites(){
+        List<String> taxiIds = favoriteTaxisList();
+        return taxiIds.size();
+    }
+
+
+    List<String> favoriteTaxisList(){
+        List<String> obtainedList = po.getList(FAVORITE_TAXIS_IDS);
+
+        if(obtainedList==null){
             return Lists.newArrayList();
         } else {
-            return  (List<String>) obtainedObject;
+            return obtainedList;
         }
     }
 
 
-    /**
-     * Returns the wrapped {@link CloudEntity} number of taxis that this set as favorite.
-     */
-    public int numberOfFavorites(){
-        List<String> taxiIds = favoriteTaxisIdsList();
-        return taxiIds.size();
+    @Override
+    public String toString() {
+        return "< "+Client.OBJECT_NAME +
+                " | "+super.toString()+
+                " | "+ id()+" >";
     }
 }

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-    <shape xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shape="oval">
-        <solid android:color="@color/bthumbnail_placeholder"/>
-    </shape>
-<!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/drawable/thumbnail_circle.xml --><!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-bundles/Icm_travisDependenciesAndroidBootstrapUnspecified.aar/res/drawable/thumbnail_circle.xml -->

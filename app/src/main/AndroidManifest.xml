@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pt.ua.travis"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="pt.ua.travis" >
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" >
+    </uses-feature>
 
     <permission
         android:name="com.google.cloud.backend.permission.C2D_MESSAGE"
@@ -18,26 +21,18 @@
     </permission>
 
     <uses-permission android:name="pt.ua.travis.maps.permission.MAPS_RECEIVE" />
-
-    <!-- Used by the API to download map tiles from Google Maps serversand to access Google+ APIs. -->
+    <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- Allows the API to check the connection status in order to determine whether data can be downloaded. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <!-- Allows the API to access Google web-based services. -->
     <uses-permission android:name="android.permission.READ_GSERVICES" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-
-    <!-- Allows the API to cache map tile data in the device's external storage area. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!-- Allows the API to use WiFi or mobile cell data (or both) to determine the device's location. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Allows the API to use the Global Positioning System (GPS) to determine the device's location to within a very small area. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Specifies application requirement for OpenGL ES version 2. -->
@@ -45,57 +40,87 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
     <!--
         To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
-        option is required to comply with the Google+ Sign-In developer policies
+        option is required to comply withUser the Google+ Sign-In developer policies
     -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
 
     <!-- To retrieve the account name (email) as part of sign-in: -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- To auto-complete the email text field in the login form withUser the user's emails -->
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
     <application
+        android:name="pt.ua.travis.core.TravisApplication"
         android:allowBackup="true"
+        android:configChanges="keyboardHidden|orientation|screenSize"
         android:icon="@drawable/cabs"
         android:label="@string/app_name"
         android:theme="@style/Theme.Travis" >
 
         <uses-library android:name="com.google.android.maps" />
 
-
         <activity
-            android:name="pt.ua.travis.gui.login.LoginActivity"
+            android:name="pt.ua.travis.ui.login.LoginActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity" >
+        </activity>
+        <activity android:name=".nfc.NFCActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<data android:mimeType="text/plain" />-->
+            </intent-filter>
+        </activity>
+        <activity android:name="pt.ua.travis.ui.mainscreen.MainClientActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.login.SignUpLastStepsActivity"/>
-        <activity android:name=".gui.main.MainClientActivity"/>
-        <activity android:name=".gui.main.MainTaxiActivity"/>
-        <activity android:name=".gui.taxiridesetup.WaitForTaxiActivity"/>
-        <activity android:name=".gui.travel.AuthenticationClientActivity"/>
-        <activity android:name=".gui.travel.AuthenticationTaxiActivity"/>
-        <activity android:name=".gui.travel.TravelToOriginActivity"/>
-        <activity android:name=".gui.travel.TravelToDestinationActivity"
-                  android:launchMode="singleTop"/>
-        <activity android:name=".gui.travel.PaymentActivity"/>
-        <activity android:name=".wallet.WalletActivity"/>
+        <activity android:name="pt.ua.travis.ui.mainscreen.MainTaxiActivity" />
+        <activity android:name="pt.ua.travis.ui.taxiridesetup.WaitForTaxiActivity" />
+        <activity android:name="pt.ua.travis.ui.travel.AuthenticationClientActivity" />
+        <activity android:name="pt.ua.travis.ui.travel.AuthenticationTaxiActivity" />
+        <activity android:name="pt.ua.travis.ui.travel.TravelToOriginActivity" />
+        <activity
+            android:name="pt.ua.travis.ui.travel.TravelToDestinationActivity"
+            android:launchMode="singleTop" />
+        <activity android:name="pt.ua.travis.ui.travel.PaymentActivity" />
+        <activity android:name="pt.ua.travis.wallet.WalletActivity" />
+        <activity
+            android:name="com.chute.android.photopickerplus.ui.activity.ServicesActivity"
+            android:label="@string/app_name"
+            android:theme="@style/PhotoPickerTheme" >
+        </activity>
+        <activity
+            android:name="com.chute.android.photopickerplus.ui.activity.AssetActivity"
+            android:theme="@style/PhotoPickerTheme" >
+        </activity>
+        <activity
+            android:name="com.chute.sdk.v2.api.authentication.AuthenticationActivity"
+            android:configChanges="orientation|screenSize" />
 
+        <service android:name="com.dg.libs.rest.services.HTTPRequestExecutorService" />
 
         <!-- test activities -->
         <activity
             android:name="pt.ua.travis.backend.sample.guestbook.GuestbookActivity"
-            android:configChanges="orientation|screenSize" />
+            android:configChanges="orientation|screenSize" >
+        </activity>
         <activity
             android:name="pt.ua.travis.backend.sample.guestbook.IntroductionActivity"
             android:parentActivityName="pt.ua.travis.backend.sample.guestbook.GuestbookActivity"
@@ -108,8 +133,8 @@
         </activity>
         <!-- end of test activities -->
 
-
         <service android:name="pt.ua.travis.backend.GCMIntentService" />
+
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
@@ -121,11 +146,10 @@
             </intent-filter>
         </receiver>
 
-
         <!-- Google Maps API key for the application -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCFG83matexcy_sNRpR9O5HbzDMDxKeqTU"/>
+            android:value="AIzaSyDOFFfyFRMg3qNafVikifnx8MPyhylaQbY" />
 
         <!-- Reference to the Google Play services version -->
         <meta-data
