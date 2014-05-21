@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pt.ua.travis" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pt.ua.travis" >
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" >
-    </uses-feature>
 
-    <permission
-        android:name="com.google.cloud.backend.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+    <!-- PERMISSIONS -->
+    <permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
     <uses-permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission
         android:name="pt.ua.travis.maps.permission.MAPS_RECEIVE"
@@ -30,22 +23,11 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Specifies application requirement for OpenGL ES version 2. -->
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
-    <uses-feature android:name="android.hardware.nfc" android:required="true" />
-
-    <!--
-        To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
-        option is required to comply withUser the Google+ Sign-In developer policies
-    -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <!-- To retrieve the account name (email) as part of sign-in: -->
@@ -55,111 +37,143 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <application
-        android:name="pt.ua.travis.core.TravisApplication"
-        android:allowBackup="true"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:icon="@drawable/cabs"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Travis" >
 
-        <uses-library android:name="com.google.android.maps" />
 
-        <activity
-            android:name="pt.ua.travis.ui.login.LoginActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
+
+
+    <!-- FEATURES -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+    <uses-feature android:name="android.hardware.location" android:required="true" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+
+
+
+
+
+    <!-- ACTIVITIES -->
+    <application android:name="pt.ua.travis.core.TravisApplication"
+                 android:allowBackup="true"
+                 android:configChanges="keyboardHidden|orientation|screenSize"
+                 android:icon="@drawable/cabs"
+                 android:label="@string/app_name"
+                 android:theme="@style/Theme.Travis" >
+
+        <!--<uses-library android:name="com.google.android.maps" />-->
+
+        <activity android:name="pt.ua.travis.ui.login.LoginActivity"
+                  android:windowSoftInputMode="adjustResize|stateHidden"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden">
         </activity>
-        <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity" >
-        </activity>
-        <activity android:name=".nfc.NFCActivity">
-            <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-                <action android:name="android.nfc.action.TAG_DISCOVERED" />
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--<data android:mimeType="text/plain" />-->
-            </intent-filter>
-        </activity>
-        <activity android:name="pt.ua.travis.ui.mainscreen.MainClientActivity" >
+        <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".nfc.NFCActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="pt.ua.travis.ui.main.MainClientActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="pt.ua.travis.ui.mainscreen.MainTaxiActivity" >
+        <activity android:name="pt.ua.travis.ui.main.MainTaxiActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" >
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name="pt.ua.travis.ui.taxiridesetup.WaitForTaxiActivity" />
-        <activity android:name="pt.ua.travis.ui.travel.AuthenticationClientActivity" />
-        <activity android:name="pt.ua.travis.ui.travel.AuthenticationTaxiActivity" />
-        <activity android:name="pt.ua.travis.ui.travel.TravelToOriginActivity" />
-        <activity
-            android:name="pt.ua.travis.ui.travel.TravelToDestinationActivity"
-            android:launchMode="singleTop" />
-        <activity android:name="pt.ua.travis.ui.travel.PaymentActivity" />
-        <activity android:name="pt.ua.travis.wallet.WalletActivity" />
-        <activity
-            android:name="com.chute.android.photopickerplus.ui.activity.ServicesActivity"
-            android:label="@string/app_name"
-            android:theme="@style/PhotoPickerTheme" >
+        <activity android:name="pt.ua.travis.ui.taxiridesetup.WaitForTaxiActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="pt.ua.travis.ui.travel.AuthenticationClientActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="pt.ua.travis.ui.travel.AuthenticationTaxiActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="pt.ua.travis.ui.travel.TravelToOriginActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="pt.ua.travis.ui.travel.TravelToDestinationActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="pt.ua.travis.ui.travel.PaymentActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="com.chute.android.photopickerplus.ui.activity.ServicesActivity"
+                  android:label="@string/app_name"
+                  android:theme="@style/PhotoPickerTheme"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" >
         </activity>
-        <activity
-            android:name="com.chute.android.photopickerplus.ui.activity.AssetActivity"
-            android:theme="@style/PhotoPickerTheme" >
+        <activity android:name="com.chute.android.photopickerplus.ui.activity.AssetActivity"
+                  android:theme="@style/PhotoPickerTheme"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" >
         </activity>
-        <activity
-            android:name="com.chute.sdk.v2.api.authentication.AuthenticationActivity"
-            android:configChanges="orientation|screenSize" />
+        <activity android:name="com.chute.sdk.v2.api.authentication.AuthenticationActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
 
-        <service android:name="com.dg.libs.rest.services.HTTPRequestExecutorService" />
 
-        <!-- test activities -->
-        <activity
-            android:name="pt.ua.travis.backend.sample.guestbook.GuestbookActivity"
-            android:configChanges="orientation|screenSize" >
-        </activity>
-        <activity
-            android:name="pt.ua.travis.backend.sample.guestbook.IntroductionActivity"
-            android:parentActivityName="pt.ua.travis.backend.sample.guestbook.GuestbookActivity"
-            android:screenOrientation="portrait" >
 
-            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.google.cloud.backend.sample.guestbook.GuestbookActivity" />
-        </activity>
-        <!-- end of test activities -->
 
-        <service android:name="pt.ua.travis.backend.GCMIntentService" />
 
-        <receiver
-            android:name="com.google.android.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+
+        <!-- SERVICES -->
+        <!--<service android:name="com.dg.libs.rest.services.HTTPRequestExecutorService" />-->
+        <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService" />
+
+
+
+
+
+
+
+
+        <!-- BROADCAST RECEIVERS -->
+        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.StartupBroadcastReceiver"
+                  android:exported="true">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <category android:name="com.google.cloud.solutions.sampleapps.mobilebackend" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.PassiveLocationChangedReceiver"
+                  android:exported="true" />
+        <receiver android:name=".core.TravisLocation">
+            <intent-filter>
+                <action android:name="mobi.littlefluffytoys.littlefluffytestclient.littlefluffylocationlibrary.LOCATION_CHANGED"
+                        android:exported="false"/>
             </intent-filter>
         </receiver>
 
+
+
+
+
+
+
+        <!-- META-DATA -->
         <!-- Google Maps API key for the application -->
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDOFFfyFRMg3qNafVikifnx8MPyhylaQbY" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY"
+                   android:value="AIzaSyCryjdvpJFZihGbMx-ut9tdiUBLRwUKOYU" />
 
         <!-- Reference to the Google Play services version -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.gms.version"
+                   android:value="@integer/google_play_services_version" />
+
+
+
 
     </application>
 

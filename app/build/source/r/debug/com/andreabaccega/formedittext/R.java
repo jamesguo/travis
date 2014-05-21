@@ -34,19 +34,19 @@ public final class R {
 		public static final int webUrl = 0x7f070009;
 	}
 	public static final class string {
-		public static final int error_creditcard_number_not_valid = 0x7f0b003c;
-		public static final int error_date_not_valid = 0x7f0b003d;
-		public static final int error_domain_not_valid = 0x7f0b003e;
-		public static final int error_email_address_not_valid = 0x7f0b003f;
-		public static final int error_field_must_not_be_empty = 0x7f0b0040;
-		public static final int error_ip_not_valid = 0x7f0b0045;
-		public static final int error_notvalid_personfullname = 0x7f0b0046;
-		public static final int error_notvalid_personname = 0x7f0b0047;
-		public static final int error_only_numeric_digits_allowed = 0x7f0b0048;
-		public static final int error_only_standard_letters_are_allowed = 0x7f0b0049;
-		public static final int error_phone_not_valid = 0x7f0b004a;
-		public static final int error_this_field_cannot_contain_special_character = 0x7f0b004b;
-		public static final int error_url_not_valid = 0x7f0b004c;
+		public static final int error_creditcard_number_not_valid = 0x7f0b003b;
+		public static final int error_date_not_valid = 0x7f0b003c;
+		public static final int error_domain_not_valid = 0x7f0b003d;
+		public static final int error_email_address_not_valid = 0x7f0b003e;
+		public static final int error_field_must_not_be_empty = 0x7f0b003f;
+		public static final int error_ip_not_valid = 0x7f0b0044;
+		public static final int error_notvalid_personfullname = 0x7f0b0045;
+		public static final int error_notvalid_personname = 0x7f0b0046;
+		public static final int error_only_numeric_digits_allowed = 0x7f0b0047;
+		public static final int error_only_standard_letters_are_allowed = 0x7f0b0048;
+		public static final int error_phone_not_valid = 0x7f0b0049;
+		public static final int error_this_field_cannot_contain_special_character = 0x7f0b004a;
+		public static final int error_url_not_valid = 0x7f0b004b;
 	}
 	public static final class styleable {
 		public static final int[] FormEditText = { 0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023 };

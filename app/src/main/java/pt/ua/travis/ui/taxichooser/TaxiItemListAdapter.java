@@ -16,7 +16,7 @@ import java.util.Map;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-
+@Deprecated
 public class TaxiItemListAdapter extends BaseAdapter implements TaxiItemAdapter {
 
     private Activity context;

@@ -15,7 +15,7 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
+import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 

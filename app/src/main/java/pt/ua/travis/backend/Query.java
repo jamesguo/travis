@@ -1,7 +1,9 @@
 package pt.ua.travis.backend;
 
+import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.*;
 import pt.ua.travis.utils.Utils;
@@ -50,6 +52,9 @@ public class Query {
     private List<Filter> filters;
     private int limit;
     private String idFilter;
+    private ParseGeoPoint locationFilterSW;
+    private ParseGeoPoint locationFilterNE;
+    private String sortKey;
 
     Query(final User loggedInUser){
 //        this.fb = fb;
@@ -77,6 +82,14 @@ public class Query {
 
         if (limit > 0) {
             q.setLimit(limit);
+        }
+
+        if (locationFilterSW!=null && locationFilterNE!=null) {
+            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
+        }
+
+        if(sortKey!=null) {
+            q.orderByAscending(sortKey);
         }
 
         if(idFilter==null) {
@@ -287,6 +300,12 @@ public class Query {
                 return null;
         }
 
+        public QueryTaxis near(LatLng latLng){
+            locationFilterSW = new ParseGeoPoint(latLng.latitude - 10, latLng.longitude - 10);
+            locationFilterNE = new ParseGeoPoint(latLng.latitude + 10, latLng.longitude + 10);
+            return this;
+        }
+
         public void favoritedBy(final Client c, final Callback<List<Taxi>> queryHandler) {
 //
             final List<String> favoriteTaxiIds = c.favoriteTaxisList();
@@ -347,6 +366,11 @@ public class Query {
         @Override
         protected Taxi fetchNow(ParseObject po) {
             return new Taxi(po);
+        }
+
+        public QueryTaxis sortedByRating() {
+            sortKey = Taxi.RATINGS_LIST;
+            return this;
         }
 
         public QueryTaxis withId(String id) {

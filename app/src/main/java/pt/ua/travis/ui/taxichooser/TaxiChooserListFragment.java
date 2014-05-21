@@ -6,7 +6,7 @@ import android.widget.ListView;
 import com.androidmapsextensions.Marker;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
+import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;
@@ -16,6 +16,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
+@Deprecated
 public class TaxiChooserListFragment extends TaxiChooserFragment {
 
     private ListView taxiSelector;
@@ -25,7 +26,7 @@ public class TaxiChooserListFragment extends TaxiChooserFragment {
         super.onStart();
         List<Taxi> taxis = MainClientActivity.getCurrentTaxiListState();
 
-        taxiSelector = (ListView) getActivity().findViewById(R.id.list);
+//        taxiSelector = (ListView) getActivity().findViewById(R.id.list);
         final TaxiItemListAdapter taxiAdapter = new TaxiItemListAdapter(getActivity(), convertTaxisToItems(taxis));
         this.itemAdapter = taxiAdapter;
 

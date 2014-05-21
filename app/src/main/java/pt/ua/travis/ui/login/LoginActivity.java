@@ -26,8 +26,9 @@ import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.backend.User;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
-import pt.ua.travis.ui.mainscreen.MainTaxiActivity;
+import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.ui.main.MainClientActivity;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Utils;
 import pt.ua.travis.utils.Validate;
@@ -455,15 +456,20 @@ public class LoginActivity extends PlusBaseActivity implements LoaderManager.Loa
                 // Email and password match a user
                 User loggedInUser = result.second;
 
+                Intent activityIntent;
                 if(loggedInUser instanceof Client){
-                    Intent intent = new Intent(LoginActivity.this, MainClientActivity.class);
-                    startActivity(intent);
-                    finish();
+                    activityIntent = new Intent(LoginActivity.this, MainClientActivity.class);
+
                 } else if(loggedInUser instanceof Taxi){
-                    Intent intent = new Intent(LoginActivity.this, MainTaxiActivity.class);
-                    startActivity(intent);
-                    finish();
+                    activityIntent = new Intent(LoginActivity.this, MainTaxiActivity.class);
+                    TravisLocation.startTaxiLocationListener((Taxi)loggedInUser);
+
+                } else {
+                    return;
                 }
+
+                startActivity(activityIntent);
+                finish();
             }
         }
 

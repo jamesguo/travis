@@ -381,7 +381,7 @@ public final class Utils {
 ////        String provider = locationManager.getBestProvider(criteria, true);
 //
 //        // Getting Current Location
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,0, new LocationListener() {
+//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,0, new GeoLocationListener() {
 //            boolean executedListener = false;
 //
 //            @Override

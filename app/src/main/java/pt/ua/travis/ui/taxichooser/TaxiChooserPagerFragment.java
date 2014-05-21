@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager;
 import com.androidmapsextensions.Marker;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
+import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;

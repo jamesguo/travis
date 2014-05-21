@@ -1,7 +1,12 @@
 package pt.ua.travis.ui.taxichooser;
 
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import pt.ua.travis.R;
 
 import java.util.List;
 

@@ -9,6 +9,8 @@ package pt.ua.travis;
 
 public final class Manifest {
     public static final class permission {
+        /**  PERMISSIONS 
+         */
         public static final String C2D_MESSAGE="com.google.cloud.backend.permission.C2D_MESSAGE";
         public static final String MAPS_RECEIVE="pt.ua.travis.maps.permission.MAPS_RECEIVE";
     }

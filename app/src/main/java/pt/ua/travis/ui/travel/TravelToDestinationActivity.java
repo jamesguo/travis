@@ -20,7 +20,7 @@ import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
-import pt.ua.travis.ui.mainscreen.MainTaxiActivity;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.mapnavigator.Directions;
 import pt.ua.travis.mapnavigator.Navigator;
 import pt.ua.travis.utils.CommonKeys;

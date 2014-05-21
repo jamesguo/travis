@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
-import pt.ua.travis.ui.mainscreen.MainActivity;
+import pt.ua.travis.ui.main.MainActivity;
 
 import java.util.List;
 

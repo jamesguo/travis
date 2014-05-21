@@ -11,13 +11,15 @@ import com.androidmapsextensions.SupportMapFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.backend.PersistenceManager;
-import pt.ua.travis.ui.mainscreen.GeoLocationActivity;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
+import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Utils;
 
@@ -103,7 +105,7 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                     Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
 
                     lastMarker = matchedPair.first;
-                    LatLng userPosition = ((GeoLocationActivity)getActivity()).getCurrentLocation();
+                    LatLng userPosition = TravisLocation.getCurrentLocation(getActivity());
                     map.animateCamera(CameraUpdateFactory.newLatLng(userPosition), 900, null);
                     myLocationToggle = true;
                 } else {
@@ -138,10 +140,12 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
     }
 
 
-    public final void updateTaxis(List<Taxi> taxis){
+    public final void updateTaxis(List<Taxi> taxis) {
+
+        final Map<String, Pair<Marker, TaxiItem>> auxMappings = Utils.newMap();
 
         int selectedIndex = getCurrentSelectedIndex();
-        for(Taxi t : taxis){
+        for (Taxi t : taxis) {
             String id = t.id();
 
             Pair<Marker, TaxiItem> pair = itemToMarkerMappings.get(id);
@@ -157,14 +161,28 @@ public abstract class TaxiChooserFragment extends SherlockFragment {
                     .visible(true)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)));
 
-            itemToMarkerMappings.put(id, Utils.newPair(newM, pair.second));
+            auxMappings.put(id, Utils.newPair(newM, pair.second));
 
 
             int thisItemIndex = itemAdapter.getItemPosition(pair.second);
-            if(thisItemIndex==selectedIndex){
+            if (thisItemIndex == selectedIndex) {
                 moveMapToMarker(newM);
             }
         }
+
+        Map<String, Pair<Marker, TaxiItem>> mappingsToRemove =
+                Maps.filterEntries(itemToMarkerMappings, new Predicate<Map.Entry<String, Pair<Marker, TaxiItem>>>() {
+                    @Override
+                    public boolean apply(Map.Entry<String, Pair<Marker, TaxiItem>> input) {
+                        return !auxMappings.containsKey(input.getKey());
+                    }
+                });
+
+        for (String k : mappingsToRemove.keySet()) {
+            itemToMarkerMappings.get(k).first.remove();
+        }
+
+        itemToMarkerMappings = auxMappings;
     }
 
 

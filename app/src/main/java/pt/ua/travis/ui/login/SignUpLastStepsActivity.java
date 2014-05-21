@@ -15,8 +15,8 @@ import com.chute.sdk.v2.model.enums.AccountType;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.ui.mainscreen.MainClientActivity;
-import pt.ua.travis.ui.mainscreen.MainTaxiActivity;
+import pt.ua.travis.ui.main.MainClientActivity;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.Validate;
 
 import java.util.ArrayList;

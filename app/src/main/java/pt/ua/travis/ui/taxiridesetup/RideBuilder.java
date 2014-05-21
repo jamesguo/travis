@@ -1,9 +1,11 @@
 package pt.ua.travis.ui.taxiridesetup;
 
+import android.content.Context;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.core.TravisLocation;
 
 import java.util.Calendar;
 
@@ -17,8 +19,8 @@ public class RideBuilder {
     private Calendar c;
     private LatLng origPos;
 
-    public RideBuilder(LatLng currentLocation){
-        resetToHereAndNow(currentLocation);
+    public RideBuilder(Context context){
+        resetToHereAndNow(context);
     }
 
     public void setTaxi(Taxi selectedTaxi){
@@ -34,9 +36,9 @@ public class RideBuilder {
         this.origPos = origPos;
     }
 
-    public void resetToHereAndNow(LatLng currentLocation) {
+    public void resetToHereAndNow(Context context) {
         this.c = Calendar.getInstance();
-        this.origPos = currentLocation;
+        this.origPos = TravisLocation.getCurrentLocation(context);
     }
 
 //    @Override

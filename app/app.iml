@@ -70,22 +70,21 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="android-async-http-1.4.4" level="project" />
-    <orderEntry type="library" exported="" name="tubesock-0.0.6" level="project" />
+    <orderEntry type="library" exported="" name="littlefluffylocationlibrary" level="project" />
     <orderEntry type="library" exported="" name="android-maps-extensions-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="tubesock-0.0.7" level="project" />
     <orderEntry type="library" exported="" name="Parse-1.4.3" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
-    <orderEntry type="library" exported="" name="geohash-1.0.10" level="project" />
     <orderEntry type="library" exported="" name="android-form-edittext-1.0.5" level="project" />
     <orderEntry type="library" exported="" name="jackson-annotations-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="actionbarsherlock-4.4.0" level="project" />
-    <orderEntry type="library" exported="" name="guava-16.0.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="jackson-databind-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="firebase-client-1.0.13" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.2.0" level="project" />
-    <orderEntry type="library" exported="" name="firebase-client-1.0.12" level="project" />
+    <orderEntry type="library" exported="" name="play-services-4.4.52" level="project" />
+    <orderEntry type="library" exported="" name="guava-17.0" level="project" />
     <orderEntry type="library" exported="" name="chute-sdk-v2-android-2.2.7" level="project" />
-    <orderEntry type="library" exported="" name="play-services-4.3.23" level="project" />
     <orderEntry type="module" module-name="AndroidBootstrap" exported="" />
     <orderEntry type="module" module-name="ChutePhotoPickerPlus" exported="" />
   </component>

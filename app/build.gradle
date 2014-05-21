@@ -42,16 +42,16 @@ dependencies {
 //    compile 'com.firebase:firebase-simple-login:+'
 
     // Imageshack API to store user photos
-    compile files('src/main/libs/android-async-http-1.4.4.jar')
+//    compile files('src/main/libs/android-async-http-1.4.4.jar')
 
-    // Geohashing tool
-    compile files('src/main/libs/geohash-1.0.10.jar')
+//    // Geohashing tool
+//    compile files('src/main/libs/geohash-1.0.10.jar')
 
     // Google Play services library to provide maps
-    compile 'com.google.android.gms:play-services:+'
+    compile 'com.google.android.gms:play-services:4.4.52'
 
     // Maps v2 extension library that supports data storage in Markers and clustering management
-    compile 'com.androidmapsextensions:android-maps-extensions:2.1.+'
+    compile 'com.androidmapsextensions:android-maps-extensions:+'
 
     // Asynchronous image downloading, handling and caching
     compile 'com.squareup.picasso:picasso:2.2.0'
@@ -68,7 +68,7 @@ dependencies {
 //    compile 'com.nineoldandroids:library:2.4.0'
 
     // Java primitives and data structure utils
-    compile 'com.google.guava:guava:16.0.1'
+    compile 'com.google.guava:guava:17.0'
 
     // Form validation
     compile 'com.andreabaccega:android-form-edittext:1.0.5@aar'
@@ -77,4 +77,6 @@ dependencies {
     compile project(':dependencies:AndroidBootstrap'){
         transitive = false
     }
+
+    compile files('src/main/libs/littlefluffylocationlibrary.jar')
 }

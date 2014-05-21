@@ -28,8 +28,6 @@
         android:layout_centerInParent="true"
         android:layout_below="@id/pay_normal"
         android:minWidth="200dp"
-        android:background="@drawable/wallet_button_background"
-        android:src="@drawable/wallet_button_buy_with_foreground"
         android:onClick="onWalletPayButtonClicked"/>
 
 </RelativeLayout>
