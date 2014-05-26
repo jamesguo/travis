@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import pt.ua.travis.backend.Callback;
+import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
+import pt.ua.travis.backend.User;
 import pt.ua.travis.ui.main.MainActivity;
 import pt.ua.travis.utils.Utils;
 

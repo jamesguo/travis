@@ -63,316 +63,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00d128b7-69fd-467e-809b-c5e7a102c646" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Parse_1_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/actionbarsherlock_4_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_form_edittext_1_0_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_maps_extensions_2_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/chute_sdk_v2_android_2_2_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/firebase_client_1_0_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/guava_17_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/littlefluffylocationlibrary.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/picasso_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_4_4_52.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_19_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/tubesock_0_0_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\adapters\GridAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\TaxiChooserListFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\TaxiChooserPagerFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\TaxiItemAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\TaxiItemListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\TaxiItemPagerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_about.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_alarms.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_favorite.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_location_found.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_map.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_action_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_best_rated.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_favorites.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_launcher_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_left_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_login.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_menu_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_navigation_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_right_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_send.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\img_connect.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\img_done.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\img_guestbook_splash.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\tick_grid.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\tick_list.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\video_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_about.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_alarms.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_favorite.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_location_found.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_map.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_action_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_best_rated.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_favorites.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_launcher_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_left_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_login.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_menu_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_navigation_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_right_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_send.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_taxi.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\img_connect.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\img_done.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\img_guestbook_splash.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\img_logo_splash.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\tick_grid.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\tick_list.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\video_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\gradient_blue.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_about.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_alarms.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_favorite.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_location_found.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_map.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_action_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_best_rated.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_favorites.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_launcher_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_left_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_login.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_menu_guestbook.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_navigation_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_right_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_send.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_taxi.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\img_connect.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\img_done.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\img_guestbook_splash.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\tick_grid.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\tick_list.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_about.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_alarms.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_favorite.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_location_found.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_map.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_not_important.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_action_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_best_rated.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_favorites.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_login.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_navigation_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_taxi.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\dialog_shape.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\progress_bar_rotation.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\row_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\services_shape.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\activity_guestbook_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\activity_main_taxi.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_first.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_second.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_third.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_splash.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\item_grid.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\row_post.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\menu\activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\values\slidinglayer-attrs.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\drawer\DrawerItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/navigationdrawer/DrawerItem.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\drawer\DrawerSeparator.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/navigationdrawer/DrawerSeparator.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\drawer\DrawerUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/navigationdrawer/DrawerUser.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\drawer\DrawerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/navigationdrawer/DrawerView.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\drawer\DrawerViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/navigationdrawer/DrawerViewAdapter.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxichooser\SlidingLayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/SlidingPaneLayout.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideBuilder.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideRequestButtonsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestButtonsFragment.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideRequestOptionsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestOptionsFragment.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideRequestPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestPagerAdapter.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideRequestTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestTask.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\RideRequestViewPager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/RideRequestViewPager.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\SlidePageTransformer.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/SlidingPaneTransformer.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\taxiridesetup\WaitForTaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/WaitForTaxiActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\travel\AuthenticationClientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/AuthenticationClientActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\travel\AuthenticationTaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/AuthenticationTaxiActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\travel\PaymentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/PaymentActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\travel\TravelToDestinationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToDestinationActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\ui\travel\TravelToOriginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToOriginActivity.java" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\layer_bottom_shadow.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/item_taxi_shadow.xml" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable\options_pane_shadow.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sliding_pane_shadow.xml" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout-small\pane_ridebuilder_options.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-small/sliding_pane_options.xml" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\pane_ridebuilder_buttons.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sliding_pane_buttons.xml" />
-      <change type="MOVED" beforePath="C:\projects-android\icm_travis\app\src\main\res\layout\pane_ridebuilder_options.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/sliding_pane_options.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_bottom_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_bottom_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_bottom_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_bottom_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_bottom_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_bottom_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_bottom_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_bottom_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_stacked_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_stacked_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_stacked_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_stacked_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_stacked_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_stacked_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_stacked_solid_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_stacked_solid_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_texture_tile_travis.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_texture_tile_travis.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_texture_tile_travis.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_texture_tile_travis.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_texture_tile_travis.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_texture_tile_travis.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_texture_tile_travis.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_texture_tile_travis.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_transparent_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ab_transparent_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_transparent_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ab_transparent_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_transparent_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ab_transparent_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_transparent_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ab_transparent_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_cab_done_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_cab_done_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_cab_done_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_cab_done_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_bottom_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_bottom_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_bottom_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_bottom_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_bottom_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_bottom_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_bottom_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_bottom_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_top_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cab_background_top_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_top_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/cab_background_top_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_top_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/cab_background_top_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_top_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/cab_background_top_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/classes.jar" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/drawer_shadow.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/drawer_shadow.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_closest.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_closest.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_closest.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_closest.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_closest.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_closest.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_closest.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_closest.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_search.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_search.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_search.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_search.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_search.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_search.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_search.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_search.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_settings.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_settings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_settings.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_settings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_settings.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_settings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_settings.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_settings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/list_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/list_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/list_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/list_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/menu_dropdown_panel_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/menu_dropdown_panel_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/menu_dropdown_panel_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/menu_dropdown_panel_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/menu_dropdown_panel_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/menu_dropdown_panel_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/menu_dropdown_panel_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/menu_dropdown_panel_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_bg_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_bg_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_bg_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_bg_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_bg_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_bg_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_bg_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_bg_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_primary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_primary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_primary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_primary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_primary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_primary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_primary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_primary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_secondary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/progress_secondary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_secondary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/progress_secondary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_secondary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/progress_secondary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_secondary_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/progress_secondary_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_default_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_default_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_disabled_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_disabled_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_disabled_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_disabled_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_disabled_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_disabled_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_disabled_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_disabled_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/spinner_ab_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/spinner_ab_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/spinner_ab_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/spinner_ab_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_selected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_selected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_selected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_selected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_focused_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_focused_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_pressed_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_pressed_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tab_unselected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/tab_unselected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/tab_unselected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_travis.9.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/tab_unselected_travis.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/addresspicker/AddressPickerDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/addresspicker/AddressPickerDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapCircleThumbnail.java" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapCircleThumbnail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonRes.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonRes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/actionbarsherlock/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/actionbarsherlock/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/andreabaccega/formedittext/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/andreabaccega/formedittext/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/androidmapsextensions/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/androidmapsextensions/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/pt/ua/travis/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/pt/ua/travis/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ab_background_textured_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ab_background_textured_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/actionbar_with_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/actionbar_with_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_wait_for_taxi_info.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_wait_for_taxi_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/attr.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/attr.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/available_shape.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/available_shape.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/btn_cab_done_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_cab_done_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_address_picker.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_address_picker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_chooser.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_chooser.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_ride_client.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_ride_client.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/progress_horizontal_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/progress_horizontal_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/selectable_background_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/selectable_background_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/spinner_background_ab_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/spinner_background_ab_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/tab_indicator_ab_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_indicator_ab_travis.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/unavailable_border.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/unavailable_border.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/android-sliding-layer/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/android-sliding-layer/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Travis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -489,15 +180,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RideItemListAdapter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RideItemListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3846154" vertical-offset="270" max-vertical-offset="1035">
-              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1065">
+              <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
               <folding>
-                <element signature="e#919#1198#0" expanded="true" />
-                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1001#1280#0" expanded="true" />
+                <element signature="e#1269#1270#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Awfdas.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/homewidget/Awfdas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8557692" vertical-offset="48" max-vertical-offset="465">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -3086,7 +2787,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/SlidingPaneLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_sort_spinner.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/sort_spinner.xml" />
@@ -3133,10 +2833,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/homewidget/Awfdas.java" />
       </list>
     </option>
   </component>
@@ -3929,6 +3630,40 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="homewidget" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Travis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icm_travis" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="travis" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -4306,17 +4041,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_generic.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8" vertical-offset="0" max-vertical-offset="450">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_list.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4739,12 +4463,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154" vertical-offset="270" max-vertical-offset="1035">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1065">
+          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
           <folding>
-            <element signature="e#919#1198#0" expanded="true" />
-            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1001#1280#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/homewidget/Awfdas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8557692" vertical-offset="48" max-vertical-offset="465">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
