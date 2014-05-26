@@ -13,13 +13,13 @@ import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisLocation;
-import pt.ua.travis.ui.drawer.DrawerItem;
-import pt.ua.travis.ui.drawer.DrawerSeparator;
-import pt.ua.travis.ui.drawer.DrawerUser;
-import pt.ua.travis.ui.drawer.DrawerView;
+import pt.ua.travis.ui.navigationdrawer.DrawerItem;
+import pt.ua.travis.ui.navigationdrawer.DrawerSeparator;
+import pt.ua.travis.ui.navigationdrawer.DrawerUser;
+import pt.ua.travis.ui.navigationdrawer.DrawerView;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
-import pt.ua.travis.ui.travel.TravelToOriginActivity;
+import pt.ua.travis.ui.currenttravel.TravelToOriginActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;
@@ -60,21 +60,9 @@ public class MainTaxiActivity extends MainActivity {
         final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
 
         drawerViews.add(new DrawerUser(loggedInTaxi));
-
-        final DrawerItem item = new DrawerItem(1, R.string.menu_rides, R.drawable.ic_action_alarms, 0);
-        drawerViews.add(item);
-
-        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_action_about));
+        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_logout));
         drawerViews.add(new DrawerSeparator());
-        drawerViews.add(new DrawerItem(3, R.string.menu_settings, R.drawable.ic_action_settings));
-
-        PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().later(new Callback<List<Ride>>() {
-            @Override
-            public void onResult(List<Ride> result) {
-                item.setItemCounter(result.size());
-                updateDrawerList();
-            }
-        });
+        drawerViews.add(new DrawerItem(3, R.string.menu_settings, R.drawable.ic_settings));
     }
 
 
@@ -99,7 +87,7 @@ public class MainTaxiActivity extends MainActivity {
             public void onResult(List<Ride> result) {
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.content_frame, RideListFragment.newInstance(RideItem.SHOW_CLIENT, result))
+                        .replace(R.id.tab_pager, RideListFragment.newInstance(RideItem.SHOW_CLIENT))
                         .addToBackStack(null)
                         .commit();
             }

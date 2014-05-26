@@ -11,6 +11,21 @@
         <item name="actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
+        <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
+    </style>
+
+    <style name="DialogStyleLight.Custom">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@color/white</item>
+        <item name="buttonBackgroundColorNormal">@color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@color/white</item>
     </style>
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
@@ -35,6 +50,8 @@
 
     <style name="ActionBarTabStyle.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_travis</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="DropDownNav.Travis" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">

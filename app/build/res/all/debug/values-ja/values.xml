@@ -91,6 +91,15 @@
     <string name="no_camera_photos">カメラロールで写真無し</string>
     <string name="ok">OK</string>
     <string name="parsing_exception">悪い応答形式</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">画面を引っ張って…</string>
+    <string name="pull_to_refresh_refreshing_label">読み込み中…</string>
+    <string name="pull_to_refresh_release_label">指を離して更新…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
+    <eat-comment />
+
     <string name="record_video">ビデオを録画する</string>
     <string name="select_a_photo">写真を選択</string>
     <string name="select_a_video">ビデオを選択</string>

@@ -12,6 +12,7 @@
             <option value="C:\projects-android\icm_travis\dependencies" />
             <option value="C:\projects-android\icm_travis\dependencies\AndroidBootstrap" />
             <option value="C:\projects-android\icm_travis\dependencies\ChutePhotoPickerPlus" />
+            <option value="C:\projects-android\icm_travis\dependencies\ProgressWheel-master" />
           </set>
         </option>
       </GradleProjectSettings>

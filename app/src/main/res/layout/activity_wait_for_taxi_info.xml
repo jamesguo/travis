@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             fontawesometext:fa_icon="fa-check"
-            android:textColor="@color/taxi_available_bg"
+            android:textColor="@color/taxi_available_border"
             android:paddingTop="20dp"
             android:paddingLeft="15dp"
             android:textSize="45sp"/>

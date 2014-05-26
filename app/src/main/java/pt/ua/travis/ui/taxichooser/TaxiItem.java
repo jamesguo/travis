@@ -2,17 +2,22 @@ package pt.ua.travis.ui.taxichooser;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.ui.customviews.CircularImageView;
 import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.CommonRes;
 
@@ -81,15 +86,11 @@ public class TaxiItem extends Fragment {
         return currentView;
     }
 
-    public static void paintViewWithTaxi(Context context, View v, Client clientObject, Taxi taxiObject){
+    public View getCurrentView() {
+        return currentView;
+    }
 
-        // set the available status shape at the left side of the photo
-        ImageView availableStatus = (ImageView) v.findViewById(R.id.available_status);
-        if (taxiObject.isAvailable()) {
-            availableStatus.setImageDrawable(CommonRes.get().AVAILABLE_SHAPE);
-        } else {
-            availableStatus.setImageDrawable(CommonRes.get().UNAVAILABLE_SHAPE);
-        }
+    public static void paintViewWithTaxi(Context context, View v, Client clientObject, Taxi taxiObject){
 
         // set the name
         TextView nameView = (TextView) v.findViewById(R.id.text);
@@ -98,14 +99,22 @@ public class TaxiItem extends Fragment {
         // set the photo
         String imageUrl = taxiObject.imageUri();
         if (imageUrl != null && !imageUrl.isEmpty()) {
-            ImageView photoView = (ImageView) v.findViewById(R.id.photo);
-            Picasso.with(context).load(imageUrl).fit().into(photoView);
+            final CircularImageView photoView = (CircularImageView) v.findViewById(R.id.photo);
+            Picasso.with(context).load(imageUrl).placeholder(R.drawable.placeholder).fit().into(photoView);
+            if (taxiObject.isAvailable()) {
+                photoView.setBorderColor(CommonRes.get().AVAILABLE_COLOR);
+            } else {
+                photoView.setBorderColor(CommonRes.get().UNAVAILABLE_COLOR);
+            }
         }
 
         // set the favorite icon
         ImageView favoriteIcon = (ImageView) v.findViewById(R.id.favorite);
-        if(clientObject.taxiIsAFavorite(taxiObject))
-            favoriteIcon.setImageDrawable(CommonRes.get().FAVORITE_ICON);
+        if(clientObject.taxiIsAFavorite(taxiObject)){
+            favoriteIcon.setEnabled(true);
+        } else {
+            favoriteIcon.setEnabled(false);
+        }
 
         // set the rating
         RatingBar ratingBar = (RatingBar) v.findViewById(R.id.rating);

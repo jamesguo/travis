@@ -64,8 +64,20 @@ dependencies {
         transitive = false
     }
 
+    // Progress wheel around the instant taxi button
+    compile project(':dependencies:ProgressWheel-master')
+
+    // "Pull action bar to refresh" feature
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:+'
+
+    // Translucid action bar effect
+    compile 'com.github.manuelpeinado.glassactionbar:glassactionbar:0.3.0'
+
 //    // Honeycomb animation compatibility for SDK versions lower than 3.0
-//    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+
+    // Custom styled dialogs
+    compile 'eu.inmite.android.lib:android-styled-dialogs:1.1.2@aar'
 
     // Java primitives and data structure utils
     compile 'com.google.guava:guava:17.0'

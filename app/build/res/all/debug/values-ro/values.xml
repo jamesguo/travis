@@ -38,5 +38,11 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Actualizaţi Servicii Google Play"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Conectați"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Conectați-vă cu Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ro/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">Trage pentru a reîmprospăta…</string>
+    <string name="pull_to_refresh_refreshing_label">Încărcare…</string>
+    <string name="pull_to_refresh_release_label">Eliberează pentru a reîmprospăta…</string>
 
 </resources>

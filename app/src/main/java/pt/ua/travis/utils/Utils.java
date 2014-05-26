@@ -2,11 +2,13 @@ package pt.ua.travis.utils;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.location.*;
 import android.os.StrictMode;
 import android.support.v4.util.ArrayMap;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Surface;
 import android.view.WindowManager;
 import com.google.android.gms.maps.model.LatLng;
@@ -85,7 +87,7 @@ public final class Utils {
      */
     public static int dpToPx(Context context, int dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
     }
 
 

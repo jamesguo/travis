@@ -38,5 +38,11 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"‏تحديث خدمات Google Play"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"تسجيل الدخول"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"‏تسجيل الدخول باستخدام Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ar/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">اسحب للتحديث…</string>
+    <string name="pull_to_refresh_refreshing_label">تحميل…</string>
+    <string name="pull_to_refresh_release_label">اترك للتحديث…</string>
 
 </resources>

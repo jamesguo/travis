@@ -74,6 +74,15 @@
     <string name="no_camera_photos">Não há fotos no rolo da câmera</string>
     <string name="ok">OK</string>
     <string name="parsing_exception">Formato de resposta ruim</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-pt/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">Puxe para atualizar…</string>
+    <string name="pull_to_refresh_refreshing_label">A carregar…</string>
+    <string name="pull_to_refresh_release_label">Liberação para atualizar…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-pt/values.xml -->
+    <eat-comment />
+
     <string name="record_video">Gravar um vídeo</string>
     <string name="select_a_photo">Selecione uma foto</string>
     <string name="select_a_video">Selecione um vídeo</string>

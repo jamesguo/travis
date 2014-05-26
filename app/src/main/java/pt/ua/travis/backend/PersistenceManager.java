@@ -6,7 +6,7 @@ import android.util.Log;
 import com.firebase.client.*;
 import com.google.common.collect.Lists;
 import com.parse.*;
-import pt.ua.travis.ui.taxiridesetup.RideRequestTask;
+import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
 import pt.ua.travis.utils.Utils;
@@ -52,6 +52,10 @@ public final class PersistenceManager {
 
 //        // UNCOMMENT THIS ONLY DURING DEVELOPMENT
 //        populateDB();
+    }
+
+    public static User getUserLoggedInThisDevice() {
+        return thisLoggedInUser;
     }
 
     public static <T extends ParseObjectWrapper> void addToCache(T object) {

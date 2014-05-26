@@ -8,48 +8,48 @@ package com.andreabaccega.formedittext;
 
 public final class R {
 	public static final class attr {
-		public static final int classType = 0x7f010023;
-		public static final int customFormat = 0x7f010021;
-		public static final int customRegexp = 0x7f010020;
-		public static final int emptyAllowed = 0x7f010022;
-		public static final int emptyErrorString = 0x7f01001f;
-		public static final int testErrorString = 0x7f01001e;
-		public static final int testType = 0x7f01001d;
+		public static final int classType = 0x7f010031;
+		public static final int customFormat = 0x7f01002f;
+		public static final int customRegexp = 0x7f01002e;
+		public static final int emptyAllowed = 0x7f010030;
+		public static final int emptyErrorString = 0x7f01002d;
+		public static final int testErrorString = 0x7f01002c;
+		public static final int testType = 0x7f01002b;
 	}
 	public static final class id {
-		public static final int alpha = 0x7f070002;
-		public static final int alphaNumeric = 0x7f070003;
-		public static final int creditCard = 0x7f070005;
-		public static final int custom = 0x7f07000b;
-		public static final int date = 0x7f07000e;
-		public static final int domainName = 0x7f070007;
-		public static final int email = 0x7f070004;
-		public static final int ipAddress = 0x7f070008;
-		public static final int nocheck = 0x7f07000a;
-		public static final int numeric = 0x7f070001;
-		public static final int personFullName = 0x7f07000d;
-		public static final int personName = 0x7f07000c;
-		public static final int phone = 0x7f070006;
-		public static final int regexp = 0x7f070000;
-		public static final int webUrl = 0x7f070009;
+		public static final int alpha = 0x7f080002;
+		public static final int alphaNumeric = 0x7f080003;
+		public static final int creditCard = 0x7f080005;
+		public static final int custom = 0x7f08000b;
+		public static final int date = 0x7f08000e;
+		public static final int domainName = 0x7f080007;
+		public static final int email = 0x7f080004;
+		public static final int ipAddress = 0x7f080008;
+		public static final int nocheck = 0x7f08000a;
+		public static final int numeric = 0x7f080001;
+		public static final int personFullName = 0x7f08000d;
+		public static final int personName = 0x7f08000c;
+		public static final int phone = 0x7f080006;
+		public static final int regexp = 0x7f080000;
+		public static final int webUrl = 0x7f080009;
 	}
 	public static final class string {
-		public static final int error_creditcard_number_not_valid = 0x7f0b003b;
-		public static final int error_date_not_valid = 0x7f0b003c;
-		public static final int error_domain_not_valid = 0x7f0b003d;
-		public static final int error_email_address_not_valid = 0x7f0b003e;
-		public static final int error_field_must_not_be_empty = 0x7f0b003f;
-		public static final int error_ip_not_valid = 0x7f0b0044;
-		public static final int error_notvalid_personfullname = 0x7f0b0045;
-		public static final int error_notvalid_personname = 0x7f0b0046;
-		public static final int error_only_numeric_digits_allowed = 0x7f0b0047;
-		public static final int error_only_standard_letters_are_allowed = 0x7f0b0048;
-		public static final int error_phone_not_valid = 0x7f0b0049;
-		public static final int error_this_field_cannot_contain_special_character = 0x7f0b004a;
-		public static final int error_url_not_valid = 0x7f0b004b;
+		public static final int error_creditcard_number_not_valid = 0x7f0c003c;
+		public static final int error_date_not_valid = 0x7f0c003d;
+		public static final int error_domain_not_valid = 0x7f0c003e;
+		public static final int error_email_address_not_valid = 0x7f0c003f;
+		public static final int error_field_must_not_be_empty = 0x7f0c0040;
+		public static final int error_ip_not_valid = 0x7f0c0045;
+		public static final int error_notvalid_personfullname = 0x7f0c0046;
+		public static final int error_notvalid_personname = 0x7f0c0047;
+		public static final int error_only_numeric_digits_allowed = 0x7f0c0048;
+		public static final int error_only_standard_letters_are_allowed = 0x7f0c0049;
+		public static final int error_phone_not_valid = 0x7f0c004a;
+		public static final int error_this_field_cannot_contain_special_character = 0x7f0c004b;
+		public static final int error_url_not_valid = 0x7f0c004c;
 	}
 	public static final class styleable {
-		public static final int[] FormEditText = { 0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023 };
+		public static final int[] FormEditText = { 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031 };
 		public static final int FormEditText_classType = 6;
 		public static final int FormEditText_customFormat = 4;
 		public static final int FormEditText_customRegexp = 3;

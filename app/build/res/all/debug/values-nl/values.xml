@@ -38,5 +38,11 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Google Play-services bijwerken"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Inloggen"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Inloggen met Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-nl/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">Sleep om te vernieuwen…</string>
+    <string name="pull_to_refresh_refreshing_label">Laden…</string>
+    <string name="pull_to_refresh_release_label">Loslaten om te vernieuwen…</string>
 
 </resources>

@@ -20,6 +20,7 @@ public class Query {
 
         private enum Type {
             EQ, // Equal to
+            CT, // Contains
             GT, // Greater than or Equal to
             LT  // Less than
         }
@@ -37,6 +38,8 @@ public class Query {
         private static Filter eq(String key, Object value) {
             return new Filter(key, value, Type.EQ);
         }
+
+        private static Filter ct(String key, String value) { return new Filter(key, value, Type.CT); }
 
         private static Filter gt(String key, Object value) {
             return new Filter(key, value, Type.GT);
@@ -96,6 +99,8 @@ public class Query {
             for (Filter f : filters) {
                 if (f.type.equals(Filter.Type.EQ)) {
                     q.whereEqualTo(f.key, f.value);
+                } else if(f.type.equals(Filter.Type.CT)) {
+                    q.whereContains(f.key, (String)f.value);
                 } else if (f.type.equals(Filter.Type.GT)){
                     q.whereGreaterThanOrEqualTo(f.key, f.value);
                 } else if (f.type.equals(Filter.Type.LT)){
@@ -270,7 +275,7 @@ public class Query {
         }
 
         public QueryClients withName(String name) {
-            filters.add(Filter.eq(Client.NAME, name));
+            filters.add(Filter.ct(Client.NAME, name));
             return this;
         }
 
@@ -306,31 +311,15 @@ public class Query {
             return this;
         }
 
-        public void favoritedBy(final Client c, final Callback<List<Taxi>> queryHandler) {
-//
+        public List<Taxi> favoritedBy(final Client c) {
             final List<String> favoriteTaxiIds = c.favoriteTaxisList();
             final List<Taxi> favoriteTaxis = Lists.newArrayList();
 
             for (final String id : favoriteTaxiIds) {
-                PersistenceManager.query().taxis().withId(id).later(new Callback<List<Taxi>>() {
-                    @Override
-                    public void onResult(List<Taxi> result) {
-                        favoriteTaxis.add(result.get(0));
-                    }
-                });
+                favoriteTaxis.add(PersistenceManager.query().taxis().withId(id).now().get(0));
             }
 
-            new AsyncTask<Void, Void, Void>() {
-                @Override
-                protected Void doInBackground(Void... params) {
-                    while (favoriteTaxis.size() != favoriteTaxiIds.size()){
-                        // LOCK AND WAIT
-                    }
-
-                    queryHandler.onResult(favoriteTaxis);
-                    return null;
-                }
-            }.execute();
+            return favoriteTaxis;
         }
 
 
@@ -389,7 +378,7 @@ public class Query {
         }
 
         public QueryTaxis withName(String name){
-            filters.add(Filter.eq(Taxi.NAME, name));
+            filters.add(Filter.ct(Taxi.NAME, name));
             return this;
         }
 

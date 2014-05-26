@@ -93,6 +93,15 @@
     <string name="no_camera_photos">Nessuna foto a rullino fotografico</string>
     <string name="ok">OK</string>
     <string name="parsing_exception">Formato di risposta cattiva</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">Tira per aggiornare…</string>
+    <string name="pull_to_refresh_refreshing_label">Caricamento…</string>
+    <string name="pull_to_refresh_release_label">Rilascia per aggionare…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
     <string name="record_video">Registrare un video</string>
     <string name="select_a_photo">Seleziona una foto</string>
     <string name="select_a_video">Selezionare un video</string>

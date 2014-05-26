@@ -1,5 +1,8 @@
 package pt.ua.travis.ui.addresspicker;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Location;
 import android.os.Bundle;
@@ -9,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.*;
 import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -16,10 +20,13 @@ import com.androidmapsextensions.*;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
+import eu.inmite.android.lib.dialogs.BaseDialogFragment;
+import eu.inmite.android.lib.dialogs.ISimpleDialogListener;
+import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
+import pt.ua.travis.ui.customviews.TravisMapFragment;
 import pt.ua.travis.utils.Utils;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +35,7 @@ import java.util.Map;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class AddressPickerDialog extends SherlockDialogFragment {
+public class AddressPickerDialog extends SimpleDialogFragment {
 
     public interface OnDoneButtonClickListener {
 
@@ -44,7 +51,7 @@ public class AddressPickerDialog extends SherlockDialogFragment {
 
     private SherlockFragmentActivity parentActivity;
 
-    private OnDoneButtonClickListener onDoneButtonPressed;
+    private OnDoneButtonClickListener listener;
 
     private SupportMapFragment mapFragment;
 
@@ -62,13 +69,34 @@ public class AddressPickerDialog extends SherlockDialogFragment {
     private LatLng pickedPosition;
 
 
-    public static AddressPickerDialog newInstance(SherlockFragmentActivity parentActivity,
-                                                  OnDoneButtonClickListener onDoneButtonPressed) {
+    public static AddressPickerDialog newInstance(final SherlockFragmentActivity parentActivity,
+                                                  final OnDoneButtonClickListener listener) {
 
-        AddressPickerDialog p = new AddressPickerDialog();
-        p.parentActivity = parentActivity;
-        p.onDoneButtonPressed = onDoneButtonPressed;
-        return p;
+        AddressPickerDialog instance = new AddressPickerDialog();
+        instance.parentActivity = parentActivity;
+        instance.listener = listener;
+        return instance;
+    }
+
+    @Override
+    public BaseDialogFragment.Builder build(BaseDialogFragment.Builder builder) {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+
+        builder.setView(generateView(inflater));
+        builder.setPositiveButton(R.string.done, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(pickedPosition, addressLookupHistory.get(pickedPosition));
+                dismiss();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+        return builder;
     }
 
     @Override
@@ -76,41 +104,17 @@ public class AddressPickerDialog extends SherlockDialogFragment {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
-        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogStyleLight_Custom);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.dialog_address_picker, null);
 
+    public View generateView(LayoutInflater inflater) {
+        View v = inflater.inflate(R.layout.dialog_address_picker, null);
         addressLookupHistory = Utils.newMap();
 
 
-        // configures the button click listeners, where done button runs the
-        // implemented interface specified in the constructor
-        BootstrapButton done = (BootstrapButton) v.findViewById(R.id.done_button);
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(pickedPosition!=null) {
-                    onDoneButtonPressed.onClick(
-                            pickedPosition,
-                            addressLookupHistory.get(pickedPosition));
-                    dismiss();
-                }
-            }
-        });
-        BootstrapButton cancel = (BootstrapButton) v.findViewById(R.id.cancel_button);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
-
         // configures the map fragment to occupy it's container
-        mapFragment = SupportMapFragment.newInstance();
+        mapFragment = new TravisMapFragment();
         getChildFragmentManager()
                 .beginTransaction()
                 .add(R.id.map_container, mapFragment)
@@ -158,6 +162,31 @@ public class AddressPickerDialog extends SherlockDialogFragment {
 
         return v;
     }
+
+//    @Override
+//    public Dialog onCreateDialog(Bundle savedInstanceState) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity)
+//                .setView(generateView(parentActivity.getLayoutInflater()))
+//                .setTitle("")
+//                .setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        listener.onClick(pickedPosition, addressLookupHistory.get(pickedPosition));
+//                        dismiss();
+//                    }
+//                })
+//                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dismiss();
+//                    }
+//                });
+//        Dialog d = builder.create();
+//
+//        d.requestWindowFeature(DialogInterface.BUTTON_POSITIVE);
+//        d.requestWindowFeature(DialogInterface.BUTTON_NEGATIVE);
+//        return d;
+//    }
 
     @Override
     public void onStart() {

@@ -4,7 +4,7 @@
     <!-- From: file:/C:/projects-android/icm_travis/dependencies/android-sliding-layer/res/values/slidinglayer-attrs.xml -->
     <eat-comment />
 
-    <declare-styleable name="SlidingLayer">
+    <declare-styleable name="SlidingPaneLayout">
         <attr name="shadowDrawable" format="boolean" />
         <attr name="shadowWidth" format="dimension" />
         <attr name="closeOnTapEnabled" format="boolean" />

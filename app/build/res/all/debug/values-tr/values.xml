@@ -38,5 +38,11 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Google Play hizmetlerini güncelle"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Oturum aç"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Google\'da oturum aç"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-tr/values.xml -->
+    <eat-comment />
+
+    <string name="pull_to_refresh_pull_label">Yenilemek için kaydırın…</string>
+    <string name="pull_to_refresh_refreshing_label">Yükleniyor…</string>
+    <string name="pull_to_refresh_release_label">Yenilemek için bırakın…</string>
 
 </resources>

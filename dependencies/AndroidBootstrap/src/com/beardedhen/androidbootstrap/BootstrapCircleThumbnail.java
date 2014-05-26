@@ -192,6 +192,10 @@ public class BootstrapCircleThumbnail extends FrameLayout
     {
         Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), drawable);
 
+        setImage(bitmap);
+    }
+
+    public void setImage(Bitmap bitmap){
         float scale = getResources().getDisplayMetrics().density;
 
         //convert image size to pixels

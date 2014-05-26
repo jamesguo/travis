@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="travis_color">#ffab00</color>
+    <color name="travis_color_darker">#ffdd9000</color>
+    <color name="travis_color_lighter">#ffffc723</color>
     <color name="mainBg">#fff0eded</color>
     <color name="selectorBg">#ffdedede</color>
     <color name="selectorSelectedBg">#ffffd376</color>
@@ -8,13 +10,14 @@
     <color name="sideMenuBgV2">#ff222323</color>
     <color name="mainText">#ff131414</color>
     <color name="pagerBorder">#ff909494</color>
-    <color name="taxi_available_bg">#ff42ff18</color>
-    <color name="taxi_available_border">#ff2bd12c</color>
-    <color name="taxi_unavailable_bg">#ffff3126</color>
-    <color name="taxi_unavailable_border">#ffdf211d</color>
+    <color name="taxi_available_border">#ff77ff74</color>
+    <color name="taxi_unavailable_border">#ffff5943</color>
     <color name="side_menu_counter_bg">#ff292929</color>
     <color name="side_menu_counter_text">#ffb2b2b2</color>
     <color name="welcome_messages_text">#ff757575</color>
+
+
+    <color name="white_transp">#CCFFFFFF</color>
 
 
     <!-- Photo Picker references -->
@@ -41,4 +44,16 @@
     <color name="blue">#33b4e5</color>
     <color name="yellow">#ffbb33</color>
     <color name="offwhite">#eeeeee</color>
+
+
+    <!-- Custom light theme -->
+    <color name="dialog_message_text">#333333</color>
+    <color name="dialog_title_text">#f3a71e</color>
+    <color name="dialog_title_separator">#f3a71e</color>
+    <color name="dialog_button_text">#333333</color>
+    <color name="dialog_button_normal">@android:color/transparent</color>
+    <color name="dialog_button_pressed">#99f3a71e</color> <!-- 60 % opacity -->
+    <color name="dialog_button_focused">#4Cf3a71e</color> <!-- 30 % opacity -->
+    <color name="dialog_button_separator">#25000000</color> <!-- 7% opacity -->
+    <color name="background">#FFA500</color>
 </resources>

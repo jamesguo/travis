@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
+import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.ui.main.MainActivity;
 import pt.ua.travis.utils.Utils;
@@ -22,13 +23,18 @@ public class RideItemListAdapter extends BaseAdapter implements ListAdapter {
     private MainActivity parentActivity;
     private ArrayMap<String, RideItem> itemList;
 
-    RideItemListAdapter(MainActivity parentActivity, int showWhat, List<Ride> rides) {
+    RideItemListAdapter(final MainActivity parentActivity, final int showWhat) {
         this.parentActivity = parentActivity;
         this.itemList = Utils.newMap();
 
-        for (Ride r : rides) {
-            itemList.put(r.id(), RideItem.newInstance(showWhat, r, parentActivity));
-        }
+        parentActivity.getRideList(false, new Callback<List<Ride>>() {
+            @Override
+            public void onResult(List<Ride> result) {
+                for (Ride r : result) {
+                    itemList.put(r.id(), RideItem.newInstance(showWhat, r, parentActivity));
+                }
+            }
+        });
     }
 
     void remove(Ride ride){

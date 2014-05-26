@@ -1,23 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/map"
-        android:name="com.androidmapsextensions.SupportMapFragment"
+        android:id="@+id/taxi_map"
+        android:name="pt.ua.travis.ui.customviews.TravisMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/taxichooser_map_top_margin"/>
+        android:layout_height="match_parent"/>
+    
+    <Spinner
+        android:id="@+id/taxi_sort_spinner"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/sort_spinner"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pull_to_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/taxi_item_height"
-        android:fadingEdge="horizontal"
-        android:animateLayoutChanges="true"
-        android:background="@drawable/layer_bottom_shadow"/>
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <pt.ua.travis.ui.customviews.TransitionViewPager
+            android:id="@+id/taxi_pager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/taxi_item_height"
+            android:fadingEdge="horizontal"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/item_taxi_shadow"/>
+
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+    <pt.ua.travis.ui.customviews.SlidingPaneLayout
+        android:id="@+id/sliding_pane_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/options_pane_height"
+        android:layout_alignParentBottom="true"
+        slidingLayer:closeOnTapEnabled="false">
+
+        <pt.ua.travis.ui.customviews.RideRequestViewPager
+            android:id="@+id/sliding_pane_pager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/sliding_pane_shadow"/>
+
+    </pt.ua.travis.ui.customviews.SlidingPaneLayout>
 
 </RelativeLayout>

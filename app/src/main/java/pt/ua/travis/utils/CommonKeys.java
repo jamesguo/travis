@@ -7,6 +7,8 @@ package pt.ua.travis.utils;
 public final class CommonKeys {
     private CommonKeys(){}
 
+    public static final String MAP_TYPE = "map_type";
+
     public static final String DESTROY_THIS = "destroy_this";
 
     public static final String SELECTED_INDEX = "selected_index";
@@ -21,6 +23,8 @@ public final class CommonKeys {
 
     public static final String SELECTED_TAXI_ID = "selected_taxi_id";
     public static final String SCHEDULED_RIDE_ID = "scheduled_ride_id";
+
+    public static final int RIDE_REQUEST = 124125125;
 
 
     public static final int REQUEST_ORIGIN_COORDS = 10111;
