@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-es/values.xml -->
-    <eat-comment />
-
-    <plurals name="numberOfLoadedAlbums">
-        <item quantity="one">Cargado 1 album</item>
-        <item quantity="other">%d álbumes cargados</item>
-    </plurals>
-    <plurals name="numberOfLoadedPhotos">
-        <item quantity="one">Cargado 1 foto en este álbum</item>
-        <item quantity="other">%d fotos cargadas en este álbum</item>
-    </plurals>
-
-    <string name="albums">Álbumes</string>
-    <string name="all_media">Todos los medios</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values-es/auth_strings.xml -->
     <eat-comment />
 
@@ -24,11 +10,6 @@
     <string name="auth_client_play_services_err_notification_msg" msgid="3635065018897986478">"Error de los servicios de Google Play"</string>
     <string name="auth_client_requested_by_msg" msgid="6304135633531965756">"Solicitada por <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
     <string name="auth_client_using_bad_version_title" msgid="2534454398764507874">"Una aplicación intentó usar versión incorrecta de servicios de Google Play."</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-es/values.xml -->
-    <eat-comment />
-
-    <string name="camera_media">soporte de la cámara</string>
-    <string name="cancel">Cancelar</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values-es/common_strings.xml -->
     <eat-comment />
 
@@ -57,10 +38,6 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Actualizar servicios de Google Play"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Iniciar sesión"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Iniciar sesión con Google"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-es/values.xml -->
-    <eat-comment />
-
-    <string name="connect_to_internet_to_cofigure_services">Conecte su dispositivo a Internet para configurar los servicios</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-es/values.xml -->
     <eat-comment />
 
@@ -75,46 +52,12 @@
     <string name="error_phone_not_valid">Número de teléfono inválido</string>
     <string name="error_this_field_cannot_contain_special_character">Este campo puede contener caracteres especiales</string>
     <string name="error_url_not_valid">URL inválido</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-es/values.xml -->
-    <eat-comment />
-
-    <string name="expired_session_logging_in">Su sesión ha expirado. Por favor, entre de nuevo</string>
-    <string name="general_error">Se ha producido un error. Por favor, inténtelo de nuevo más tarde</string>
-    <string name="http_error">Problema en el servidor intente de nuevo</string>
-    <string name="http_exception">Compruebe su conexión a internet y vuelve a intentarlo</string>
-    <string name="last_photo">Última foto tomada</string>
-    <string name="last_video_captured">Último vídeo capturado</string>
-    <string name="loading_albums">Álbumes de carga...</string>
-    <string name="loading_media">Carga de papel ...</string>
-    <string name="no_album_selected">No álbum seleccionado</string>
-    <string name="no_albums_found">No hay discos</string>
-    <string name="no_camera_photos">Hay fotos en rollo de la cámara</string>
-    <string name="ok">OK</string>
-    <string name="parsing_exception">Formato de respuesta no válida</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-es/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">Desliza el dedo hacia abajo para actualizar.</string>
     <string name="pull_to_refresh_refreshing_label">Cargando…</string>
     <string name="pull_to_refresh_release_label">Soltar para actualizar…</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-es/values.xml -->
-    <eat-comment />
-
-    <string name="record_video">Grabar un vídeo</string>
-    <string name="select_a_photo">Seleccionar una foto</string>
-    <string name="select_a_video">Seleccione un vídeo</string>
-    <string name="select_an_album">Seleccione Foto Fuente</string>
-    <string name="select_media">Seleccione los medios</string>
-    <string name="select_media_source">Seleccione la fuente de los medios</string>
-    <string name="select_photo_source">Seleccione Foto Fuente</string>
-    <string name="select_photos">Seleccionar fotos</string>
-    <string name="select_video_source">Seleccione la fuente de vídeo</string>
-    <string name="select_videos">Seleccione los vídeos</string>
-    <string name="take_photos">Tomar una foto</string>
-    <string name="title_default">Defecto</string>
-    <string name="title_user">Usuario</string>
-    <string name="toast_choose_photos">Por favor, seleccione las fotos</string>
-    <string name="toast_feature_camera">El dispositivo no dispone de una cámara</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values-es/wallet_strings.xml -->
     <eat-comment />
 

@@ -59,13 +59,18 @@
 
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainTaxiActivity" android:screenOrientation="portrait">
             <!--<intent-filter>-->
@@ -79,11 +84,6 @@
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.TravelToOriginActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.currenttravel.TravelToDestinationActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.PaymentActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:label="@string/app_name" android:name="com.chute.android.photopickerplus.ui.activity.ServicesActivity" android:screenOrientation="portrait" android:theme="@style/PhotoPickerTheme">
-        </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="com.chute.android.photopickerplus.ui.activity.AssetActivity" android:screenOrientation="portrait" android:theme="@style/PhotoPickerTheme">
-        </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="com.chute.sdk.v2.api.authentication.AuthenticationActivity" android:screenOrientation="portrait"/>
 
 
 

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="chute-sdk-v2-android-2.2.7-SNAPSHOT-with-dependencies">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/chute-sdk-v2-android-2.2.7-SNAPSHOT-with-dependencies.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -125,7 +125,6 @@
         <item name="android:paddingRight">1dp</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_service_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
     </style>
@@ -135,7 +134,6 @@
         <item name="android:gravity">center</item>
         <!--<item name="android:background">?topBarBackground</item>-->
         <!--<item name="android:textAllCaps">true</item>-->
-        <item name="android:textSize">@dimen/fragment_title</item>
         <!--<item name="android:textColor">?topBarTextColor</item>-->
     </style>
 
@@ -143,7 +141,6 @@
     <style name="textViewSignOut" parent="android:Widget.TextView">
         <item name="android:gravity">center</item>
         <!--<item name="android:background">?topBarBackground</item>-->
-        <item name="android:textSize">@dimen/sign_out</item>
         <!--<item name="android:textColor">?topBarTextColor</item>-->
     </style>
 

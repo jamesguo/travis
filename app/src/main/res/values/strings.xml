@@ -106,10 +106,14 @@ Before you start using Travis, please insert your name …</string>
 
 
     <!-- Side menu strings -->
-    <string name="menu_logout">Logout</string>
-    <string name="menu_settings">Settings</string>
-    <string name="drawer_open">Open drawer</string>
-    <string name="drawer_close">Close drawer</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="instant">Instant Taxi</string>
+    <string name="map_view">Map View</string>
+    <string name="current_travel">Current Travel</string>
+    <string name="scheduled_rides">Scheduled Rides</string>
+    <!--<string name="drawer_open">Open drawer</string>-->
+    <!--<string name="drawer_close">Close drawer</string>-->
 
 
 

@@ -1,16 +1,21 @@
 package pt.ua.travis.backend;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import com.firebase.client.*;
 import com.google.common.collect.Lists;
 import com.parse.*;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
 import pt.ua.travis.utils.Utils;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -18,6 +23,8 @@ import java.util.*;
  * @version 1.0
  */
 public final class PersistenceManager {
+
+    private static final String TAG = PersistenceManager.class.getSimpleName();
 
     public static final int NO_USER_WITH_THAT_EMAIL = 11;
     public static final int WRONG_CREDENTIALS = 22;
@@ -113,7 +120,7 @@ public final class PersistenceManager {
                         });
                     }
                 } else {
-                    Log.e("PersistenceManager", "There was a problem inserting the client " + toAdd, ex);
+                    Log.e(TAG, "There was a problem saving the client " + toAdd, ex);
                 }
             }
         });
@@ -144,7 +151,7 @@ public final class PersistenceManager {
                         }
                     });
                 } else {
-                    Log.e("PersistenceManager", "There was a problem inserting the client " + toAdd, ex);
+                    Log.e(TAG, "There was a problem saving the taxi " + toAdd, ex);
                 }
             }
         });
@@ -183,10 +190,26 @@ public final class PersistenceManager {
                         }
                     });
                 } else {
-                    Log.e("PersistenceManager", "There was a problem inserting the client " + toAdd, ex);
+                    Log.e(TAG, "There was a problem saving the ride " + toAdd, ex);
                 }
             }
         });
+    }
+
+    public static void storeImage(Context context, String imageName, Uri imageUri, final Callback<String> callback) {
+        try {
+
+            InputStream is = context.getContentResolver().openInputStream(imageUri);
+            final ParseFile file = new ParseFile(imageName, IOUtils.toByteArray(is));
+            file.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    callback.onResult(file.getUrl());
+                }
+            });
+        } catch (IOException ex) {
+            Log.e(TAG, "There was a problem uploading the image to the backend storage server.", ex);
+        }
     }
 
     public static <T extends ParseObjectWrapper> void delete(final T toDelete){

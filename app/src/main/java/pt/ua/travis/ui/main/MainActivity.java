@@ -2,33 +2,21 @@ package pt.ua.travis.ui.main;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.ui.customviews.LockedTransitionViewPager;
-import pt.ua.travis.ui.customviews.TransitionViewPager;
+import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
-import pt.ua.travis.ui.navigationdrawer.DrawerItem;
-import pt.ua.travis.ui.navigationdrawer.DrawerView;
-import pt.ua.travis.ui.navigationdrawer.DrawerViewAdapter;
 import pt.ua.travis.ui.ridelist.RideDeletedListener;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 
@@ -44,10 +32,9 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 
     protected LockedTransitionViewPager tabPager;
     private PullToRefreshLayout pullToRefreshLayout;
-    private DrawerLayout drawerLayout;
-    private ListView drawerList;
-    private ActionBarDrawerToggle drawerToggle;
-    private static List<DrawerView> drawerViews;
+    private BlurDrawerLayout drawerLayout;
+    private static List<BlurDrawerObject> drawerItems;
+
 
     private static List<Ride> rideList;
 
@@ -82,23 +69,52 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
 
-        if(drawerViews==null) {
-            drawerViews = Lists.newArrayList();
-            fillDrawerNavigation(drawerViews);
+        if(drawerItems == null) {
+            drawerItems = Lists.newArrayList();
+            User u = PersistenceManager.getUserLoggedInThisDevice();
+            BlurDrawerUser userItem = new BlurDrawerUser(this, u);
+
+            BlurDrawerItem logoutItem = new BlurDrawerItem(this, R.drawable.ic_logout, R.string.logout);
+            logoutItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    logout(null);
+                }
+            });
+
+            BlurDrawerItem settingsItem = new BlurDrawerItem(this, R.drawable.ic_settings, R.string.settings);
+            settingsItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO
+                }
+            });
+
+            drawerItems.add(userItem);
+            fillDrawerNavigation(drawerItems);
+            drawerItems.add(settingsItem);
+            drawerItems.add(logoutItem);
         }
 
         tabPager = (LockedTransitionViewPager) findViewById(R.id.tab_pager);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
-        updateDrawerList();
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+//        drawerList = (ListView) findViewById(R.id.left_drawer);
+//        updateDrawerList();
 
+        drawerLayout = new BlurDrawerLayout(this);
+        drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
+        drawerLayout.setBackground(R.drawable.bokeh_travis);
+        drawerLayout.attachToActivity(this);
+        for(BlurDrawerObject item : drawerItems) {
+            drawerLayout.addDrawerObject(item, BlurDrawerLayout.LEFT_SIDE);
+        }
 
 
         ActionBar bar = getSupportActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#CCFFFFFF")));
-        bar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#CCFFFFFF")));
+//        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#CCFFFFFF")));
+//        bar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#CCFFFFFF")));
         bar.setDisplayShowTitleEnabled(true);
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         forceTabs(); // Force tabs when activity starts.
@@ -109,21 +125,21 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         bar.setIcon(R.drawable.ic_menu);
 
 
-        drawerToggle = new ActionBarDrawerToggle(this,
-                drawerLayout,
-                R.drawable.ic_drawer,
-                R.string.drawer_open,
-                R.string.drawer_close) {
-
-            public void onDrawerClosed(View view) {
-                invalidateOptionsMenu();
-            }
-
-            public void onDrawerOpened(View drawerView) {
-                invalidateOptionsMenu();
-            }
-        };
-        drawerLayout.setDrawerListener(drawerToggle);
+//        drawerToggle = new ActionBarDrawerToggle(this,
+//                drawerLayout,
+//                R.drawable.ic_drawer,
+//                R.string.drawer_open,
+//                R.string.drawer_close) {
+//
+//            public void onDrawerClosed(View view) {
+//                invalidateOptionsMenu();
+//            }
+//
+//            public void onDrawerOpened(View drawerView) {
+//                invalidateOptionsMenu();
+//            }
+//        };
+//        drawerLayout.setDrawerListener(drawerToggle);
     }
 
     public void forceTabs(){
@@ -142,29 +158,29 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 
     }
 
-    protected final void updateDrawerList(){
-        drawerList.setAdapter(new DrawerViewAdapter(this, drawerViews));
-        drawerList.setOnItemClickListener(new ListView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DrawerView clickedView = (DrawerView) drawerList.getAdapter().getItem(position);
-                if(clickedView instanceof DrawerItem){
-                    onDrawerItemClick(((DrawerItem) clickedView).itemID);
-                }
-            }
-        });
-    }
+//    protected final void updateDrawerList(){
+//        drawerList.setAdapter(new DrawerViewAdapter(this, drawerItems));
+//        drawerList.setOnItemClickListener(new ListView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                DrawerView clickedView = (DrawerView) drawerList.getAdapter().getItem(position);
+//                if(clickedView instanceof DrawerItem){
+//                    onDrawerItemClick(((DrawerItem) clickedView).itemID);
+//                }
+//            }
+//        });
+//    }
 
     /**
-     * Populates the drawer navigation menu.
+     * Populates the drawerLayout navigation menu.
      *
-     * @param drawerViews the list that must be populated to translate into
-     *                    items or indicators in the drawer navigation menu
+     * @param drawerItems the list that must be populated to translate into
+     *                    items or indicators in the drawerLayout navigation menu
      */
-    protected abstract void fillDrawerNavigation(List<DrawerView> drawerViews);
+    protected abstract void fillDrawerNavigation(List<BlurDrawerObject> drawerItems);
 
     /**
-     * Overridden method to sync the toggle state of the navigation drawer
+     * Overridden method to sync the toggle state of the navigation drawerLayout
      * after onRestoreInstanceState has occurred.
      *
      * {@inheritDoc}
@@ -172,12 +188,11 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
     }
 
     /**
      * Overridden method to pass any configuration change to the navigation
-     * drawer toggle state.
+     * drawerLayout toggle state.
      *
      * {@inheritDoc}
      */
@@ -185,17 +200,16 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         forceTabs();
-        drawerToggle.onConfigurationChanged(newConfig);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
 
-            if (drawerLayout.isDrawerOpen(drawerList)) {
-                drawerLayout.closeDrawer(drawerList);
+            if(drawerLayout.isOpened()){
+                drawerLayout.close();
             } else {
-                drawerLayout.openDrawer(drawerList);
+                drawerLayout.open(BlurDrawerLayout.LEFT_SIDE);
             }
 
             return true;
@@ -207,19 +221,11 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         Intent intent = new Intent(this, LoginActivity.class);
         intent.putExtra(LoginActivity.NO_AUTO_LOGIN, true);
         startActivity(intent);
-        drawerViews = null;
+//        drawerItems = null;
         PersistenceManager.logout();
         finish();
     }
 
-    /**
-     * EXTENDING CLASSES MUST OVERRIDE THIS
-     * @param itemID
-     */
-    protected void onDrawerItemClick(int itemID){
-        drawerList.setItemChecked(itemID, true);
-        drawerLayout.closeDrawer(drawerList);
-    }
 
     protected abstract class TabPagerAdapter extends FragmentPagerAdapter {
 

@@ -41,8 +41,8 @@ dependencies {
     compile 'com.firebase:firebase-client:+'
 //    compile 'com.firebase:firebase-simple-login:+'
 
-    // Imageshack API to store user photos
-//    compile files('src/main/libs/android-async-http-1.4.4.jar')
+//    // Imageshack API to store user photos
+//    compile 'com.googlecode.flickrj-android:flickrj-android:2.0.8'
 
 //    // Geohashing tool
 //    compile files('src/main/libs/geohash-1.0.10.jar')
@@ -57,12 +57,9 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.2.0'
 
     // Photo picker API to pick user photos from gallery, camera or social networks
-//       compile 'com.getchute.android.sdk.v2:chute-sdk-v2-android:2.2.0'
+    compile 'com.getchute.android.sdk.v2:chute-sdk-v2-android:2.2.0'
 //    compile project(':dependencies:photoPicker')
-    compile fileTree(dir: '../../../dependencies/ChutePhotoPickerPlus/libs', include: '*.jar')
-    compile project(':dependencies:ChutePhotoPickerPlus'){
-        transitive = false
-    }
+//    compile project(':chutephotopicker')
 
     // Progress wheel around the instant taxi button
     compile project(':dependencies:ProgressWheel-master')
@@ -70,10 +67,10 @@ dependencies {
     // "Pull action bar to refresh" feature
     compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:+'
 
-    // Translucid action bar effect
-    compile 'com.github.manuelpeinado.glassactionbar:glassactionbar:0.3.0'
+//    // Translucid action bar effect
+//    compile 'com.github.manuelpeinado.glassactionbar:glassactionbar-abs:0.3.0'
 
-//    // Honeycomb animation compatibility for SDK versions lower than 3.0
+    // Honeycomb animation compatibility for SDK versions lower than 3.0
     compile 'com.nineoldandroids:library:2.4.0'
 
     // Custom styled dialogs

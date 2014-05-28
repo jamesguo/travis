@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="android-logger-1.0.10">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aranea-apps.android.libs/android-logger/1.0.10/bf8039285b3197f1a6eeffefa02081d13c770153/android-logger-1.0.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aranea-apps.android.libs/android-logger/1.0.10/5f77d637ff7b8267bfbee26a8bd884ef929b7985/android-logger-1.0.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

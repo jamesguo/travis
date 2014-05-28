@@ -48,10 +48,6 @@
     <bool name="abs__config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
     <bool name="abs__split_action_bar_is_narrow">true</bool>
-    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/layouts.xml -->
-    <eat-comment />
-
-    <bool name="has_two_panes">false</bool>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -1209,10 +1205,6 @@
 
     <integer name="spb_default_interpolator">0</integer>
     <integer name="spb_default_sections_count">4</integer>
-    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/layouts.xml -->
-    <eat-comment />
-
-    <item name="main_layout" type="layout">@layout/gc_onepane</item>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/plurals.xml -->
     <eat-comment />
 
@@ -1296,6 +1288,7 @@
     <string name="confirm_cancel">Confirm cancel</string>
     <string name="confirm_cancel_msg">Are you sure you wish to cancel this request?</string>
     <string name="connect_to_internet_to_cofigure_services">Connect your device to the Internet to configure the services</string>
+    <string name="current_travel">Current Travel</string>
     <string name="decline">Decline</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
@@ -1306,8 +1299,6 @@
 
     <string name="done">Done</string>
     <string name="dont_rate">Don\'t rate</string>
-    <string name="drawer_close">Close drawer</string>
-    <string name="drawer_open">Open drawer</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
     <eat-comment />
 
@@ -1359,6 +1350,7 @@
     <string name="http_exception">Check your internet connection and try again.</string>
     <string name="insert_address">Insert address…</string>
     <string name="instagram">Instagram</string>
+    <string name="instant">Instant Taxi</string>
     <string name="last_name">Last name</string>
     <string name="last_photo">Last photo taken</string>
     <string name="last_video_captured">Last video captured</string>
@@ -1367,8 +1359,8 @@
     <string name="loading_media">Loading media…</string>
     <string name="login">Login</string>
     <string name="login_error">Invalid login!</string>
-    <string name="menu_logout">Logout</string>
-    <string name="menu_settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="map_view">Map View</string>
     <string name="no">No</string>
     <string name="no_album_selected">No album selected</string>
     <string name="no_albums_found">No albums found</string>
@@ -1395,6 +1387,7 @@
     <string name="register_ok">Registered successfully!</string>
     <string name="ride_request_please_wait">Please wait
 The taxi you selected will now need to accept your request…</string>
+    <string name="scheduled_rides">Scheduled Rides</string>
     <string name="search">Search</string>
     <string name="see_more">See all your scheduled rides</string>
     <string name="select_a_photo">Select a Photo</string>
@@ -1407,6 +1400,7 @@ The taxi you selected will now need to accept your request…</string>
     <string name="select_videos">Select Videos</string>
     <string name="set_destination">Set Destination</string>
     <string name="set_origin">Set Origin</string>
+    <string name="settings">Settings</string>
     <string name="sign_out">Sign out</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/res/values/values.xml -->
     <eat-comment />
@@ -1561,17 +1555,6 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:textColor">@color/yellow</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values/values.xml -->
-    <eat-comment />
-
-    <style name="PhotoPickerBaseTheme" parent="android:Theme.Light.NoTitleBar" />
-
-    <style name="PhotoPickerTheme" parent="PhotoPickerBaseTheme">
-        <item name="topBarBackground">@drawable/gradient_blue</item>
-        <item name="topBarTextColor">@color/white</item>
-    </style>
-    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
-    <eat-comment />
 
     <style name="PopupMenu.Travis" parent="@style/Widget.Sherlock.Light.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_travis</item>
@@ -2466,7 +2449,6 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:gravity">center</item>
         <!-- <item name="android:background">?topBarBackground</item> -->
         <!-- <item name="android:textAllCaps">true</item> -->
-        <item name="android:textSize">@dimen/fragment_title</item>
         <!-- <item name="android:textColor">?topBarTextColor</item> -->
     </style>
 
@@ -2485,7 +2467,6 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:paddingRight">1dp</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/text_size_service_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
     </style>
@@ -2493,7 +2474,6 @@ Before you start using Travis, please insert your name …</string>
     <style name="textViewSignOut" parent="android:Widget.TextView">
         <item name="android:gravity">center</item>
         <!-- <item name="android:background">?topBarBackground</item> -->
-        <item name="android:textSize">@dimen/sign_out</item>
         <!-- <item name="android:textColor">?topBarTextColor</item> -->
     </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/themes.xml -->

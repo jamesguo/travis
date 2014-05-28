@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="chute-sdk-v2-android-2.2.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getchute.android.sdk.v2/chute-sdk-v2-android/2.2.0/3a536a736383c5ae4456db3f657f3e7de4928e57/chute-sdk-v2-android-2.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getchute.android.sdk.v2/chute-sdk-v2-android/2.2.0/5a4d80604b4d55baea974c4c44ef018e29fd3220/chute-sdk-v2-android-2.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

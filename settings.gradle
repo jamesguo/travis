@@ -1,4 +1,3 @@
 include ':app'
 include ':dependencies:AndroidBootstrap'
-include ':dependencies:ChutePhotoPickerPlus'
 include ':dependencies:ProgressWheel-master'

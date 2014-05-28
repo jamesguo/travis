@@ -71,17 +71,22 @@
         </activity>
         <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity"
                   android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden"/>
+                  android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".nfc.NFCActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden"/>
         <activity android:name="pt.ua.travis.ui.main.MainClientActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name="pt.ua.travis.ui.main.MainTaxiActivity"
                   android:screenOrientation="portrait"
@@ -108,20 +113,6 @@
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
         <activity android:name="pt.ua.travis.ui.currenttravel.PaymentActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="com.chute.android.photopickerplus.ui.activity.ServicesActivity"
-                  android:label="@string/app_name"
-                  android:theme="@style/PhotoPickerTheme"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" >
-        </activity>
-        <activity android:name="com.chute.android.photopickerplus.ui.activity.AssetActivity"
-                  android:theme="@style/PhotoPickerTheme"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" >
-        </activity>
-        <activity android:name="com.chute.sdk.v2.api.authentication.AuthenticationActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
 

@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
-    <eat-comment />
-
-    <plurals name="numberOfLoadedAlbums">
-        <item quantity="one">1アルバムをロード</item>
-        <item quantity="other">%d ロードされたアルバム</item>
-    </plurals>
-    <plurals name="numberOfLoadedPhotos">
-        <item quantity="one">このアルバムのロード写真1枚</item>
-        <item quantity="other">%d このアルバムにロードされた写真</item>
-    </plurals>
-
-    <string name="albums">アルバム</string>
-    <string name="all_media">すべてのメディア</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values-ja/auth_strings.xml -->
     <eat-comment />
 
@@ -24,11 +10,6 @@
     <string name="auth_client_play_services_err_notification_msg" msgid="3635065018897986478">"Google Play開発者サービスのエラー"</string>
     <string name="auth_client_requested_by_msg" msgid="6304135633531965756">"<ns1:g id="APP_NAME">%1$s</ns1:g>によるリクエスト"</string>
     <string name="auth_client_using_bad_version_title" msgid="2534454398764507874">"アプリはGoogle Play開発者サービスの不適切なバージョンを使用しようとしました。"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
-    <eat-comment />
-
-    <string name="camera_media">平均宿泊</string>
-    <string name="cancel">キャンセル</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values-ja/common_strings.xml -->
     <eat-comment />
 
@@ -57,10 +38,6 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Play開発者サービスの更新"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"ログイン"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Googleでログイン"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
-    <eat-comment />
-
-    <string name="connect_to_internet_to_cofigure_services">サービスを設定するため、インターネットにお使いのデバイスを接続する</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-ja/values.xml -->
     <eat-comment />
 
@@ -75,45 +52,11 @@
     <string name="error_phone_not_valid">有効な電話番号ではありません。</string>
     <string name="error_this_field_cannot_contain_special_character">特別な文字を含むことはできません。</string>
     <string name="error_url_not_valid">有効なURLではありません。</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
-    <eat-comment />
-
-    <string name="expired_session_logging_in">セッションが期限切れになっています。もう一度ログインしてください</string>
-    <string name="general_error">エラーが発生しました。後で再試行してください。</string>
-    <string name="http_error">サーバーの問題はもう一度やり直し</string>
-    <string name="http_exception">あなたのインターネット接続を確認し、再試行してください</string>
-    <string name="last_photo">最後に撮影した写真</string>
-    <string name="last_video_captured">最後のビデオがキャプチャ</string>
-    <string name="loading_albums">ロードアルバム</string>
-    <string name="loading_media">ロードメディア...</string>
-    <string name="no_album_selected">選択されていないアルバムません</string>
-    <string name="no_albums_found">いいえアルバムが見つかりませんでした</string>
-    <string name="no_camera_photos">カメラロールで写真無し</string>
-    <string name="ok">OK</string>
-    <string name="parsing_exception">悪い応答形式</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ja/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">画面を引っ張って…</string>
     <string name="pull_to_refresh_refreshing_label">読み込み中…</string>
     <string name="pull_to_refresh_release_label">指を離して更新…</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-ja/values.xml -->
-    <eat-comment />
-
-    <string name="record_video">ビデオを録画する</string>
-    <string name="select_a_photo">写真を選択</string>
-    <string name="select_a_video">ビデオを選択</string>
-    <string name="select_an_album">写真ソースの選択</string>
-    <string name="select_media">メディアを選択</string>
-    <string name="select_media_source">メディアソースを選択します。</string>
-    <string name="select_photo_source">写真ソースの選択</string>
-    <string name="select_photos">写真を選択</string>
-    <string name="select_video_source">ビデオソースを選択</string>
-    <string name="select_videos">ビデオを選択</string>
-    <string name="take_photos">写真を撮る</string>
-    <string name="title_default">デフォルト</string>
-    <string name="title_user">ユーザー</string>
-    <string name="toast_choose_photos">写真を選択してください</string>
-    <string name="toast_feature_camera">お使いのデバイスは、カメラを持っていない</string>
 
 </resources>

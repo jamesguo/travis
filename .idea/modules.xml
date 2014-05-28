@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/AndroidBootstrap.iml" filepath="$PROJECT_DIR$/dependencies/AndroidBootstrap/AndroidBootstrap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/ChutePhotoPickerPlus.iml" filepath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/ChutePhotoPickerPlus.iml" />
       <module fileurl="file://$PROJECT_DIR$/dependencies/ProgressWheel-master/ProgressWheel-master.iml" filepath="$PROJECT_DIR$/dependencies/ProgressWheel-master/ProgressWheel-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/icm_travis.iml" filepath="$PROJECT_DIR$/icm_travis.iml" />

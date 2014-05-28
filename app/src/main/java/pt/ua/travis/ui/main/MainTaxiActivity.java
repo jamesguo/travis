@@ -13,6 +13,8 @@ import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.ui.customviews.BlurDrawerItem;
+import pt.ua.travis.ui.customviews.BlurDrawerObject;
 import pt.ua.travis.ui.navigationdrawer.DrawerItem;
 import pt.ua.travis.ui.navigationdrawer.DrawerSeparator;
 import pt.ua.travis.ui.navigationdrawer.DrawerUser;
@@ -55,26 +57,14 @@ public class MainTaxiActivity extends MainActivity {
      *                    items or indicators in the drawer navigation menu
      */
     @Override
-    protected void fillDrawerNavigation(final List<DrawerView> drawerViews) {
+    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerViews) {
 
-        final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
-
-        drawerViews.add(new DrawerUser(loggedInTaxi));
-        drawerViews.add(new DrawerItem(2, R.string.menu_logout, R.drawable.ic_logout));
-        drawerViews.add(new DrawerSeparator());
-        drawerViews.add(new DrawerItem(3, R.string.menu_settings, R.drawable.ic_settings));
-    }
-
-
-    @Override
-    protected void onDrawerItemClick(int itemID) {
-        switch (itemID){
-            case 1: goToScheduledRidesList(null); break;
-            case 2: logout(null); break;
-            default: break;
-        }
-
-        super.onDrawerItemClick(itemID);
+//        final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
+//
+//        drawerViews.add(new DrawerUser(loggedInTaxi));
+//        drawerViews.add(new DrawerItem(2, R.string.logout, R.drawable.ic_logout));
+//        drawerViews.add(new DrawerSeparator());
+//        drawerViews.add(new DrawerItem(3, R.string.settings, R.drawable.ic_settings));
     }
 
 

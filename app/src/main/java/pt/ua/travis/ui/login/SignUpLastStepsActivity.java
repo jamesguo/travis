@@ -31,7 +31,7 @@ public class SignUpLastStepsActivity extends SherlockActivity {
 
     private ImageView photoHolder;
     private ArrayList<AssetModel> selectedMediaList;
-    private AssetModel selectedAsset;
+    private Uri selectedImageUri;
     private AccountType accountType;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -57,19 +57,15 @@ public class SignUpLastStepsActivity extends SherlockActivity {
                 accountType = wrapper.getAccountType();
             }
             if(!selectedMediaList.isEmpty()){
-                selectedAsset = selectedMediaList.get(0);
-                Uri uri = Uri.parse(selectedAsset.getUrl());
+                AssetModel selectedAsset = selectedMediaList.get(0);
+                selectedImageUri = Uri.parse(selectedAsset.getUrl());
                 Picasso.with(this)
-                        .load(uri)
+                        .load(selectedImageUri)
                         .resize(140, 180)
                         .centerCrop()
                         .into(photoHolder);
 
-                Log.e("--------------", uri.toString());
-                if (uri.getScheme().contentEquals("file")) {
-                    //The asset comes from a remote service
-                    Log.e("--------------", "ITZA FILE!!!");
-                }
+                Log.e("--------------", selectedImageUri.toString());
             }
         }
     }
@@ -85,16 +81,16 @@ public class SignUpLastStepsActivity extends SherlockActivity {
         FormEditText lastName = (FormEditText) findViewById(R.id.lastname_field);
         RadioGroup rg = (RadioGroup) findViewById(R.id.account_type_rg);
 
-        FormEditText[] allFields = { firstName, lastName, };
+        FormEditText[] allFields = {firstName, lastName,};
 
         boolean allValid = true;
-        for (FormEditText field: allFields) {
+        for (FormEditText field : allFields) {
             allValid = field.testValidity() && allValid;
         }
 
 
         int checkedId = rg.getCheckedRadioButtonId();
-        if(checkedId == -1) {
+        if (checkedId == -1 || selectedImageUri == null) {
             Toast.makeText(this,
                     getResources().getString(R.string.type_invalid),
                     Toast.LENGTH_SHORT)
@@ -106,34 +102,62 @@ public class SignUpLastStepsActivity extends SherlockActivity {
             String type = ((RadioButton) findViewById(checkedId)).getText().toString();
 
             User u = null;
-            if(type.equals(getResources().getString(R.string.taxi))){
+            if (type.equals(getResources().getString(R.string.taxi))) {
                 u = new Taxi();
-            } else if(type.equals(getResources().getString(R.string.client))){
+            } else if (type.equals(getResources().getString(R.string.client))) {
                 u = new Client();
             }
             u.setName(firstName.getText().toString() + lastName.getText().toString());
-//            u.setImageUri(photoPath);
 
-
-            if(u instanceof Client) {
+            if (u instanceof Client) {
                 PersistenceManager.save((Client) u, new Callback<Client>() {
                     @Override
                     public void onResult(Client result) {
-                        Intent intent = new Intent(SignUpLastStepsActivity.this, MainClientActivity.class);
-                        startActivity(intent);
-//                        finish();
+                        continueRegister(result);
                     }
                 });
-            } else if(u instanceof Taxi){
+            } else if (u instanceof Taxi) {
                 PersistenceManager.save((Taxi) u, new Callback<Taxi>() {
                     @Override
                     public void onResult(Taxi result) {
-                        Intent intent = new Intent(SignUpLastStepsActivity.this, MainTaxiActivity.class);
-                        startActivity(intent);
-//                        finish();
+                        continueRegister(result);
                     }
                 });
             }
         }
+    }
+
+
+    private void continueRegister(final User savedUser){
+
+        PersistenceManager.storeImage(this, savedUser.id(), selectedImageUri, new Callback<String>() {
+            @Override
+            public void onResult(String result) {
+                savedUser.setImageUri(result);
+
+                if (savedUser instanceof Client) {
+                    PersistenceManager.save((Client) savedUser, new Callback<Client>() {
+                        @Override
+                        public void onResult(Client result) {
+                            Intent intent = new Intent(SignUpLastStepsActivity.this, MainClientActivity.class);
+                            startActivity(intent);
+//                            finish();
+                        }
+                    });
+                } else if (savedUser instanceof Taxi) {
+                    PersistenceManager.save((Taxi) savedUser, new Callback<Taxi>() {
+                        @Override
+                        public void onResult(Taxi result) {
+                            continueRegister(result);
+                            Intent intent = new Intent(SignUpLastStepsActivity.this, MainTaxiActivity.class);
+                            startActivity(intent);
+//                            finish();
+                        }
+                    });
+                }
+            }
+        });
+
+
     }
 }

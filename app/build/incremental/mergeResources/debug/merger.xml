@@ -1360,15 +1360,6 @@ wrap_content
             </file>
         </source>
     </dataSet>
-    <dataSet config="0.3.0" >
-        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.manuelpeinado.glassactionbar\glassactionbar\0.3.0\res" >
-            <file
-                name="gab__frame"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.manuelpeinado.glassactionbar\glassactionbar\0.3.0\res\layout\gab__frame.xml"
-                qualifiers=""
-                type="layout" />
-        </source>
-    </dataSet>
     <dataSet config="0.4.0" >
         <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.castorflex.smoothprogressbar\library\0.4.0\res" >
             <file
@@ -6346,1964 +6337,6 @@ true
             </file>
         </source>
     </dataSet>
-    <dataSet config="unspecified" >
-        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res" >
-            <file
-                name="dialog_shape"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable\dialog_shape.xml"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="progress_bar_rotation"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable\progress_bar_rotation.xml"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="row_selector"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable\row_selector.xml"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="services_shape"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable\services_shape.xml"
-                qualifiers=""
-                type="drawable" />
-            <file
-                name="album_default"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\album_default.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="dropbox"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\dropbox.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="facebook"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\facebook.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="flickr"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\flickr.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="google_drive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\google_drive.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="google_plus"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\google_plus.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="gradient_blue"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\gradient_blue.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="ic_launcher"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\ic_launcher.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="instagram"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\instagram.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="notification_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\notification_window.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="photo_placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\photo_placeholder.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="picassa"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\picassa.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\placeholder.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="progress_bar"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\progress_bar.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="progress_bar_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\progress_bar_window.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="skydrive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\skydrive.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="take_photo"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\take_photo.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="tick_grid"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\tick_grid.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="tick_list"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\tick_list.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="video_icon"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\video_icon.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="youtube"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-hdpi\youtube.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="default_thumb"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\default_thumb.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="ic_launcher"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\ic_launcher.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="notification_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\notification_window.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\placeholder.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="pp_button_icon"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\pp_button_icon.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="progress_bar"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\progress_bar.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="progress_bar_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-ldpi\progress_bar_window.png"
-                qualifiers="ldpi"
-                type="drawable" />
-            <file
-                name="album_default"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\album_default.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="dropbox"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\dropbox.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="facebook"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\facebook.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="flickr"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\flickr.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="google_drive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\google_drive.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="google_plus"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\google_plus.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="gradient_blue"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\gradient_blue.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_launcher"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\ic_launcher.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="instagram"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\instagram.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="notification_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\notification_window.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="photo_placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\photo_placeholder.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="picassa"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\picassa.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\placeholder.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="pp_button_icon"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\pp_button_icon.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="progress_bar"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\progress_bar.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="progress_bar_window"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\progress_bar_window.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="skydrive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\skydrive.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="take_photo"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\take_photo.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="tick_grid"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\tick_grid.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="tick_list"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\tick_list.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="video_icon"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\video_icon.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="youtube"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-mdpi\youtube.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="album_default"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\album_default.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="dropbox"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\dropbox.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="facebook"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\facebook.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="flickr"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\flickr.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="google_drive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\google_drive.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="google_plus"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\google_plus.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="gradient_blue"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\gradient_blue.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="instagram"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\instagram.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="photo_placeholder"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\photo_placeholder.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="picassa"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\picassa.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="skydrive"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\skydrive.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="take_photo"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\take_photo.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="tick_grid"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\tick_grid.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="tick_list"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\tick_list.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="video_icon"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\video_icon.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="youtube"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\drawable-xhdpi\youtube.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="gc_activity_assets"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_activity_assets.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_adapter_assets_grid"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_adapter_assets_grid.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_adapter_assets_list"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_adapter_assets_list.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_adapter_services"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_adapter_services.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_fragment_assets_grid"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_fragment_assets_grid.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_fragment_empty"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_fragment_empty.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_fragment_services"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_fragment_services.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_onepane"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_onepane.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_toast_loaded_photos"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_toast_loaded_photos.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_twopanes_sw600"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_twopanes_sw600.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_twopanes_sw600_narrow"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_twopanes_sw600_narrow.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_twopanes_sw720"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_twopanes_sw720.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="gc_twopanes_sw720_narrow"
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\layout\gc_twopanes_sw720_narrow.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values\values.xml"
-                qualifiers="" >
-                <string name="facebook" >Facebook
-                </string>
-                <string name="loading_albums" >Loading albums...
-                </string>
-                <string name="instagram" >Instagram
-                </string>
-
-                <style
-                    name="textViewServiceName"
-                    parent="android:Widget.TextView" >
-                    <item name="android:gravity">
-center_horizontal
-                    </item>
-                    <item name="android:paddingBottom">
-5dp
-                    </item>
-                    <item name="android:paddingLeft">
-1dp
-                    </item>
-                    <item name="android:paddingRight">
-1dp
-                    </item>
-                    <item name="android:singleLine">
-true
-                    </item>
-                    <item name="android:textColor">
-@color/white
-                    </item>
-                    <item name="android:textSize">
-@dimen/text_size_service_title
-                    </item>
-                    <item name="android:textStyle">
-bold
-                    </item>
-                    <item name="android:visibility">
-visible
-                    </item>
-                </style>
-
-                <string name="take_photos" >Take a photo
-                </string>
-
-                <color name="dark_gray" >#333333
-                </color>
-
-                <style
-                    name="textViewSignOut"
-                    parent="android:Widget.TextView" >
-                    <item name="android:gravity">
-center
-                    </item>
-                    <item name="android:background">
-?topBarBackground
-                    </item>
-                    <item name="android:textSize">
-@dimen/sign_out
-                    </item>
-                    <item name="android:textColor">
-?topBarTextColor
-                    </item>
-                </style>
-
-                <color name="gray_light" >#C0C0C0
-                </color>
-
-                <string name="title_user" >User
-                </string>
-                <string name="no_albums_found" >No albums found
-                </string>
-
-                <color name="orange" >#ffb449
-                </color>
-
-                <style
-                    name="PhotoPickerTheme"
-                    parent="PhotoPickerBaseTheme" >
-                    <item name="topBarBackground">
-@drawable/gradient_blue
-                    </item>
-                    <item name="topBarTextColor">
-@color/white
-                    </item>
-                </style>
-
-                <string name="no_camera_photos" >No photos in camera roll
-                </string>
-
-                <color name="black" >#000000
-                </color>
-
-                <string name="connect_to_internet_to_cofigure_services" >Connect your device to the Internet for configuring the services
-                </string>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <string name="all_media" >All media
-                </string>
-
-                <style
-                    name="textViewNotificationDialog"
-                    parent="textViewDefaultSmall" >
-                    <item name="android:textColor">
-@color/white
-                    </item>
-                </style>
-
-                <color name="title_name" >#1e4761
-                </color>
-
-                <style
-                    name="textViewProgressDialog"
-                    parent="textViewDefaultSmall" >
-                    <item name="android:layout_marginTop">
-10dp
-                    </item>
-                </style>
-
-                <string name="albums" >Albums
-                </string>
-
-                <color name="sky_blue" >#40c1f4
-                </color>
-
-                <string name="select_photos" >Select Photos
-                </string>
-                <string name="general_error" >An error has occurred. Please try again later.
-                </string>
-
-                <style
-                    name="PhotoPickerBaseTheme"
-                    parent="android:Theme.Light.NoTitleBar" />
-
-                <style name="relativeLayoutAdapterItemHolder" >
-                    <item name="android:background">
-@color/gray_light
-                    </item>
-                    <item name="android:padding">
-1dp
-                    </item>
-                </style>
-
-                <string name="select_video_source" >Select Video Source
-                </string>
-                <string name="no_album_selected" >No album selected
-                </string>
-                <string name="picasa" >Picasa
-                </string>
-                <string name="loading_media" >Loading media...
-                </string>
-                <string name="parsing_exception" >Invalid response format.
-                </string>
-
-                <style
-                    name="linearLayoutEmptyFragmentLabel"
-                    parent="android:Widget.TextView" >
-                    <item name="android:background">
-?topBarBackground
-                    </item>
-                </style>
-
-                <string name="select_media" >Select Media
-                </string>
-                <string name="select_photo_source" >Select Photo Source
-                </string>
-
-                <color name="album_name" >#1e4761
-                </color>
-
-                <string name="expired_session_logging_in" >Your session has expired. Logging in again...
-                </string>
-                <string name="last_video_captured" >Last video captured
-                </string>
-                <string name="toast_feature_camera" >Your device doesn\'t have a camera
-                </string>
-                <string name="toast_signed_out" >Signed out
-                </string>
-                <string name="title_default" >Default
-                </string>
-
-                <color name="background_title" >#413a36
-                </color>
-                <color name="grey" >#5f5f5f
-                </color>
-
-                <string name="cancel" >Cancel
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-Loaded 1 item in this album
-                    </item>
-                    <item quantity="other">
-Loaded %d items in this album
-                    </item>
-                </plurals>
-
-                <string name="ok" >OK
-                </string>
-                <string name="record_video" >Record a video
-                </string>
-
-                <color name="row_selector_color" >#29413a36
-                </color>
-
-                <string name="http_exception" >Check your internet connection and try again.
-                </string>
-
-                <color name="transparent" >#09000000
-                </color>
-
-                <string name="select_a_photo" >Select a Photo
-                </string>
-
-                <attr
-                    name="topBarTextColor"
-                    format="color" />
-
-                <style name="imageViewDefaultAssets" >
-                    <item name="android:background">
-@drawable/photo_placeholder
-                    </item>
-                    <item name="android:scaleType">
-centerCrop
-                    </item>
-                </style>
-
-                <string name="flickr" >Flickr
-                </string>
-
-                <style
-                    name="linearLayoutNotificationDialog"
-                    parent="linearLayoutProgressDialog" >
-                    <item name="android:background">
-@drawable/notification_window
-                    </item>
-                </style>
-
-                <color name="album_title" >#506f82
-                </color>
-
-                <string name="last_photo" >Last photo taken
-                </string>
-
-                <dimen name="choose_service_fragment_size" >300dp
-                </dimen>
-
-                <attr
-                    name="topBarBackground"
-                    format="reference" />
-
-                <string name="select_a_video" >Select a Video
-                </string>
-
-                <style
-                    name="textViewDefaultSmall"
-                    parent="android:Widget.TextView" >
-                    <item name="android:layout_gravity">
-center_horizontal
-                    </item>
-                    <item name="android:textAppearance">
-?android:attr/textAppearanceSmallInverse
-                    </item>
-                </style>
-
-                <string name="select_media_source" >Select Media Source
-                </string>
-                <string name="select_videos" >Select Videos
-                </string>
-                <string name="camera_media" >Camera media
-                </string>
-
-                <style
-                    name="textViewFragmentLabel"
-                    parent="android:Widget.TextView" >
-                    <item name="android:gravity">
-center
-                    </item>
-                    <item name="android:background">
-?topBarBackground
-                    </item>
-                    <item name="android:textAllCaps">
-true
-                    </item>
-                    <item name="android:textSize">
-@dimen/fragment_title
-                    </item>
-                    <item name="android:textColor">
-?topBarTextColor
-                    </item>
-                </style>
-
-                <style name="relativeLayoutAssetFragment" >
-                    <item name="android:background">
-@color/white
-                    </item>
-                </style>
-
-                <color name="white" >#ffffff
-                </color>
-
-                <style name="linearLayoutProgressDialog" >
-                    <item name="android:padding">
-20dp
-                    </item>
-                    <item name="android:background">
-@drawable/progress_bar_window
-                    </item>
-                    <item name="android:orientation">
-vertical
-                    </item>
-                </style>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <string name="sign_out" >Sign out
-                </string>
-                <string name="app_name" >Photo Picker Plus
-                </string>
-                <string name="http_error" >Server Problem. Please try again later.
-                </string>
-                <string name="toast_choose_photos" >Please select photos
-                </string>
-
-                <color name="background_activity" >#2d2d2d
-                </color>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-de\values.xml"
-                qualifiers="de" >
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-Geladen 1 Album
-                    </item>
-                    <item quantity="other">
-%d alben geladen
-                    </item>
-                </plurals>
-
-                <string name="ok" >OK
-                </string>
-                <string name="camera_media" >Kamera-Medien
-                </string>
-                <string name="cancel" >Stornieren
-                </string>
-                <string name="select_an_album" >Wählen Foto Quelle
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Verbinden Sie das Gerät mit dem Internet für die Konfiguration der Dienste
-                </string>
-                <string name="all_media" >Alle Medien
-                </string>
-                <string name="loading_media" >Einlegen von Medien ...
-                </string>
-                <string name="parsing_exception" >Schlechte Antwort-Format
-                </string>
-                <string name="no_camera_photos" >Keine Kamera Fotos gefunden
-                </string>
-                <string name="select_media_source" >Wählen Sie die Medienquelle
-                </string>
-                <string name="http_error" >Server-Problem, es erneut zu versuchen
-                </string>
-                <string name="select_photo_source" >Wählen Sie Foto Quelle
-                </string>
-                <string name="general_error" >Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal
-                </string>
-                <string name="record_video" >Aufnehmen eines Videos
-                </string>
-                <string name="select_a_photo" >Wählen Sie ein Foto
-                </string>
-                <string name="last_photo" >Neue Foto aufgenommen
-                </string>
-                <string name="select_photos" >Wählen Sie Fotos
-                </string>
-                <string name="last_video_captured" >Letztes Video eingefangen
-                </string>
-                <string name="no_albums_found" >Keine Alben gefunden
-                </string>
-                <string name="http_exception" >Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut
-                </string>
-                <string name="take_photos" >Nehmen Sie ein Foto
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-Geladen 1 Foto
-                    </item>
-                    <item quantity="other">
-Geladenen %d Bilder in diesem Album
-                    </item>
-                </plurals>
-
-                <string name="expired_session_logging_in" >Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut
-                </string>
-                <string name="albums" >Alben
-                </string>
-                <string name="select_videos" >Wählen Videos
-                </string>
-                <string name="title_user" >Benutzer
-                </string>
-                <string name="loading_albums" >Lädt Alben...
-                </string>
-                <string name="select_a_video" >Wählen Sie ein Video
-                </string>
-                <string name="title_default" >Standard
-                </string>
-                <string name="select_media" >Wählen Sie Medien
-                </string>
-                <string name="toast_choose_photos" >Bitte wählen Sie Fotos
-                </string>
-                <string name="toast_feature_camera" >Ihr Gerät verfügt nicht über eine Kamera
-                </string>
-                <string name="no_album_selected" >kein Album ausgewählt
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-es\values.xml"
-                qualifiers="es" >
-                <string name="select_an_album" >Seleccione Foto Fuente
-                </string>
-                <string name="last_photo" >Última foto tomada
-                </string>
-                <string name="all_media" >Todos los medios
-                </string>
-                <string name="loading_media" >Carga de papel ...
-                </string>
-                <string name="toast_feature_camera" >El dispositivo no dispone de una cámara
-                </string>
-                <string name="select_media_source" >Seleccione la fuente de los medios
-                </string>
-                <string name="parsing_exception" >Formato de respuesta no válida
-                </string>
-                <string name="no_camera_photos" >Hay fotos en rollo de la cámara
-                </string>
-                <string name="expired_session_logging_in" >Su sesión ha expirado. Por favor, entre de nuevo
-                </string>
-                <string name="http_error" >Problema en el servidor intente de nuevo
-                </string>
-                <string name="last_video_captured" >Último vídeo capturado
-                </string>
-                <string name="http_exception" >Compruebe su conexión a internet y vuelve a intentarlo
-                </string>
-                <string name="toast_choose_photos" >Por favor, seleccione las fotos
-                </string>
-                <string name="select_video_source" >Seleccione la fuente de vídeo
-                </string>
-                <string name="camera_media" >soporte de la cámara
-                </string>
-                <string name="select_a_photo" >Seleccionar una foto
-                </string>
-                <string name="loading_albums" >Álbumes de carga...
-                </string>
-                <string name="title_default" >Defecto
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-Cargado 1 album
-                    </item>
-                    <item quantity="other">
-%d álbumes cargados
-                    </item>
-                </plurals>
-
-                <string name="no_albums_found" >No hay discos
-                </string>
-                <string name="albums" >Álbumes
-                </string>
-                <string name="no_album_selected" >No álbum seleccionado
-                </string>
-                <string name="cancel" >Cancelar
-                </string>
-                <string name="ok" >OK
-                </string>
-                <string name="select_videos" >Seleccione los vídeos
-                </string>
-                <string name="general_error" >Se ha producido un error. Por favor, inténtelo de nuevo más tarde
-                </string>
-                <string name="select_photo_source" >Seleccione Foto Fuente
-                </string>
-                <string name="record_video" >Grabar un vídeo
-                </string>
-                <string name="select_a_video" >Seleccione un vídeo
-                </string>
-                <string name="title_user" >Usuario
-                </string>
-                <string name="select_media" >Seleccione los medios
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-Cargado 1 foto en este álbum
-                    </item>
-                    <item quantity="other">
-%d fotos cargadas en este álbum
-                    </item>
-                </plurals>
-
-                <string name="select_photos" >Seleccionar fotos
-                </string>
-                <string name="take_photos" >Tomar una foto
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Conecte su dispositivo a Internet para configurar los servicios
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-fr\values.xml"
-                qualifiers="fr" >
-                <string name="title_default" >Défaut
-                </string>
-                <string name="last_video_captured" >Dernière vidéo capturée
-                </string>
-                <string name="title_user" >Utilisateur
-                </string>
-                <string name="select_an_album" >Sélectionnez la source de photos
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-1 album chargé
-                    </item>
-                    <item quantity="other">
-%d albums chargés
-                    </item>
-                </plurals>
-
-                <string name="take_photos" >Prendre une photo
-                </string>
-                <string name="http_exception" >Vérifiez votre connexion Internet et réessayez
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Connectez votre appareil à Internet pour configurer les services
-                </string>
-                <string name="loading_media" >Chargement des supports ...
-                </string>
-                <string name="select_a_photo" >Sélectionnez une photo
-                </string>
-                <string name="no_camera_photos" >Pas de photos en roulis de la caméra
-                </string>
-                <string name="select_media" >Sélectionnez un support
-                </string>
-                <string name="toast_choose_photos" >S\'il vous plaît sélectionner des photos
-                </string>
-                <string name="parsing_exception" >Mauvais format de réponse
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-1 photo chargé dans cet album
-                    </item>
-                    <item quantity="other">
-%d photos chargées dans cet album
-                    </item>
-                </plurals>
-
-                <string name="record_video" >Enregistrer une vidéo
-                </string>
-                <string name="all_media" >Tous les médias
-                </string>
-                <string name="select_photo_source" >Sélectionnez Photo Source
-                </string>
-                <string name="select_a_video" >Sélectionnez une vidéo
-                </string>
-                <string name="albums" >Albums
-                </string>
-                <string name="select_media_source" >Sélectionnez la source de médias
-                </string>
-                <string name="http_error" >Problème de serveur, réessayez
-                </string>
-                <string name="camera_media" >Médias de l\'appareil photo
-                </string>
-                <string name="select_videos" >Sélection de vidéos
-                </string>
-                <string name="toast_feature_camera" >Votre appareil ne dispose pas d\'un appareil photo
-                </string>
-                <string name="loading_albums" >Albums de chargement...
-                </string>
-                <string name="no_albums_found" >Aucun album n\'a été trouvé
-                </string>
-                <string name="select_video_source" >Sélectionnez la source vidéo
-                </string>
-                <string name="no_album_selected" >Aucun album sélectionné
-                </string>
-                <string name="select_photos" >Sélectionner les photos
-                </string>
-                <string name="last_photo" >Dernière photo prise
-                </string>
-                <string name="expired_session_logging_in" >Votre session a expiré. S\'il vous plaît vous connecter à nouveau
-                </string>
-                <string name="cancel" >Annuler
-                </string>
-                <string name="ok" >OK
-                </string>
-                <string name="general_error" >Une erreur s\'est produite. S\'il vous plaît réessayer plus tard
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-hi\values.xml"
-                qualifiers="hi" >
-                <string name="http_error" >सर्वर की समस्या है, फिर कोशिश
-                </string>
-                <string name="albums" >एलबम
-                </string>
-                <string name="no_albums_found" >कोई एल्बम नहीं मिला
-                </string>
-                <string name="select_photo_source" >चयन तस्वीर स्रोत
-                </string>
-                <string name="all_photos" >सभी तस्वीरें
-                </string>
-                <string name="take_photos" >एक तस्वीर ले लो
-                </string>
-                <string name="ok" >अच्छा
-                </string>
-                <string name="general_error" >एक त्रुटि हुई है. बाद में पुन: प्रयास करें
-                </string>
-                <string name="http_exception" >आपके इंटरनेट कनेक्शन की जाँच करें और पुन: प्रयास करें
-                </string>
-                <string name="select_video_source" >गुप्त वीडियो स्रोत
-                </string>
-                <string name="toast_feature_camera" >आपकी डिवाइस एक कैमरा नहीं है
-                </string>
-                <string name="loading_media" >लोड हो रहा है मीडिया ...ें
-                </string>
-                <string name="record_video" >एक वीडियो रिकॉर्ड
-                </string>
-                <string name="parsing_exception" >बुरा प्रतिक्रिया स्वरूप
-                </string>
-                <string name="last_video_captured" >पर कब्जा कर लिया है अंतिम वीडियो
-                </string>
-                <string name="select_videos" >वीडियो का चयन करें
-                </string>
-                <string name="cancel" >रद्द करें
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >सेवाओं को संरचित करने के लिए इंटरनेट के लिए अपनी डिवाइस कनेक्ट
-                </string>
-                <string name="camera_media" >कैमरा मीडिया
-                </string>
-                <string name="no_camera_photos" >कैमरा रोल में कोई फ़ोटो
-                </string>
-                <string name="select_an_album" >फोटो स्रोत का चयन करें
-                </string>
-                <string name="all_media" >सभी मीडिया
-                </string>
-                <string name="select_a_photo" >एक तस्वीर का चयन करें
-                </string>
-                <string name="camera_shots" >कैमरा शॉट्स
-                </string>
-                <string name="no_album_selected" >चुनाव नहीं किया एलबम
-                </string>
-                <string name="last_photo" >लिया अंतिम तस्वीर
-                </string>
-                <string name="select_media_source" >चयन मीडिया स्रोत
-                </string>
-                <string name="title_default" >चूक
-                </string>
-                <string name="select_a_video" >एक वीडियो का चयन करें
-                </string>
-                <string name="select_photos" >फ़ोटो का चयन करें
-                </string>
-                <string name="toast_choose_photos" >तस्वीरों का चयन करें
-                </string>
-                <string name="select_media" >चयन मीडिया
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-इस एल्बम में भरा हुआ 1 फोटो
-                    </item>
-                    <item quantity="other">
-%d इस एल्बम में भरा तस्वीरें
-                    </item>
-                </plurals>
-
-                <string name="title_user" >उपयोगकर्ता
-                </string>
-                <string name="expired_session_logging_in" >आपका सत्र समाप्त हो गया है. फिर से लॉग इन करें
-                </string>
-                <string name="loading_albums" >लोड हो रहा है एल्बमों
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-1 एल्बम भरा हुआ
-                    </item>
-                    <item quantity="other">
-%d एल्बम भरा हुआ
-                    </item>
-                </plurals>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-it\values.xml"
-                qualifiers="it" >
-                <string name="select_photos" >Selezionare le foto
-                </string>
-                <string name="record_video" >Registrare un video
-                </string>
-                <string name="loading_albums" >Caricamento album...
-                </string>
-                <string name="select_a_video" >Selezionare un video
-                </string>
-                <string name="general_error" >Si è verificato un errore. Riprovare più tardi
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-Caricato 1 foto in questo album
-                    </item>
-                    <item quantity="other">
-%d foto caricate in questo album
-                    </item>
-                </plurals>
-
-                <string name="select_a_photo" >Seleziona una foto
-                </string>
-                <string name="loading_media" >Caricamento dei supporti ...
-                </string>
-                <string name="cancel" >Cancellare
-                </string>
-                <string name="last_video_captured" >Ultimo video catturato
-                </string>
-                <string name="select_video_source" >Selezionare la sorgente video
-                </string>
-                <string name="toast_choose_photos" >Si prega di selezionare le foto
-                </string>
-                <string name="camera_media" >Supporti per fotocamere
-                </string>
-                <string name="toast_feature_camera" >Il dispositivo non dispone di una fotocamera
-                </string>
-                <string name="select_an_album" >Selezionare Foto Fonte
-                </string>
-                <string name="select_media" >Selezionare la voce dei media
-                </string>
-                <string name="last_photo" >Ultima foto scattata
-                </string>
-                <string name="take_photos" >Scattare una foto
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-Caricato 1 album
-                    </item>
-                    <item quantity="other">
-%d album caricati
-                    </item>
-                </plurals>
-
-                <string name="all_media" >Tutti i supporti
-                </string>
-                <string name="title_default" >Predefinito
-                </string>
-                <string name="no_album_selected" >Nessun album selezionato
-                </string>
-                <string name="expired_session_logging_in" >La sessione è scaduta. Si prega di accedere di nuovo
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Collegare il dispositivo a Internet per la configurazione dei servizi
-                </string>
-                <string name="select_media_source" >Selezionare la sorgente multimediale
-                </string>
-                <string name="http_exception" >Controlla la tua connessione a Internet e riprova
-                </string>
-                <string name="select_videos" >Seleziona i video
-                </string>
-                <string name="http_error" >Problema del server, riprovare
-                </string>
-                <string name="parsing_exception" >Formato di risposta cattiva
-                </string>
-                <string name="no_camera_photos" >Nessuna foto a rullino fotografico
-                </string>
-                <string name="title_user" >Utente
-                </string>
-                <string name="albums" >Album
-                </string>
-                <string name="select_photo_source" >Selezionare Foto Fonte
-                </string>
-                <string name="ok" >OK
-                </string>
-                <string name="no_albums_found" >Nessun album trovato
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-ja\values.xml"
-                qualifiers="ja" >
-                <string name="select_photo_source" >写真ソースの選択
-                </string>
-                <string name="general_error" >エラーが発生しました。後で再試行してください。
-                </string>
-                <string name="ok" >OK
-                </string>
-                <string name="title_user" >ユーザー
-                </string>
-                <string name="cancel" >キャンセル
-                </string>
-                <string name="camera_media" >平均宿泊
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-1アルバムをロード
-                    </item>
-                    <item quantity="other">
-%d ロードされたアルバム
-                    </item>
-                </plurals>
-
-                <string name="http_exception" >あなたのインターネット接続を確認し、再試行してください
-                </string>
-                <string name="no_album_selected" >選択されていないアルバムません
-                </string>
-                <string name="select_video_source" >ビデオソースを選択
-                </string>
-                <string name="no_camera_photos" >カメラロールで写真無し
-                </string>
-                <string name="select_a_photo" >写真を選択
-                </string>
-                <string name="select_a_video" >ビデオを選択
-                </string>
-                <string name="loading_media" >ロードメディア...
-                </string>
-                <string name="select_an_album" >写真ソースの選択
-                </string>
-                <string name="last_video_captured" >最後のビデオがキャプチャ
-                </string>
-                <string name="select_videos" >ビデオを選択
-                </string>
-                <string name="toast_choose_photos" >写真を選択してください
-                </string>
-                <string name="albums" >アルバム
-                </string>
-                <string name="take_photos" >写真を撮る
-                </string>
-                <string name="loading_albums" >ロードアルバム
-                </string>
-                <string name="expired_session_logging_in" >セッションが期限切れになっています。もう一度ログインしてください
-                </string>
-                <string name="select_media" >メディアを選択
-                </string>
-                <string name="last_photo" >最後に撮影した写真
-                </string>
-                <string name="toast_feature_camera" >お使いのデバイスは、カメラを持っていない
-                </string>
-                <string name="all_media" >すべてのメディア
-                </string>
-                <string name="parsing_exception" >悪い応答形式
-                </string>
-                <string name="http_error" >サーバーの問題はもう一度やり直し
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-このアルバムのロード写真1枚
-                    </item>
-                    <item quantity="other">
-%d このアルバムにロードされた写真
-                    </item>
-                </plurals>
-
-                <string name="select_photos" >写真を選択
-                </string>
-                <string name="no_albums_found" >いいえアルバムが見つかりませんでした
-                </string>
-                <string name="select_media_source" >メディアソースを選択します。
-                </string>
-                <string name="title_default" >デフォルト
-                </string>
-                <string name="record_video" >ビデオを録画する
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >サービスを設定するため、インターネットにお使いのデバイスを接続する
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-land-hdpi\values.xml"
-                qualifiers="land-hdpi" >
-                <integer name="image_dimensions_services" >
-80
-                </integer>
-
-                <dimen name="fragment_title" >14dp
-                </dimen>
-                <dimen name="album_name" >14dp
-                </dimen>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <dimen name="sign_out" >12dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <integer name="grid_columns_assets" >
-5
-                </integer>
-                <integer name="image_dimensions_assets" >
-120
-                </integer>
-                <integer name="grid_columns_services" >
-5
-                </integer>
-
-                <dimen name="text_size_service_title" >6dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-land-mdpi\values.xml"
-                qualifiers="land-mdpi" >
-                <integer name="grid_columns_assets" >
-5
-                </integer>
-                <integer name="image_dimensions_services" >
-80
-                </integer>
-                <integer name="grid_columns_services" >
-5
-                </integer>
-                <integer name="image_dimensions_assets" >
-120
-                </integer>
-
-                <dimen name="fragment_title" >14dp
-                </dimen>
-                <dimen name="sign_out" >12dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <dimen name="text_size_service_title" >6dp
-                </dimen>
-                <dimen name="album_name" >14dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-land-xhdpi\values.xml"
-                qualifiers="land-xhdpi" >
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <integer name="image_dimensions_assets" >
-120
-                </integer>
-
-                <dimen name="text_size_service_title" >7dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-110
-                </integer>
-
-                <dimen name="album_name" >16dp
-                </dimen>
-
-                <integer name="grid_columns_assets" >
-5
-                </integer>
-
-                <dimen name="fragment_title" >16dp
-                </dimen>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <integer name="grid_columns_services" >
-8
-                </integer>
-
-                <dimen name="sign_out" >14dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-land-xxhdpi\values.xml"
-                qualifiers="land-xxhdpi" >
-                <integer name="image_dimensions_assets" >
-120
-                </integer>
-
-                <dimen name="fragment_title" >18dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-110
-                </integer>
-                <integer name="grid_columns_assets" >
-5
-                </integer>
-
-                <dimen name="text_size_service_title" >8dp
-                </dimen>
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <dimen name="album_name" >18dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-8
-                </integer>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-port-hdpi\values.xml"
-                qualifiers="port-hdpi" >
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <integer name="grid_columns_assets" >
-3
-                </integer>
-                <integer name="image_dimensions_assets" >
-80
-                </integer>
-                <integer name="image_dimensions_services" >
-70
-                </integer>
-                <integer name="grid_columns_services" >
-4
-                </integer>
-
-                <dimen name="text_size_service_title" >8dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <dimen name="sign_out" >12dp
-                </dimen>
-                <dimen name="fragment_title" >14dp
-                </dimen>
-                <dimen name="album_name" >14dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-port-mdpi\values.xml"
-                qualifiers="port-mdpi" >
-                <dimen name="sign_out" >12dp
-                </dimen>
-                <dimen name="album_name" >14dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-70
-                </integer>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <dimen name="fragment_title" >14dp
-                </dimen>
-
-                <integer name="image_dimensions_assets" >
-80
-                </integer>
-
-                <dimen name="text_size_service_title" >8dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-4
-                </integer>
-                <integer name="grid_columns_assets" >
-3
-                </integer>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-port-xhdpi\values.xml"
-                qualifiers="port-xhdpi" >
-                <integer name="grid_columns_services" >
-4
-                </integer>
-
-                <dimen name="fragment_title" >16dp
-                </dimen>
-                <dimen name="album_name" >16dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <integer name="image_dimensions_assets" >
-80
-                </integer>
-                <integer name="grid_columns_assets" >
-3
-                </integer>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <integer name="image_dimensions_services" >
-70
-                </integer>
-
-                <dimen name="text_size_service_title" >9dp
-                </dimen>
-                <dimen name="sign_out" >14dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-port-xxhdpi\values.xml"
-                qualifiers="port-xxhdpi" >
-                <dimen name="album_name" >18dp
-                </dimen>
-                <dimen name="text_size_service_title" >10dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-70
-                </integer>
-                <integer name="grid_columns_assets" >
-3
-                </integer>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-4
-                </integer>
-                <integer name="image_dimensions_assets" >
-80
-                </integer>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <dimen name="fragment_title" >18dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-pt\values.xml"
-                qualifiers="pt" >
-                <string name="toast_feature_camera" >O dispositivo não tem uma câmera
-                </string>
-                <string name="camera_media" >Média quarto
-                </string>
-                <string name="select_media" >Selecionar mídia
-                </string>
-                <string name="loading_albums" >Carregar álbuns...
-                </string>
-                <string name="parsing_exception" >Formato de resposta ruim
-                </string>
-                <string name="record_video" >Gravar um vídeo
-                </string>
-                <string name="select_a_photo" >Selecione uma foto
-                </string>
-                <string name="no_album_selected" >No álbum selecionado
-                </string>
-                <string name="title_default" >Omissão
-                </string>
-                <string name="select_videos" >Selecionar vídeos
-                </string>
-                <string name="http_error" >Problema no servidor, tente novamente
-                </string>
-                <string name="cancel" >Cancelar
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-Carregado uma foto neste álbum
-                    </item>
-                    <item quantity="other">
-%d fotos carregadas neste álbum
-                    </item>
-                </plurals>
-
-                <string name="last_photo" >Última foto tirada
-                </string>
-                <string name="select_media_source" >Selecione a origem da mídia
-                </string>
-                <string name="no_albums_found" >Nenhum álbum encontrado
-                </string>
-                <string name="select_an_album" >Selecione Foto Fonte
-                </string>
-                <string name="select_video_source" >Selecione a fonte de vídeo
-                </string>
-                <string name="ok" >OK
-                </string>
-                <string name="select_a_video" >Selecione um vídeo
-                </string>
-                <string name="last_video_captured" >Último vídeo capturado
-                </string>
-                <string name="take_photos" >Tire uma foto
-                </string>
-                <string name="albums" >Álbuns
-                </string>
-                <string name="no_camera_photos" >Não há fotos no rolo da câmera
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Conecte seu dispositivo à Internet para configurar os serviços
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-Carregado um álbum
-                    </item>
-                    <item quantity="other">
-%d álbuns carregados
-                    </item>
-                </plurals>
-
-                <string name="general_error" >Ocorreu um erro. Por favor, tente novamente mais tarde
-                </string>
-                <string name="all_media" >Todos os meios
-                </string>
-                <string name="select_photos" >Selecione as fotos
-                </string>
-                <string name="toast_choose_photos" >Por favor, selecionar fotos
-                </string>
-                <string name="http_exception" >Verifique sua conexão com a internet e tente novamente
-                </string>
-                <string name="select_photo_source" >Selecione Foto Fonte
-                </string>
-                <string name="title_user" >Usuário
-                </string>
-                <string name="loading_media" >Carregamento de mídia...
-                </string>
-                <string name="expired_session_logging_in" >Sua sessão expirou. Por favor faça login novamente
-                </string>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-sw600dp-land\values.xml"
-                qualifiers="sw600dp-land" >
-                <integer name="grid_columns_assets" >
-4
-                </integer>
-
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-180
-                </integer>
-
-                <dimen name="text_size_service_title" >13dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-4
-                </integer>
-
-                <bool name="has_two_panes" >
-true
-                </bool>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_twopanes_sw600_narrow
-                </item>
-
-                <dimen name="album_name" >18dp
-                </dimen>
-                <dimen name="fragment_title" >18dp
-                </dimen>
-
-                <integer name="image_dimensions_assets" >
-100
-                </integer>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-sw600dp-port\values.xml"
-                qualifiers="sw600dp-port" >
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_twopanes_sw600
-                </item>
-
-                <integer name="image_dimensions_assets" >
-70
-                </integer>
-                <integer name="image_dimensions_services" >
-70
-                </integer>
-                <integer name="grid_columns_assets" >
-4
-                </integer>
-
-                <dimen name="album_name" >18dp
-                </dimen>
-                <dimen name="text_size_service_title" >15dp
-                </dimen>
-                <dimen name="fragment_title" >18dp
-                </dimen>
-
-                <bool name="has_two_panes" >
-true
-                </bool>
-
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-5
-                </integer>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-sw720dp-land\values.xml"
-                qualifiers="sw720dp-land" >
-                <dimen name="album_name" >18dp
-                </dimen>
-
-                <integer name="grid_columns_services" >
-4
-                </integer>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_twopanes_sw720_narrow
-                </item>
-
-                <integer name="image_dimensions_assets" >
-150
-                </integer>
-
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <integer name="grid_columns_assets" >
-4
-                </integer>
-
-                <dimen name="fragment_title" >18dp
-                </dimen>
-
-                <bool name="has_two_panes" >
-true
-                </bool>
-
-                <integer name="image_dimensions_services" >
-230
-                </integer>
-
-                <dimen name="text_size_service_title" >16dp
-                </dimen>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-sw720dp-port\values.xml"
-                qualifiers="sw720dp-port" >
-                <integer name="grid_columns_services" >
-5
-                </integer>
-                <integer name="image_dimensions_assets" >
-70
-                </integer>
-                <integer name="grid_columns_assets" >
-4
-                </integer>
-
-                <dimen name="fragment_title" >18dp
-                </dimen>
-                <dimen name="text_size_service_title" >17dp
-                </dimen>
-
-                <bool name="has_two_panes" >
-true
-                </bool>
-
-                <dimen name="sign_out" >16dp
-                </dimen>
-
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_twopanes_sw720
-                </item>
-
-                <dimen name="album_name" >18dp
-                </dimen>
-
-                <integer name="image_dimensions_services" >
-90
-                </integer>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-v11\values.xml"
-                qualifiers="v11" >
-
-                <style
-                    name="PhotoPickerBaseTheme"
-                    parent="android:Theme.Holo.Light" >
-                    <item name="android:windowActionBar">
-false
-                    </item>
-                    <item name="android:windowNoTitle">
-true
-                    </item>
-                </style>
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-v14\values.xml"
-                qualifiers="v14" >
-
-                <style
-                    name="PhotoPickerBaseTheme"
-                    parent="android:Theme.Holo.Light.NoActionBar" />
-            </file>
-            <file
-                path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\res\values-zh\values.xml"
-                qualifiers="zh" >
-                <string name="camera_media" >平均客房
-                </string>
-                <string name="select_an_album" >选择图片来源
-                </string>
-                <string name="title_default" >默认
-                </string>
-                <string name="no_camera_photos" >相机胶卷中没有照片
-                </string>
-                <string name="title_user" >用户
-                </string>
-                <string name="take_photos" >拍摄照片
-                </string>
-                <string name="select_media" >选择媒体
-                </string>
-                <string name="http_error" >服务器问题，请尝试再次
-                </string>
-                <string name="cancel" >取消
-                </string>
-                <string name="all_media" >所有媒体
-                </string>
-
-                <plurals name="numberOfLoadedPhotos" >
-                    <item quantity="one">
-在这张专辑中装载1张照片
-                    </item>
-                    <item quantity="other">
-%d 在这张专辑中的加载的照片
-                    </item>
-                </plurals>
-
-                <string name="toast_choose_photos" >请选择“照片”
-                </string>
-                <string name="last_photo" >最后合影留念
-                </string>
-                <string name="expired_session_logging_in" >您的会话已过期。请重新登录
-                </string>
-                <string name="toast_feature_camera" >您的设备不会有一个摄像头
-                </string>
-                <string name="select_video_source" >选择视频源
-                </string>
-                <string name="select_photo_source" >选择光源
-                </string>
-                <string name="parsing_exception" >无效的响应格式
-                </string>
-                <string name="select_a_photo" >选择一个照片
-                </string>
-                <string name="select_media_source" >选择介质源
-                </string>
-                <string name="loading_albums" >加载专辑
-                </string>
-                <string name="no_album_selected" >没有选择专辑
-                </string>
-                <string name="select_a_video" >选择一个视频
-                </string>
-                <string name="select_videos" >选择视频
-                </string>
-                <string name="general_error" >发生了错误。请稍后再试。
-                </string>
-                <string name="record_video" >录制视频
-                </string>
-
-                <plurals name="numberOfLoadedAlbums" >
-                    <item quantity="one">
-装1张专辑
-                    </item>
-                    <item quantity="other">
-%d 加载的相册
-                    </item>
-                </plurals>
-
-                <string name="albums" >相册
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >配置服务将设备连接到互联网
-                </string>
-                <string name="loading_media" >装入介质...
-                </string>
-                <string name="select_photos" >选择照片
-                </string>
-                <string name="no_albums_found" >没有相册
-                </string>
-                <string name="http_exception" >请检查您的互联网连接，然后再试一次
-                </string>
-                <string name="last_video_captured" >拍摄的最后一个视频
-                </string>
-                <string name="ok" >行
-                </string>
-            </file>
-        </source>
-    </dataSet>
     <dataSet config="2.1.0" >
         <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.androidmapsextensions\android-maps-extensions\2.1.0\res" >
             <file
@@ -9860,12 +7893,12 @@ normal
                     msgid="8685301130651051380" >"Гэта прыкладанне не будзе працаваць без службаў Google Play, якіх няма ў вашым тэлефоне."
                 </string>
                 <string
-                    name="common_google_play_services_unknown_issue"
-                    msgid="4762332809710093730" >"Невядомая праблема са службамі Google Play."
-                </string>
-                <string
                     name="common_google_play_services_unsupported_text"
                     msgid="3542578567569488671" >"Службы Google Play, да якiх прывязаны некаторыя прыкладаннi, не падтрымлiваюцца на вашай прыладзе. Па дапамогу звярнiцеся да вытворцы."
+                </string>
+                <string
+                    name="common_google_play_services_unknown_issue"
+                    msgid="4762332809710093730" >"Невядомая праблема са службамі Google Play."
                 </string>
                 <string
                     name="common_google_play_services_enable_text"
@@ -10011,14 +8044,6 @@ normal
                     msgid="2429381841831957106" >"Вход с Google"
                 </string>
                 <string
-                    name="common_google_play_services_unsupported_date_text"
-                    msgid="4725396522367789365" >"Изглежда, че датата на устройството е неправилна. Моля, проверете я."
-                </string>
-                <string
-                    name="common_google_play_services_network_error_text"
-                    msgid="9038847255613537209" >"За свързване с услугите за Google Play се изисква връзка за данни."
-                </string>
-                <string
                     name="common_google_play_services_notification_needs_update_title"
                     msgid="1388129345631079938" >"Приложение изисква актуализирането на услугите за Google Play."
                 </string>
@@ -10028,6 +8053,14 @@ normal
 <ns1:g id="APP_NAME" >
 %1$s
                     </ns1:g>"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_date_text"
+                    msgid="4725396522367789365" >"Изглежда, че датата на устройството е неправилна. Моля, проверете я."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_text"
+                    msgid="9038847255613537209" >"За свързване с услугите за Google Play се изисква връзка за данни."
                 </string>
             </file>
             <file
@@ -12736,16 +10769,16 @@ normal
                     msgid="3542578567569488671" >"La piattaforma Google Play Services, su cui sono basate alcune delle tue applicazioni, non è supportata dal dispositivo in uso. Per assistenza, contatta il produttore."
                 </string>
                 <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"L\'app non funzionerà senza Google Play Services, non presente sul tuo telefono."
+                </string>
+                <string
                     name="common_google_play_services_network_error_text"
                     msgid="9038847255613537209" >"È necessaria una connessione dati per connettersi a Google Play Services."
                 </string>
                 <string
                     name="common_google_play_services_needs_enabling_title"
                     msgid="2583358409598976717" >"Un\'applicazione richiede l\'attivazione di Google Play Services."
-                </string>
-                <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"L\'app non funzionerà senza Google Play Services, non presente sul tuo telefono."
                 </string>
                 <string
                     name="common_google_play_services_update_title"
@@ -13119,16 +11152,16 @@ normal
                     msgid="1852570676146674985" >"Google Play Services-ის შეცდომა"
                 </string>
                 <string
-                    name="common_google_play_services_invalid_account_title"
-                    msgid="1066672360770936753" >"ანგარიში არასწორია"
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"ეს აპი ვერ გაეშვება Google Play სერვისების გარეშე, რაც თქვენს ტელეფონზე ვერ იძებნება."
                 </string>
                 <string
                     name="common_google_play_services_notification_needs_installation_title"
                     msgid="8120534356798772974" >"აპლიკაცია საჭიროება Google Play Services-ის ინსტალაციას."
                 </string>
                 <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"ეს აპი ვერ გაეშვება Google Play სერვისების გარეშე, რაც თქვენს ტელეფონზე ვერ იძებნება."
+                    name="common_google_play_services_invalid_account_title"
+                    msgid="1066672360770936753" >"ანგარიში არასწორია"
                 </string>
                 <string
                     name="common_signin_button_text_long"
@@ -13175,20 +11208,20 @@ normal
                     msgid="4762332809710093730" >"Google Play სერვისებთან დაკავშირებით უცნობი შეფერხება წარმოიშვა."
                 </string>
                 <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"ქსელის შეცდომა"
-                </string>
-                <string
                     name="common_google_play_services_update_title"
                     msgid="6006316683626838685" >"Google Play სერვისების განახლება"
                 </string>
                 <string
-                    name="common_google_play_services_invalid_account_text"
-                    msgid="4983316348021735578" >"მითითებული ანგარიში ამ მოწყობილობაზე არ არსებობს. გთხოვთ, აირჩიოთ სხვა ანგარიში."
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"ქსელის შეცდომა"
                 </string>
                 <string
                     name="common_google_play_services_notification_needs_update_title"
                     msgid="1388129345631079938" >"აპლიკაცია საჭიროებს Google Play Services-ის განახლებას."
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_text"
+                    msgid="4983316348021735578" >"მითითებული ანგარიში ამ მოწყობილობაზე არ არსებობს. გთხოვთ, აირჩიოთ სხვა ანგარიში."
                 </string>
                 <string
                     name="common_google_play_services_needs_enabling_title"
@@ -16234,16 +14267,16 @@ normal
                     msgid="3827284619958211114" >"May Error sa Network"
                 </string>
                 <string
+                    name="common_google_play_services_notification_needs_update_title"
+                    msgid="1388129345631079938" >"Kailangan ng application ng update sa Mga Serbisyo ng Google Play."
+                </string>
+                <string
                     name="common_google_play_services_unsupported_title"
                     msgid="6334768798839376943" >"Mga serbisyo ng Google Play"
                 </string>
                 <string
                     name="common_google_play_services_install_button"
                     msgid="8515591849428043265" >"Kumuha ng Google Play services"
-                </string>
-                <string
-                    name="common_google_play_services_notification_needs_update_title"
-                    msgid="1388129345631079938" >"Kailangan ng application ng update sa Mga Serbisyo ng Google Play."
                 </string>
             </file>
             <file
@@ -16439,12 +14472,12 @@ normal
                     msgid="3827284619958211114" >"Помилка мережі"
                 </string>
                 <string
-                    name="common_google_play_services_update_button"
-                    msgid="8932944190611227642" >"Оновити"
-                </string>
-                <string
                     name="common_google_play_services_enable_title"
                     msgid="529078775174559253" >"Увімкнути Google Play Послуги"
+                </string>
+                <string
+                    name="common_google_play_services_update_button"
+                    msgid="8932944190611227642" >"Оновити"
                 </string>
                 <string
                     name="common_google_play_services_invalid_account_text"
@@ -16455,12 +14488,12 @@ normal
                     msgid="8120534356798772974" >"Щоб додаток працював, потрібно встановити сервіси Google Play."
                 </string>
                 <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Оновити Google Play Послуги"
-                </string>
-                <string
                     name="common_google_play_services_needs_enabling_title"
                     msgid="2583358409598976717" >"Щоб додаток працював, потрібно ввімкнути сервіси Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Оновити Google Play Послуги"
                 </string>
                 <string
                     name="common_google_play_services_notification_ticker"
@@ -16487,15 +14520,15 @@ normal
                     msgid="9071884888741449141" >"Увійти"
                 </string>
                 <string
-                    name="common_google_play_services_unknown_issue"
-                    msgid="4762332809710093730" >"Google Play Послуги – невідома проблема."
-                </string>
-                <string
                     name="common_google_play_services_error_notification_requested_by_msg"
                     msgid="2443362625939284971" >"Запит від додатка 
 <ns1:g id="APP_NAME" >
 %1$s
                     </ns1:g>"
+                </string>
+                <string
+                    name="common_google_play_services_unknown_issue"
+                    msgid="4762332809710093730" >"Google Play Послуги – невідома проблема."
                 </string>
                 <string
                     name="common_google_play_services_unsupported_text"
@@ -16833,24 +14866,24 @@ normal
                 path="C:\projects-android\icm_travis\app\build\exploded-aar\com.google.android.gms\play-services\4.4.52\res\values-zh-rHK\common_strings.xml"
                 qualifiers="zh-rHK" >
                 <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"取得 Google Play 服務"
-                </string>
-                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"更新"
+                </string>
+                <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"取得 Google Play 服務"
                 </string>
                 <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"您必須更新 Google Play 服務，才能執行這個應用程式。"
                 </string>
                 <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"啟用 Google Play 服務"
-                </string>
-                <string
                     name="common_google_play_services_unknown_issue"
                     msgid="4762332809710093730" >"Google Play 服務出現不明問題。"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"啟用 Google Play 服務"
                 </string>
                 <string
                     name="common_google_play_services_needs_enabling_title"
@@ -16924,12 +14957,12 @@ normal
                     msgid="4181637455539816337" >"啟用 Google Play 服務"
                 </string>
                 <string
-                    name="common_google_play_services_notification_needs_update_title"
-                    msgid="1388129345631079938" >"必須更新「Google Play 服務」，才能使用應用程式。"
-                </string>
-                <string
                     name="common_google_play_services_notification_ticker"
                     msgid="1852570676146674985" >"Google Play 服務錯誤"
+                </string>
+                <string
+                    name="common_google_play_services_notification_needs_update_title"
+                    msgid="1388129345631079938" >"必須更新「Google Play 服務」，才能使用應用程式。"
                 </string>
                 <string
                     name="common_google_play_services_notification_needs_installation_title"
@@ -17317,6 +15350,11 @@ normal
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="bokeh2"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\bokeh2.jpg"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="btn_cab_done_default_travis"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\btn_cab_done_default_travis.9.png"
                 qualifiers="hdpi"
@@ -17499,6 +15537,11 @@ normal
             <file
                 name="progress_secondary_travis"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\progress_secondary_travis.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="shadow"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\shadow.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
@@ -18122,6 +16165,11 @@ normal
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
+                name="bokeh_travis"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\bokeh_travis.jpg"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
                 name="btn_cab_done_default_travis"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\btn_cab_done_default_travis.9.png"
                 qualifiers="xxhdpi"
@@ -18392,6 +16440,21 @@ normal
                 qualifiers=""
                 type="layout" />
             <file
+                name="blur_drawer"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\blur_drawer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="blur_item"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\blur_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="blur_user"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\blur_user.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="dialog_address_picker"
                 path="C:\projects-android\icm_travis\app\src\main\res\layout\dialog_address_picker.xml"
                 qualifiers=""
@@ -18627,9 +16690,9 @@ normal
                 </color>
                 <color name="dialog_title_text" >#f3a71e
                 </color>
-                <color name="selectorBg" >#ffdedede
-                </color>
                 <color name="grey" >#5f5f5f
+                </color>
+                <color name="selectorBg" >#ffdedede
                 </color>
                 <color name="background_title" >#413a36
                 </color>
@@ -18645,9 +16708,9 @@ normal
                 </color>
                 <color name="row_selector_color" >#29413a36
                 </color>
-                <color name="transparent" >#09000000
-                </color>
                 <color name="medium_grey" >#333333
+                </color>
+                <color name="transparent" >#09000000
                 </color>
                 <color name="taxi_unavailable_border" >#ffff5943
                 </color>
@@ -18655,11 +16718,11 @@ normal
                 </color>
                 <color name="dialog_button_separator" >#25000000
                 </color>
-                <color name="white_transp" >#CCFFFFFF
+                <color name="dialog_message_text" >#333333
                 </color>
                 <color name="blue" >#33b4e5
                 </color>
-                <color name="dialog_message_text" >#333333
+                <color name="white_transp" >#CCFFFFFF
                 </color>
                 <color name="title_name" >#1e4761
                 </color>
@@ -18724,19 +16787,6 @@ normal
                 </integer>
             </file>
             <file
-                path="C:\projects-android\icm_travis\app\src\main\res\values\layouts.xml"
-                qualifiers="" >
-                <item
-                    name="main_layout"
-                    type="layout">
-@layout/gc_onepane
-                </item>
-
-                <bool name="has_two_panes" >
-false
-                </bool>
-            </file>
-            <file
                 path="C:\projects-android\icm_travis\app\src\main\res\values\plurals.xml"
                 qualifiers="" >
                 <plurals name="numberOfLoadedPhotos" >
@@ -18759,8 +16809,6 @@ Loaded %d albums
             <file
                 path="C:\projects-android\icm_travis\app\src\main\res\values\strings.xml"
                 qualifiers="" >
-                <string name="auto_login" >Automatically login every time
-                </string>
                 <string name="insert_address" >Insert address…
                 </string>
                 <string name="here_and_now" >Here &amp; Now
@@ -18771,29 +16819,19 @@ Loaded %d albums
                 </string>
                 <string name="loading_albums" >Loading albums…
                 </string>
-                <string name="facebook" >Facebook
-                </string>
-                <string name="instagram" >Instagram
-                </string>
-                <string name="plus_sign_out" >Switch Google+ account
-                </string>
-                <string name="take_photos" >Take a photo
-                </string>
-                <string name="wait_for_taxi" >Done! Your taxi will arrive soon…
+                <string name="no_albums_found" >No albums found
                 </string>
                 <string name="title_user" >User
-                </string>
-                <string name="no_albums_found" >No albums found
                 </string>
                 <string name="no_camera_photos" >No photos in camera roll
                 </string>
                 <string name="yes" >Yes
                 </string>
+                <string name="connect_to_internet_to_cofigure_services" >Connect your device to the Internet to configure the services
+                </string>
                 <string name="wait_for_taxi_suggestion" >        We will notify you when your taxi arrives.
         \nTip: You should now set the destination to get a move on once
         your taxi arrives!
-                </string>
-                <string name="connect_to_internet_to_cofigure_services" >Connect your device to the Internet to configure the services
                 </string>
                 <string name="last_name" >Last name
                 </string>
@@ -18805,50 +16843,32 @@ Loaded %d albums
                 </string>
                 <string name="confirm_cancel_msg" >Are you sure you wish to cancel this request?
                 </string>
-                <string name="menu_settings" >Settings
-                </string>
                 <string name="set_origin" >Set Origin
-                </string>
-                <string name="prompt_email" >Email
                 </string>
                 <string name="unknown_address" >Unknown Address
                 </string>
-                <string name="accept" >Accept
+                <string name="prompt_email" >Email
                 </string>
                 <string name="closest_to_you" >Closest to you
                 </string>
-                <string name="action_sign_in_short" >Sign in
-                </string>
-                <string name="submit" >Submit
-                </string>
-                <string name="pick_a_photo" >Pick a Photo
+                <string name="start_using_travis" >Start using Travis
                 </string>
                 <string name="client" >Client
                 </string>
-                <string name="start_using_travis" >Start using Travis
+                <string name="logout" >Logout
                 </string>
-                <string name="drawer_close" >Close drawer
-                </string>
-                <string name="menu_logout" >Logout
-                </string>
-                <string name="albums" >Albums
-                </string>
-                <string name="register_ok" >Registered successfully!
+                <string name="submit" >Submit
                 </string>
                 <string name="welcome_text1" >Welcome to Travis!
-                </string>
-                <string name="select_photos" >Select Photos
-                </string>
-                <string name="general_error" >An error has occurred. Please try again later.
                 </string>
                 <string name="decline" >Decline
                 </string>
                 <string name="welcome_text3" >… then choose a good photo for your profile …
                 </string>
-                <string name="error_invalid_email" >This email address is invalid
-                </string>
                 <string name="welcome_text2" >It looks like you are a new user.
 Before you start using Travis, please insert your name …
+                </string>
+                <string name="settings" >Settings
                 </string>
                 <string name="welcome_text4" >… and finally pick what type of user are you.
                 </string>
@@ -18856,33 +16876,15 @@ Before you start using Travis, please insert your name …
                 </string>
                 <string name="select_video_source" >Select Video Source
                 </string>
-                <string name="error_incorrect_password" >This password is incorrect
-                </string>
-                <string name="no_album_selected" >No album selected
-                </string>
                 <string name="no" >No
-                </string>
-                <string name="see_more" >See all your scheduled rides
-                </string>
-                <string name="drawer_open" >Open drawer
                 </string>
                 <string name="taxi" >Taxi
                 </string>
-                <string name="picasa" >Picasa
-                </string>
                 <string name="plus_disconnect" >Disconnect from Google+
-                </string>
-                <string name="loading_media" >Loading media…
-                </string>
-                <string name="parsing_exception" >Invalid response format.
                 </string>
                 <string name="select_media" >Select Media
                 </string>
-                <string name="select_photo_source" >Select Photo Source
-                </string>
                 <string name="expired_session_logging_in" >Your session has expired. Logging in again…
-                </string>
-                <string name="last_video_captured" >Last video captured
                 </string>
                 <string name="toast_feature_camera" >Your device doesn\'t have a camera
                 </string>
@@ -18890,34 +16892,21 @@ Before you start using Travis, please insert your name …
                 </string>
                 <string name="title_default" >Default
                 </string>
-                <string name="call_another_taxi" >Call another taxi
-                </string>
                 <string name="cancel" >Cancel
                 </string>
                 <string name="error_field_required" >This field is required
                 </string>
-                <string name="record_video" >Record a video
+                <string name="current_travel" >Current Travel
                 </string>
-                <string name="ok" >OK
+                <string name="record_video" >Record a video
                 </string>
                 <string name="dont_rate" >Don\'t rate
                 </string>
-                <string name="http_exception" >Check your internet connection and try again.
-                </string>
-                <string name="ride_request_please_wait" >Please wait
-The taxi you selected will now need to accept your request…
-                </string>
-                <string name="first_name" >First name
-                </string>
                 <string name="your_scheduled_rides" >Your sheduled rides:
-                </string>
-                <string name="select_a_photo" >Select a Photo
-                </string>
-                <string name="highest_rated" >Highest Rated
                 </string>
                 <string name="login" >Login
                 </string>
-                <string name="error_invalid_password" >This password is too short
+                <string name="highest_rated" >Highest Rated
                 </string>
                 <string name="touch_to_instant" >TOUCH TO FIND
 THE NEAREST TAXI
@@ -18929,6 +16918,85 @@ THE NEAREST TAXI
                 <string name="confirm_cancel" >Confirm cancel
                 </string>
                 <string name="last_photo" >Last photo taken
+                </string>
+                <string name="select_media_source" >Select Media Source
+                </string>
+                <string name="camera_media" >Camera media
+                </string>
+                <string name="http_error" >Server Problem. Please try again later.
+                </string>
+                <string name="app_name" >Travis
+                </string>
+                <string name="toast_choose_photos" >Please select photos
+                </string>
+                <string name="login_error" >Invalid login!
+                </string>
+                <string name="type_invalid" >Please choose a user type…
+                </string>
+                <string name="scheduled_rides" >Scheduled Rides
+                </string>
+                <string name="map_view" >Map View
+                </string>
+                <string name="auto_login" >Automatically login every time
+                </string>
+                <string name="facebook" >Facebook
+                </string>
+                <string name="instagram" >Instagram
+                </string>
+                <string name="plus_sign_out" >Switch Google+ account
+                </string>
+                <string name="take_photos" >Take a photo
+                </string>
+                <string name="wait_for_taxi" >Done! Your taxi will arrive soon…
+                </string>
+                <string name="action_sign_in_short" >Sign in
+                </string>
+                <string name="accept" >Accept
+                </string>
+                <string name="pick_a_photo" >Pick a Photo
+                </string>
+                <string name="albums" >Albums
+                </string>
+                <string name="register_ok" >Registered successfully!
+                </string>
+                <string name="general_error" >An error has occurred. Please try again later.
+                </string>
+                <string name="select_photos" >Select Photos
+                </string>
+                <string name="error_invalid_email" >This email address is invalid
+                </string>
+                <string name="error_incorrect_password" >This password is incorrect
+                </string>
+                <string name="no_album_selected" >No album selected
+                </string>
+                <string name="see_more" >See all your scheduled rides
+                </string>
+                <string name="picasa" >Picasa
+                </string>
+                <string name="loading_media" >Loading media…
+                </string>
+                <string name="parsing_exception" >Invalid response format.
+                </string>
+                <string name="select_photo_source" >Select Photo Source
+                </string>
+                <string name="last_video_captured" >Last video captured
+                </string>
+                <string name="call_another_taxi" >Call another taxi
+                </string>
+                <string name="ok" >OK
+                </string>
+                <string name="http_exception" >Check your internet connection and try again.
+                </string>
+                <string name="ride_request_please_wait" >Please wait
+The taxi you selected will now need to accept your request…
+                </string>
+                <string name="first_name" >First name
+                </string>
+                <string name="select_a_photo" >Select a Photo
+                </string>
+                <string name="error_invalid_password" >This password is too short
+                </string>
+                <string name="instant" >Instant Taxi
                 </string>
                 <string name="select_a_video" >Select a Video
                 </string>
@@ -18974,25 +17042,11 @@ Accordion
 
                 <string name="action_sign_in" >Sign in or register
                 </string>
-                <string name="select_media_source" >Select Media Source
-                </string>
                 <string name="select_videos" >Select Videos
-                </string>
-                <string name="camera_media" >Camera media
-                </string>
-                <string name="http_error" >Server Problem. Please try again later.
-                </string>
-                <string name="app_name" >Travis
                 </string>
                 <string name="sign_out" >Sign out
                 </string>
-                <string name="toast_choose_photos" >Please select photos
-                </string>
                 <string name="later" >Later or at another location
-                </string>
-                <string name="type_invalid" >Please choose a user type…
-                </string>
-                <string name="login_error" >Invalid login!
                 </string>
                 <string name="set_destination" >Set Destination
                 </string>
@@ -19029,9 +17083,6 @@ true
                     <item name="android:textColor">
 @color/white
                     </item>
-                    <item name="android:textSize">
-@dimen/text_size_service_title
-                    </item>
                     <item name="android:textStyle">
 bold
                     </item>
@@ -19047,9 +17098,6 @@ visible
 center
                     </item>
                     <!-- <item name="android:background">?topBarBackground</item> -->
-                    <item name="android:textSize">
-@dimen/sign_out
-                    </item>
                     <!-- <item name="android:textColor">?topBarTextColor</item> -->
                 </style>
 
@@ -19118,6 +17166,14 @@ true
                 </style>
 
                 <style
+                    name="textViewNotificationDialog"
+                    parent="textViewDefaultSmall" >
+                    <item name="android:textColor">
+@color/white
+                    </item>
+                </style>
+
+                <style
                     name="SignatureText"
                     parent="@style/BaseText" >
                     <item name="android:textColor">
@@ -19125,14 +17181,6 @@ true
                     </item>
                     <item name="android:textSize">
 14sp
-                    </item>
-                </style>
-
-                <style
-                    name="textViewNotificationDialog"
-                    parent="textViewDefaultSmall" >
-                    <item name="android:textColor">
-@color/white
                     </item>
                 </style>
 
@@ -19319,9 +17367,6 @@ center
                     </item>
                     <!-- <item name="android:background">?topBarBackground</item> -->
                     <!-- <item name="android:textAllCaps">true</item> -->
-                    <item name="android:textSize">
-@dimen/fragment_title
-                    </item>
                     <!-- <item name="android:textColor">?topBarTextColor</item> -->
                 </style>
 

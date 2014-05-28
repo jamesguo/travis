@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
@@ -18,11 +16,9 @@ import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisLocation;
 import pt.ua.travis.ui.currenttravel.CurrentTravelFragment;
+import pt.ua.travis.ui.customviews.BlurDrawerItem;
+import pt.ua.travis.ui.customviews.BlurDrawerObject;
 import pt.ua.travis.ui.customviews.TransitionViewPager;
-import pt.ua.travis.ui.navigationdrawer.DrawerItem;
-import pt.ua.travis.ui.navigationdrawer.DrawerSeparator;
-import pt.ua.travis.ui.navigationdrawer.DrawerUser;
-import pt.ua.travis.ui.navigationdrawer.DrawerView;
 import pt.ua.travis.R;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.ridelist.RideItem;
@@ -110,8 +106,9 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
                 return 4;
             }
         });
-        tabPager.setOffscreenPageLimit(4);
+//        tabPager.setOffscreenPageLimit(4);
         tabPager.setPagingEnabled(false);
+        tabPager.setFadeEnabled(false);
         tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
 
 
@@ -196,30 +193,48 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     /**
      * Populates the drawer navigation menu.
      *
-     * @param drawerViews the list that must be populated to translate into
+     * @param drawerItems the list that must be populated to translate into
      *                    items or indicators in the drawer navigation menu
      */
     @Override
-    protected void fillDrawerNavigation(final List<DrawerView> drawerViews) {
-        final Client loggedInClient = PersistenceManager.query().clients().loggedInThisDevice();
+    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerItems) {
 
-        drawerViews.add(new DrawerUser(loggedInClient));
-        drawerViews.add(new DrawerItem(1, R.string.menu_logout, R.drawable.ic_logout));
-        drawerViews.add(new DrawerSeparator());
-        drawerViews.add(new DrawerItem(2, R.string.menu_settings, R.drawable.ic_settings));
-    }
+        BlurDrawerItem item1 = new BlurDrawerItem(this, R.drawable.ic_instant, R.string.instant);
+        item1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportActionBar().getTabAt(0);
+            }
+        });
 
+        BlurDrawerItem item2 = new BlurDrawerItem(this, R.drawable.ic_map, R.string.map_view);
+        item2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportActionBar().getTabAt(1);
+            }
+        });
 
-    @Override
-    protected void onDrawerItemClick(int itemID) {
-        switch (itemID){
-            case 1: logout(null); break;
-            case 2: // TODO: SETTINGS
-                break;
-            default: break;
-        }
+        BlurDrawerItem item3 = new BlurDrawerItem(this, R.drawable.ic_travel, R.string.current_travel);
+        item3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportActionBar().getTabAt(2);
+            }
+        });
 
-        super.onDrawerItemClick(itemID);
+        BlurDrawerItem item4 = new BlurDrawerItem(this, R.drawable.ic_scheduled, R.string.scheduled_rides);
+        item4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportActionBar().getTabAt(3);
+            }
+        });
+
+        drawerItems.add(item1);
+        drawerItems.add(item2);
+        drawerItems.add(item3);
+        drawerItems.add(item4);
     }
 
 

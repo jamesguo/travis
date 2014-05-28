@@ -7,13 +7,6 @@
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
     </style>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/res/values-v11/values.xml -->
-    <eat-comment />
-
-    <style name="PhotoPickerBaseTheme" parent="android:Theme.Holo.Light">
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values-v11/values.xml -->
     <eat-comment />
 
