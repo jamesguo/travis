@@ -14,7 +14,7 @@ import java.util.List;
 public class Awfdas {
 
     public void doooo() {
-        User u = PersistenceManager.getUserLoggedInThisDevice();
+        User u = PersistenceManager.getCurrentlyLoggedInUser();
         PersistenceManager.query().rides().withUser(u).later(new Callback<List<Ride>>() {
             @Override
             public void onResult(List<Ride> result) {

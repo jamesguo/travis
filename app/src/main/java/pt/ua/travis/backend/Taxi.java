@@ -1,9 +1,10 @@
 package pt.ua.travis.backend;
 
+import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.util.Iterator;
 import java.util.List;
@@ -19,7 +20,6 @@ import java.util.List;
  * @version 1.0
  */
 public final class Taxi extends User {
-//    private static final long serialVersionUID = 1L;
     private static final String TRUE = "true";
     private static final String FALSE = "false";
 
@@ -28,32 +28,36 @@ public final class Taxi extends User {
 
     // Datastore column keys (DO NOT CHANGE)
     public static final String AVAILABLE_FLAG = "isAvailable";
-//    public static final String ONLINE_FLAG = "isOnline";
+    public static final String ONLINE_FLAG = "isOnline";
     public static final String CURRENT_LOCATION = "current_location";
-    public static final String RATINGS_LIST = "ratings_list";
+    public static final String RATING_AVERAGE = "rating_average";
+    public static final String RATING_QUANTITY = "ratings_QUANTITY";
 
-    public Taxi() {
-        this(new ParseObject(OBJECT_NAME));
+    public static Taxi create(){
+        ParseUser u = new ParseUser();
+        u.isAuthenticated();
+        u.put(TYPE, OBJECT_NAME);
+        return new Taxi(u);
     }
 
-    Taxi(ParseObject ce){
+    Taxi(ParseUser ce) {
         super(ce);
-        if(!ce.getClassName().equals(OBJECT_NAME)){
-            throw new IllegalArgumentException("The specified ParseObject denotes a " +
-                    ce.getClassName()+". Should denote a "+ OBJECT_NAME +" entity instead.");
+        if(!ce.get(TYPE).equals(OBJECT_NAME)){
+            throw new IllegalArgumentException("The specified ParseUser denotes a " +
+                    ce.get(TYPE)+". Should denote a "+ OBJECT_NAME +" entity instead.");
         }
         setAsUnavailable();
     }
 
     @Override
-    protected String thisObjectName() {
+    public String thisObjectName() {
         return OBJECT_NAME;
     }
 
 
     /**
-     * Sets this taxi as available by flagging the wrapped {@link ParseObject} parameter
-     * "available" as true.
+     * Sets this taxi as available by flagging the wrapped {@link ParseUser} parameter
+     * "isAvailable" as true.
      */
     public Taxi setAsAvailable(){
         po.put(AVAILABLE_FLAG, TRUE);
@@ -62,8 +66,8 @@ public final class Taxi extends User {
 
 
     /**
-     * Sets this taxi as unavailable by flagging the wrapped {@link ParseObject} parameter
-     * "available" as true.
+     * Sets this taxi as unavailable by flagging the wrapped {@link ParseUser} parameter
+     * "isAvailable" as false.
      */
     public Taxi setAsUnavailable(){
         po.put(AVAILABLE_FLAG, FALSE);
@@ -72,7 +76,27 @@ public final class Taxi extends User {
 
 
     /**
-     * Puts the specified latitude and longitude in the wrapped {@link ParseObject}
+     * Sets this taxi as online by flagging the wrapped {@link ParseUser} parameter
+     * "isOnline" as true.
+     */
+    public Taxi setAsOnline(){
+        po.put(ONLINE_FLAG, TRUE);
+        return this;
+    }
+
+
+    /**
+     * Sets this taxi as online by flagging the wrapped {@link ParseUser} parameter
+     * "isOnline" as false.
+     */
+    public Taxi setAsOffline(){
+        po.put(ONLINE_FLAG, FALSE);
+        return this;
+    }
+
+
+    /**
+     * Puts the specified latitude and longitude in the wrapped {@link ParseUser}
      * parameter "positionlat" and "positionlng" respectively.
      */
     public Taxi setCurrentLocation(double lat, double lng){
@@ -83,21 +107,30 @@ public final class Taxi extends User {
 
 
     /**
-     * Adds a new rating to the ratings list in the wrapped {@link ParseObject}
+     * Adds a new rating to the ratings list in the wrapped {@link ParseUser}
      * parameter "ratings".
      */
-    public Taxi addRating(float rating){
-        List<Float> ratings = ratingsList();
+    public Taxi addRating(float rating) {
+        String oldAverageString = po.getString(RATING_AVERAGE);
+        double oldAverage = 0;
+        int quantity = 0;
+        if(oldAverageString!=null) {
+            oldAverage = Double.valueOf(oldAverageString);
+            quantity = Integer.valueOf(po.getString(RATING_QUANTITY));
+        }
 
-        ratings.add(rating);
-        po.put(RATINGS_LIST, ratings);
+        double newAverage = ((oldAverage * quantity) + rating) / (quantity + 1);
+        String newAverageString = Double.toString(newAverage);
+        String quantityString = Integer.toString(quantity + 1);
 
+        po.put(RATING_AVERAGE, newAverageString);
+        po.put(RATING_QUANTITY, quantityString);
         return this;
     }
 
 
 //    /**
-//     * Removes a rating from the ratings list in the wrapped {@link ParseObject}
+//     * Removes a rating from the ratings list in the wrapped {@link ParseUser}
 //     * parameter "ratings".
 //     */
 //    public Taxi removeRating(float rating){
@@ -109,7 +142,7 @@ public final class Taxi extends User {
 //    }
 
     /**
-     * Checks if the wrapped {@link ParseObject} contains a "true" or "false" flag that
+     * Checks if the wrapped {@link ParseUser} contains a "true" or "false" flag that
      * defines this Taxi as available.
      */
     public boolean isAvailable() {
@@ -118,7 +151,7 @@ public final class Taxi extends User {
 
 
     /**
-     * Returns the wrapped {@link ParseObject} current position.
+     * Returns the wrapped {@link ParseUser} current position.
      */
     public LatLng currentPosition(){
         double lat = latitude();
@@ -128,7 +161,7 @@ public final class Taxi extends User {
 
 
     /**
-     * Returns the wrapped {@link ParseObject} current position's latitude.
+     * Returns the wrapped {@link ParseUser} current position's latitude.
      */
     private double latitude() {
         ParseGeoPoint point = po.getParseGeoPoint(CURRENT_LOCATION);
@@ -137,7 +170,7 @@ public final class Taxi extends User {
 
 
     /**
-     * Returns the wrapped {@link ParseObject} current position's longitude.
+     * Returns the wrapped {@link ParseUser} current position's longitude.
      */
     private double longitude() {
         ParseGeoPoint point = po.getParseGeoPoint(CURRENT_LOCATION);
@@ -145,30 +178,10 @@ public final class Taxi extends User {
     }
 
     /**
-     * Returns the wrapped {@link ParseObject} list of stored ratin//.
-     */
-    private List<Float> ratingsList(){
-        List<Float> list = po.getList(RATINGS_LIST);
-        if(list==null) {
-            return Lists.newArrayList();
-        } else{
-            return list;
-        }
-    }
-
-    /**
-     * Returns the average of all of the stored ratings in the wrapped {@link ParseObject}.
+     * Returns the average of all of the stored ratings in the wrapped {@link ParseUser}.
      */
     public float getRatingAverage() {
-        float result = 0;
-        List<Float> ratings = ratingsList();
-
-        for (Iterator<Float> iter = ratings.iterator(); iter.hasNext();) {
-            Number n = iter.next();
-            result = result + n.floatValue();
-        }
-
-        return result / ratings.size();
+        return Double.valueOf(po.getString(RATING_AVERAGE)).floatValue();
     }
 
     @Override

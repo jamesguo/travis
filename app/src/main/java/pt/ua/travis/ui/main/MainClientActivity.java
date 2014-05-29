@@ -316,10 +316,10 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     }
 
     public void getFavoriteTaxiList(boolean forceQuery, final Callback<List<Taxi>> callback) {
-        if (favoriteTaxiList == null || forceQuery){
-            final Client c = PersistenceManager.query().clients().loggedInThisDevice();
+        if (favoriteTaxiList == null || forceQuery) {
+            final Client c = PersistenceManager.getCurrentlyLoggedInUser();
 
-            new AsyncTask<Void, Void, List<Taxi>>(){
+            new AsyncTask<Void, Void, List<Taxi>>() {
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
                     return PersistenceManager.query().taxis().favoritedBy(c);

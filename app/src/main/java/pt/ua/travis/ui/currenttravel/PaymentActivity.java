@@ -37,7 +37,7 @@ public class PaymentActivity extends SherlockActivity {
     }
 
     public void onNormalPayButtonClicked(View view) {
-        final Client thisClient = PersistenceManager.query().clients().loggedInThisDevice();
+        final Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
 
         final TextView taxiName = new TextView(getApplicationContext());
         taxiName.setText(taxiToPay.name());

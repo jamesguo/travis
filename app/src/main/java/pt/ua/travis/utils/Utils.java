@@ -2,8 +2,6 @@ package pt.ua.travis.utils;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.location.*;
 import android.os.StrictMode;
 import android.support.v4.util.ArrayMap;
@@ -12,7 +10,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Surface;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import org.apache.http.HttpEntity;
@@ -23,14 +20,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import pt.ua.travis.R;
-import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Taxi;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
 import java.util.*;
 
@@ -125,21 +119,24 @@ public final class Utils {
     }
 
 
-    /**
-     * Generates a SHA1 digest from the provided String.
-     */
-    public static String generateSHA1DigestFromString(String password){
-        try {
-            if(md==null){
-                md = MessageDigest.getInstance("SHA1");
-            }
-            return new String(md.digest(password.getBytes()));
+//    /**
+//     * Generates a SHA1 digest from the provided String.
+//     */
+//    public static String generateSHA1DigestFromString(String password){
+//        try {
+//            if(md==null){
+//                md = MessageDigest.getInstance("SHA1");
+//            }
+//            return new String(md.digest(password.getBytes()));
+//
+//        }catch (GeneralSecurityException ex){
+//            // Should never happen since SHA1 is a valid algorithm.
+//        }
+//        return password;
+//    }
 
-        }catch (GeneralSecurityException ex){
-            // Should never happen since SHA1 is a valid algorithm.
-        }
-        return password;
-    }public static DateBuilder newTime() {
+
+    public static DateBuilder newTime() {
         return new DateBuilder();
     }
 

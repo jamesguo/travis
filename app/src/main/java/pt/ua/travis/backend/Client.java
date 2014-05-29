@@ -2,6 +2,7 @@ package pt.ua.travis.backend;
 
 import com.google.common.collect.Lists;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -22,20 +23,22 @@ public final class Client extends User {
     // Parse data column keys (DO NOT CHANGE)
     public static final String FAVORITE_TAXIS_IDS = "favorite_taxis_ids";
 
-    public Client() {
-        super(new ParseObject(OBJECT_NAME));
+    public static Client create(){
+        ParseUser u = new ParseUser();
+        u.put(TYPE, OBJECT_NAME);
+        return new Client(u);
     }
 
-    Client(ParseObject ce){
+    Client(ParseUser ce){
         super(ce);
-        if(!ce.getClassName().equals(OBJECT_NAME)){
+        if(!ce.get(TYPE).equals(OBJECT_NAME)){
             throw new IllegalArgumentException("The specified ParseObject denotes a " +
-                    ce.getClassName()+". Should denote a "+ OBJECT_NAME +" entity instead.");
+                    ce.get(TYPE)+". Should denote a "+ OBJECT_NAME +" entity instead.");
         }
     }
 
     @Override
-    protected String thisObjectName() {
+    public String thisObjectName() {
         return OBJECT_NAME;
     }
 

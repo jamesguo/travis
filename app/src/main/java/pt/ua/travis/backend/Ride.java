@@ -54,7 +54,7 @@ public final class Ride extends ParseObjectWrapper {
     }
 
     @Override
-    protected String thisObjectName() {
+    public String thisObjectName() {
         return OBJECT_NAME;
     }
 

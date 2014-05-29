@@ -1,7 +1,5 @@
 package pt.ua.travis.backend;
 
-import android.location.Location;
-import android.os.AsyncTask;
 import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
@@ -51,7 +49,6 @@ public class Query {
     }
 
     //    private Firebase fb;
-    private User loggedInUser;
     private List<Filter> filters;
     private int limit;
     private String idFilter;
@@ -59,9 +56,8 @@ public class Query {
     private ParseGeoPoint locationFilterNE;
     private String sortKey;
 
-    Query(final User loggedInUser){
+    Query(){
 //        this.fb = fb;
-        this.loggedInUser = loggedInUser;
         this.filters = Lists.newArrayList();
         this.limit = -1;
         this.idFilter = null;
@@ -80,8 +76,8 @@ public class Query {
     }
 
 
-    private void performSafeQuery(final String objectName, final FindCallback<ParseObject> queryHandler) {
-        final ParseQuery<ParseObject> q = new ParseQuery<ParseObject>(objectName);
+    private void performSafeRideQuery(final FindCallback<ParseObject> queryHandler) {
+        final ParseQuery<ParseObject> q = new ParseQuery<ParseObject>(Ride.OBJECT_NAME);
 
         if (limit > 0) {
             q.setLimit(limit);
@@ -112,7 +108,7 @@ public class Query {
                 @Override
                 public void done(List<ParseObject> parseObjects, ParseException ex) {
                     if (ex != null) {
-                        Log.e("PersistenceManager SafeQuery Find", "Error querying " + objectName + "s. ", ex);
+                        Log.e("PersistenceManager SafeQuery Find", "Error querying rides. ", ex);
                     } else {
                         queryHandler.done(parseObjects, null);
                     }
@@ -124,7 +120,7 @@ public class Query {
                 @Override
                 public void done(ParseObject object, ParseException ex) {
                     if(ex!=null){
-                        Log.e("PersistenceManager SafeQuery Get", "Error querying " + objectName + "s. ", ex);
+                        Log.e("PersistenceManager SafeQuery Get", "Error querying rides. ", ex);
                     } else {
                         List<ParseObject> list = Lists.newArrayList();
                         list.add(object);
@@ -137,8 +133,8 @@ public class Query {
     }
 
 
-    private List<ParseObject> performUnsafeQuery(final String objectName){
-        final ParseQuery<ParseObject> q = new ParseQuery<ParseObject>(objectName);
+    private List<ParseObject> performUnsafeRideQuery(){
+        final ParseQuery<ParseObject> q = new ParseQuery<ParseObject>(Ride.OBJECT_NAME);
 
         if (limit > 0) {
             q.setLimit(limit);
@@ -165,6 +161,100 @@ public class Query {
                 return list;
             }
         } catch (ParseException ex) {
+            Log.e("PersistenceManager UnsafeQuery", "Error querying rides. ", ex);
+        }
+
+        return Lists.newArrayList();
+    }
+
+
+    private void performSafeUserQuery(final String objectName, final FindCallback<ParseUser> queryHandler) {
+        final ParseQuery<ParseUser> q = ParseUser.getQuery();
+        q.whereEqualTo(User.TYPE, objectName);
+
+        if (limit > 0) {
+            q.setLimit(limit);
+        }
+
+        if (locationFilterSW!=null && locationFilterNE!=null) {
+            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
+        }
+
+        if(sortKey!=null) {
+            q.orderByAscending(sortKey);
+        }
+
+        if(idFilter==null) {
+            for (Filter f : filters) {
+                if (f.type.equals(Filter.Type.EQ)) {
+                    q.whereEqualTo(f.key, f.value);
+                } else if(f.type.equals(Filter.Type.CT)) {
+                    q.whereContains(f.key, (String)f.value);
+                } else if (f.type.equals(Filter.Type.GT)){
+                    q.whereGreaterThanOrEqualTo(f.key, f.value);
+                } else if (f.type.equals(Filter.Type.LT)){
+                    q.whereLessThan(f.key, f.value);
+                }
+            }
+
+            q.findInBackground(new FindCallback<ParseUser>() {
+                @Override
+                public void done(List<ParseUser> parseUsers, ParseException ex) {
+                    if (ex != null) {
+                        Log.e("PersistenceManager SafeQuery Find", "Error querying " + objectName + "s. ", ex);
+                    } else {
+                        queryHandler.done(parseUsers, null);
+                    }
+                }
+            });
+
+        } else {
+            q.getInBackground(idFilter, new GetCallback<ParseUser>() {
+                @Override
+                public void done(ParseUser user, ParseException ex) {
+                    if(ex!=null){
+                        Log.e("PersistenceManager SafeQuery Get", "Error querying " + objectName + "s. ", ex);
+                    } else {
+                        List<ParseUser> list = Lists.newArrayList();
+                        list.add(user);
+                        queryHandler.done(list, null);
+                    }
+                }
+            });
+
+        }
+    }
+
+
+    private List<ParseUser> performUnsafeUserQuery(final String objectName){
+        final ParseQuery<ParseUser> q = ParseUser.getQuery();
+        q.whereEqualTo(User.TYPE, objectName);
+
+        if (limit > 0) {
+            q.setLimit(limit);
+        }
+
+        try {
+            if(idFilter==null) {
+                for (Filter f : filters) {
+                    if (f.type.equals(Filter.Type.EQ)) {
+                        q.whereEqualTo(f.key, f.value);
+                    } else if (f.type.equals(Filter.Type.GT)){
+                        q.whereGreaterThanOrEqualTo(f.key, f.value);
+                    } else if (f.type.equals(Filter.Type.LT)){
+                        q.whereLessThan(f.key, f.value);
+                    }
+                }
+
+                return q.find();
+
+
+            } else {
+                List<ParseUser> list = Lists.newArrayList();
+                list.add(q.get(idFilter));
+                return list;
+            }
+        } catch (ParseException ex) {
             Log.e("PersistenceManager UnsafeQuery", "Error querying " + objectName + "s. ", ex);
         }
 
@@ -173,16 +263,16 @@ public class Query {
 
 
 
-    public abstract class QueryGeneric<T extends ParseObjectWrapper> {
+    public abstract class QueryGeneric<T extends ParseWrapper, E extends ParseObject> {
 
         public abstract void later(final Callback<List<T>> queryHandler);
 
         public abstract List<T> now();
 
-        protected final void convertLater(final List<ParseObject> results, final Callback<List<T>> convertCallback){
+        protected final void convertLater(final List<E> results, final Callback<List<T>> convertCallback){
             final List<T> queried = Lists.newArrayList();
 
-            for (ParseObject po : results) {
+            for (E po : results) {
                 fetchLater(po, new Callback<T>() {
                     @Override
                     public void onResult(T result) {
@@ -192,48 +282,41 @@ public class Query {
             }
 
             while (queried.size() != results.size()){
-
+                // lock until
             }
 
             convertCallback.onResult(queried);
         }
 
-        protected final List<T> convertNow(final List<ParseObject> results){
+        protected final List<T> convertNow(final List<E> results){
             final List<T> queried = Lists.newArrayList();
 
-            for (ParseObject po : results) {
+            for (E po : results) {
                 queried.add(fetchNow(po));
             }
 
             return queried;
         }
 
-        protected abstract void fetchLater(ParseObject po, Callback<T> instantiateCallback);
+        protected abstract void fetchLater(E po, Callback<T> instantiateCallback);
 
-        protected abstract T fetchNow(ParseObject po);
+        protected abstract T fetchNow(E po);
     }
 
 
 
 
-    public final class QueryClients extends QueryGeneric<Client> {
+    public final class QueryClients extends QueryGeneric<Client, ParseUser> {
 
         private QueryClients() {}
-
-        public Client loggedInThisDevice() {
-            if (loggedInUser instanceof Client)
-                return (Client) loggedInUser;
-            else
-                return null;
-        }
 
         @Override
         public void later(final Callback<List<Client>> queryHandler) {
 
-            performSafeQuery(Client.OBJECT_NAME, new FindCallback<ParseObject>() {
+            performSafeUserQuery(Client.OBJECT_NAME, new FindCallback<ParseUser>() {
                 @Override
-                public void done(List<ParseObject> results, ParseException e) {
-                    convertLater(results, new Callback<List<Client>>() {
+                public void done(List<ParseUser> parseUsers, ParseException e) {
+                    convertLater(parseUsers, new Callback<List<Client>>() {
                         @Override
                         public void onResult(List<Client> queriedClients) {
                             queryHandler.onResult(queriedClients);
@@ -245,17 +328,17 @@ public class Query {
 
         @Override
         public List<Client> now() {
-            List<ParseObject> results = performUnsafeQuery(Client.OBJECT_NAME);
+            List<ParseUser> results = performUnsafeUserQuery(Client.OBJECT_NAME);
             return convertNow(results);
         }
 
         @Override
-        protected void fetchLater(ParseObject po, Callback<Client> instantiateCallback) {
+        protected void fetchLater(ParseUser po, Callback<Client> instantiateCallback) {
             instantiateCallback.onResult(new Client(po));
         }
 
         @Override
-        protected Client fetchNow(ParseObject po) {
+        protected Client fetchNow(ParseUser po) {
             return new Client(po);
         }
 
@@ -266,11 +349,6 @@ public class Query {
 
         public QueryClients withEmail(String email) {
             filters.add(Filter.eq(Client.EMAIL, email));
-            return this;
-        }
-
-        public QueryClients withPasswordDigest(String passwordDigest) {
-            filters.add(Filter.eq(Client.PASSWORD_DIGEST, passwordDigest));
             return this;
         }
 
@@ -294,16 +372,9 @@ public class Query {
 
 
 
-    public final class QueryTaxis extends QueryGeneric<Taxi> {
+    public final class QueryTaxis extends QueryGeneric<Taxi, ParseUser> {
 
         private QueryTaxis() {}
-
-        public Taxi loggedInThisDevice(){
-            if(loggedInUser instanceof Taxi)
-                return (Taxi) loggedInUser;
-            else
-                return null;
-        }
 
         public QueryTaxis near(LatLng latLng){
             locationFilterSW = new ParseGeoPoint(latLng.latitude - 10, latLng.longitude - 10);
@@ -327,10 +398,10 @@ public class Query {
         @Override
         public void later(final Callback<List<Taxi>> queryHandler) {
 
-            performSafeQuery(Taxi.OBJECT_NAME, new FindCallback<ParseObject>() {
+            performSafeUserQuery(Taxi.OBJECT_NAME, new FindCallback<ParseUser>() {
                 @Override
-                public void done(List<ParseObject> results, ParseException e) {
-                    convertLater(results, new Callback<List<Taxi>>() {
+                public void done(List<ParseUser> parseUsers, ParseException e) {
+                    convertLater(parseUsers, new Callback<List<Taxi>>() {
                         @Override
                         public void onResult(List<Taxi> queriedTaxis) {
                             queryHandler.onResult(queriedTaxis);
@@ -343,22 +414,22 @@ public class Query {
 
         @Override
         public List<Taxi> now() {
-            List<ParseObject> results = performUnsafeQuery(Taxi.OBJECT_NAME);
+            List<ParseUser> results = performUnsafeUserQuery(Taxi.OBJECT_NAME);
             return convertNow(results);
         }
 
         @Override
-        protected void fetchLater(ParseObject po, Callback<Taxi> instantiateCallback) {
+        protected void fetchLater(ParseUser po, Callback<Taxi> instantiateCallback) {
             instantiateCallback.onResult(new Taxi(po));
         }
 
         @Override
-        protected Taxi fetchNow(ParseObject po) {
+        protected Taxi fetchNow(ParseUser po) {
             return new Taxi(po);
         }
 
         public QueryTaxis sortedByRating() {
-            sortKey = Taxi.RATINGS_LIST;
+            sortKey = Taxi.RATING_AVERAGE;
             return this;
         }
 
@@ -369,11 +440,6 @@ public class Query {
 
         public QueryTaxis withEmail(String email){
             filters.add(Filter.eq(Taxi.EMAIL, email));
-            return this;
-        }
-
-        public QueryTaxis withPasswordDigest(String passwordDigest){
-            filters.add(Filter.eq(Taxi.PASSWORD_DIGEST, passwordDigest));
             return this;
         }
 
@@ -397,7 +463,7 @@ public class Query {
 
 
 
-    public final class QueryRides extends QueryGeneric<Ride> {
+    public final class QueryRides extends QueryGeneric<Ride, ParseObject> {
 
         private boolean sortedByTime;
 
@@ -409,7 +475,7 @@ public class Query {
         @Override
         public void later(final Callback<List<Ride>> queryHandler) {
 
-            performSafeQuery(Ride.OBJECT_NAME, new FindCallback<ParseObject>() {
+            performSafeRideQuery(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> parseObjects, ParseException e) {
                     convertLater(parseObjects, new Callback<List<Ride>>() {
@@ -442,7 +508,7 @@ public class Query {
 
         @Override
         public List<Ride> now() {
-            List<ParseObject> results = performUnsafeQuery(Taxi.OBJECT_NAME);
+            List<ParseObject> results = performUnsafeRideQuery();
             List<Ride> queriedRides = convertNow(results);
 
             if (sortedByTime) {

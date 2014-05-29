@@ -16,10 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.Callback;
-import pt.ua.travis.backend.Client;
-import pt.ua.travis.backend.PersistenceManager;
-import pt.ua.travis.backend.Ride;
+import pt.ua.travis.backend.*;
 import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.mapnavigator.Directions;
 import pt.ua.travis.mapnavigator.Navigator;
@@ -132,7 +129,8 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
             public void onResult(List<Client> result) {
 
                 Ride incomingRide = new Ride();
-                incomingRide.setTaxi(PersistenceManager.query().taxis().loggedInThisDevice());
+                Taxi t = PersistenceManager.getCurrentlyLoggedInUser();
+                incomingRide.setTaxi(t);
                 incomingRide.setClient(result.get(0));
 
                 Calendar nowPlusOneHour = Calendar.getInstance();

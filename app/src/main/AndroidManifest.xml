@@ -72,10 +72,10 @@
         <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".nfc.NFCActivity"
                   android:screenOrientation="portrait"
@@ -83,10 +83,10 @@
         <activity android:name="pt.ua.travis.ui.main.MainClientActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="pt.ua.travis.ui.main.MainTaxiActivity"
                   android:screenOrientation="portrait"

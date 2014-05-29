@@ -99,9 +99,9 @@ public class SignUpLastStepsActivity extends SherlockActivity {
 
             User u = null;
             if (type.equals(getResources().getString(R.string.taxi))) {
-                u = new Taxi();
+                u = Taxi.create();
             } else if (type.equals(getResources().getString(R.string.client))) {
-                u = new Client();
+                u = Client.create();
             }
             u.setName(firstName.getText().toString() + lastName.getText().toString());
 
@@ -133,9 +133,9 @@ public class SignUpLastStepsActivity extends SherlockActivity {
                 savedUser.setImageUri(result);
                 Log.e("######################", "5");
                 final String e = "a@a.a";
-                final String p = Utils.generateSHA1DigestFromString("aaa");
+                final String p = "aaa";
                 savedUser.setEmail(e);
-                savedUser.setPasswordDigest(p);
+                savedUser.setPassword(p);
 
                 if (savedUser instanceof Client) {
                     PersistenceManager.save((Client) savedUser, new Callback<Client>() {

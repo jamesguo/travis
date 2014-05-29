@@ -5,9 +5,6 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.io.IOException;
-import java.io.Serializable;
-
 /**
  * A class that handles wrapping of a {@link ParseObject} class and that provides direct
  * control of the wrapper entity's persistence in the backend.
@@ -15,7 +12,7 @@ import java.io.Serializable;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class ParseObjectWrapper {
+public abstract class ParseObjectWrapper implements ParseWrapper {
 
     /**
      * The {@link ParseObject} in the backend wrapped in this class.
@@ -26,7 +23,7 @@ public abstract class ParseObjectWrapper {
         this.po = po;
     }
 
-    protected abstract String thisObjectName();
+    public abstract String thisObjectName();
 
 
     /**

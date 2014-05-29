@@ -35,7 +35,7 @@ dependencies {
     }
 
     // Parse API to manage persistence of entities
-    compile fileTree(dir: 'src/main/libs/Parse-1.4.3', include: '*.jar')
+    compile fileTree(dir: 'src/main/libs/Parse-1.5.0', include: '*.jar')
 
     // Firebase API to manage real-time push-based queries
     compile 'com.firebase:firebase-client:+'

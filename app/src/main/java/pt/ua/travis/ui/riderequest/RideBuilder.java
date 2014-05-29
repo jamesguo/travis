@@ -2,6 +2,7 @@ package pt.ua.travis.ui.riderequest;
 
 import android.content.Context;
 import com.google.android.gms.maps.model.LatLng;
+import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.Taxi;
@@ -60,7 +61,8 @@ public class RideBuilder {
         c.add(Calendar.MINUTE, 7); // TODO ADD ESTIMATE TIME
         final Ride newRide = new Ride();
         newRide.setTaxi(selectedTaxi);
-        newRide.setClient(PersistenceManager.query().clients().loggedInThisDevice());
+        Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
+        newRide.setClient(thisClient);
         newRide.setScheduledTime(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
         newRide.setOriginLocation(origPos.latitude, origPos.longitude);
         return newRide;

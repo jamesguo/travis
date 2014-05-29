@@ -1,23 +1,24 @@
 package pt.ua.travis.backend;
 
+import android.util.Log;
 import com.google.common.base.Strings;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class User extends ParseObjectWrapper {
-//    private static final long serialVersionUID = 1L;
+public abstract class User extends ParseUserWrapper {
 
     // Parse data column keys (DO NOT CHANGE)
     public static final String EMAIL = "email";
-    public static final String PASSWORD_DIGEST = "password";
+    public static final String TYPE = "type";
     public static final String NAME = "name";
     public static final String IMAGE_URI = "imageuri";
 
 
-    protected User(ParseObject po){
+    protected User(ParseUser po){
         super(po);
     }
 
@@ -29,7 +30,9 @@ public abstract class User extends ParseObjectWrapper {
         if(Strings.isNullOrEmpty(email))
             return this;
 
-        po.put(EMAIL, email);
+        String username = email.replaceAll("[\\s.]", "").replaceAll("@", "");
+        po.setUsername(username);
+        po.setEmail(email);
         return this;
     }
 
@@ -40,11 +43,11 @@ public abstract class User extends ParseObjectWrapper {
      * parameter "password".
      * The real password is never stored in the backend for security reasons.
      */
-    public User setPasswordDigest(String passwordDigest) {
-        if(Strings.isNullOrEmpty(passwordDigest))
+    public User setPassword(String password) {
+        if(Strings.isNullOrEmpty(password))
             return this;
 
-        po.put(PASSWORD_DIGEST, passwordDigest);
+        po.setPassword(password);
         return this;
     }
 
@@ -77,18 +80,18 @@ public abstract class User extends ParseObjectWrapper {
      * Returns the wrapped {@link ParseObject} email parameter.
      */
     public String email() {
-        return po.getString(EMAIL);
+        return po.getEmail();
     }
 
 
-    /**
-     * Returns the {@link java.security.MessageDigest} sequence generated from
-     * the real password, using the SHA1 algorithm.
-     * The real password is never stored in the backend for security reasons.
-     */
-    public String passwordDigest() {
-        return po.getString(PASSWORD_DIGEST);
-    }
+//    /**
+//     * Returns the {@link java.security.MessageDigest} sequence generated from
+//     * the real password, using the SHA1 algorithm.
+//     * The real password is never stored in the backend for security reasons.
+//     */
+//    public String password() {
+//        return po.getString(PASSWORD_DIGEST);
+//    }
 
 
     /**

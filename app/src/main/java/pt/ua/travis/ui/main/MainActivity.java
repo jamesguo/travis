@@ -40,7 +40,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 
     public void getRideList(boolean forceQuery, final Callback<List<Ride>> callback) {
         if (rideList == null || forceQuery) {
-            final User u = PersistenceManager.getUserLoggedInThisDevice();
+            final User u = PersistenceManager.getCurrentlyLoggedInUser();
 
             new AsyncTask<Void, Void, List<Ride>>() {
                 @Override
@@ -71,7 +71,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 
         if(drawerItems == null) {
             drawerItems = Lists.newArrayList();
-            User u = PersistenceManager.getUserLoggedInThisDevice();
+            User u = PersistenceManager.getCurrentlyLoggedInUser();
             BlurDrawerUser userItem = new BlurDrawerUser(this, u);
 
             BlurDrawerItem logoutItem = new BlurDrawerItem(this, R.drawable.ic_logout, R.string.logout);
@@ -106,6 +106,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         drawerLayout = new BlurDrawerLayout(this);
         drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
         drawerLayout.setBackground(R.drawable.bokeh_travis);
+        drawerLayout.setShadowVisible(false);
         drawerLayout.attachToActivity(this);
         for(BlurDrawerObject item : drawerItems) {
             drawerLayout.addDrawerObject(item, BlurDrawerLayout.LEFT_SIDE);

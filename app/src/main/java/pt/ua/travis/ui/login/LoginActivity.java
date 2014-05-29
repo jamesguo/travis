@@ -424,12 +424,12 @@ public class LoginActivity extends PlusBaseActivity implements LoaderManager.Loa
 //            // TODO: register the new account here.
 //            return true;
 
-            // Converting password to SHA1 digest
-            final String passDigest = Utils.generateSHA1DigestFromString(mPassword);
+//            // Converting password to SHA1 digest
+//            final String passDigest = Utils.generateSHA1DigestFromString(mPassword);
 
             // Doing Asynchronous tests and, in case of success, saving the User object
             // statically in the Backend Manager
-            return PersistenceManager.attemptLogin(mEmail, passDigest);
+            return PersistenceManager.attemptLogin(mEmail, mPassword);
         }
 
         @Override

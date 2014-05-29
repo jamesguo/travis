@@ -46,9 +46,7 @@ public final class PersistenceManager {
     private static List<ValueEventListener> valueListeners;
     private static List<ChildEventListener> childListeners;
 
-    private static Map<String, ParseObjectWrapper> cachedParseObjects;
-
-    private static User thisLoggedInUser;
+    private static Map<String, ParseWrapper> cachedParseObjects;
 
     private PersistenceManager(){}
 
@@ -63,18 +61,32 @@ public final class PersistenceManager {
         cachedParseObjects = Utils.newMap();
 
 //        // UNCOMMENT THIS ONLY DURING DEVELOPMENT
-//        populateDB();
+        populateDB();
     }
 
-    public static User getUserLoggedInThisDevice() {
-        return thisLoggedInUser;
+    @SuppressWarnings("unchecked")
+    public static <T extends User> T getCurrentlyLoggedInUser() {
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            String objectName = currentUser.getString(User.TYPE);
+
+            if(objectName.equals(Client.OBJECT_NAME)) {
+                return (T) new Client(currentUser);
+
+            } else if(objectName.equals(Taxi.OBJECT_NAME)) {
+                return (T) new Taxi(currentUser);
+
+            }
+        }
+
+        return null;
     }
 
-    public static <T extends ParseObjectWrapper> void addToCache(T object) {
+    public static <T extends ParseWrapper> void addToCache(T object) {
         cachedParseObjects.put(object.id(), object);
     }
 
-    public static <T extends ParseObjectWrapper> T getFromCache(String id) {
+    public static <T extends ParseWrapper> T getFromCache(String id) {
         return (T)cachedParseObjects.get(id);
     }
 
@@ -117,9 +129,9 @@ public final class PersistenceManager {
             public void done(ParseException ex) {
                 if (ex == null) {
                     if (saveHandler != null) {
-                        toAdd.po.fetchInBackground(new GetCallback<ParseObject>() {
+                        toAdd.po.fetchInBackground(new GetCallback<ParseUser>() {
                             @Override
-                            public void done(ParseObject object, ParseException e) {
+                            public void done(ParseUser object, ParseException e) {
                                 saveHandler.onResult(new Client(object));
                             }
                         });
@@ -141,9 +153,9 @@ public final class PersistenceManager {
             @Override
             public void done(ParseException ex) {
                 if (ex == null) {
-                    toAdd.po.fetchInBackground(new GetCallback<ParseObject>() {
+                    toAdd.po.fetchInBackground(new GetCallback<ParseUser>() {
                         @Override
-                        public void done(ParseObject object, ParseException e) {
+                        public void done(ParseUser object, ParseException e) {
 
                             Map<String, Object> toSet = new HashMap<String, Object>();
                             toSet.put(object.getObjectId(), new Random().nextInt(Integer.MAX_VALUE));
@@ -340,11 +352,11 @@ public final class PersistenceManager {
 
             final String id = dataSnapshot.getName();
             Log.e("TaxiWatcher", "Taxi with id "+id+" was changed!");
-            ParseObject po = taxis.get(id).po;
+            ParseUser po = taxis.get(id).po;
 
-            po.fetchInBackground(new GetCallback<ParseObject>() {
+            po.fetchInBackground(new GetCallback<ParseUser>() {
                 @Override
-                public void done(ParseObject object, ParseException e) {
+                public void done(ParseUser object, ParseException e) {
                     taxis.put(id, new Taxi(object));
                     action.onEvent(Lists.newArrayList(taxis.values()));
                 }
@@ -360,7 +372,7 @@ public final class PersistenceManager {
      * Returns a Fluent API to build search parameters and query the backend.
      */
     public static Query query() {
-        return new Query(thisLoggedInUser);
+        return new Query();
     }
 
 
@@ -370,32 +382,22 @@ public final class PersistenceManager {
      * during the application's execution.
      * WARNING: This method must only be executed in an Async task!!
      */
-    public static Pair<Integer, User> attemptLogin(String email, String passDigest) {
+    public static Pair<Integer, User> attemptLogin(String email, String pass) {
         try {
-            Pair<User, String> pair = testEmail(email);
-            User resultUser = null;
+            User resultUser = testEmail(email);
 
-            if(pair == null){
+            if(resultUser == null){
                 // Email doesn't exist, can create a new account withUser credentials
-                thisLoggedInUser = null;
                 return Utils.newPair(NO_USER_WITH_THAT_EMAIL, null);
 
-            } else if(pair.second.equals(Client.OBJECT_NAME)){
-                // Email corresponds to a Client, so test if querying clients
-                // withUser that email and the specified passDigest returns a Client entity.
-                resultUser = testPass(Client.OBJECT_NAME, email, passDigest);
+            } else {
 
-            } else if(pair.second.equals(Taxi.OBJECT_NAME)){
-                // Email corresponds to a Taxi, so test if querying taxis
-                // withUser that email and the specified passDigest returns a Taxi entity.
-                resultUser = testPass(Taxi.OBJECT_NAME, email, passDigest);
+                resultUser = testPass(email, pass);
             }
 
             if(resultUser == null) {
-                thisLoggedInUser = null;
                 return Utils.newPair(WRONG_CREDENTIALS, null);
             } else {
-                thisLoggedInUser = resultUser;
                 return Utils.newPair(SUCCESSFUL_LOGIN, resultUser);
             }
 
@@ -406,42 +408,44 @@ public final class PersistenceManager {
         return null;
     }
 
-    private static Pair<User, String> testEmail(String email) throws ParseException {
-        ParseQuery<ParseObject> query1 = new ParseQuery<ParseObject>(Client.OBJECT_NAME);
-        query1.setLimit(1);
-        query1.whereEqualTo(Client.EMAIL, email);
-        List<ParseObject> o1 = query1.find();
-        if(!o1.isEmpty()){
-            User u = new Client(o1.get(0));
-            return Utils.newPair(u, Client.OBJECT_NAME);
-        } else {
-            // Email doesn't exist, could be a taxi instead
-            ParseQuery<ParseObject> query2 = new ParseQuery<ParseObject>(Taxi.OBJECT_NAME);
-            query2.setLimit(1);
-            query2.whereEqualTo(Taxi.EMAIL, email);
-            List<ParseObject> o2 = query2.find();
-            if(!o2.isEmpty()){
-                User u = new Taxi(o2.get(0));
-                return Utils.newPair(u, Taxi.OBJECT_NAME);
-            } else {
-                // Email doesn't exist, can create a new account withUser credentials
-                return null;
-            }
-        }
-    }
-
-    private static User testPass(String objectName, String email, String passDigest) throws ParseException {
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(objectName);
+    private static User testEmail(String email) throws ParseException {
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.setLimit(1);
         query.whereEqualTo(User.EMAIL, email);
-        query.whereEqualTo(User.PASSWORD_DIGEST, passDigest);
-        List<ParseObject> o = query.find();
+        List<ParseUser> queryResults = query.find();
 
-        if(!o.isEmpty()){
-            if(objectName.equals(Client.OBJECT_NAME))
-                return new Client(o.get(0));
-            else if(objectName.equals(Taxi.OBJECT_NAME))
-                return new Taxi(o.get(0));
+        if(!queryResults.isEmpty()){
+            ParseUser u = queryResults.get(0);
+            String type = u.getString(User.TYPE);
+            if(type.equals(Client.OBJECT_NAME))
+                return new Client(u);
+            else if(type.equals(Taxi.OBJECT_NAME))
+                return new Taxi(u);
+
+        }
+
+        // Email doesn't exist, can create a new account with this email
+        return null;
+    }
+
+    private static User testPass(String email, String pass) throws ParseException {
+        try {
+            ParseUser user = ParseUser.logIn(email, pass);
+
+            if (user != null) {
+                String type = user.getString(User.TYPE);
+                if(type.equals(Client.OBJECT_NAME))
+                    return new Client(user);
+                else if(type.equals(Taxi.OBJECT_NAME)) {
+                    Taxi t = new Taxi(user);
+                    t.setAsAvailable();
+                    t.setAsOnline();
+                    save(t, null);
+                    return t;
+                }
+            }
+        }catch (ParseException ex){
+            Log.e("PersistenceManager", "Login attempt was unsuccessful.", ex);
         }
 
         return null;
@@ -450,10 +454,10 @@ public final class PersistenceManager {
 
 
     /**
-     * Stops saving the static variable that holds the logged in user.
+     * Stops caching the currently logged in user on disk.
      */
     public static void logout(){
-        thisLoggedInUser = null;
+        ParseUser.logOut();
     }
 
 
@@ -470,10 +474,11 @@ public final class PersistenceManager {
     // TEST METHOD, DELETE WHEN DB IS ALREADY POPULATED
     private static void populateDB() {
 
-//        // 1º Phase
-//        Taxi t1 = new Taxi();
-//        t1.setEmail("a@a.a");
-//        t1.setPasswordDigest(Utils.generateSHA1DigestFromString("111"));
+        // 1º Phase
+
+//        Taxi t1 = Taxi.create();
+//        t1.setEmail("aaaaa@gmail.com");
+//        t1.setPassword("aaa");
 //        t1.setName("André Figueiredo");
 //        t1.setImageUri("http://placesheen.com/phpthumb/phpthumb.php?src=../uploads/sheen/33.jpeg&w=140&h=180&zc=1");
 //        t1.setCurrentLocation(40.646808, -8.662223);
@@ -483,12 +488,18 @@ public final class PersistenceManager {
 //        t1.addRating(2f);
 //        t1.addRating(3f);
 //        t1.setAsAvailable();
-//        save(t1, null);
+//        t1.setAsOnline();
+//        t1.po.signUpInBackground(new SignUpCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.e("", "", e);
+//            }
+//        });
 //
 //
-//        Taxi t2 = new Taxi();
-//        t2.setEmail("b@b.b");
-//        t2.setPasswordDigest(Utils.generateSHA1DigestFromString("222"));
+//        Taxi t2 = Taxi.create();
+//        t2.setEmail("bbbbb@gmail.com");
+//        t2.setPassword("bbb");
 //        t2.setName("Ernesto Abreu");
 //        t2.setImageUri("http://www.fillmurray.com/140/180");
 //        t2.setCurrentLocation(40.635606, -8.659305);
@@ -498,12 +509,18 @@ public final class PersistenceManager {
 //        t2.addRating(2f);
 //        t2.addRating(1f);
 //        t2.setAsAvailable();
-//        save(t2, null);
+//        t2.setAsOffline();
+//        t2.po.signUpInBackground(new SignUpCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.e("", "", e);
+//            }
+//        });
 //
 //
-//        Taxi t3 = new Taxi();
-//        t3.setEmail("c@c.c");
-//        t3.setPasswordDigest(Utils.generateSHA1DigestFromString("333"));
+//        Taxi t3 = Taxi.create();
+//        t3.setEmail("ccccc@gmail.com");
+//        t3.setPassword("ccc");
 //        t3.setName("Carlos Oliveira");
 //        t3.setImageUri("http://www.fillmurray.com/g/280/360");
 //        t3.setCurrentLocation(40.645831, -8.640680);
@@ -518,12 +535,18 @@ public final class PersistenceManager {
 //        t3.addRating(4f);
 //        t3.addRating(2f);
 //        t3.setAsAvailable();
-//        save(t3, null);
+//        t3.setAsOnline();
+//        t3.po.signUpInBackground(new SignUpCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.e("", "", e);
+//            }
+//        });
 //
 //
-//        Taxi t4 = new Taxi();
-//        t4.setEmail("d@d.d");
-//        t4.setPasswordDigest(Utils.generateSHA1DigestFromString("444"));
+//        Taxi t4 = Taxi.create();
+//        t4.setEmail("ddddd@gmail.com");
+//        t4.setPassword("ddd");
 //        t4.setName("Duarte Manolo");
 //        t4.setImageUri("http://www.fillmurray.com/280/360");
 //        t4.setCurrentLocation(40.645631, -8.640480);
@@ -533,74 +556,83 @@ public final class PersistenceManager {
 //        t4.addRating(3f);
 //        t4.addRating(4f);
 //        t4.addRating(3.5f);
-//        t4.setAsAvailable();
-//        save(t4, null);
+//        t4.setAsUnavailable();
+//        t4.setAsOffline();
+//        t4.po.signUpInBackground(new SignUpCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.e("", "", e);
+//            }
+//        });
 //
 //
-//        Taxi t5 = new Taxi();
-//        t5.setEmail("e@e.e");
-//        t5.setPasswordDigest(Utils.generateSHA1DigestFromString("222"));
+//        Taxi t5 = Taxi.create();
+//        t5.setEmail("eeeee@gmail.com");
+//        t5.setPassword("eee");
 //        t5.setName("Óscar Cardoso");
 //        t5.setImageUri("http://www.placecage.com/140/180");
 //        t5.setCurrentLocation(40.635411, -8.619823);
 //        t5.addRating(3f);
 //        t5.setAsUnavailable();
-//        save(t5, null);
+//        t5.setAsOffline();
+//        t5.po.signUpInBackground(new SignUpCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.e("", "", e);
+//            }
+//        });
 
 
         // 2º Phase
-//            new ParseQuery<ParseObject>(Taxi.OBJECT_NAME).getInBackground("9olwiJXIp2", new GetCallback<ParseObject>() {
-//                @Override
-//                public void done(ParseObject object, ParseException e) {
-//                    final Taxi t1 = new Taxi(object);
-//                    new ParseQuery<ParseObject>(Taxi.OBJECT_NAME).getInBackground("XEhWbTDfAf", new GetCallback<ParseObject>() {
-//                        @Override
-//                        public void done(ParseObject object, ParseException e) {
-//                            final Taxi t3 = new Taxi(object);
-//                            new ParseQuery<ParseObject>(Taxi.OBJECT_NAME).getInBackground("5khKZCBuhL", new GetCallback<ParseObject>() {
-//                                @Override
-//                                public void done(ParseObject object, ParseException e) {
-//                                    final Taxi t5 = new Taxi(object);
+//        PersistenceManager.query().taxis().withId("OReZSBly2X").later(new Callback<List<Taxi>>() {
+//            @Override
+//            public void onResult(List<Taxi> result) {
+//                final Taxi t1 = result.get(0);
+//                PersistenceManager.query().taxis().withId("aEWaR9OwUV").later(new Callback<List<Taxi>>() {
+//                    @Override
+//                    public void onResult(List<Taxi> result) {
+//                        final Taxi t2 = result.get(0);
 //
-//                                    Log.e("jjjjjjjjjjjjjjjjjjjjjjjj", t1.toString());
-//                                    Log.e("jjjjjjjjjjjjjjjjjjjjjjjj", t3.toString());
-//                                    Log.e("jjjjjjjjjjjjjjjjjjjjjjjj", t5.toString());
+//                        Client c1 = Client.create();
+//                        c1.setEmail("cr7@gmail.com");
+//                        c1.setPassword("123");
+//                        c1.setName("João Martins");
+//                        c1.setImageUri("http://www.placecage.com/280/360");
+//                        c1.addTaxiAsFavorite(t2);
+//                        c1.addTaxiAsFavorite(t1);
+//                        c1.po.signUpInBackground(new SignUpCallback() {
+//                            @Override
+//                            public void done(ParseException e) {
 //
-//                                    Client c1 = new Client();
-//                                    c1.setEmail("a@b.c");
-//                                    c1.setPasswordDigest(Utils.generateSHA1DigestFromString("123"));
-//                                    c1.setName("João Martins");
-//                                    c1.setImageUri("http://www.placecage.com/280/360");
-//                                    c1.addTaxiAsFavorite(t3);
-//                                    c1.addTaxiAsFavorite(t1);
-//                                    save(c1, null);
+//                            }
+//                        });
 //
+//                        Client c2 = Client.create();
+//                        c2.setEmail("ico@ua.pt");
+//                        c2.setPassword("456");
+//                        c2.setName("Bárbara Esteves");
+//                        c2.setImageUri("http://placeimg.com/210/270/people");
+//                        c2.addTaxiAsFavorite(t2);
+//                        c2.po.signUpInBackground(new SignUpCallback() {
+//                            @Override
+//                            public void done(ParseException e) {
 //
-//                                    Client c2 = new Client();
-//                                    c2.setEmail("d@e.f");
-//                                    c2.setPasswordDigest(Utils.generateSHA1DigestFromString("456"));
-//                                    c2.setName("Bárbara Esteves");
-//                                    c2.setImageUri("http://placeimg.com/210/270/people");
-//                                    c2.addTaxiAsFavorite(t5);
-//                                    c2.addTaxiAsFavorite(t3);
-//                                    save(c2, null);
-//
-//                                }
-//                            });
-//                        }
-//                    });
-//                }
-//            });
+//                            }
+//                        });
+//                    }
+//                });
+//            }
+//        });
 
 
 
 //        // 3º Phase
-//        PersistenceManager.query().clients().withId("JYnjsQ0QI9").later(new Callback<List<Client>>() {
+//        PersistenceManager.query().clients().withId("vRvTwhKTf4").later(new Callback<List<Client>>() {
 //            @Override
 //            public void onResult(List<Client> result) {
 //                final Client c1 = result.get(0);
 //
-//                PersistenceManager.query().taxis().withId("5khKZCBuhL").later(new Callback<List<Taxi>>() {
+//                PersistenceManager.query().taxis().withId("OReZSBly2X").later(new Callback<List<Taxi>>() {
 //                    @Override
 //                    public void onResult(List<Taxi> result) {
 //                        final Taxi t5 = result.get(0);

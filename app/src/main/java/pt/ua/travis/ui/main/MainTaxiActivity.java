@@ -70,7 +70,7 @@ public class MainTaxiActivity extends MainActivity {
 
     public void goToScheduledRidesList(View view){
         final Context context = MainTaxiActivity.this;
-        final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
+        final Taxi loggedInTaxi = PersistenceManager.getCurrentlyLoggedInUser();
 
         PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
             @Override

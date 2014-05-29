@@ -376,7 +376,7 @@ public class TaxiChooserFragment extends TravisFragment
      */
     protected final List<TaxiItem> convertTaxisToItems(List<Taxi> taxis){
         List<TaxiItem> taxiItemList = Lists.newArrayList();
-        Client c = PersistenceManager.query().clients().loggedInThisDevice();
+        Client c = PersistenceManager.getCurrentlyLoggedInUser();
 
         for (Taxi t : taxis) {
 
