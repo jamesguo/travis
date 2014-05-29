@@ -68,8 +68,8 @@
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
             <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainTaxiActivity" android:screenOrientation="portrait">
@@ -84,14 +84,14 @@
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.TravelToOriginActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.currenttravel.TravelToDestinationActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.PaymentActivity" android:screenOrientation="portrait"/>
-
+        <activity android:label="@string/title_activity_file_picker" android:name="pt.ua.travis.filepicker.FilePicker"/>
+        <activity android:label="@string/title_activity_file_picker_auth" android:name="pt.ua.travis.filepicker.AuthActivity"/>
 
 
 
 
 
         <!-- SERVICES -->
-        <!--<service android:name="com.dg.libs.rest.services.HTTPRequestExecutorService" />-->
         <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService"/>
 
 

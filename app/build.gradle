@@ -57,9 +57,11 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.2.0'
 
     // Photo picker API to pick user photos from gallery, camera or social networks
-    compile 'com.getchute.android.sdk.v2:chute-sdk-v2-android:2.2.0'
-//    compile project(':dependencies:photoPicker')
-//    compile project(':chutephotopicker')
+//    compile fileTree(dir: '../../../dependencies/ChutePhotoPickerPlus/libs', include: '*.jar')
+//    compile project(':dependencies:ChutePhotoPickerPlus'){
+//        transitive = false
+//    }
+//    compile files('src/main/libs/socialauth-4.4.jar')
 
     // Progress wheel around the instant taxi button
     compile project(':dependencies:ProgressWheel-master')
@@ -78,11 +80,12 @@ dependencies {
 
     // Java primitives and data structure utils
     compile 'com.google.guava:guava:17.0'
+    compile 'org.apache.commons:commons-io:1.3.2'
 
     // Form validation
     compile 'com.andreabaccega:android-form-edittext:1.0.5@aar'
 
-    // Styled buttons and edit-texts and circle thumbnails
+    // Styled buttons and edit-texts
     compile project(':dependencies:AndroidBootstrap'){
         transitive = false
     }

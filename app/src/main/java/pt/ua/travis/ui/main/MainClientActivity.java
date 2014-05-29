@@ -136,7 +136,7 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     }
 
     private void configureSearchBar(Menu menu){
-        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final MenuItem searchItem = null;
         SearchView searchView = (SearchView) searchItem.getActionView();
 
         // if a search item is collapsed, resets the shown taxis

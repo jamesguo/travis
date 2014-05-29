@@ -20,13 +20,15 @@ import java.util.List;
  */
 public final class Taxi extends User {
 //    private static final long serialVersionUID = 1L;
+    private static final String TRUE = "true";
+    private static final String FALSE = "false";
+
 
     public static final String OBJECT_NAME = "Taxi";
 
     // Datastore column keys (DO NOT CHANGE)
-    public static final String AVAILABLE_FLAG = "available";
-    //    public static final String POSITION_LAT = "position_lat";
-//    public static final String CURRENT_LOCATION = "position_lng";
+    public static final String AVAILABLE_FLAG = "isAvailable";
+//    public static final String ONLINE_FLAG = "isOnline";
     public static final String CURRENT_LOCATION = "current_location";
     public static final String RATINGS_LIST = "ratings_list";
 
@@ -54,7 +56,7 @@ public final class Taxi extends User {
      * "available" as true.
      */
     public Taxi setAsAvailable(){
-        po.put(AVAILABLE_FLAG, true);
+        po.put(AVAILABLE_FLAG, TRUE);
         return this;
     }
 
@@ -64,7 +66,7 @@ public final class Taxi extends User {
      * "available" as true.
      */
     public Taxi setAsUnavailable(){
-        po.put(AVAILABLE_FLAG, false);
+        po.put(AVAILABLE_FLAG, FALSE);
         return this;
     }
 
@@ -110,8 +112,8 @@ public final class Taxi extends User {
      * Checks if the wrapped {@link ParseObject} contains a "true" or "false" flag that
      * defines this Taxi as available.
      */
-    public boolean isAvailable(){
-        return po.getBoolean(AVAILABLE_FLAG);
+    public boolean isAvailable() {
+        return Boolean.valueOf(po.getString(AVAILABLE_FLAG));
     }
 
 

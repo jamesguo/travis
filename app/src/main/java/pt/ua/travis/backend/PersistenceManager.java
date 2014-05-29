@@ -1,14 +1,19 @@
 package pt.ua.travis.backend;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import com.firebase.client.*;
 import com.google.common.collect.Lists;
 import com.parse.*;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
@@ -196,20 +201,31 @@ public final class PersistenceManager {
         });
     }
 
-    public static void storeImage(Context context, String imageName, Uri imageUri, final Callback<String> callback) {
-        try {
+    public static void storeImage(final Context context,
+                                  final String imageName,
+                                  final Uri imageUri,
+                                  final Callback<String> callback) {
 
-            InputStream is = context.getContentResolver().openInputStream(imageUri);
-            final ParseFile file = new ParseFile(imageName, IOUtils.toByteArray(is));
+        try {
+            Log.e("######################", "1");
+            InputStream in = context.getContentResolver().openInputStream(imageUri);
+//            Log.e("######################", "2");
+//            ByteArrayOutputStream out = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.PNG, 0, out);
+
+            Log.e("######################", "3");
+            final ParseFile file = new ParseFile(imageName, IOUtils.toByteArray(in));
             file.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
+                    Log.e("######################", "4");
                     callback.onResult(file.getUrl());
                 }
             });
         } catch (IOException ex) {
             Log.e(TAG, "There was a problem uploading the image to the backend storage server.", ex);
         }
+
     }
 
     public static <T extends ParseObjectWrapper> void delete(final T toDelete){

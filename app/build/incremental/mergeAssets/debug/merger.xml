@@ -2,22 +2,37 @@
 <merger>
 
     <dataSet config="unspecified" >
-        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\android-sliding-layer\unspecified\assets" />
-    </dataSet>
-    <dataSet config="unspecified" >
         <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\AndroidBootstrap\unspecified\assets" />
     </dataSet>
     <dataSet config="1.0.5" >
         <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\assets" />
     </dataSet>
+    <dataSet config="1.1.2" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\eu.inmite.android.lib\android-styled-dialogs\1.1.2\assets" />
+    </dataSet>
+    <dataSet config="0.4.0" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.castorflex.smoothprogressbar\library\0.4.0\assets" />
+    </dataSet>
+    <dataSet config="0.9.9" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.chrisbanes.actionbarpulltorefresh\library\0.9.9\assets" />
+    </dataSet>
+    <dataSet config="4.4.0" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.actionbarsherlock\actionbarsherlock\4.4.0\assets" />
+    </dataSet>
+    <dataSet config="0.9.9" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.github.chrisbanes.actionbarpulltorefresh\extra-abs\0.9.9\assets" />
+    </dataSet>
     <dataSet config="unspecified" >
-        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\photoPicker\unspecified\assets" />
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ProgressWheel-master\unspecified\assets" />
+    </dataSet>
+    <dataSet config="unspecified" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\icm_travis.dependencies\ChutePhotoPickerPlus\unspecified\assets" />
     </dataSet>
     <dataSet config="2.1.0" >
         <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.androidmapsextensions\android-maps-extensions\2.1.0\assets" />
     </dataSet>
-    <dataSet config="4.4.0" >
-        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.actionbarsherlock\actionbarsherlock\4.4.0\assets" />
+    <dataSet config="4.4.52" >
+        <source path="C:\projects-android\icm_travis\app\build\exploded-aar\com.google.android.gms\play-services\4.4.52\assets" />
     </dataSet>
     <dataSet config="main" >
         <source path="C:\projects-android\icm_travis\app\src\main\assets" >

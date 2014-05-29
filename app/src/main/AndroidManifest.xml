@@ -84,8 +84,8 @@
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
             <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity android:name="pt.ua.travis.ui.main.MainTaxiActivity"
@@ -115,14 +115,16 @@
         <activity android:name="pt.ua.travis.ui.currenttravel.PaymentActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-
+        <activity android:name=".filepicker.FilePicker"
+            android:label="@string/title_activity_file_picker" />
+        <activity android:name=".filepicker.AuthActivity"
+            android:label="@string/title_activity_file_picker_auth" />
 
 
 
 
 
         <!-- SERVICES -->
-        <!--<service android:name="com.dg.libs.rest.services.HTTPRequestExecutorService" />-->
         <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService" />
 
 

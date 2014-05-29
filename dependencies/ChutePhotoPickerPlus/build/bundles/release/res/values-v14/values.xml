@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-v14/pp_styles.xml -->
+    <eat-comment />
+
+    <style name="PhotoPickerBaseTheme" parent="android:Theme.Holo.Light.NoActionBar"></style>
+
+</resources>

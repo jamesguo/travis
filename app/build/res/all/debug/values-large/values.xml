@@ -4,6 +4,8 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values-large/dimens.xml -->
     <eat-comment />
 
-    <dimen name="viewpager_margin">-64dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
 
 </resources>

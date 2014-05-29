@@ -2,6 +2,8 @@ package pt.ua.travis.ui.login;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,17 +11,18 @@ import android.view.View;
 import android.widget.*;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.andreabaccega.widget.FormEditText;
-import com.chute.android.photopickerplus.util.intent.PhotoPickerPlusIntentWrapper;
-import com.chute.sdk.v2.model.AssetModel;
-import com.chute.sdk.v2.model.enums.AccountType;
-import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
+import pt.ua.travis.filepicker.FilePicker;
+import pt.ua.travis.filepicker.FilePickerAPI;
+import pt.ua.travis.filepicker.InkService;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
+import pt.ua.travis.utils.Utils;
 import pt.ua.travis.utils.Validate;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -27,12 +30,12 @@ import java.util.ArrayList;
  */
 public class SignUpLastStepsActivity extends SherlockActivity {
 
-    public static final String KEY_SELECTED_ITEMS = "keySelectedItems";
+    private static final String TAG = SignUpLastStepsActivity.class.getSimpleName();
 
     private ImageView photoHolder;
-    private ArrayList<AssetModel> selectedMediaList;
-    private Uri selectedImageUri;
-    private AccountType accountType;
+//    private AtomicReference<Bitmap> selectedBitmap;
+    private Uri selectedUri;
+//    private AccountType accountType;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,40 +43,33 @@ public class SignUpLastStepsActivity extends SherlockActivity {
         getSupportActionBar().hide();
 
         photoHolder = (ImageView) findViewById(R.id.photo_holder);
+//        selectedBitmap = new AtomicReference<Bitmap>();
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != Activity.RESULT_OK) {
-            return;
-        }
-
-        PhotoPickerPlusIntentWrapper wrapper = new PhotoPickerPlusIntentWrapper(data);
-        if(Validate.argExists(wrapper.getIntent(), PhotoPickerPlusIntentWrapper.KEY_PHOTO_COLLECTION)){
-
-            selectedMediaList = wrapper.getMediaCollection();
-            if (accountType != null) {
-                accountType = wrapper.getAccountType();
-            }
-            if(!selectedMediaList.isEmpty()){
-                AssetModel selectedAsset = selectedMediaList.get(0);
-                selectedImageUri = Uri.parse(selectedAsset.getUrl());
-                Picasso.with(this)
-                        .load(selectedImageUri)
-                        .resize(140, 180)
-                        .centerCrop()
-                        .into(photoHolder);
-
-                Log.e("--------------", selectedImageUri.toString());
-            }
+    protected void onActivityResult(int requestCode,
+                                    int resultCode, Intent data) {
+        if (requestCode == FilePickerAPI.REQUEST_CODE_GETFILE) {
+            if (resultCode != RESULT_OK)
+                //Result was cancelled by the user or there was an error
+                return;
+            selectedUri = data.getData();
+            Log.e(TAG, "----------File path is " + selectedUri.toString());
+            Log.e(TAG, "----------Ink file URL: " + data.getExtras().getString("fpurl"));
         }
     }
 
-
     public void onPickImageButtonClicked(View view){
-        PhotoPickerPlusIntentWrapper wrapper = new PhotoPickerPlusIntentWrapper(this);
-        wrapper.startActivityForResult(this);
+        Intent intent = new Intent(this, FilePicker.class);
+        intent.putExtra("services", new String[]{
+                InkService.CAMERA,
+                InkService.GALLERY,
+                InkService.FACEBOOK,
+                InkService.INSTAGRAM,
+                InkService.DROPBOX,
+                InkService.GDRIVE
+        });
+        startActivityForResult(intent, FilePickerAPI.REQUEST_CODE_GETFILE);
     }
 
     public void register(View view) {
@@ -90,7 +86,7 @@ public class SignUpLastStepsActivity extends SherlockActivity {
 
 
         int checkedId = rg.getCheckedRadioButtonId();
-        if (checkedId == -1 || selectedImageUri == null) {
+        if (checkedId == -1 || selectedUri == null) {
             Toast.makeText(this,
                     getResources().getString(R.string.type_invalid),
                     Toast.LENGTH_SHORT)
@@ -130,18 +126,26 @@ public class SignUpLastStepsActivity extends SherlockActivity {
 
     private void continueRegister(final User savedUser){
 
-        PersistenceManager.storeImage(this, savedUser.id(), selectedImageUri, new Callback<String>() {
+        PersistenceManager.storeImage(this, savedUser.id(), selectedUri, new Callback<String>() {
             @Override
             public void onResult(String result) {
+                Log.e("######################", result);
                 savedUser.setImageUri(result);
+                Log.e("######################", "5");
+                final String e = "a@a.a";
+                final String p = Utils.generateSHA1DigestFromString("aaa");
+                savedUser.setEmail(e);
+                savedUser.setPasswordDigest(p);
 
                 if (savedUser instanceof Client) {
                     PersistenceManager.save((Client) savedUser, new Callback<Client>() {
                         @Override
                         public void onResult(Client result) {
+                            Log.e("######################", "6");
+                            PersistenceManager.attemptLogin(e, p);
                             Intent intent = new Intent(SignUpLastStepsActivity.this, MainClientActivity.class);
                             startActivity(intent);
-//                            finish();
+                            finish();
                         }
                     });
                 } else if (savedUser instanceof Taxi) {

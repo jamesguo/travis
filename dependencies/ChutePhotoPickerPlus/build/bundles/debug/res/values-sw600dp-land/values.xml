@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-sw600dp-land/layouts.xml -->
+    <eat-comment />
+
+    <bool name="has_two_panes">true</bool>
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-sw600dp-land/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="album_name">18dp</dimen>
+    <dimen name="fragment_title">18dp</dimen>
+    <dimen name="sign_out">16dp</dimen>
+    <dimen name="text_size_service_title">13dp</dimen>
+
+    <integer name="grid_columns_assets">4</integer>
+    <integer name="grid_columns_services">4</integer>
+    <integer name="image_dimensions_assets">100</integer>
+    <integer name="image_dimensions_services">180</integer>
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/ChutePhotoPickerPlus/res/values-sw600dp-land/layouts.xml -->
+    <eat-comment />
+
+    <item name="main_layout" type="layout">@layout/gc_twopanes_sw600_narrow</item>
+
+</resources>
