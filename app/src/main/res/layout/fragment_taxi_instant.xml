@@ -4,7 +4,8 @@
                 xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <!--<TextView-->
         <!--android:id="@+id/touch_to_instant_text"-->
@@ -24,9 +25,8 @@
         android:background="@drawable/circular_button"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
-        android:text="TRAVIS"
         android:textSize="28sp"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:shadowDx="10"
         android:shadowDy="10"
         android:shadowColor="@color/sideMenuBgV2"

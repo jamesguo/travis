@@ -1,6 +1,5 @@
 package pt.ua.travis.ui.currenttravel;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import pt.ua.travis.ui.customviews.TravisFragment;
 
 /**

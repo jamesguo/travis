@@ -2,6 +2,9 @@ package pt.ua.travis.ui.main;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,12 +12,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.*;
+import pt.ua.travis.backend.Callback;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Ride;
+import pt.ua.travis.backend.User;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
 import pt.ua.travis.ui.ridelist.RideDeletedListener;
@@ -30,6 +38,7 @@ import java.util.List;
  */
 public abstract class MainActivity extends SherlockFragmentActivity implements RideDeletedListener {
 
+    private FrameLayout container;
     protected LockedTransitionViewPager tabPager;
     private PullToRefreshLayout pullToRefreshLayout;
     private BlurDrawerLayout drawerLayout;
@@ -64,9 +73,9 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         }
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
 
         if(drawerItems == null) {
@@ -97,16 +106,12 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         }
 
         tabPager = (LockedTransitionViewPager) findViewById(R.id.tab_pager);
-
-//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-//        drawerList = (ListView) findViewById(R.id.left_drawer);
-//        updateDrawerList();
+        tabPager.setOffscreenPageLimit(0);
 
         drawerLayout = new BlurDrawerLayout(this);
         drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
         drawerLayout.setBackground(R.drawable.bokeh_travis);
-        drawerLayout.setShadowVisible(false);
+        drawerLayout.setShadowVisible(true);
         drawerLayout.attachToActivity(this);
         for(BlurDrawerObject item : drawerItems) {
             drawerLayout.addDrawerObject(item, BlurDrawerLayout.LEFT_SIDE);
@@ -125,6 +130,10 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         bar.setHomeButtonEnabled(true);
         bar.setIcon(R.drawable.ic_menu);
 
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+        bar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFFFF")));
+
+        super.onCreate(savedInstanceState);
 
 //        drawerToggle = new ActionBarDrawerToggle(this,
 //                drawerLayout,
@@ -156,10 +165,9 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
             // Handle issues as needed: log, warn user, fallback etc
             // Alternatively, ignore this and default tab behaviour will apply.
         }
-
     }
 
-//    protected final void updateDrawerList(){
+    //    protected final void updateDrawerList(){
 //        drawerList.setAdapter(new DrawerViewAdapter(this, drawerItems));
 //        drawerList.setOnItemClickListener(new ListView.OnItemClickListener(){
 //            @Override
@@ -237,7 +245,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         @Override
         public Fragment getItem(int position) {
             Fragment f = getFragment(position);
-            tabPager.setObjectForPosition(f, position);
+//            tabPager.setObjectForPosition(f, position);
             return f;
         }
 

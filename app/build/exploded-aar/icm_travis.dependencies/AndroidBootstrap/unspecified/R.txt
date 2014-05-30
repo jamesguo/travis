@@ -60,12 +60,10 @@ int color bbutton_warning_disabled_edge 0x7f040028
 int color bbutton_warning_edge 0x7f040029
 int color bbutton_warning_pressed 0x7f04002a
 int color bbutton_warning_pressed_edge 0x7f04002b
-int color black 0x7f04002c
-int color bthumbnail_background 0x7f04002d
-int color bthumbnail_border 0x7f04002e
-int color bthumbnail_font 0x7f04002f
-int color bthumbnail_placeholder 0x7f040030
-int color white 0x7f040031
+int color bthumbnail_background 0x7f04002c
+int color bthumbnail_border 0x7f04002d
+int color bthumbnail_font 0x7f04002e
+int color bthumbnail_placeholder 0x7f04002f
 int dimen activity_horizontal_margin 0x7f050000
 int dimen activity_vertical_margin 0x7f050001
 int dimen bbuton_rounded_corner_radius 0x7f050002

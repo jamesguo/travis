@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 
 import java.util.ArrayList;

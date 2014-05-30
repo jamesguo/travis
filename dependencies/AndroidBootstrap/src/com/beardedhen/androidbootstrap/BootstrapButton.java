@@ -83,21 +83,21 @@ public class BootstrapButton extends FrameLayout {
 	//set up the bootstrap types
 	private enum BootstrapTypes
 	{
-		DEFAULT(R.drawable.bbuton_default, R.color.black),
-		PRIMARY(R.drawable.bbuton_primary, R.color.white),
-		SUCCESS(R.drawable.bbuton_success, R.color.white),
-		INFO(R.drawable.bbuton_info, R.color.white),
-		WARNING(R.drawable.bbuton_warning, R.color.white),
-		DANGER(R.drawable.bbuton_danger, R.color.white),
-		INVERSE(R.drawable.bbuton_inverse, R.color.white),
+		DEFAULT(R.drawable.bbuton_default, android.R.color.black),
+		PRIMARY(R.drawable.bbuton_primary, android.R.color.white),
+		SUCCESS(R.drawable.bbuton_success, android.R.color.white),
+		INFO(R.drawable.bbuton_info, android.R.color.white),
+		WARNING(R.drawable.bbuton_warning, android.R.color.white),
+		DANGER(R.drawable.bbuton_danger, android.R.color.white),
+		INVERSE(R.drawable.bbuton_inverse, android.R.color.white),
 		
-		DEFAULT_ROUNDED(R.drawable.bbuton_default_rounded, R.color.black),
-		PRIMARY_ROUNDED(R.drawable.bbuton_primary_rounded, R.color.white),
-		SUCCESS_ROUNDED(R.drawable.bbuton_success_rounded, R.color.white),
-		INFO_ROUNDED(R.drawable.bbuton_info_rounded, R.color.white),
-		WARNING_ROUNDED(R.drawable.bbuton_warning_rounded, R.color.white),
-		DANGER_ROUNDED(R.drawable.bbuton_danger_rounded, R.color.white),
-		INVERSE_ROUNDED(R.drawable.bbuton_inverse_rounded, R.color.white);
+		DEFAULT_ROUNDED(R.drawable.bbuton_default_rounded, android.R.color.black),
+		PRIMARY_ROUNDED(R.drawable.bbuton_primary_rounded, android.R.color.white),
+		SUCCESS_ROUNDED(R.drawable.bbuton_success_rounded, android.R.color.white),
+		INFO_ROUNDED(R.drawable.bbuton_info_rounded, android.R.color.white),
+		WARNING_ROUNDED(R.drawable.bbuton_warning_rounded, android.R.color.white),
+		DANGER_ROUNDED(R.drawable.bbuton_danger_rounded, android.R.color.white),
+		INVERSE_ROUNDED(R.drawable.bbuton_inverse_rounded, android.R.color.white);
 
 		private int backgroundDrawable;
 		private int textColour;

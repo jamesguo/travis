@@ -1,32 +1,35 @@
 package pt.ua.travis.ui.main;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.*;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.google.android.gms.maps.model.LatLng;
+import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.currenttravel.CurrentTravelFragment;
 import pt.ua.travis.ui.customviews.BlurDrawerItem;
 import pt.ua.travis.ui.customviews.BlurDrawerObject;
-import pt.ua.travis.ui.customviews.TransitionViewPager;
-import pt.ua.travis.R;
-import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
+import pt.ua.travis.ui.riderequest.RideBuilder;
+import pt.ua.travis.ui.riderequest.RideRequestTask;
+import pt.ua.travis.ui.riderequest.WaitForTaxiActivity;
 import pt.ua.travis.ui.taxichooser.TaxiChooserFragment;
-import pt.ua.travis.ui.riderequest.*;
 import pt.ua.travis.ui.taxiinstant.TaxiInstantFragment;
-import pt.ua.travis.utils.*;
+import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;
 
@@ -57,7 +60,7 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        rideBuilder = new RideBuilder(this);
+        rideBuilder = new RideBuilder((TravisApplication) getApplication());
 
         View scheduledRidesTab = getLayoutInflater().inflate(R.layout.tab_with_badge, null);
         TextView badge = (TextView) scheduledRidesTab.findViewById(R.id.badge);
@@ -106,23 +109,22 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
                 return 4;
             }
         });
-//        tabPager.setOffscreenPageLimit(4);
-        tabPager.setPagingEnabled(false);
-        tabPager.setFadeEnabled(false);
-        tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
+////        tabPager.setPagingEnabled(false);
+//        tabPager.setFadeEnabled(false);
+//        tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
 
 
-        int selectedIndex = 0;
-        Intent intent = getIntent();
-        if (savedInstanceState != null) {
-            selectedIndex = savedInstanceState.getInt(CommonKeys.SELECTED_INDEX, 0);
-        } else if (intent != null && intent.getExtras() != null) {
-            selectedIndex = intent.getIntExtra(CommonKeys.SELECTED_INDEX, 0);
-            if (intent.getIntExtra(CommonKeys.GO_TO_RIDE_LIST, 0) == 1) {
-                goToTab(3);
-                return;
-            }
-        }
+//        int selectedIndex = 0;
+//        Intent intent = getIntent();
+//        if (savedInstanceState != null) {
+//            selectedIndex = savedInstanceState.getInt(CommonKeys.SELECTED_INDEX, 0);
+//        } else if (intent != null && intent.getExtras() != null) {
+//            selectedIndex = intent.getIntExtra(CommonKeys.SELECTED_INDEX, 0);
+//            if (intent.getIntExtra(CommonKeys.GO_TO_RIDE_LIST, 0) == 1) {
+//                goToTab(3);
+//                return;
+//            }
+//        }
     }
 
     @Override
@@ -270,10 +272,11 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
             new AsyncTask<Void, Void, List<Taxi>>(){
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
+                    LatLng currentPos = ((TravisApplication) getApplication()).getCurrentLocation();
                     return PersistenceManager.query()
                             .taxis()
-                            .near(TravisLocation.getCurrentLocation(MainClientActivity.this))
-                            .limitNumberOfResultsTo(10)
+                            .online()
+                            .near(currentPos)
                             .now();
                 }
 
@@ -298,7 +301,13 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
             new AsyncTask<Void, Void, List<Taxi>>(){
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
-                    return PersistenceManager.query().taxis().sortedByRating().now();
+                    LatLng currentPos = ((TravisApplication) getApplication()).getCurrentLocation();
+                    return PersistenceManager.query()
+                            .taxis()
+                            .online()
+                            .inTheSameDistrict(currentPos)
+                            .sortedByRating()
+                            .now();
                 }
 
                 @Override
@@ -322,7 +331,10 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
             new AsyncTask<Void, Void, List<Taxi>>() {
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
-                    return PersistenceManager.query().taxis().favoritedBy(c);
+                    return PersistenceManager.query()
+                            .taxis()
+                            .online()
+                            .favoritedBy(c);
                 }
 
                 @Override
@@ -358,8 +370,8 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
 
     // --- Taxi chooser sliding pane operations -----------------------------------------------------------------
 
-    public void onHereAndNowButtonClicked(View view){
-        rideBuilder.resetToHereAndNow(this);
+    public void onHereAndNowButtonClicked(View view) {
+        rideBuilder.resetToHereAndNow((TravisApplication) getApplication());
         Ride newRide = rideBuilder.build();
 
         // sends a request of the created ride to the associated taxi
@@ -368,7 +380,7 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
 
 
     public void onLaterButtonClicked(View view) {
-        rideBuilder.resetToHereAndNow(this);
+        rideBuilder.resetToHereAndNow((TravisApplication) getApplication());
         currentlyShownChooserFragment.optionsPaneGoToPage(1);
     }
 

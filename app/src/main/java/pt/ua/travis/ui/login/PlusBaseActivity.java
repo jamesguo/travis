@@ -3,9 +3,7 @@ package pt.ua.travis.ui.login;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
-
 import android.util.Log;
-
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;

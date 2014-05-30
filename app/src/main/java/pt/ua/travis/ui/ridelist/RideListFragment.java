@@ -1,15 +1,8 @@
 package pt.ua.travis.ui.ridelist;
 
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.google.common.collect.Lists;
-import pt.ua.travis.backend.Ride;
-import pt.ua.travis.ui.customviews.TravisFragment;
 import pt.ua.travis.ui.customviews.TravisListFragment;
 import pt.ua.travis.ui.main.MainActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**

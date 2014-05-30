@@ -1,13 +1,12 @@
 package pt.ua.travis.mapnavigator;
 
-import java.util.ArrayList;
-
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+import java.util.ArrayList;
 
 public class Route {
 	

@@ -1,13 +1,8 @@
 package pt.ua.travis.backend;
 
-import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.common.collect.Lists;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseUser;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Builder and wrapper class for the Taxi entity stored in the Cloud Datastore API.
@@ -20,17 +15,13 @@ import java.util.List;
  * @version 1.0
  */
 public final class Taxi extends User {
-    private static final String TRUE = "true";
-    private static final String FALSE = "false";
-
-
     public static final String OBJECT_NAME = "Taxi";
 
     // Datastore column keys (DO NOT CHANGE)
-    public static final String AVAILABLE_FLAG = "isAvailable";
-    public static final String ONLINE_FLAG = "isOnline";
+    public static final String AVAILABLE_FLAG = "available";
+    public static final String ONLINE_FLAG = "online";
     public static final String CURRENT_LOCATION = "current_location";
-    public static final String RATING_AVERAGE = "rating_average";
+    public static final String RATING_AVERAGE = "rating_AVERAGE";
     public static final String RATING_QUANTITY = "ratings_QUANTITY";
 
     public static Taxi create(){
@@ -46,7 +37,6 @@ public final class Taxi extends User {
             throw new IllegalArgumentException("The specified ParseUser denotes a " +
                     ce.get(TYPE)+". Should denote a "+ OBJECT_NAME +" entity instead.");
         }
-        setAsUnavailable();
     }
 
     @Override
@@ -60,7 +50,7 @@ public final class Taxi extends User {
      * "isAvailable" as true.
      */
     public Taxi setAsAvailable(){
-        po.put(AVAILABLE_FLAG, TRUE);
+        po.put(AVAILABLE_FLAG, Boolean.TRUE);
         return this;
     }
 
@@ -70,7 +60,7 @@ public final class Taxi extends User {
      * "isAvailable" as false.
      */
     public Taxi setAsUnavailable(){
-        po.put(AVAILABLE_FLAG, FALSE);
+        po.put(AVAILABLE_FLAG, Boolean.FALSE);
         return this;
     }
 
@@ -80,7 +70,7 @@ public final class Taxi extends User {
      * "isOnline" as true.
      */
     public Taxi setAsOnline(){
-        po.put(ONLINE_FLAG, TRUE);
+        po.put(ONLINE_FLAG, Boolean.TRUE);
         return this;
     }
 
@@ -90,7 +80,7 @@ public final class Taxi extends User {
      * "isOnline" as false.
      */
     public Taxi setAsOffline(){
-        po.put(ONLINE_FLAG, FALSE);
+        po.put(ONLINE_FLAG, Boolean.FALSE);
         return this;
     }
 
@@ -111,19 +101,14 @@ public final class Taxi extends User {
      * parameter "ratings".
      */
     public Taxi addRating(float rating) {
-        String oldAverageString = po.getString(RATING_AVERAGE);
-        double oldAverage = 0;
-        int quantity = 0;
-        if(oldAverageString!=null) {
-            oldAverage = Double.valueOf(oldAverageString);
-            quantity = Integer.valueOf(po.getString(RATING_QUANTITY));
-        }
+        double oldAverage = po.getDouble(RATING_AVERAGE);
+        int quantity = Integer.valueOf(po.getString(RATING_QUANTITY));
 
         double newAverage = ((oldAverage * quantity) + rating) / (quantity + 1);
         String newAverageString = Double.toString(newAverage);
         String quantityString = Integer.toString(quantity + 1);
 
-        po.put(RATING_AVERAGE, newAverageString);
+        po.put(RATING_AVERAGE, newAverage);
         po.put(RATING_QUANTITY, quantityString);
         return this;
     }
@@ -146,7 +131,7 @@ public final class Taxi extends User {
      * defines this Taxi as available.
      */
     public boolean isAvailable() {
-        return Boolean.valueOf(po.getString(AVAILABLE_FLAG));
+        return po.getBoolean(AVAILABLE_FLAG);
     }
 
 
@@ -181,7 +166,14 @@ public final class Taxi extends User {
      * Returns the average of all of the stored ratings in the wrapped {@link ParseUser}.
      */
     public float getRatingAverage() {
-        return Double.valueOf(po.getString(RATING_AVERAGE)).floatValue();
+        return new Double(po.getDouble(RATING_AVERAGE)).floatValue();
+    }
+
+    /**
+     * Returns the quantity of users that rated the wrapped {@link ParseUser}.
+     */
+    public int getRatingQuantity() {
+        return Integer.valueOf(po.getString(RATING_QUANTITY));
     }
 
     @Override

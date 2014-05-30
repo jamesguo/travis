@@ -1,8 +1,5 @@
 package pt.ua.travis.ui.customviews;
 
-import java.lang.reflect.Method;
-import java.util.Random;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -14,16 +11,14 @@ import android.support.v4.view.VelocityTrackerCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
 import android.util.FloatMath;
-import android.view.Display;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
+import android.view.*;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.Scroller;
 import pt.ua.travis.R;
+
+import java.lang.reflect.Method;
+import java.util.Random;
 
 /**
  * Simple layout that slides into view and shows additional views.

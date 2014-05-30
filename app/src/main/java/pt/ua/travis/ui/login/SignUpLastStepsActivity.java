@@ -1,14 +1,14 @@
 package pt.ua.travis.ui.login;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.andreabaccega.widget.FormEditText;
 import pt.ua.travis.R;
@@ -18,11 +18,6 @@ import pt.ua.travis.filepicker.FilePickerAPI;
 import pt.ua.travis.filepicker.InkService;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
-import pt.ua.travis.utils.Utils;
-import pt.ua.travis.utils.Validate;
-
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

@@ -6,7 +6,7 @@
 
     <style name="PhotoPickerTheme" parent="PhotoPickerBaseTheme">
         <item name="topBarBackground">@drawable/gradient_blue</item>
-        <item name="topBarTextColor">@color/white</item>
+        <item name="topBarTextColor">@android:color/white</item>
     </style>
 
     <!-- TextView Service Name -->
@@ -16,7 +16,7 @@
         <item name="android:paddingLeft">1dp</item>
         <item name="android:paddingRight">1dp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/text_size_service_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
@@ -52,7 +52,7 @@
 
     <!-- TextView Notification Dialog -->
     <style name="textViewNotificationDialog" parent="textViewDefaultSmall">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- LinearLayout Empty Fragment Label -->
@@ -80,7 +80,7 @@
 
     <!-- RelativeLayout Asset Fragment -->
     <style name="relativeLayoutAssetFragment">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <!-- ImageView Default Assets -->

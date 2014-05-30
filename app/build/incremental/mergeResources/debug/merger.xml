@@ -243,8 +243,6 @@
                 </color>
                 <color name="bbutton_warning" >#fff0ad4e
                 </color>
-                <color name="black" >#ff000000
-                </color>
                 <color name="bbutton_edittext_disabled" >#ffe0e0e0
                 </color>
 
@@ -420,8 +418,6 @@
                 <color name="bbutton_warning_pressed" >#ffed9c28
                 </color>
                 <color name="bbutton_success_disabled" >#a55cb85c
-                </color>
-                <color name="white" >#ffffffff
                 </color>
                 <color name="bbutton_danger_disabled_edge" >#a5d43f3a
                 </color>
@@ -10769,16 +10765,16 @@ normal
                     msgid="3542578567569488671" >"La piattaforma Google Play Services, su cui sono basate alcune delle tue applicazioni, non è supportata dal dispositivo in uso. Per assistenza, contatta il produttore."
                 </string>
                 <string
+                    name="common_google_play_services_needs_enabling_title"
+                    msgid="2583358409598976717" >"Un\'applicazione richiede l\'attivazione di Google Play Services."
+                </string>
+                <string
                     name="common_google_play_services_install_text_phone"
                     msgid="8685301130651051380" >"L\'app non funzionerà senza Google Play Services, non presente sul tuo telefono."
                 </string>
                 <string
                     name="common_google_play_services_network_error_text"
                     msgid="9038847255613537209" >"È necessaria una connessione dati per connettersi a Google Play Services."
-                </string>
-                <string
-                    name="common_google_play_services_needs_enabling_title"
-                    msgid="2583358409598976717" >"Un\'applicazione richiede l\'attivazione di Google Play Services."
                 </string>
                 <string
                     name="common_google_play_services_update_title"
@@ -14267,16 +14263,16 @@ normal
                     msgid="3827284619958211114" >"May Error sa Network"
                 </string>
                 <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"Kumuha ng Google Play services"
+                </string>
+                <string
                     name="common_google_play_services_notification_needs_update_title"
                     msgid="1388129345631079938" >"Kailangan ng application ng update sa Mga Serbisyo ng Google Play."
                 </string>
                 <string
                     name="common_google_play_services_unsupported_title"
                     msgid="6334768798839376943" >"Mga serbisyo ng Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"Kumuha ng Google Play services"
                 </string>
             </file>
             <file
@@ -15585,11 +15581,6 @@ normal
                 qualifiers="hdpi"
                 type="drawable" />
             <file
-                name="travis_rate_star_small_half_holo_light"
-                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\travis_rate_star_small_half_holo_light.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
                 name="travis_rate_star_small_off_holo_light"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\travis_rate_star_small_off_holo_light.png"
                 qualifiers="hdpi"
@@ -15860,11 +15851,6 @@ normal
                 qualifiers="mdpi"
                 type="drawable" />
             <file
-                name="travis_rate_star_small_half_holo_light"
-                path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\travis_rate_star_small_half_holo_light.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
                 name="travis_rate_star_small_off_holo_light"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\travis_rate_star_small_off_holo_light.png"
                 qualifiers="mdpi"
@@ -16110,11 +16096,6 @@ normal
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
-                name="travis_rate_star_small_half_holo_light"
-                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\travis_rate_star_small_half_holo_light.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
                 name="travis_rate_star_small_off_holo_light"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\travis_rate_star_small_off_holo_light.png"
                 qualifiers="xhdpi"
@@ -16342,11 +16323,6 @@ normal
             <file
                 name="tab_unselected_travis"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\tab_unselected_travis.9.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="travis_rate_star_small_half_holo_light"
-                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\travis_rate_star_small_half_holo_light.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
@@ -16675,17 +16651,15 @@ normal
                 </color>
                 <color name="dialog_button_pressed" >#99f3a71e
                 </color>
-                <color name="black" >#000000
-                </color>
-                <color name="taxi_available_border" >#ff77ff74
+                <color name="taxi_available_border" >#ff00C322
                 </color>
                 <color name="selectorSelectedBg" >#ffffd376
                 </color>
                 <color name="row_selector_color" >#29413a36
                 </color>
-                <color name="medium_grey" >#333333
-                </color>
                 <color name="transparent" >#09000000
+                </color>
+                <color name="medium_grey" >#333333
                 </color>
                 <color name="taxi_unavailable_border" >#ffff5943
                 </color>
@@ -16695,8 +16669,6 @@ normal
                 </color>
                 <color name="dialog_message_text" >#333333
                 </color>
-                <color name="blue" >#33b4e5
-                </color>
                 <color name="white_transp" >#CCFFFFFF
                 </color>
                 <color name="title_name" >#1e4761
@@ -16705,7 +16677,7 @@ normal
                 </color>
                 <color name="album_title" >#506f82
                 </color>
-                <color name="travis_color_lighter" >#ffffc723
+                <color name="travis_color_lighter" >#ffffd137
                 </color>
                 <color name="dialog_title_separator" >#f3a71e
                 </color>
@@ -16717,11 +16689,7 @@ normal
                 </color>
                 <color name="yellow" >#ffbb33
                 </color>
-                <color name="sky_blue" >#40c1f4
-                </color>
                 <color name="travis_color" >#ffab00
-                </color>
-                <color name="white" >#ffffff
                 </color>
                 <color name="background_activity" >#2d2d2d
                 </color>
@@ -16800,6 +16768,8 @@ Loaded %d albums
                 </string>
                 <string name="insert_address" >Insert address…
                 </string>
+                <string name="rated_by_X" >rated by
+                </string>
                 <string name="not_found" >Not found
                 </string>
                 <string name="facebook" >Facebook
@@ -16836,9 +16806,9 @@ Loaded %d albums
                 </string>
                 <string name="unknown_address" >Unknown Address
                 </string>
-                <string name="accept" >Accept
-                </string>
                 <string name="action_sign_in_short" >Sign in
+                </string>
+                <string name="accept" >Accept
                 </string>
                 <string name="closest_to_you" >Closest to you
                 </string>
@@ -16887,6 +16857,8 @@ Before you start using Travis, please insert your name …
                 </string>
                 <string name="last_video_captured" >Last video captured
                 </string>
+                <string name="users" >users
+                </string>
                 <string name="call_another_taxi" >Call another taxi
                 </string>
                 <string name="cancel" >Cancel
@@ -16895,6 +16867,7 @@ Before you start using Travis, please insert your name …
                 </string>
                 <string name="current_travel" >Current Travel
                 </string>
+                <string name="empty" ></string>
                 <string name="ok" >OK
                 </string>
                 <string name="record_video" >Record a video
@@ -17016,7 +16989,7 @@ center_horizontal
 true
                     </item>
                     <item name="android:textColor">
-@color/white
+@android:color/white
                     </item>
                     <item name="android:textStyle">
 bold
@@ -17065,7 +17038,7 @@ center
                     name="AnnounceText"
                     parent="@style/BaseText" >
                     <item name="android:textColor">
-@color/blue
+@color/travis_color
                     </item>
                     <item name="android:textSize">
 11sp
@@ -17079,7 +17052,7 @@ bold
                     name="IntroDscrpText"
                     parent="@style/BaseText" >
                     <item name="android:textColor">
-@color/white
+@android:color/white
                     </item>
                     <item name="android:textSize">
 14sp
@@ -17104,7 +17077,7 @@ true
                     name="textViewNotificationDialog"
                     parent="textViewDefaultSmall" >
                     <item name="android:textColor">
-@color/white
+@android:color/white
                     </item>
                 </style>
 
@@ -17234,6 +17207,15 @@ sans
                 <style
                     name="Theme.Travis"
                     parent="@style/Theme.Sherlock.Light" >
+                    <item name="android:windowBackground">
+@android:color/white
+                    </item>
+                    <item name="windowNoTitle">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+false
+                    </item>
                     <item name="actionBarItemBackground">
 @drawable/selectable_background_travis
                     </item>
@@ -17290,7 +17272,7 @@ center_horizontal
 
                 <style name="relativeLayoutAssetFragment" >
                     <item name="android:background">
-@color/white
+@android:color/white
                     </item>
                 </style>
 
@@ -17303,6 +17285,18 @@ center
                     <!-- <item name="android:background">?topBarBackground</item> -->
                     <!-- <item name="android:textAllCaps">true</item> -->
                     <!-- <item name="android:textColor">?topBarTextColor</item> -->
+                </style>
+
+                <style name="Theme.Travis.NoActionBar" >
+                    <item name="android:windowBackground">
+@drawable/splash_screen_background
+                    </item>
+                    <item name="windowNoTitle">
+true
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
                 </style>
 
                 <style name="linearLayoutProgressDialog" >
@@ -17354,10 +17348,10 @@ true
 @color/dialog_button_text
                     </item>
                     <item name="buttonSeparatorColor">
-@color/white
+@android:color/white
                     </item>
                     <item name="buttonBackgroundColorNormal">
-@color/white
+@android:color/white
                     </item>
                     <item name="buttonBackgroundColorPressed">
 @color/dialog_button_pressed
@@ -17366,7 +17360,7 @@ true
 @color/dialog_button_focused
                     </item>
                     <item name="dialogBackground">
-@color/white
+@android:color/white
                     </item>
                 </style>
 
@@ -17408,8 +17402,9 @@ true
                     name="ActionBar.Solid.Travis"
                     parent="@style/Widget.Sherlock.Light.ActionBar.Solid" >
                     <item name="android:background">
-@drawable/ab_background_textured_travis
+@color/travis_color
                     </item>
+                    <!-- <item name="android:background">@drawable//ab_background_textured_travis</item> -->
                     <item name="android:backgroundStacked">
 @drawable/ab_stacked_solid_travis
                     </item>
@@ -17418,6 +17413,9 @@ true
                     </item>
                     <item name="android:progressBarStyle">
 @style/ProgressBar.Travis
+                    </item>
+                    <item name="android:displayOptions">
+none
                     </item>
                 </style>
 
@@ -17446,6 +17444,12 @@ true
                 <style
                     name="Theme.Travis"
                     parent="@style/Theme.Sherlock.Light" >
+                    <item name="android:windowBackground">
+@drawable/splash_screen_background
+                    </item>
+                    <item name="android:windowActionBarOverlay">
+true
+                    </item>
                     <item name="android:actionBarItemBackground">
 @drawable/selectable_background_travis
                     </item>
@@ -17595,6 +17599,116 @@ true
                 name="glyphicons_144_folder_open"
                 path="C:\projects-android\icm_travis\app\src\main\res\drawable\glyphicons_144_folder_open.png"
                 qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_fav_2"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_fav_2.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_2"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_fav_2.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_2"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_fav_2.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_2"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_fav_2.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_3"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_fav_3.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_3"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_fav_3.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_3"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_fav_3.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_3"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_fav_3.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="travis_rate_star_small_half"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\travis_rate_star_small_half.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="travis_rate_star_small_half"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\travis_rate_star_small_half.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="travis_rate_star_small_half"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\travis_rate_star_small_half.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="travis_rate_star_small_half"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\travis_rate_star_small_half.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_4"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\ic_fav_4.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_4"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\ic_fav_4.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_4"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\ic_fav_4.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_fav_4"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\ic_fav_4.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="splash_screen_background"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable\splash_screen_background.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="fragment_intro_third"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_third.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_splash"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_splash.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_intro_first"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_first.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_intro_second"
+                path="C:\projects-android\icm_travis\app\src\main\res\layout\fragment_intro_second.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="splash"
+                path="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\splash.png"
+                qualifiers="xxhdpi"
                 type="drawable" />
         </source>
         <source path="C:\projects-android\icm_travis\app\build\res\rs\debug" />

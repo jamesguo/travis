@@ -1,9 +1,6 @@
 package pt.ua.travis.backend;
 
-import android.os.StrictMode;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 
 /**
  * A class that handles wrapping of a {@link ParseObject} class and that provides direct

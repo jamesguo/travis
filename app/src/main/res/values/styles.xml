@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowNoTitle">false</item>
         <item name="actionBarItemBackground">@drawable/selectable_background_travis</item>
         <item name="popupMenuStyle">@style/PopupMenu.Travis</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Travis</item>
@@ -14,6 +18,12 @@
         <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
     </style>
 
+    <style name="Theme.Travis.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="DialogStyleLight.Custom">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
@@ -21,11 +31,11 @@
         <item name="titleSeparatorColor">@color/dialog_title_separator</item>
         <item name="messageTextColor">@color/dialog_message_text</item>
         <item name="buttonTextColor">@color/dialog_button_text</item>
-        <item name="buttonSeparatorColor">@color/white</item>
-        <item name="buttonBackgroundColorNormal">@color/white</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
         <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
         <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
-        <item name="dialogBackground">@color/white</item>
+        <item name="dialogBackground">@android:color/white</item>
     </style>
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
@@ -96,7 +106,7 @@
     </style>
 
     <style name="AnnounceText" parent="@style/BaseText">
-        <item name="android:textColor">@color/blue</item>
+        <item name="android:textColor">@color/travis_color</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -112,7 +122,7 @@
     </style>
 
     <style name="IntroDscrpText" parent="@style/BaseText">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">14sp</item>
     </style>
 
@@ -124,7 +134,7 @@
         <item name="android:paddingLeft">1dp</item>
         <item name="android:paddingRight">1dp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
     </style>
@@ -157,7 +167,7 @@
 
     <!-- TextView Notification Dialog -->
     <style name="textViewNotificationDialog" parent="textViewDefaultSmall">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <!-- LinearLayout Empty Fragment Label -->
@@ -185,7 +195,7 @@
 
     <!-- RelativeLayout Asset Fragment -->
     <style name="relativeLayoutAssetFragment">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <!-- ImageView Default Assets -->

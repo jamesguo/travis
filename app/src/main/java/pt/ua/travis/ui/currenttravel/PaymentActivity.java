@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import static android.view.ViewGroup.*;
-
-import android.widget.*;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.ToggleButton;
 import com.actionbarsherlock.app.SherlockActivity;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
@@ -17,6 +18,9 @@ import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
+
+import static android.view.ViewGroup.LayoutParams;
+import static android.view.ViewGroup.OnClickListener;
 
 
 /**

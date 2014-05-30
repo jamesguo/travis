@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<pt.ua.travis.ui.customviews.LockedTransitionViewPager
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tab_pager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/><!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/layout/activity_main.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <pt.ua.travis.ui.customviews.LockedTransitionViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tab_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout><!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/layout/activity_main.xml -->

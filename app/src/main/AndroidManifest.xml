@@ -55,7 +55,7 @@
 
 
     <!-- ACTIVITIES -->
-    <application android:name="pt.ua.travis.core.TravisApplication"
+    <application android:name=".core.TravisApplication"
                  android:allowBackup="true"
                  android:configChanges="keyboardHidden|orientation|screenSize"
                  android:icon="@drawable/cabs"
@@ -64,14 +64,41 @@
 
         <!--<uses-library android:name="com.google.android.maps" />-->
 
-        <activity android:name="pt.ua.travis.ui.login.LoginActivity"
+        <activity android:name=".ui.login.LoginActivity"
                   android:windowSoftInputMode="adjustResize|stateHidden"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
         </activity>
-        <activity android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity"
+        <activity android:name=".ui.login.SignUpLastStepsActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".ui.main.MainClientActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.main.MainTaxiActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" >
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".ui.main.IntroductionActivity"
+                  android:parentActivityName=".ui.main.MainClientActivity"
+                  android:screenOrientation="portrait">
+            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value="pt.ua.travis.ui.main.MainClientActivity"/>
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
@@ -80,80 +107,29 @@
         <activity android:name=".nfc.NFCActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden"/>
-        <activity android:name="pt.ua.travis.ui.main.MainClientActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="pt.ua.travis.ui.main.MainTaxiActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" >
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name="pt.ua.travis.ui.riderequest.WaitForTaxiActivity"
+        <activity android:name=".ui.riderequest.WaitForTaxiActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="pt.ua.travis.ui.currenttravel.AuthenticationClientActivity"
+        <activity android:name=".ui.currenttravel.AuthenticationClientActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="pt.ua.travis.ui.currenttravel.AuthenticationTaxiActivity"
+        <activity android:name=".ui.currenttravel.AuthenticationTaxiActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="pt.ua.travis.ui.currenttravel.TravelToOriginActivity"
+        <activity android:name=".ui.currenttravel.TravelToOriginActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="pt.ua.travis.ui.currenttravel.TravelToDestinationActivity"
+        <activity android:name=".ui.currenttravel.TravelToDestinationActivity"
                   android:launchMode="singleTop"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name="pt.ua.travis.ui.currenttravel.PaymentActivity"
+        <activity android:name=".ui.currenttravel.PaymentActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
         <activity android:name=".filepicker.FilePicker"
             android:label="@string/title_activity_file_picker" />
         <activity android:name=".filepicker.AuthActivity"
             android:label="@string/title_activity_file_picker_auth" />
-
-
-
-
-
-        <!-- SERVICES -->
-        <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService" />
-
-
-
-
-
-
-
-
-        <!-- BROADCAST RECEIVERS -->
-        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.StartupBroadcastReceiver"
-                  android:exported="true"
-                  android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"
-                        android:enabled="true" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.PassiveLocationChangedReceiver"
-                  android:exported="true"
-                  android:enabled="true" />
-        <receiver android:name=".core.TravisLocation"
-                  android:enabled="true">
-            <intent-filter android:priority="100">
-                <action android:name="mobi.littlefluffytoys.littlefluffytestclient.littlefluffylocationlibrary.LOCATION_CHANGED"
-                        android:exported="false"
-                        android:enabled="true"/>
-            </intent-filter>
-        </receiver>
 
 
 

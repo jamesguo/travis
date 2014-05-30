@@ -90,13 +90,13 @@ public class RideItem extends Fragment {
                 currentView = inflater.inflate(R.layout.item_ride_taxi, null);
 
                 // set the name
-                TextView nameView = (TextView) currentView.findViewById(R.id.text);
+                TextView nameView = (TextView) currentView.findViewById(R.id.taxi_name);
                 nameView.setText(clientObject.name());
 
                 // set the photo
                 String imageUrl = clientObject.imageUri();
                 if (imageUrl != null && !imageUrl.isEmpty()) {
-                    ImageView photoView = (ImageView) currentView.findViewById(R.id.photo);
+                    ImageView photoView = (ImageView) currentView.findViewById(R.id.taxi_photo);
                     Picasso.with(parentActivity).load(imageUrl).fit().into(photoView);
                 }
             }

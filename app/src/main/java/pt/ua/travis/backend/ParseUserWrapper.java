@@ -1,6 +1,5 @@
 package pt.ua.travis.backend;
 
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 /**

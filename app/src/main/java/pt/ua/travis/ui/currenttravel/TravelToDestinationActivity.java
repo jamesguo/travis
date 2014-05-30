@@ -17,9 +17,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.mapnavigator.Directions;
 import pt.ua.travis.mapnavigator.Navigator;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Utils;
 

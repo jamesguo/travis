@@ -131,14 +131,6 @@
     <color name="bbutton_warning_edge">#ffeea236</color>
     <color name="bbutton_warning_pressed">#ffed9c28</color>
     <color name="bbutton_warning_pressed_edge">#ffd58512</color>
-    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
-    <eat-comment />
-
-    <color name="black">#000000</color>
-    <color name="blue">#33b4e5</color>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
-    <eat-comment />
-
     <color name="bthumbnail_background">#ffffffff</color>
     <color name="bthumbnail_border">#dbdbdb</color>
     <color name="bthumbnail_font">#7e7e7e</color>
@@ -218,7 +210,6 @@
     <color name="sideMenuBgV2">#ff222323</color>
     <color name="side_menu_counter_bg">#ff292929</color>
     <color name="side_menu_counter_text">#ffb2b2b2</color>
-    <color name="sky_blue">#40c1f4</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -226,13 +217,13 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
-    <color name="taxi_available_border">#ff77ff74</color>
+    <color name="taxi_available_border">#ff00C322</color>
     <color name="taxi_unavailable_border">#ffff5943</color>
     <color name="title_name">#1e4761</color>
     <color name="transparent">#09000000</color>
     <color name="travis_color">#ffab00</color>
     <color name="travis_color_darker">#ffdd9000</color>
-    <color name="travis_color_lighter">#ffffc723</color>
+    <color name="travis_color_lighter">#ffffd137</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_colors.xml -->
     <eat-comment />
 
@@ -253,7 +244,6 @@
     <eat-comment />
 
     <color name="welcome_messages_text">#ff757575</color>
-    <color name="white">#ffffff</color>
     <color name="white_transp">#CCFFFFFF</color>
     <color name="yellow">#ffbb33</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/admob_ads_attrs.xml -->
@@ -1300,6 +1290,7 @@
 
     <string name="done">Done</string>
     <string name="dont_rate">Don\'t rate</string>
+    <string name="empty"></string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
     <eat-comment />
 
@@ -1375,6 +1366,7 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="rated_by_X">rated by</string>
     <string name="record_video">Record a video</string>
     <string name="register_ok">Registered successfully!</string>
     <string name="ride_request_please_wait">Please wait
@@ -1402,6 +1394,7 @@ The taxi you selected will now need to accept your request…</string>
 THE NEAREST TAXI</string>
     <string name="type_invalid">Please choose a user type…</string>
     <string name="unknown_address">Unknown Address</string>
+    <string name="users">users</string>
     <string name="wait_for_taxi">Done! Your taxi will arrive soon…</string>
     <string name="wait_for_taxi_suggestion">        We will notify you when your taxi arrives.
         \nTip: You should now set the destination to get a move on once
@@ -1448,7 +1441,7 @@ Before you start using Travis, please insert your name …</string>
     </style>
 
     <style name="AnnounceText" parent="@style/BaseText">
-        <item name="android:textColor">@color/blue</item>
+        <item name="android:textColor">@color/travis_color</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -1504,11 +1497,11 @@ Before you start using Travis, please insert your name …</string>
         <item name="titleSeparatorColor">@color/dialog_title_separator</item>
         <item name="messageTextColor">@color/dialog_message_text</item>
         <item name="buttonTextColor">@color/dialog_button_text</item>
-        <item name="buttonSeparatorColor">@color/white</item>
-        <item name="buttonBackgroundColorNormal">@color/white</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
         <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
         <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
-        <item name="dialogBackground">@color/white</item>
+        <item name="dialogBackground">@android:color/white</item>
     </style>
 
     <style name="DisplayText" parent="@style/BaseText">
@@ -1527,7 +1520,7 @@ Before you start using Travis, please insert your name …</string>
     </style>
 
     <style name="IntroDscrpText" parent="@style/BaseText">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">14sp</item>
     </style>
 
@@ -2085,6 +2078,9 @@ Before you start using Travis, please insert your name …</string>
     <eat-comment />
 
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowNoTitle">false</item>
         <item name="actionBarItemBackground">@drawable/selectable_background_travis</item>
         <item name="popupMenuStyle">@style/PopupMenu.Travis</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Travis</item>
@@ -2095,6 +2091,12 @@ Before you start using Travis, please insert your name …</string>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
         <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
+    </style>
+
+    <style name="Theme.Travis.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="Theme.Travis.Widget" parent="@style/Theme.Sherlock">
@@ -2417,7 +2419,7 @@ Before you start using Travis, please insert your name …</string>
     </style>
 
     <style name="relativeLayoutAssetFragment">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <style name="textViewDefaultSmall" parent="android:Widget.TextView">
@@ -2433,7 +2435,7 @@ Before you start using Travis, please insert your name …</string>
     </style>
 
     <style name="textViewNotificationDialog" parent="textViewDefaultSmall">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="textViewProgressDialog" parent="textViewDefaultSmall">
@@ -2446,7 +2448,7 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:paddingLeft">1dp</item>
         <item name="android:paddingRight">1dp</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">visible</item>
     </style>

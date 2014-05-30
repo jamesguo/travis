@@ -6,7 +6,10 @@ import com.google.common.collect.Lists;
 import com.parse.*;
 import pt.ua.travis.utils.Utils;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -52,8 +55,10 @@ public class Query {
     private List<Filter> filters;
     private int limit;
     private String idFilter;
+    private ParseGeoPoint currentLocation;
     private ParseGeoPoint locationFilterSW;
     private ParseGeoPoint locationFilterNE;
+    private boolean filterNear;
     private String sortKey;
 
     Query(){
@@ -61,6 +66,7 @@ public class Query {
         this.filters = Lists.newArrayList();
         this.limit = -1;
         this.idFilter = null;
+        filterNear = false;
     }
 
     public QueryClients clients() {
@@ -176,12 +182,13 @@ public class Query {
             q.setLimit(limit);
         }
 
-        if (locationFilterSW!=null && locationFilterNE!=null) {
+        if (filterNear) {
+            Log.e("+++++++++++++++++++++", "lets filter near!!!");
             q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
         }
 
         if(sortKey!=null) {
-            q.orderByAscending(sortKey);
+            q.orderByDescending(sortKey);
         }
 
         if(idFilter==null) {
@@ -203,6 +210,9 @@ public class Query {
                     if (ex != null) {
                         Log.e("PersistenceManager SafeQuery Find", "Error querying " + objectName + "s. ", ex);
                     } else {
+                        if(filterNear){
+                            sortListByNearness(parseUsers);
+                        }
                         queryHandler.done(parseUsers, null);
                     }
                 }
@@ -234,6 +244,14 @@ public class Query {
             q.setLimit(limit);
         }
 
+        if (filterNear) {
+            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
+        }
+
+        if(sortKey!=null) {
+            q.orderByDescending(sortKey);
+        }
+
         try {
             if(idFilter==null) {
                 for (Filter f : filters) {
@@ -246,7 +264,11 @@ public class Query {
                     }
                 }
 
-                return q.find();
+                List<ParseUser> list = q.find();
+                if(filterNear){
+                    sortListByNearness(list);
+                }
+                return list;
 
 
             } else {
@@ -259,6 +281,19 @@ public class Query {
         }
 
         return Lists.newArrayList();
+    }
+
+    private void sortListByNearness(List<ParseUser> list) {
+        Collections.sort(list, new Comparator<ParseUser>() {
+            @Override
+            public int compare(ParseUser lhs, ParseUser rhs) {
+                ParseGeoPoint lhsPoint = lhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
+                ParseGeoPoint rhsPoint = rhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
+                int dist1 = Double.valueOf(currentLocation.distanceInKilometersTo(lhsPoint)).intValue();
+                int dist2 = Double.valueOf(currentLocation.distanceInKilometersTo(rhsPoint)).intValue();
+                return dist1 - dist2;
+            }
+        });
     }
 
 
@@ -376,9 +411,19 @@ public class Query {
 
         private QueryTaxis() {}
 
-        public QueryTaxis near(LatLng latLng){
-            locationFilterSW = new ParseGeoPoint(latLng.latitude - 10, latLng.longitude - 10);
-            locationFilterNE = new ParseGeoPoint(latLng.latitude + 10, latLng.longitude + 10);
+        public QueryTaxis near(LatLng latLng) {
+            filterNear = true;
+            currentLocation = new ParseGeoPoint(latLng.latitude, latLng.longitude);
+            locationFilterSW = new ParseGeoPoint(latLng.latitude - 0.02, latLng.longitude - 0.02);
+            locationFilterNE = new ParseGeoPoint(latLng.latitude + 0.02, latLng.longitude + 0.02);
+            return this;
+        }
+
+        public QueryTaxis inTheSameDistrict(LatLng latLng) {
+            filterNear = true;
+            currentLocation = new ParseGeoPoint(latLng.latitude, latLng.longitude);
+            locationFilterSW = new ParseGeoPoint(latLng.latitude - 0.05, latLng.longitude - 0.05);
+            locationFilterNE = new ParseGeoPoint(latLng.latitude + 0.05, latLng.longitude + 0.05);
             return this;
         }
 
@@ -430,6 +475,16 @@ public class Query {
 
         public QueryTaxis sortedByRating() {
             sortKey = Taxi.RATING_AVERAGE;
+            return this;
+        }
+
+        public QueryTaxis online() {
+            filters.add(Filter.eq(Taxi.ONLINE_FLAG, Boolean.TRUE));
+            return this;
+        }
+
+        public QueryTaxis available() {
+            filters.add(Filter.eq(Taxi.AVAILABLE_FLAG, Boolean.TRUE));
             return this;
         }
 

@@ -1,7 +1,12 @@
 package pt.ua.travis.mapnavigator;
 
-import java.util.ArrayList;
-
+import android.content.Context;
+import android.graphics.Color;
+import android.os.AsyncTask;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -11,14 +16,7 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-
-import android.content.Context;
-import android.graphics.Color;
-import android.os.AsyncTask;
+import java.util.ArrayList;
 
 public class Navigator {
 	@SuppressWarnings("unused")

@@ -89,6 +89,4 @@ dependencies {
     compile project(':dependencies:AndroidBootstrap'){
         transitive = false
     }
-
-    compile files('src/main/libs/littlefluffylocationlibrary.jar')
 }

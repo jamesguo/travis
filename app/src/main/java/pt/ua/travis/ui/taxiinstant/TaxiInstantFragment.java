@@ -1,39 +1,25 @@
 package pt.ua.travis.ui.taxiinstant;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.InflateException;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
-import com.actionbarsherlock.app.SherlockFragment;
+import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.customviews.TravisFragment;
+
+import java.util.List;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
 public class TaxiInstantFragment extends TravisFragment {
-
-    private static View lastUsedView;
-
-//    @Override
-//    public final View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        if (lastUsedView != null) {
-//            ViewGroup parent = (ViewGroup) lastUsedView.getParent();
-//            if (parent != null)
-//                parent.removeView(lastUsedView);
-//        }
-//        try {
-//            lastUsedView = inflater.inflate(R.layout.fragment_taxi_instant, null);
-//        } catch (InflateException e) {
-//            // map is already there, just return view as it is
-//        }
-//        return lastUsedView;
-//    }
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -48,9 +34,18 @@ public class TaxiInstantFragment extends TravisFragment {
         instantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "URRAY", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Work in progress", Toast.LENGTH_LONG).show();
+//                new Task().execute();
             }
         });
         setContentShown(true);
+    }
+
+    private class Task extends AsyncTask<Void, Void, List<Taxi>>{
+        @Override
+        protected List<Taxi> doInBackground(Void... params) {
+            LatLng currentPos = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
+            return PersistenceManager.query().taxis().available().online().near(currentPos).limitNumberOfResultsTo(5).now();
+        }
     }
 }

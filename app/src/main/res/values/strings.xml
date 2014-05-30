@@ -2,9 +2,13 @@
 <resources>
 
     <string name="app_name">Travis</string>
+    <string name="empty"> </string>
 
     <string name="taxi">Taxi</string>
     <string name="client">Client</string>
+
+    <string name="users">users</string>
+    <string name="rated_by_X">rated by</string>
 
     <!-- TransitionViewPager -->
     <string-array name="effects">

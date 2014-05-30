@@ -38,4 +38,6 @@ public final class CommonKeys {
     public static final String USER_TYPE = "user_type";
 
     public static final String NEW_REQUEST_ACCEPTED_DURING_TRAVEL = "new_request_accepted_during_travel";
+
+    public static final String SHOW_INTRO_PREFS_KEY = "SHOW_INTRO_PREFS_KEY";
 }

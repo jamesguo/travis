@@ -1,19 +1,13 @@
 package pt.ua.travis.backend;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import com.firebase.client.*;
 import com.google.common.collect.Lists;
 import com.parse.*;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.output.ByteArrayOutputStream;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
@@ -457,6 +451,12 @@ public final class PersistenceManager {
      * Stops caching the currently logged in user on disk.
      */
     public static void logout(){
+        User u = getCurrentlyLoggedInUser();
+        if(u instanceof Taxi){
+            ((Taxi)u).setAsOffline();
+            save(((Taxi)u), null);
+        }
+
         ParseUser.logOut();
     }
 

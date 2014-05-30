@@ -2,8 +2,8 @@ package pt.ua.travis.ui.customviews;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
-import android.view.MotionEvent;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

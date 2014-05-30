@@ -2,11 +2,8 @@ package pt.ua.travis.ui.customviews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.User;
 

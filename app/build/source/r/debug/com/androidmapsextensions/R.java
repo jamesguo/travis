@@ -34,18 +34,18 @@ public final class R {
 		public static final int ame_default_cluster_circle_shadow_color = 0x7f07000c;
 		public static final int ame_default_cluster_text_color = 0x7f07000d;
 		public static final int ame_default_cluster_text_shadow_color = 0x7f07000e;
-		public static final int common_action_bar_splitter = 0x7f070044;
-		public static final int common_signin_btn_dark_text_default = 0x7f070045;
-		public static final int common_signin_btn_dark_text_disabled = 0x7f070046;
-		public static final int common_signin_btn_dark_text_focused = 0x7f070047;
-		public static final int common_signin_btn_dark_text_pressed = 0x7f070048;
-		public static final int common_signin_btn_default_background = 0x7f070049;
-		public static final int common_signin_btn_light_text_default = 0x7f07004a;
-		public static final int common_signin_btn_light_text_disabled = 0x7f07004b;
-		public static final int common_signin_btn_light_text_focused = 0x7f07004c;
-		public static final int common_signin_btn_light_text_pressed = 0x7f07004d;
-		public static final int common_signin_btn_text_dark = 0x7f07009b;
-		public static final int common_signin_btn_text_light = 0x7f07009c;
+		public static final int common_action_bar_splitter = 0x7f070042;
+		public static final int common_signin_btn_dark_text_default = 0x7f070043;
+		public static final int common_signin_btn_dark_text_disabled = 0x7f070044;
+		public static final int common_signin_btn_dark_text_focused = 0x7f070045;
+		public static final int common_signin_btn_dark_text_pressed = 0x7f070046;
+		public static final int common_signin_btn_default_background = 0x7f070047;
+		public static final int common_signin_btn_light_text_default = 0x7f070048;
+		public static final int common_signin_btn_light_text_disabled = 0x7f070049;
+		public static final int common_signin_btn_light_text_focused = 0x7f07004a;
+		public static final int common_signin_btn_light_text_pressed = 0x7f07004b;
+		public static final int common_signin_btn_text_dark = 0x7f070097;
+		public static final int common_signin_btn_text_light = 0x7f070098;
 	}
 	public static final class dimen {
 		public static final int ame_default_cluster_circle_blur_radius = 0x7f09000f;
@@ -83,10 +83,10 @@ public final class R {
 		public static final int common_signin_btn_text_normal_light = 0x7f0200a6;
 		public static final int common_signin_btn_text_pressed_dark = 0x7f0200a7;
 		public static final int common_signin_btn_text_pressed_light = 0x7f0200a8;
-		public static final int ic_plusone_medium_off_client = 0x7f0200c8;
-		public static final int ic_plusone_small_off_client = 0x7f0200c9;
-		public static final int ic_plusone_standard_off_client = 0x7f0200ca;
-		public static final int ic_plusone_tall_off_client = 0x7f0200cb;
+		public static final int ic_plusone_medium_off_client = 0x7f0200cb;
+		public static final int ic_plusone_small_off_client = 0x7f0200cc;
+		public static final int ic_plusone_standard_off_client = 0x7f0200cd;
+		public static final int ic_plusone_tall_off_client = 0x7f0200ce;
 	}
 	public static final class id {
 		public static final int hybrid = 0x7f080013;
@@ -99,12 +99,12 @@ public final class R {
 		public static final int google_play_services_version = 0x7f0a0001;
 	}
 	public static final class string {
-		public static final int auth_client_needs_enabling_title = 0x7f0c0087;
-		public static final int auth_client_needs_installation_title = 0x7f0c0088;
-		public static final int auth_client_needs_update_title = 0x7f0c0089;
-		public static final int auth_client_play_services_err_notification_msg = 0x7f0c008a;
-		public static final int auth_client_requested_by_msg = 0x7f0c008b;
-		public static final int auth_client_using_bad_version_title = 0x7f0c008c;
+		public static final int auth_client_needs_enabling_title = 0x7f0c008a;
+		public static final int auth_client_needs_installation_title = 0x7f0c008b;
+		public static final int auth_client_needs_update_title = 0x7f0c008c;
+		public static final int auth_client_play_services_err_notification_msg = 0x7f0c008d;
+		public static final int auth_client_requested_by_msg = 0x7f0c008e;
+		public static final int auth_client_using_bad_version_title = 0x7f0c008f;
 		public static final int common_google_play_services_enable_button = 0x7f0c0019;
 		public static final int common_google_play_services_enable_text = 0x7f0c001a;
 		public static final int common_google_play_services_enable_title = 0x7f0c001b;

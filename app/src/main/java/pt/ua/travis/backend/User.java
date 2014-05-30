@@ -1,6 +1,5 @@
 package pt.ua.travis.backend;
 
-import android.util.Log;
 import com.google.common.base.Strings;
 import com.parse.ParseObject;
 import com.parse.ParseUser;

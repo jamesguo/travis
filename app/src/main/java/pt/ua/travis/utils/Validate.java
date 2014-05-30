@@ -1,8 +1,5 @@
 package pt.ua.travis.utils;
 
-import android.app.Activity;
-
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -69,12 +66,12 @@ public final class Validate {
      *
      * @return whether the device supports Google Play Services
      */
-    public static boolean hasGooglePlayServices(Activity activity){
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
+    public static boolean hasGooglePlayServices(Context context){
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
         if(status == ConnectionResult.SUCCESS)
             return true;
         else {
-            GooglePlayServicesUtil.getErrorDialog(status, activity, 5);
+            GooglePlayServicesUtil.showErrorNotification(status, context);
             return false;
         }
     }

@@ -205,12 +205,10 @@ containing a value of this type.
         public static int bbutton_warning_edge=0x7f040029;
         public static int bbutton_warning_pressed=0x7f04002a;
         public static int bbutton_warning_pressed_edge=0x7f04002b;
-        public static int black=0x7f04002c;
-        public static int bthumbnail_background=0x7f04002d;
-        public static int bthumbnail_border=0x7f04002e;
-        public static int bthumbnail_font=0x7f04002f;
-        public static int bthumbnail_placeholder=0x7f040030;
-        public static int white=0x7f040031;
+        public static int bthumbnail_background=0x7f04002c;
+        public static int bthumbnail_border=0x7f04002d;
+        public static int bthumbnail_font=0x7f04002e;
+        public static int bthumbnail_placeholder=0x7f04002f;
     }
     public static final class dimen {
         public static int activity_horizontal_margin=0x7f050000;

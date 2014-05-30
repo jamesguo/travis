@@ -12,16 +12,11 @@ import com.actionbarsherlock.view.Menu;
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.core.TravisLocation;
-import pt.ua.travis.ui.customviews.BlurDrawerItem;
+import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.ui.currenttravel.TravelToOriginActivity;
 import pt.ua.travis.ui.customviews.BlurDrawerObject;
-import pt.ua.travis.ui.navigationdrawer.DrawerItem;
-import pt.ua.travis.ui.navigationdrawer.DrawerSeparator;
-import pt.ua.travis.ui.navigationdrawer.DrawerUser;
-import pt.ua.travis.ui.navigationdrawer.DrawerView;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
-import pt.ua.travis.ui.currenttravel.TravelToOriginActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;
@@ -72,23 +67,23 @@ public class MainTaxiActivity extends MainActivity {
         final Context context = MainTaxiActivity.this;
         final Taxi loggedInTaxi = PersistenceManager.getCurrentlyLoggedInUser();
 
-        PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
-            @Override
-            public void onResult(List<Ride> result) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.tab_pager, RideListFragment.newInstance(RideItem.SHOW_CLIENT))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+//        PersistenceManager.query().rides().withUser(loggedInTaxi).scheduled().sortedByTime().later(new Callback<List<Ride>>() {
+//            @Override
+//            public void onResult(List<Ride> result) {
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.tab_pager, RideListFragment.newInstance(RideItem.SHOW_CLIENT))
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
 
         PersistenceManager.stopWatchingRides();
         PersistenceManager.startWatchingNewRidesForTaxi(loggedInTaxi, new WatchEvent<Ride>() {
             @Override
             public void onEvent(Ride newRide) {
 
-                LatLng latLng = TravisLocation.getCurrentLocation(MainTaxiActivity.this);
+                LatLng latLng = ((TravisApplication) getApplication()).getCurrentLocation();
                 newRide.setOriginLocation(latLng.latitude, latLng.longitude);
 
                 Intent resultIntent = new Intent(context, TravelToOriginActivity.class);

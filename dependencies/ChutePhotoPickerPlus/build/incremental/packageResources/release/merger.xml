@@ -530,7 +530,7 @@ center_horizontal
 true
                     </item>
                     <item name="android:textColor">
-@color/white
+@android:color/white
                     </item>
                     <item name="android:textSize">
 @dimen/text_size_service_title
@@ -586,13 +586,13 @@ center_horizontal
 @drawable/gradient_blue
                     </item>
                     <item name="topBarTextColor">
-@color/white
+@android:color/white
                     </item>
                 </style>
 
                 <style name="relativeLayoutAssetFragment" >
                     <item name="android:background">
-@color/white
+@android:color/white
                     </item>
                 </style>
 
@@ -645,7 +645,7 @@ vertical
                     name="textViewNotificationDialog"
                     parent="textViewDefaultSmall" >
                     <item name="android:textColor">
-@color/white
+@android:color/white
                     </item>
                 </style>
 

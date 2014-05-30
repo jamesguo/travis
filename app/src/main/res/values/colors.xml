@@ -2,7 +2,7 @@
 <resources>
     <color name="travis_color">#ffab00</color>
     <color name="travis_color_darker">#ffdd9000</color>
-    <color name="travis_color_lighter">#ffffc723</color>
+    <color name="travis_color_lighter">#ffffd137</color>
     <color name="mainBg">#fff0eded</color>
     <color name="selectorBg">#ffdedede</color>
     <color name="selectorSelectedBg">#ffffd376</color>
@@ -10,7 +10,7 @@
     <color name="sideMenuBgV2">#ff222323</color>
     <color name="mainText">#ff131414</color>
     <color name="pagerBorder">#ff909494</color>
-    <color name="taxi_available_border">#ff77ff74</color>
+    <color name="taxi_available_border">#ff00C322</color>
     <color name="taxi_unavailable_border">#ffff5943</color>
     <color name="side_menu_counter_bg">#ff292929</color>
     <color name="side_menu_counter_text">#ffb2b2b2</color>
@@ -31,17 +31,13 @@
 
     <!-- Basic color references -->
     <color name="transparent">#09000000</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
     <color name="orange">#ffb449</color>
     <color name="grey">#5f5f5f</color>
     <color name="dark_gray">#333333</color>
     <color name="gray_light">#C0C0C0</color>
-    <color name="sky_blue">#40c1f4</color>
     <color name="light_grey">#acacac</color>
     <color name="medium_grey">#333333</color>
     <color name="dark_grey">#212121</color>
-    <color name="blue">#33b4e5</color>
     <color name="yellow">#ffbb33</color>
     <color name="offwhite">#eeeeee</color>
 

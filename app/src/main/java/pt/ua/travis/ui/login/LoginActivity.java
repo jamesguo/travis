@@ -3,13 +3,13 @@ package pt.ua.travis.ui.login;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.*;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -21,16 +21,16 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.*;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.backend.User;
-import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.Pair;
-import pt.ua.travis.utils.Utils;
 import pt.ua.travis.utils.Validate;
 
 import java.util.ArrayList;
@@ -462,7 +462,15 @@ public class LoginActivity extends PlusBaseActivity implements LoaderManager.Loa
 
                 } else if(loggedInUser instanceof Taxi){
                     activityIntent = new Intent(LoginActivity.this, MainTaxiActivity.class);
-                    TravisLocation.startTaxiLocationListener((Taxi)loggedInUser);
+                    final Taxi t = ((Taxi)loggedInUser);
+                    TravisApplication app = (TravisApplication) getApplication();
+                    app.addLocationListener(new TravisApplication.CurrentLocationListener() {
+                        @Override
+                        public void onCurrentLocationChanged(LatLng latLng) {
+                            t.setCurrentLocation(latLng.latitude, latLng.longitude);
+                            PersistenceManager.save(t, null);
+                        }
+                    });
 
                 } else {
                     return;

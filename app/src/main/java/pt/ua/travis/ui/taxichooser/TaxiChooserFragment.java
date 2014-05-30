@@ -10,8 +10,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.*;
-import android.widget.*;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import com.androidmapsextensions.GoogleMap;
 import com.androidmapsextensions.Marker;
 import com.androidmapsextensions.MarkerOptions;
@@ -21,8 +25,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.*;
-import pt.ua.travis.core.TravisLocation;
+import pt.ua.travis.backend.Callback;
+import pt.ua.travis.backend.Client;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideRequestPagerAdapter;
@@ -100,31 +107,27 @@ public class TaxiChooserFragment extends TravisFragment
         parentActivity = (MainClientActivity) activity;
     }
 
+
+    /**
+     * When this fragment has a layout, the map and pagers that will be used are configured.
+     * The map will show various markers, each one identifying the taxis or the user himself.
+     */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setContentView(R.layout.fragment_taxi_chooser);
-    }
-
-    /**
-     * When this fragment starts, the map that will be used is set.
-     * This map will show various markers, each one identifying the taxis or the user himself.
-     */
-    @Override
-    public void onStart() {
-        super.onStart();
 
         // TODO: SHOW LOADING BAR
 
         parentActivity.getNearTaxiList(false, new Callback<List<Taxi>>() {
             @Override
             public void onResult(List<Taxi> result) {
-                continueStart();
+                initializeFragmentViews();
             }
         });
     }
 
-    protected void continueStart() {
+    private void initializeFragmentViews() {
 
         TravisMapFragment mapFragment = (TravisMapFragment) parentActivity
                 .getSupportFragmentManager()
@@ -160,7 +163,7 @@ public class TaxiChooserFragment extends TravisFragment
                     Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
 
                     lastMarker = matchedPair.first;
-                    LatLng userPosition = TravisLocation.getCurrentLocation(parentActivity);
+                    LatLng userPosition = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
                     LatLng realNewPos = new LatLng(userPosition.latitude+0.002, userPosition.longitude);
                     map.animateCamera(CameraUpdateFactory.newLatLng(realNewPos), 900, null);
                     myLocationToggle = true;
@@ -200,7 +203,7 @@ public class TaxiChooserFragment extends TravisFragment
         taxiPager.setAdapter(taxiPagerAdapter);
         taxiPager.setOffscreenPageLimit(5);
         taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
-        taxiPager.setFadeEnabled(false);
+        taxiPager.setFadeEnabled(true);
         taxiPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -487,7 +490,7 @@ public class TaxiChooserFragment extends TravisFragment
         hereAndNowButton.setEnabled(selectedTaxi.isAvailable());
         hereAndNowButton.setClickable(selectedTaxi.isAvailable());
 
-        LatLng pos = TravisLocation.getCurrentLocation(parentActivity);
+        LatLng pos = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
         Address currentAddress = Utils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude).get(0);
 
         TextView addressTextView = (TextView) parentActivity.findViewById(R.id.origin_address);

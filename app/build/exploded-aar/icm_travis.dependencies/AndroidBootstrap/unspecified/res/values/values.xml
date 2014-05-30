@@ -48,12 +48,10 @@
     <color name="bbutton_warning_edge">#ffeea236</color>
     <color name="bbutton_warning_pressed">#ffed9c28</color>
     <color name="bbutton_warning_pressed_edge">#ffd58512</color>
-    <color name="black">#ff000000</color>
     <color name="bthumbnail_background">#ffffffff</color>
     <color name="bthumbnail_border">#dbdbdb</color>
     <color name="bthumbnail_font">#7e7e7e</color>
     <color name="bthumbnail_placeholder">#e9e9e9</color>
-    <color name="white">#ffffffff</color>
     <!-- From: file:/C:/projects-android/icm_travis/dependencies/AndroidBootstrap/res/values/attrs.xml -->
     <eat-comment />
 

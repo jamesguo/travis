@@ -2,7 +2,9 @@ package pt.ua.travis.utils;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.location.*;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.LocationManager;
 import android.os.StrictMode;
 import android.support.v4.util.ArrayMap;
 import android.util.DisplayMetrics;
@@ -26,7 +28,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

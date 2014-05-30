@@ -65,7 +65,6 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -78,6 +77,15 @@
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+        <activity android:name="pt.ua.travis.ui.main.IntroductionActivity" android:parentActivityName="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
+            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pt.ua.travis.ui.main.MainClientActivity"/>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.riderequest.WaitForTaxiActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationClientActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationTaxiActivity" android:screenOrientation="portrait"/>
@@ -86,33 +94,6 @@
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.PaymentActivity" android:screenOrientation="portrait"/>
         <activity android:label="@string/title_activity_file_picker" android:name="pt.ua.travis.filepicker.FilePicker"/>
         <activity android:label="@string/title_activity_file_picker_auth" android:name="pt.ua.travis.filepicker.AuthActivity"/>
-
-
-
-
-
-        <!-- SERVICES -->
-        <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService"/>
-
-
-
-
-
-
-
-
-        <!-- BROADCAST RECEIVERS -->
-        <receiver android:enabled="true" android:exported="true" android:name="com.littlefluffytoys.littlefluffylocationlibrary.StartupBroadcastReceiver">
-            <intent-filter>
-                <action android:enabled="true" android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:enabled="true" android:exported="true" android:name="com.littlefluffytoys.littlefluffylocationlibrary.PassiveLocationChangedReceiver"/>
-        <receiver android:enabled="true" android:name="pt.ua.travis.core.TravisLocation">
-            <intent-filter android:priority="100">
-                <action android:enabled="true" android:exported="false" android:name="mobi.littlefluffytoys.littlefluffytestclient.littlefluffylocationlibrary.LOCATION_CHANGED"/>
-            </intent-filter>
-        </receiver>
 
 
 

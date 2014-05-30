@@ -63,30 +63,127 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00d128b7-69fd-467e-809b-c5e7a102c646" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\.idea\libraries\Parse_1_4_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\.idea\libraries\littlefluffylocationlibrary.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\java\pt\ua\travis\core\TravisLocation.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\libs\littlefluffylocationlibrary.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-hdpi\travis_rate_star_small_half_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-mdpi\travis_rate_star_small_half_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xhdpi\travis_rate_star_small_half_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\drawable-xxhdpi\travis_rate_star_small_half_holo_light.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\src\main\res\res.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/classes.jar" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/travis_rate_star_small_off_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/travis_rate_star_small_off_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/travis_rate_star_small_off_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/travis_rate_star_small_off_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/travis_rate_star_small_off_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/travis_rate_star_small_off_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/travis_rate_star_small_off_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/travis_rate_star_small_off_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/travis_rate_star_small_on_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/travis_rate_star_small_on_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/travis_rate_star_small_on_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/travis_rate_star_small_on_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/travis_rate_star_small_on_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/travis_rate_star_small_on_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/travis_rate_star_small_on_holo_light.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/travis_rate_star_small_on_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/addresspicker/AddressPickerDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/addresspicker/AddressPickerDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/homewidget/Awfdas.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/homewidget/Awfdas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Client.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/BlurDrawerUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/BlurDrawerUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapButton.java" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/CircularImageView.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/CircularImageView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonRes.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonRes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/CurrentTravelFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/CurrentTravelFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Directions.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Directions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePicker.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePicker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePickerAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePickerAPI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Legs.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Legs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/LockedTransitionViewPager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/LockedTransitionViewPager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Navigator.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Navigator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/PaymentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/PaymentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/PlusBaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/PlusBaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/actionbarsherlock/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/actionbarsherlock/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/andreabaccega/formedittext/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/andreabaccega/formedittext/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/androidmapsextensions/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/androidmapsextensions/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/google/android/gms/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/pt/ua/travis/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/pt/ua/travis/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/build/source/r/debug/com/beardedhen/androidbootstrap/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/build/source/r/release/com/beardedhen/androidbootstrap/R.java" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/build/source/r/release/com/beardedhen/androidbootstrap/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/R.txt" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideItemListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/ridelist/RideListFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideRequestTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/RideRequestViewPager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/RideRequestViewPager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Route.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Route.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/SignUpLastStepsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/SignUpLastStepsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/SlidingPaneLayout.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/SlidingPaneLayout.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/SortSpinnerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/SortSpinnerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Steps.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/mapnavigator/Steps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxiinstant/TaxiInstantFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxiinstant/TaxiInstantFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/ThumbnailView.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/ThumbnailView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToDestinationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToDestinationActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/TravisFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/TravisFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/TravisListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/TravisListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Validate.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Validate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/WaitForTaxiActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/WaitForTaxiActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/values/colors.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_danger.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_danger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_danger.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_danger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_danger.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_danger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_danger.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_danger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_success.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_success.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_success.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_success.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_warning.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_rounded_warning.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_warning.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_warning.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_success.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_success.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_success.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_success.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_warning.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background_warning.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_warning.xml" afterPath="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_warning.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_instant.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_instant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_generic.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_generic.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/layout/gc_fragment_empty.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/layout/gc_fragment_empty.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/layout/gc_fragment_empty.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/layout/gc_fragment_empty.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/layout/gc_fragment_empty.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/layout/gc_fragment_empty.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_ride_client.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_ride_client.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/incremental/packageResources/debug/merger.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/incremental/packageResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/incremental/packageResources/release/merger.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/incremental/packageResources/release/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/values/pp_styles.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/values/pp_styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/drawable/services_shape.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/drawable/services_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/drawable/services_shape.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/drawable/services_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/drawable/services_shape.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/drawable/services_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sliding_pane_shadow.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sliding_pane_shadow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab_with_badge.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab_with_badge.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/travis_ratingbar_small_holo_light.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/travis_ratingbar_small_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/debug/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build/bundles/release/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Travis.iws" />
@@ -154,11 +251,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1500">
-              <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="686" max-vertical-offset="3180">
+              <caret line="63" column="64" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="735">
+              <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splash_screen_background.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_screen_background.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38961038" vertical-offset="0" max-vertical-offset="539">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2220">
+              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -167,8 +294,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1001" max-vertical-offset="2760">
-              <caret line="77" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="687" max-vertical-offset="2400">
+              <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -177,95 +304,55 @@
       <file leaf-file-name="TravisApplication.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="645">
-              <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="2415">
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParseUserWrapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java">
+      <file leaf-file-name="fragment_taxi_instant.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_instant.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="495">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state vertical-scroll-proportion="-3.44" vertical-offset="214" max-vertical-offset="810">
+              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Taxi.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java">
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1620" max-vertical-offset="2895">
-              <caret line="121" column="79" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1470">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Client.java">
+      <file leaf-file-name="MainClientActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="281" max-vertical-offset="1755">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3300" max-vertical-offset="7620">
+              <caret line="273" column="69" selection-start-line="273" selection-start-column="69" selection-end-line="274" selection-end-column="100" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersistenceManager.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java">
+      <file leaf-file-name="TaxiInstantFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxiinstant/TaxiInstantFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.625" vertical-offset="6580" max-vertical-offset="10275">
-              <caret line="447" column="79" selection-start-line="447" selection-start-column="79" selection-end-line="447" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding>
-                <element signature="e#2858#2859#0" expanded="true" />
-                <element signature="e#2917#2918#0" expanded="true" />
-                <element signature="e#2989#2990#0" expanded="true" />
-                <element signature="e#3041#3042#0" expanded="true" />
-                <element signature="e#4229#4922#0" expanded="true" />
-                <element signature="e#4464#4745#0" expanded="true" />
-                <element signature="e#4718#4719#0" expanded="true" />
-                <element signature="e#4911#4912#0" expanded="true" />
-                <element signature="e#5216#6163#0" expanded="true" />
-                <element signature="e#5400#6010#0" expanded="true" />
-                <element signature="e#5612#5628#0" expanded="true" />
-                <element signature="e#5987#5988#0" expanded="true" />
-                <element signature="e#6152#6153#0" expanded="true" />
-                <element signature="e#6457#7878#0" expanded="true" />
-                <element signature="e#6641#7725#0" expanded="true" />
-                <element signature="e#6872#7675#0" expanded="true" />
-                <element signature="e#7081#7097#0" expanded="true" />
-                <element signature="e#7175#7191#0" expanded="true" />
-                <element signature="e#7644#7645#0" expanded="true" />
-                <element signature="e#7702#7703#0" expanded="true" />
-                <element signature="e#7867#7868#0" expanded="true" />
-                <element signature="e#8636#8879#0" expanded="true" />
-                <element signature="e#8864#8865#0" expanded="true" />
-                <element signature="e#9115#9116#0" expanded="true" />
-                <element signature="e#9161#9162#0" expanded="true" />
-                <element signature="e#10469#10778#0" expanded="true" />
-                <element signature="e#10767#10768#0" expanded="true" />
-                <element signature="e#11501#11740#0" expanded="true" />
-                <element signature="e#11717#11718#0" expanded="true" />
-                <element signature="e#13433#13717#0" expanded="true" />
-                <element signature="e#13702#13703#0" expanded="true" />
-                <element signature="e#13947#13948#0" expanded="true" />
-                <element signature="e#13981#13982#0" expanded="true" />
-                <element signature="e#16520#16521#0" expanded="true" />
-                <element signature="e#16554#16555#0" expanded="true" />
+                <element signature="e#1032#1281#0" expanded="true" />
+                <element signature="e#1270#1271#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1347" max-vertical-offset="3555">
-              <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1511,7 +1598,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:/android-projects/icm_60658_todolist" value="1394446504914" />
-        <entry key="$PROJECT_DIR$" value="7006505675954" />
+        <entry key="$PROJECT_DIR$" value="7006603905767" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2519,64 +2606,64 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/BlurDrawerItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/ImgurAuthorization.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/ImgurUploadTask.java" />
-        <option value="$PROJECT_DIR$/chutephotopicker/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/chutephotopicker/src/main/java/com/chute/android/photopickerplus/ui/adapter/AssetAccountAdapter.java" />
-        <option value="$PROJECT_DIR$/chutephotopicker/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build.gradle" />
-        <option value="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/layout/gc_fragment_services.xml" />
-        <option value="$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/src/com/chute/android/photopickerplus/ui/fragment/FragmentServices.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/filepicker/AuthActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/Service.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/DataCache.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/cache/FixedSizeList.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/cache/PreCacheTask.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthenticationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthenticationException.java" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/InkFile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/InkFilePickerAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FPService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/InkFilePicker.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/InkService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/Inode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePickerAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePicker.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseWrapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/PaymentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToDestinationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/SignUpLastStepsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/travis_ratingbar_small_holo_light.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/CircularImageView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonRes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Validate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisLocation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideBuilder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Client.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/User.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_taxi.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_generic.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_travis_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_introduction.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/GuestbookActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/IntroductionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_splash.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_danger.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_danger.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_success.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_warning.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_success.xml" />
+        <option value="$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background.xml" />
+        <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapButton.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_first.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_second.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_third.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/LockedTransitionViewPager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_instant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxiinstant/TaxiInstantFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash_screen_background.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="28" />
-    <option name="width" value="1164" />
-    <option name="height" value="740" />
+    <option name="width" value="1191" />
+    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2604,7 +2691,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2633,20 +2719,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dependencies" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2696,36 +2768,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2788,10 +2830,6 @@
               <option name="myItemId" value="travis" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2863,146 +2901,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="filepicker" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="filepicker" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FilePickerAPI.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -3039,68 +2937,9 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backend" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Travis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icm_travis" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -3126,6 +2965,7 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChutePhotoPicker+" />
     <property name="last.edited.regexp" value="emod@ua.pt" />
+    <property name="LayoutCode.rearrangeEntries" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -3352,36 +3192,36 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1164" height="740" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="28" width="1191" height="1052" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="1058" y="137" width="619" height="614" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29885057" sideWeight="0.50055003" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36886102" sideWeight="0.50053704" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3124498" sideWeight="0.5005225" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3782654" sideWeight="0.5004016" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3124498" sideWeight="0.5005225" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30198538" sideWeight="0.4989339" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5968992" sideWeight="0.49944994" order="13" side_tool="false" content_ui="tabs" x="616" y="446" width="618" height="203" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3876698" sideWeight="0.49838883" order="13" side_tool="false" content_ui="tabs" x="616" y="446" width="618" height="203" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979919" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1851211" sideWeight="0.49947754" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46821705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21301775" sideWeight="0.49947754" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46812958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="896" y="159" width="552" height="524" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32079414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -3404,487 +3244,410 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="91" />
+      <option name="time" value="95" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/res/layout/gc_fragment_services.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/CommonKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8183391" vertical-offset="127" max-vertical-offset="735">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/IntroductionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1200">
+          <caret line="65" column="70" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/IntroFirstFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="217" max-vertical-offset="915">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/IntroSecondFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1005">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/IntroThirdFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/OnIntroNavListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16908212" vertical-offset="0" max-vertical-offset="621">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_splash.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17741935" vertical-offset="250" max-vertical-offset="870">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/src/com/chute/android/photopickerplus/ui/fragment/FragmentServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6938776" vertical-offset="479" max-vertical-offset="1410">
-          <caret line="97" column="43" selection-start-line="97" selection-start-column="43" selection-end-line="97" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/placeholder.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/ChutePhotoPickerPlus/unspecified/libs/chute-sdk-v2-android-2.2.7.jar!/darko/imagedownloader/ImageLoaderListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14285715" vertical-offset="0" max-vertical-offset="525">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2257525" vertical-offset="0" max-vertical-offset="598">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/java/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33279485" vertical-offset="9379" max-vertical-offset="13890">
-          <caret line="678" column="14" selection-start-line="678" selection-start-column="14" selection-end-line="678" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/ProgressWheel-master/res/layout/main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37984496" vertical-offset="573" max-vertical-offset="960">
-          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dependencies/ChutePhotoPickerPlus/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2523585" vertical-offset="302" max-vertical-offset="750">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.070754714" vertical-offset="0" max-vertical-offset="424">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/glyphicons_154_show_big_thumbnails.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/InkService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/Inode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62616825" vertical-offset="393" max-vertical-offset="1035">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/ThumbnailView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25700936" vertical-offset="0" max-vertical-offset="1410">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/NonThumbnailGridBlockView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23364486" vertical-offset="0" max-vertical-offset="735">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6687898" vertical-offset="240" max-vertical-offset="2160">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_file_picker_auth.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3026906" vertical-offset="0" max-vertical-offset="446">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_file_picker_saveas.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_file_picker.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94170403" vertical-offset="0" max-vertical-offset="630">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/DataCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.522293" vertical-offset="219" max-vertical-offset="690">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/AuthActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="318" max-vertical-offset="1200">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37757438" vertical-offset="180" max-vertical-offset="1410">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53333336" vertical-offset="0" max-vertical-offset="450">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52401745" vertical-offset="1740" max-vertical-offset="6255">
-          <caret line="138" column="41" selection-start-line="138" selection-start-column="41" selection-end-line="138" selection-end-column="41" />
-          <folding>
-            <element signature="e#4593#4594#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6338" max-vertical-offset="9630">
-          <caret line="437" column="30" selection-start-line="437" selection-start-column="30" selection-end-line="437" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="643" max-vertical-offset="8325">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
-          <folding>
-            <element signature="e#1866#1867#0" expanded="true" />
-            <element signature="e#1905#1906#0" expanded="true" />
-            <element signature="e#2051#2064#0" expanded="true" />
-            <element signature="e#2992#3419#0" expanded="true" />
-            <element signature="e#3404#3405#0" expanded="true" />
-            <element signature="e#3480#3994#0" expanded="true" />
-            <element signature="e#3979#3980#0" expanded="true" />
-            <element signature="e#4128#4141#0" expanded="true" />
-            <element signature="e#6233#6666#0" expanded="true" />
-            <element signature="e#6651#6652#0" expanded="true" />
-            <element signature="e#6727#7245#0" expanded="true" />
-            <element signature="e#7230#7231#0" expanded="true" />
-            <element signature="e#9864#10337#0" expanded="true" />
-            <element signature="e#10322#10323#0" expanded="true" />
-            <element signature="e#10779#10780#0" expanded="true" />
-            <element signature="e#10824#10825#0" expanded="true" />
-            <element signature="e#12458#12923#0" expanded="true" />
-            <element signature="e#12908#12909#0" expanded="true" />
-            <element signature="e#13356#13357#0" expanded="true" />
-            <element signature="e#13399#13400#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/PaymentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="367" max-vertical-offset="2220">
-          <caret line="39" column="80" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/currenttravel/TravelToDestinationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1688" max-vertical-offset="2730">
-          <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/filepicker/FilePickerAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9504" max-vertical-offset="11895">
-          <caret line="701" column="31" selection-start-line="701" selection-start-column="31" selection-end-line="701" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/src/main/libs/Parse-1.4.3/Parse-1.4.3.jar!/com/parse/ParseUser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3469751" vertical-offset="1245" max-vertical-offset="2595">
-          <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.09724473" vertical-offset="0" max-vertical-offset="617">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40816328" vertical-offset="5590" max-vertical-offset="6870">
-          <caret line="431" column="68" selection-start-line="431" selection-start-column="68" selection-end-line="431" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.65217394" vertical-offset="0" max-vertical-offset="6945">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031055901" vertical-offset="0" max-vertical-offset="1035">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/drawable/edittext_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1586369" vertical-offset="0" max-vertical-offset="851">
+          <caret line="9" column="89" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_success.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1856018" vertical-offset="0" max-vertical-offset="889">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_warning.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13824885" vertical-offset="0" max-vertical-offset="868">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_success.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13186814" vertical-offset="0" max-vertical-offset="910">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded_danger.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14835165" vertical-offset="0" max-vertical-offset="910">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_rounded.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24725275" vertical-offset="0" max-vertical-offset="910">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background_danger.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11278196" vertical-offset="0" max-vertical-offset="931">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/res/drawable/edittext_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06444683" vertical-offset="0" max-vertical-offset="931">
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_third.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06779661" vertical-offset="0" max-vertical-offset="1110">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_second.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06779661" vertical-offset="0" max-vertical-offset="975">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_intro_first.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049668875" vertical-offset="0" max-vertical-offset="975">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="4" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dependencies/AndroidBootstrap/src/com/beardedhen/androidbootstrap/BootstrapButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19011815" vertical-offset="1098" max-vertical-offset="6690">
+          <caret line="85" column="43" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/util/AttributeSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1591694" vertical-offset="1893" max-vertical-offset="4545">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/app/WallpaperManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8014706" vertical-offset="9839" max-vertical-offset="15870">
+          <caret line="721" column="16" selection-start-line="721" selection-start-column="16" selection-end-line="721" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/content/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27827647" vertical-offset="14905" max-vertical-offset="43710">
+          <caret line="1030" column="64" selection-start-line="1030" selection-start-column="64" selection-end-line="1030" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/customviews/LockedTransitionViewPager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33737025" vertical-offset="0" max-vertical-offset="578">
+          <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17017828" vertical-offset="0" max-vertical-offset="617">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selectable_background_travis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="557">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainTaxiActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49275362" vertical-offset="638" max-vertical-offset="2160">
-          <caret line="72" column="80" selection-start-line="72" selection-start-column="80" selection-end-line="72" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.76814157" vertical-offset="736" max-vertical-offset="2130">
+          <caret line="78" column="13" selection-start-line="69" selection-start-column="14" selection-end-line="78" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiItem.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/app/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0011148272" vertical-offset="451" max-vertical-offset="1860">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.33217993" vertical-offset="933" max-vertical-offset="4110">
+          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/android/support/support-v4/19.1.0/support-v4-19.1.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33217993" vertical-offset="2433" max-vertical-offset="13170">
+          <caret line="196" column="19" selection-start-line="196" selection-start-column="19" selection-end-line="196" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/view/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7474049" vertical-offset="633" max-vertical-offset="19005">
+          <caret line="85" column="28" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33274338" vertical-offset="47767" max-vertical-offset="79695">
+          <caret line="3296" column="25" selection-start-line="3296" selection-start-column="25" selection-end-line="3296" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/riderequest/RideBuilder.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8066595" vertical-offset="119" max-vertical-offset="1050">
-          <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.10771993" vertical-offset="0" max-vertical-offset="915">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-v14/values.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22766885" vertical-offset="5116" max-vertical-offset="8910">
-          <caret line="378" column="65" selection-start-line="378" selection-start-column="65" selection-end-line="378" selection-end-column="65" />
-          <folding />
+        <state vertical-scroll-proportion="0.34874758" vertical-offset="569" max-vertical-offset="2115">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/content/res/AssetManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22766885" vertical-offset="3991" max-vertical-offset="7440">
-          <caret line="319" column="75" selection-start-line="319" selection-start-column="48" selection-end-line="319" selection-end-column="75" />
-          <folding />
+        <state vertical-scroll-proportion="0.298441" vertical-offset="10246" max-vertical-offset="11070">
+          <caret line="736" column="41" selection-start-line="736" selection-start-column="41" selection-end-line="736" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/SignUpLastStepsActivity.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/content/res/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29411766" vertical-offset="1275" max-vertical-offset="2295">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="17651" max-vertical-offset="35655">
+          <caret line="1212" column="32" selection-start-line="1212" selection-start-column="32" selection-end-line="1212" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/view/ContextThemeWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65762" vertical-offset="300" max-vertical-offset="4320">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/src/main/libs/Parse-1.4.3/Parse-1.4.3.jar!/com/parse/ParseObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.56" vertical-offset="4501" max-vertical-offset="4980">
-          <caret line="327" column="0" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1500">
-          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/src/main/libs/Parse-1.5.0/Parse-1.5.0.jar!/com/parse/ParseObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8498845" vertical-offset="5887" max-vertical-offset="6345">
-          <caret line="418" column="0" selection-start-line="418" selection-start-column="0" selection-end-line="418" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/java/lang/Long.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60301507" vertical-offset="60" max-vertical-offset="10245">
-          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
-          <folding />
+        <state vertical-scroll-proportion="0.43290043" vertical-offset="1495" max-vertical-offset="2025">
+          <caret line="131" column="21" selection-start-line="131" selection-start-column="21" selection-end-line="131" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1001" max-vertical-offset="2760">
-          <caret line="77" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="687" max-vertical-offset="2400">
+          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/User.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ab_background_textured_travis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6150235" vertical-offset="604" max-vertical-offset="1845">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-          <folding>
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#2119#2120#0" expanded="true" />
-            <element signature="e#2155#2156#0" expanded="true" />
-            <element signature="e#2589#2590#0" expanded="true" />
-            <element signature="e#2630#2631#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2840#2841#0" expanded="true" />
-            <element signature="e#2883#2884#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="495">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="686" max-vertical-offset="3180">
+          <caret line="63" column="64" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/src/main/libs/Parse-1.5.0/Parse-1.5.0.jar!/com/parse/ParseUser.class">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v14/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37714285" vertical-offset="1434" max-vertical-offset="2655">
-          <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Client.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-19/android/widget/ImageButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="281" max-vertical-offset="1755">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.33213645" vertical-offset="745" max-vertical-offset="1425">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49371633" vertical-offset="6325" max-vertical-offset="8775">
+          <caret line="486" column="53" selection-start-line="486" selection-start-column="53" selection-end-line="486" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1470">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1347" max-vertical-offset="3555">
-          <caret line="108" column="43" selection-start-line="108" selection-start-column="43" selection-end-line="108" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Taxi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1620" max-vertical-offset="2895">
-          <caret line="121" column="79" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
+        <state vertical-scroll-proportion="-1.6141002" vertical-offset="3075" max-vertical-offset="3675">
+          <caret line="157" column="72" selection-start-line="157" selection-start-column="72" selection-end-line="157" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/core/TravisApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="645">
-          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="2460">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/main/MainClientActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625" vertical-offset="6580" max-vertical-offset="10275">
-          <caret line="447" column="79" selection-start-line="447" selection-start-column="79" selection-end-line="447" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3300" max-vertical-offset="7620">
+          <caret line="273" column="69" selection-start-line="273" selection-start-column="69" selection-end-line="274" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_taxi_instant.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.44" vertical-offset="214" max-vertical-offset="810">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxiinstant/TaxiInstantFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding>
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2917#2918#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
-            <element signature="e#3041#3042#0" expanded="true" />
-            <element signature="e#4229#4922#0" expanded="true" />
-            <element signature="e#4464#4745#0" expanded="true" />
-            <element signature="e#4718#4719#0" expanded="true" />
-            <element signature="e#4911#4912#0" expanded="true" />
-            <element signature="e#5216#6163#0" expanded="true" />
-            <element signature="e#5400#6010#0" expanded="true" />
-            <element signature="e#5612#5628#0" expanded="true" />
-            <element signature="e#5987#5988#0" expanded="true" />
-            <element signature="e#6152#6153#0" expanded="true" />
-            <element signature="e#6457#7878#0" expanded="true" />
-            <element signature="e#6641#7725#0" expanded="true" />
-            <element signature="e#6872#7675#0" expanded="true" />
-            <element signature="e#7081#7097#0" expanded="true" />
-            <element signature="e#7175#7191#0" expanded="true" />
-            <element signature="e#7644#7645#0" expanded="true" />
-            <element signature="e#7702#7703#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#8636#8879#0" expanded="true" />
-            <element signature="e#8864#8865#0" expanded="true" />
-            <element signature="e#9115#9116#0" expanded="true" />
-            <element signature="e#9161#9162#0" expanded="true" />
-            <element signature="e#10469#10778#0" expanded="true" />
-            <element signature="e#10767#10768#0" expanded="true" />
-            <element signature="e#11501#11740#0" expanded="true" />
-            <element signature="e#11717#11718#0" expanded="true" />
-            <element signature="e#13433#13717#0" expanded="true" />
-            <element signature="e#13702#13703#0" expanded="true" />
-            <element signature="e#13947#13948#0" expanded="true" />
-            <element signature="e#13981#13982#0" expanded="true" />
-            <element signature="e#16520#16521#0" expanded="true" />
-            <element signature="e#16554#16555#0" expanded="true" />
+            <element signature="e#1032#1281#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_screen_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38961038" vertical-offset="0" max-vertical-offset="539">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -2,12 +2,7 @@ package pt.ua.travis.ui.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Shader;
+import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -99,9 +94,9 @@ public class CircularImageView extends ImageView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = measureWidth(widthMeasureSpec);
+//        int width = measureWidth(widthMeasureSpec);
         int height = measureHeight(heightMeasureSpec);
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(height, height);
     }
 
     private int measureWidth(int measureSpec) {

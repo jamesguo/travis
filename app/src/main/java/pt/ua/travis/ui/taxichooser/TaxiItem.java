@@ -2,17 +2,15 @@ package pt.ua.travis.ui.taxichooser;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-import com.beardedhen.androidbootstrap.BootstrapCircleThumbnail;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
@@ -93,13 +91,13 @@ public class TaxiItem extends Fragment {
     public static void paintViewWithTaxi(Context context, View v, Client clientObject, Taxi taxiObject){
 
         // set the name
-        TextView nameView = (TextView) v.findViewById(R.id.text);
+        TextView nameView = (TextView) v.findViewById(R.id.taxi_name);
         nameView.setText(taxiObject.name());
 
         // set the photo
         String imageUrl = taxiObject.imageUri();
         if (imageUrl != null && !imageUrl.isEmpty()) {
-            final CircularImageView photoView = (CircularImageView) v.findViewById(R.id.photo);
+            final CircularImageView photoView = (CircularImageView) v.findViewById(R.id.taxi_photo);
             Picasso.with(context).load(imageUrl).placeholder(R.drawable.placeholder).fit().into(photoView);
             if (taxiObject.isAvailable()) {
                 photoView.setBorderColor(CommonRes.get().AVAILABLE_COLOR);
@@ -109,15 +107,20 @@ public class TaxiItem extends Fragment {
         }
 
         // set the favorite icon
-        ImageView favoriteIcon = (ImageView) v.findViewById(R.id.favorite);
-        if(clientObject.taxiIsAFavorite(taxiObject)){
-            favoriteIcon.setEnabled(true);
-        } else {
-            favoriteIcon.setEnabled(false);
+        ImageView favoriteIcon = (ImageView) v.findViewById(R.id.taxi_favorite_flag);
+        if(clientObject.taxiIsAFavorite(taxiObject)) {
+            favoriteIcon.setImageDrawable(CommonRes.get().FAVORITE_ICON_FILLED);
         }
 
         // set the rating
-        RatingBar ratingBar = (RatingBar) v.findViewById(R.id.rating);
+        RatingBar ratingBar = (RatingBar) v.findViewById(R.id.taxi_rating);
         ratingBar.setRating(taxiObject.getRatingAverage());
+
+        // set rating text
+        TextView ratingTextView = (TextView) v.findViewById(R.id.taxi_rating_text);
+        String ratedBy = context.getString(R.string.rated_by_X);
+        String users =context.getString(R.string.users);
+        ratingTextView.setText(ratedBy + " " + taxiObject.getRatingQuantity() + " " + users);
+
     }
 }
