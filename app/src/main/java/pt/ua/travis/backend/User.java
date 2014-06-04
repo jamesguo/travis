@@ -29,8 +29,6 @@ public abstract class User extends ParseUserWrapper {
         if(Strings.isNullOrEmpty(email))
             return this;
 
-        String username = email.replaceAll("[\\s.]", "").replaceAll("@", "");
-        po.setUsername(username);
         po.setEmail(email);
         return this;
     }

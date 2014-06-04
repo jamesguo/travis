@@ -1,4 +1,5 @@
-<!-- From: file:/C:/projects-android/icm_travis/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="pt.ua.travis">
+<!-- From: file:/C:/projects-android/icm_travis/app/src/main/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="pt.ua.travis">
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19"/>
 
 
@@ -53,47 +54,28 @@
 
 
     <!-- ACTIVITIES -->
-    <application android:allowBackup="true" android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/cabs" android:label="@string/app_name" android:name="pt.ua.travis.core.TravisApplication" android:theme="@style/Theme.Travis">
+    <application android:allowBackup="true" android:configChanges="keyboardHidden|orientation|screenSize" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="pt.ua.travis.core.TravisApplication" android:theme="@style/Theme.Travis">
 
         <!--<uses-library android:name="com.google.android.maps" />-->
 
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
-        </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.SignUpLastStepsActivity" android:screenOrientation="portrait">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.core.SplashScreenActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.main.MainTaxiActivity" android:screenOrientation="portrait">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name="pt.ua.travis.ui.main.IntroductionActivity" android:parentActivityName="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait">
-            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pt.ua.travis.ui.main.MainClientActivity"/>
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="pt.ua.travis.ui.login.SignUpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.main.MainTaxiActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.riderequest.WaitForTaxiActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationClientActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationTaxiActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.TravelToOriginActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.currenttravel.TravelToDestinationActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.PaymentActivity" android:screenOrientation="portrait"/>
-        <activity android:label="@string/title_activity_file_picker" android:name="pt.ua.travis.filepicker.FilePicker"/>
-        <activity android:label="@string/title_activity_file_picker_auth" android:name="pt.ua.travis.filepicker.AuthActivity"/>
+        <activity android:name="pt.ua.travis.ui.login.GoogleDrivePicker" android:screenOrientation="portrait"/>
+        <activity android:name="com.facebook.LoginActivity" android:screenOrientation="portrait"/>
 
 
 
@@ -103,10 +85,13 @@
 
         <!-- META-DATA -->
         <!-- Google Maps API key for the application -->
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCryjdvpJFZihGbMx-ut9tdiUBLRwUKOYU"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBIoQSloN_-hofV7zbgU_F9DBi1YkkkZV4"/>
 
         <!-- Reference to the Google Play services version -->
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <!-- Reference to the Facebook API key -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
         <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ProgressWheel-master/unspecified/AndroidManifest.xml -->
         <activity android:label="@string/app_name" android:name="com.todddavies.components.progressbar.main">
         </activity>

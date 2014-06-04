@@ -12,5 +12,7 @@ allprojects {
     repositories {
         mavenCentral()
         mavenLocal()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
     }
 }

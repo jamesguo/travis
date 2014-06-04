@@ -1,20 +1,29 @@
 package pt.ua.travis.ui.main;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.google.android.gms.maps.model.LatLng;
+import com.sleepbot.datetimepicker.time.RadialPickerLayout;
+import com.sleepbot.datetimepicker.time.TimePickerDialog;
+import org.apache.commons.io.IOUtils;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisApplication;
@@ -26,12 +35,19 @@ import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
 import pt.ua.travis.ui.riderequest.RideBuilder;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
-import pt.ua.travis.ui.riderequest.WaitForTaxiActivity;
 import pt.ua.travis.ui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.ui.taxiinstant.TaxiInstantFragment;
 import pt.ua.travis.utils.CommonKeys;
+import pt.ua.travis.utils.Utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 // TODO: BACK STACK NEEDS WORK!
 
@@ -39,7 +55,12 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class MainClientActivity extends MainActivity implements ActionBar.TabListener {
+public class MainClientActivity extends MainActivity
+        implements ActionBar.TabListener,
+        TimePickerDialog.OnTimeSetListener,
+        WatchEvent<Ride> {
+
+    private static final Map<String, Integer> rideToNotificationID = Utils.newMap();
 
     private static List<Taxi> nearTaxiList;
     private static List<Taxi> highestRatedTaxiList;
@@ -54,17 +75,38 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     private int currentlyShownFragmentIndex;
 
     private RideBuilder rideBuilder;
+    public static final String TIMEPICKER_TAG = "timepicker";
+    private final Calendar calendar = Calendar.getInstance();
+    private final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance(
+            this,
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(Calendar.MINUTE),
+            true,
+            true);
+
     private RideRequestTask rideRequest;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
+
+        PersistenceManager.stopWatchingRides();
+        PersistenceManager.startWatchingNewRidesForClient(thisClient, this);
 
         rideBuilder = new RideBuilder((TravisApplication) getApplication());
 
         View scheduledRidesTab = getLayoutInflater().inflate(R.layout.tab_with_badge, null);
-        TextView badge = (TextView) scheduledRidesTab.findViewById(R.id.badge);
-        badge.setText("0");
+        final TextView badge = (TextView) scheduledRidesTab.findViewById(R.id.badge);
+        badge.setVisibility(View.INVISIBLE);
+        getRideList(true, new Callback<List<Ride>>() {
+            @Override
+            public void onResult(List<Ride> result) {
+                badge.setText(result.size()+"");
+                badge.setVisibility(View.VISIBLE);
+            }
+        });
+
 
 
         ActionBar bar = getSupportActionBar();
@@ -109,6 +151,7 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
                 return 4;
             }
         });
+        tabPager.setOffscreenPageLimit(4);
 ////        tabPager.setPagingEnabled(false);
 //        tabPager.setFadeEnabled(false);
 //        tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
@@ -199,13 +242,14 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
      *                    items or indicators in the drawer navigation menu
      */
     @Override
-    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerItems) {
+    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerItems, final CloseDrawerAction action) {
 
         BlurDrawerItem item1 = new BlurDrawerItem(this, R.drawable.ic_instant, R.string.instant);
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().getTabAt(0);
+                action.closeDrawer();
+                goToTab(0);
             }
         });
 
@@ -213,7 +257,8 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
         item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().getTabAt(1);
+                action.closeDrawer();
+                goToTab(1);
             }
         });
 
@@ -221,7 +266,8 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
         item3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().getTabAt(2);
+                action.closeDrawer();
+                goToTab(2);
             }
         });
 
@@ -229,7 +275,8 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
         item4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportActionBar().getTabAt(3);
+                action.closeDrawer();
+                goToTab(3);
             }
         });
 
@@ -248,8 +295,22 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
 
-        if(currentlyShownChooserFragment!=null){
-            currentlyShownChooserFragment.attemptCloseSlidingPane(event);
+        switch (currentlyShownTaxiListIndex){
+            case 0:
+                break;
+            case 1:
+                if (currentlyShownChooserFragment != null) {
+                    currentlyShownChooserFragment.attemptCloseSlidingPane(event);
+                }
+                break;
+            case 2:
+                if (currentlyShownTravelFragment != null && currentlyShownTravelFragment.slidingPaneIsOpened()) {
+                    // DO NOTHING
+                    return true;
+                }
+                break;
+            case 3:
+                break;
         }
 
         return super.dispatchTouchEvent(event);
@@ -360,7 +421,7 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
         PersistenceManager.watchTaxis(taxiList, new WatchEvent<List<Taxi>>() {
             @Override
             public void onEvent(List<Taxi> changedObjects) {
-                currentlyShownChooserFragment.updateTaxiLocations(changedObjects);
+                currentlyShownChooserFragment.updateTaxiLocationsOnly(changedObjects);
             }
         });
     }
@@ -397,13 +458,17 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
         }).show(getSupportFragmentManager(), "OriginAddressPickerDialog");
     }
 
+    public void onTimePickerClicked(View view){
+        timePickerDialog.setVibrate(true);
+        timePickerDialog.setOnTimeSetListener(this);
+        timePickerDialog.show(getSupportFragmentManager(), TIMEPICKER_TAG);
+    }
+
 
     /**
      * Creates the ride based on the parameters set on the options pane.
      */
     public void onDoneButtonClicked(View view){
-        TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
-        rideBuilder.setScheduledTime(tp.getCurrentHour(), tp.getCurrentMinute());
         Ride newRide = rideBuilder.build();
 
         // sends a request of created ride to the taxi
@@ -416,20 +481,19 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     }
 
 
-    private void requestRideToTaxi(Ride newRide) {
+    public void requestRideToTaxi(Ride newRide) {
 
         rideRequest = new RideRequestTask(MainClientActivity.this, getSupportFragmentManager(), newRide, new RideRequestTask.OnTaskFinished() {
             @Override
             public void onFinished(String result, Ride ride) {
+                MainClientActivity context = MainClientActivity.this;
+
                 if (result.equals(RideRequestTask.RESPONSE_ACCEPTED)) {
 
-                    PersistenceManager.stopWatchingTaxis();
-                    Intent intent = new Intent(
-                            MainClientActivity.this,
-                            WaitForTaxiActivity.class);
-                    intent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, ride.id());
-                    PersistenceManager.addToCache(ride);
-                    startActivity(intent);
+//                    PersistenceManager.addToCache(ride);
+//                    RideRequestAcceptedDialog
+//                            .newInstance(context, ride.id())
+//                            .show(context.getSupportFragmentManager(), "RideRequestAcceptedDialog");
 
                 } else if (result.equals(RideRequestTask.RESPONSE_REFUSED)) {
                     // THE TAXI DENIED THE REQUEST
@@ -553,5 +617,126 @@ public class MainClientActivity extends MainActivity implements ActionBar.TabLis
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+        rideBuilder.setScheduledTime(hourOfDay, minute);
+        TextView timeTextView = (TextView) findViewById(R.id.time_picker_text);
+        timeTextView.setText(hourOfDay + ":" + minute);
+    }
+
+    public void setTimeTextToNow(TextView timeTextView) {
+        timeTextView.setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
+    }
+
+    @Override
+    public void onEvent(final Ride responseRide) {
+        // TAXI FROM RIDE ARRIVED AT LOCATION!!!
+        LatLng latLng = ((TravisApplication) getApplication()).getCurrentLocation();
+        responseRide.setOriginLocation(latLng.latitude, latLng.longitude);
+
+        Intent resultIntent = new Intent(this, MainClientActivity.class)
+                .putExtra(CommonKeys.SCHEDULED_RIDE_ID, responseRide.id())
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PersistenceManager.addToCache(responseRide);
+
+//        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+//        // Because clicking the notification launches a new ("special") activity,
+//        // there's no need to create an artificial back stack.
+//        final PendingIntent piAccept = PendingIntent.getActivity(this, 0, resultIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        Intent dismissIntent = new Intent(this, MainClientActivity.class);
+////                dismissIntent.setAction(CommonConstants.ACTION_DISMISS);
+//        final PendingIntent piDecline = PendingIntent.getActivity(this, 0, dismissIntent, 0);
+
+        final PendingIntent contentIntent = PendingIntent.getActivity(this, 0, resultIntent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        final String taxiName = responseRide.taxi().name();
+        final String arrivedString = getString(R.string.x_arrived);
+
+        new AsyncTask<Void, Void, Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Void... params) {
+                try {
+                    URL url = new URL(responseRide.taxi().imageUri());
+
+                    //create the new connection
+                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+                    //set up the connection
+                    urlConnection.setRequestMethod("GET");
+//                    urlConnection.setDoOutput(true);
+                    urlConnection.connect();
+
+                    //this will be used in reading the data from the internet
+                    InputStream inputStream = urlConnection.getInputStream();
+                    byte[] array = IOUtils.toByteArray(inputStream);
+                    Bitmap originalBitmap = BitmapFactory.decodeByteArray(array, 0, array.length);
+                    Resources res = MainClientActivity.this.getResources();
+                    int height = (int) res.getDimension(android.R.dimen.notification_large_icon_height);
+                    int width = (int) res.getDimension(android.R.dimen.notification_large_icon_width);
+                    return Bitmap.createScaledBitmap(originalBitmap, width, height, false);
+
+                } catch (IOException ex) {
+                    Log.e("NotificationRideArrived", "Error getting image", ex);
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                super.onPostExecute(bitmap);
+
+                String msg = taxiName + " " + getString(R.string.x_arrived_large) + ".";
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainClientActivity.this)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setAutoCancel(true)
+                        .setLargeIcon(bitmap)
+                        .setSmallIcon(R.drawable.ic_stat_logo)
+                        .setContentTitle(taxiName + " " + arrivedString)
+                        .setContentText(msg)
+                        .setTicker(taxiName + " " + arrivedString)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(msg));
+//                        .addAction(R.drawable.ic_action_accept,
+//                                getString(R.string.accept), piAccept)
+//                        .addAction(R.drawable.ic_action_cancel,
+//                                getString(R.string.decline), piDecline);
+
+
+
+
+                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                Notification n = builder.build();
+                n.contentIntent = contentIntent;
+                n.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_ONGOING_EVENT;
+                int notificationID = new Random(10000).nextInt();
+                rideToNotificationID.put(responseRide.id(), notificationID);
+                notificationManager.notify(notificationID, n);
+            }
+        }.execute();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        Bundle extras = intent.getExtras();
+        String rideID;
+        if(extras!=null && (rideID = extras.getString(CommonKeys.SCHEDULED_RIDE_ID))!=null) {
+            // Received intent from notification of taxi arrival
+
+            Ride r = PersistenceManager.getFromCache(rideID);
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.cancel(rideToNotificationID.get(rideID));
+
+            goToTab(2);
+            currentlyShownTravelFragment.showAuthentication();
+        }
     }
 }

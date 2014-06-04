@@ -1,187 +1,105 @@
 package pt.ua.travis.ui.login;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.*;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.maps.model.LatLng;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.beardedhen.androidbootstrap.BootstrapAutoCompleteEditText;
+import com.dd.processbutton.iml.ActionProcessButton;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.model.GraphUser;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseUser;
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.Client;
-import pt.ua.travis.backend.PersistenceManager;
-import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.backend.User;
-import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.main.MainClientActivity;
-import pt.ua.travis.ui.main.MainTaxiActivity;
-import pt.ua.travis.utils.Pair;
-import pt.ua.travis.utils.Validate;
+import pt.ua.travis.core.SplashScreenActivity;
+import pt.ua.travis.utils.CommonKeys;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A login screen that offers login via email/password and via Google+ sign in.
- * <p/>
- * ************ IMPORTANT SETUP NOTES: ************
- * In order for Google+ sign in to work withUser your app, you must first go to:
- * https://developers.google.com/+/mobile/android/getting-started#step_1_enable_the_google_api
- * and follow the steps in "Step 1" to create an OAuth 2.0 client for your package.
+ *
+ * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
+ * @version 1.0
  */
-public class LoginActivity extends PlusBaseActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class LoginActivity extends SherlockActivity {
 
-    public static final String NO_AUTO_LOGIN = "no_auto_login";
-
-    public static final String AUTO_CHECKED = "remember_pass_checked";
-    public static final String AUTO_EMAIL = "remember_user";
-    public static final String AUTO_PASS = "remember_pass";
-
-//    /**
-//     * A dummy authentication store containing known user names and passwords.
-//     * TODO: remove after connecting to a real authentication system.
-//     */
-//    private static final String[] DUMMY_CREDENTIALS = new String[]{
-//            "foo@example.com:hello", "bar@example.com:world"
-//    };
-
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     /**
      * Shared Preferences used to remember login credentials and automatically login.
      */
     private SharedPreferences prefs;
 
-    /**
-     * Keeping track of the login task to ensure we can cancel it if requested.
-     */
-    private UserLoginTask mAuthTask = null;
-
-    // UI references.
-    private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
-    private View mProgressView;
-    private View mEmailLoginFormView;
-    private SignInButton mPlusSignInButton;
-    private View mSignOutButtons;
-    private View mLoginFormView;
+    private BootstrapAutoCompleteEditText fieldEmail;
+    private EditText fieldPassword;
+    private ActionProcessButton normalLoginButton;
+    private Button facebookLoginButton;
+    private CheckBox autoLoginCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-
-        if (!Validate.hasGooglePlayServices(this)) {
-            finish();
-        }
 
         // Sets the shared preferences to store this devices auto login credentials
         prefs = this.getSharedPreferences("TravisPreferences", MODE_PRIVATE);
 
-        // Find the Google+ sign in button.
-        mPlusSignInButton = (SignInButton) findViewById(R.id.plus_sign_in_button);
+        fieldEmail = (BootstrapAutoCompleteEditText) findViewById(R.id.field_email);
 
-        // Set a listener to connect the user when the G+ button is clicked.
-        mPlusSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-            }
-        });
+        fieldPassword = (EditText) findViewById(R.id.field_password);
+        fieldPassword.setTypeface(Typeface.DEFAULT);
+        fieldPassword.setTransformationMethod(new PasswordTransformationMethod());
 
-        // Set up the email form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        normalLoginButton = (ActionProcessButton) findViewById(R.id.normal_login_button);
+        normalLoginButton.setMode(ActionProcessButton.Mode.ENDLESS);
+        normalLoginButton.setColorScheme(
+                R.color.travis_color,
+                R.color.travis_color_lighter,
+                R.color.travis_color_darker,
+                R.color.travis_color_lighter);
 
-        // Set up the password form.
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
+        autoLoginCheck = (CheckBox) findViewById(R.id.auto_login_check);
+        autoLoginCheck.setChecked(false);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
-        mEmailLoginFormView = findViewById(R.id.email_login_form);
-        mSignOutButtons = findViewById(R.id.plus_sign_out_buttons);
-
-//        // TODO: AUTO LOGIN
+        facebookLoginButton = (Button) findViewById(R.id.facebook_login_button);
+//        facebookLoginButton.setOnErrorListener(new LoginButton.OnErrorListener() {
 //
-//        // If the auto login skipper flag is not present or if it isn't equal to
-//        // the default value, attempt auto login.
-//        if(!Validate.argExists(getIntent(), NO_AUTO_LOGIN)) {
-//            String email = prefs.getString(AUTO_EMAIL, "");
-//            String passwordDigest = prefs.getString(AUTO_PASS, "");
-//
-//            if(!Strings.isNullOrEmpty(email) && !Strings.isNullOrEmpty(passwordDigest)){
-//                // Credentials stored in the shared preferences are not null nor
-//                // empty, which means that they were previously set by the user.
-//                mAuthTask = new UserLoginTask(email, passwordDigest);
-//                mAuthTask.later((Void) null);
-//                return;
-//            }
-//        }
-
-        populateAutoComplete();
-
-//        PersistenceManager.query().clients().later(new Callback<List<Client>>() {
 //            @Override
-//            public void onResult(final List<Client> selectedClients) {
-//                Log.e("----", selectedClients.toString());
+//            public void onError(FacebookException error) {
+//                Log.e("Facebook Login", "Error ", error);
 //            }
 //        });
-//        PersistenceManager.query().taxis().later(new Callback<List<Taxi>>() {
-//            @Override
-//            public void onResult(final List<Taxi> selectedTaxis) {
-//                Log.e("----", selectedTaxis.toString());
-//            }
-//        });
-//        PersistenceManager.query().clients().withEmail("a@b.c").later(new Callback<List<Client>>() {
-//            @Override
-//            public void onResult(final List<Client> selectedClients) {
-//                Log.e("----", selectedClients.get(0).numberOfFavorites() + "");
-//            }
-//        });
-//
-//        PersistenceManager.query().rides().later(new Callback<List<Ride>>() {
-//            @Override
-//            public void onResult(List<Ride> queryResults) {
-//                Log.e("", queryResults.toString());
-//            }
-//        });
-
-    }
-
-    private void populateAutoComplete() {
-        getSupportLoaderManager().initLoader(0, null, this);
+//        facebookLoginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_photos"));
+        facebookLoginButton.setBackgroundResource(com.facebook.android.R.drawable.com_facebook_button_blue);
+        facebookLoginButton.setCompoundDrawablesWithIntrinsicBounds(com.facebook.android.R.drawable.com_facebook_inverse_icon, 0, 0, 0);
+        facebookLoginButton.setCompoundDrawablePadding(
+                getResources().getDimensionPixelSize(com.facebook.android.R.dimen.com_facebook_loginview_compound_drawable_padding));
+        facebookLoginButton.setPadding(getResources().getDimensionPixelSize(com.facebook.android.R.dimen.com_facebook_loginview_padding_left),
+                getResources().getDimensionPixelSize(com.facebook.android.R.dimen.com_facebook_loginview_padding_top),
+                getResources().getDimensionPixelSize(com.facebook.android.R.dimen.com_facebook_loginview_padding_right),
+                getResources().getDimensionPixelSize(com.facebook.android.R.dimen.com_facebook_loginview_padding_bottom));
     }
 
     /**
@@ -189,303 +107,168 @@ public class LoginActivity extends PlusBaseActivity implements LoaderManager.Loa
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    public void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
+    public void attemptNormalLogin(View v) {
+
+        // Set button to loading
+        normalLoginButton.setProgress(50);
 
         // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
+        fieldEmail.setError(null);
+        fieldPassword.setError(null);
+
+        // Make fields unalterable.
+        setAllViewsEnabled(false);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = fieldEmail.getText().toString();
+        final String password = fieldPassword.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
+        // Check for a valid password
+        if (TextUtils.isEmpty(password)) {
+            normalLoginButton.setProgress(-1);
+            fieldPassword.setError(getString(R.string.error_field_required));
+            focusView = fieldPassword;
+            cancel = true;
+        } else if (!isPasswordValid(password)) {
+            normalLoginButton.setProgress(-1);
+            fieldPassword.setError(getString(R.string.error_invalid_password));
+            focusView = fieldPassword;
             cancel = true;
         }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+            normalLoginButton.setProgress(-1);
+            fieldEmail.setError(getString(R.string.error_field_required));
+            focusView = fieldEmail;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+            normalLoginButton.setProgress(-1);
+            fieldEmail.setError(getString(R.string.error_invalid_email));
+            focusView = fieldEmail;
             cancel = true;
         }
 
         if (cancel) {
+            setAllViewsEnabled(true);
             // There was an error; don't attempt login and focus the first
             // form field withUser an error.
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+
+            new LoginTask(this, email, password).execute(new LoginTask.OnTaskEndedListener() {
+                @Override
+                public void onLoginSuccess() {
+                    normalLoginButton.setProgress(100);
+                    normalLoginButton.setTextColor(getResources().getColor(android.R.color.black));
+                    if (autoLoginCheck.isChecked()) {
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean(SplashScreenActivity.DO_AUTO_LOGIN, true);
+                        editor.putString(SplashScreenActivity.AUTO_EMAIL, email);
+                        editor.putString(SplashScreenActivity.AUTO_PASS, password);
+                        editor.commit();
+                    }
+                }
+
+                @Override
+                public void onWrongCredentials() {
+                    normalLoginButton.setProgress(-1);
+                    fieldPassword.setError(getString(R.string.error_incorrect_password));
+                    fieldPassword.requestFocus();
+                    setAllViewsEnabled(true);
+                }
+            });
+
+
         }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this withUser your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this withUser your own logic
-        return password.length() >= 3;
     }
 
     /**
-     * Shows the progress UI and hides the login form.
+     * Attempts to sign in or register the account with facebook authentication
+     * mechanisms.
      */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    public void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-            mLoginFormView
-                    .animate()
-                    .setDuration(shortAnimTime)
-                    .alpha(show ? 0 : 1)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-                        }
-                    });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView
-                    .animate()
-                    .setDuration(shortAnimTime)
-                    .alpha(show ? 1 : 0)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                        }
-                    });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
-    }
-
-    @Override
-    protected void onPlusClientSignIn() {
-        //Set up sign out and disconnect buttons.
-        Button signOutButton = (Button) findViewById(R.id.plus_sign_out_button);
-        signOutButton.setOnClickListener(new OnClickListener() {
+    public void attemptFacebookLogin(View v){
+        List<String> permissions = Arrays.asList("public_profile", "email");
+        Log.e(TAG, "Logging in with Facebook.");
+        ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
             @Override
-            public void onClick(View view) {
-                signOut();
-            }
-        });
-        Button disconnectButton = (Button) findViewById(R.id.plus_disconnect_button);
-        disconnectButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                revokeAccess();
-            }
-        });
-    }
-
-    @Override
-    protected void onPlusClientBlockingUI(boolean show) {
-        showProgress(show);
-    }
-
-    @Override
-    protected void updateConnectButtonState() {
-        //TODO: Update this logic to also handle the user logged in by email.
-        boolean connected = getPlusClient().isConnected();
-
-        mSignOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
-        mPlusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
-        mEmailLoginFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
-    }
-
-    @Override
-    protected void onPlusClientRevokeAccess() {
-        // TODO: Access to the user's G+ account has been revoked.  Per the developer terms, delete
-        // any stored user data here.
-    }
-
-    @Override
-    protected void onPlusClientSignOut() {
-
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return new CursorLoader(this,
-                // Retrieve data rows for the device user's 'profile' contact.
-                Uri.withAppendedPath(Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "profile"),
-                        ContactsContract.Contacts.Data.CONTENT_DIRECTORY), ProfileQuery.PROJECTION,
-
-                // Select only email addresses.
-                ContactsContract.Contacts.Data.MIMETYPE +
-                        " = ?", new String[]{ContactsContract.CommonDataKinds.Email
-                .CONTENT_ITEM_TYPE},
-
-                // Show primary email addresses first. Note that there won't be
-                // a primary email address if the user hasn't specified one.
-                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> emails = new ArrayList<String>();
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            emails.add(cursor.getString(ProfileQuery.ADDRESS));
-            cursor.moveToNext();
-        }
-
-        addEmailsToAutoComplete(emails);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoader) {
-
-    }
-
-    private interface ProfileQuery {
-        String[] PROJECTION = {
-                ContactsContract.CommonDataKinds.Email.ADDRESS,
-                ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
-        };
-
-        int ADDRESS = 0;
-        int IS_PRIMARY = 1;
-    }
-
-
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
-        mEmailView.setAdapter(adapter);
-    }
-
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Pair<Integer, User> doInBackground(Void... params) {
-//            // TODO: attempt authentication against a network service.
-//
-//            try {
-//                // Simulate network access.
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                return false;
-//            }
-//
-//            for (String credential : DUMMY_CREDENTIALS) {
-//                String[] pieces = credential.split(":");
-//                if (pieces[0].equals(mEmail)) {
-//                    // Account exists, return true if the password matches.
-//                    return pieces[1].equals(mPassword);
-//                }
-//            }
-//
-//            // TODO: register the new account here.
-//            return true;
-
-//            // Converting password to SHA1 digest
-//            final String passDigest = Utils.generateSHA1DigestFromString(mPassword);
-
-            // Doing Asynchronous tests and, in case of success, saving the User object
-            // statically in the Backend Manager
-            return PersistenceManager.attemptLogin(mEmail, mPassword);
-        }
-
-        @Override
-        protected void onPostExecute(final Pair<Integer, User> result) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if(result == null){
-                // Unspecified error occurred
-                return;
-
-            } else if(result.first == PersistenceManager.NO_USER_WITH_THAT_EMAIL){
-                // Email does not exist, so register account
-                Intent intent = new Intent(LoginActivity.this, SignUpLastStepsActivity.class);
-                startActivity(intent);
-                finish();
-
-            } else if(result.first == PersistenceManager.WRONG_CREDENTIALS){
-                // Email exists but the password does not correspond.
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-
-            } else if(result.first == PersistenceManager.SUCCESSFUL_LOGIN){
-                // Email and password match a user
-                User loggedInUser = result.second;
-
-                Intent activityIntent;
-                if(loggedInUser instanceof Client){
-                    activityIntent = new Intent(LoginActivity.this, MainClientActivity.class);
-
-                } else if(loggedInUser instanceof Taxi){
-                    activityIntent = new Intent(LoginActivity.this, MainTaxiActivity.class);
-                    final Taxi t = ((Taxi)loggedInUser);
-                    TravisApplication app = (TravisApplication) getApplication();
-                    app.addLocationListener(new TravisApplication.CurrentLocationListener() {
+            public void done(final ParseUser parseUser, ParseException err) {
+                if (parseUser == null) {
+                    Log.d(TAG, "The user cancelled the Facebook login.");
+                } else if (parseUser.isNew()) {
+                    Log.d(TAG, "User logged in through Facebook and its a new account!");
+                    Session session = Session.getActiveSession();
+                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
                         @Override
-                        public void onCurrentLocationChanged(LatLng latLng) {
-                            t.setCurrentLocation(latLng.latitude, latLng.longitude);
-                            PersistenceManager.save(t, null);
+                        public void onCompleted(GraphUser user, Response response) {
+                            if (user != null) {
+                                try {
+
+                                    URL imageValue = new URL("http://graph.facebook.com/" + user.getId() + "/picture");
+                                    Bitmap profilePhoto = BitmapFactory.decodeStream(imageValue.openConnection().getInputStream());
+                                    ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+                                    profilePhoto.compress(Bitmap.CompressFormat.PNG, 0, outStream);
+
+                                    String firstName = user.getFirstName();
+                                    String lastName = user.getLastName();
+                                    String email = user.getProperty("email").toString();
+                                    byte[] imageData = outStream.toByteArray();
+
+                                    Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                                    intent.putExtra(CommonKeys.LOGGED_IN_FROM_SOCIAL, true);
+                                    intent.putExtra(CommonKeys.FIRST_NAME, firstName);
+                                    intent.putExtra(CommonKeys.LAST_NAME, lastName);
+                                    intent.putExtra(CommonKeys.EMAIL, email);
+                                    intent.putExtra(CommonKeys.IMAGE_BYTES, imageData);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish();
+
+
+                                } catch (IOException ex) {
+                                    Log.e(TAG, "Error getting user data from facebook.", ex);
+                                }
+
+                            }
                         }
+
                     });
 
                 } else {
-                    return;
+                    Log.d(TAG, "User logged in through Facebook and its an existing account!");
                 }
-
-                startActivity(activityIntent);
-                finish();
             }
-        }
+        });
+    }
 
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
+    @Override
+    protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
+        ParseFacebookUtils.finishAuthentication(requestCode, responseCode, intent);
+        super.onActivityResult(requestCode, responseCode, intent);
+    }
+
+    private boolean isEmailValid(String email) {
+        Pattern p = Pattern.compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+        Matcher m = p.matcher(email);
+        return m.matches();
+    }
+
+    private boolean isPasswordValid(String password) {
+        return password.length() >= 3;
+    }
+
+    private void setAllViewsEnabled(boolean enabled){
+        fieldEmail.setEnabled(enabled);
+        fieldPassword.setEnabled(enabled);
+        normalLoginButton.setEnabled(enabled);
+        facebookLoginButton.setEnabled(enabled);
+        autoLoginCheck.setEnabled(enabled);
     }
 }
 

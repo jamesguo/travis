@@ -6,7 +6,6 @@
               android:endColor="@color/travis_color_darker"
               android:type="linear"
         android:angle="270"/>
-    <stroke android:width="2sp" android:color="@color/travis_color_darker"/>
 
 
 </shape>

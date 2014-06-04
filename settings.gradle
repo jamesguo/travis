@@ -1,3 +1,6 @@
 include ':app'
 include ':dependencies:AndroidBootstrap'
 include ':dependencies:ProgressWheel-master'
+include ':dependencies:DropboxChooserSDK'
+include ':dependencies:facebook-android-sdk'
+include ':dependencies:android-edittext-validator-master'

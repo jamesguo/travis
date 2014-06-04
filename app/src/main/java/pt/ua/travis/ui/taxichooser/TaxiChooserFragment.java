@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import com.androidmapsextensions.GoogleMap;
 import com.androidmapsextensions.Marker;
 import com.androidmapsextensions.MarkerOptions;
@@ -23,7 +22,6 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Client;
@@ -41,7 +39,7 @@ import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -70,7 +68,7 @@ public class TaxiChooserFragment extends TravisFragment
 
     private PullToRefreshLayout pullToRefreshLayout;
 
-    private RideRequestViewPager rideOptionspager;
+    private RideRequestViewPager rideOptionsPager;
 
     private SlidingPaneLayout slidingPaneLayout;
 
@@ -79,23 +77,6 @@ public class TaxiChooserFragment extends TravisFragment
     public TaxiChooserFragment() {
         itemToMarkerMappings = Utils.newMap();
     }
-
-
-//    @Override
-//    public final View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        if (lastUsedView != null) {
-//            ViewGroup parent = (ViewGroup) lastUsedView.getParent();
-//            if (parent != null)
-//                parent.removeView(lastUsedView);
-//        } else {
-//            try {
-//                lastUsedView = inflater.inflate(R.layout.fragment_taxi_chooser, null);
-//            } catch (InflateException e) {
-//                // map is already there, just return view as it is
-//            }
-//        }
-//        return lastUsedView;
-//    }
 
 
     /**
@@ -117,14 +98,7 @@ public class TaxiChooserFragment extends TravisFragment
         super.onActivityCreated(savedInstanceState);
         setContentView(R.layout.fragment_taxi_chooser);
 
-        // TODO: SHOW LOADING BAR
-
-        parentActivity.getNearTaxiList(false, new Callback<List<Taxi>>() {
-            @Override
-            public void onResult(List<Taxi> result) {
-                initializeFragmentViews();
-            }
-        });
+        initializeFragmentViews();
     }
 
     private void initializeFragmentViews() {
@@ -199,7 +173,7 @@ public class TaxiChooserFragment extends TravisFragment
 
 
         taxiPager = (TransitionViewPager) getActivity().findViewById(R.id.taxi_pager);
-        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager());
+        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), new ArrayList<Taxi>());
         taxiPager.setAdapter(taxiPagerAdapter);
         taxiPager.setOffscreenPageLimit(5);
         taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
@@ -224,12 +198,11 @@ public class TaxiChooserFragment extends TravisFragment
 
         pullToRefreshLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.pull_to_refresh_layout);
         ActionBarPullToRefresh.from(getSherlockActivity())
-                .options(Options
-                        .create()
+                .options(Options.create()
+                        .refreshOnUp(true)
                         .scrollDistance(3.5f)
                         .build())
                 .allChildrenArePullable()
-                .useViewDelegate(TransitionViewPager.class, new TransitionViewPagerDelegate())
                 .listener(this)
                 .setup(pullToRefreshLayout);
 
@@ -245,17 +218,17 @@ public class TaxiChooserFragment extends TravisFragment
 
 
 
-        rideOptionspager = (RideRequestViewPager) parentActivity.findViewById(R.id.sliding_pane_pager);
-        rideOptionspager.setPageTransformer(false, new SlidingPaneTransformer(rideOptionspager));
-        rideOptionspager.setAdapter(new RideRequestPagerAdapter(parentActivity.getSupportFragmentManager()));
-        rideOptionspager.setOffscreenPageLimit(1);
+        rideOptionsPager = (RideRequestViewPager) parentActivity.findViewById(R.id.sliding_pane_pager);
+        rideOptionsPager.setPageTransformer(false, new SlidingPaneTransformer(rideOptionsPager));
+        rideOptionsPager.setAdapter(new RideRequestPagerAdapter(parentActivity.getSupportFragmentManager()));
+        rideOptionsPager.setOffscreenPageLimit(1);
         slidingPaneLayout = (SlidingPaneLayout) parentActivity.findViewById(R.id.sliding_pane_layout);
         slidingPaneLayout.setStickTo(SlidingPaneLayout.STICK_TO_BOTTOM);
 
 
 
         Spinner spinner = (Spinner) parentActivity.findViewById(R.id.taxi_sort_spinner);
-        spinner.setAdapter(new SortSpinnerAdapter(parentActivity));
+        spinner.setAdapter(new TaxiFilterSpinnerAdapter(parentActivity));
         spinner.setOnItemSelectedListener(this);
 
         setRetainInstance(true);
@@ -274,7 +247,7 @@ public class TaxiChooserFragment extends TravisFragment
 //            @Override
 //            protected void onPostExecute(List<Taxi> result) {
 //                super.onPostExecute(result);
-//                taxiPagerAdapter.update(convertTaxisToItems(result));
+//                taxiPagerAdapter.update(updateMarkers(result));
 //                select(0);
 //                setContentShown(true);
 //            }
@@ -284,7 +257,7 @@ public class TaxiChooserFragment extends TravisFragment
         parentActivity.getCurrentlyShownTaxiList(false, new Callback<List<Taxi>>() {
             @Override
             public void onResult(List<Taxi> result) {
-                updateTaxiViews(result);
+                updateTaxis(result);
                 select(0);
                 setContentShown(true);
             }
@@ -297,49 +270,42 @@ public class TaxiChooserFragment extends TravisFragment
      */
     @Override
     public void onRefreshStarted(View view) {
-        new AsyncTask<Void, Void, Void>() {
-
-            private List<Taxi> queryResult;
-
-
+        parentActivity.getCurrentlyShownTaxiList(true, new Callback<List<Taxi>>() {
             @Override
-            protected Void doInBackground(Void... params) {
-                final AtomicReference<Boolean> lock = new AtomicReference<Boolean>(true);
-
-                parentActivity.getCurrentlyShownTaxiList(true, new Callback<List<Taxi>>() {
-                    @Override
-                    public void onResult(List<Taxi> result) {
-                        queryResult = result;
-                        lock.set(false);
-                    }
-                });
-
-                while (lock.get()){
-                    // LOCK "DO IN BACKGROUND" UNTIL QUERY IS DONE
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-
-                updateTaxiViews(queryResult);
-                select(0);
+            public void onResult(List<Taxi> result) {
+                updateTaxis(result);
                 pullToRefreshLayout.setRefreshComplete();
             }
-
-        }.execute();
+        });
     }
 
-    public final void updateTaxiViews(List<Taxi> taxi) {
-        taxiPagerAdapter.itemList = convertTaxisToItems(taxi);
-        taxiPagerAdapter.notifyDataSetChanged();
-        taxiPager.destroyDrawingCache();
+    public final void updateTaxis(List<Taxi> newTaxis) {
+        itemToMarkerMappings.clear();
+        taxiPagerAdapter.update(newTaxis);
+        updateMarkers(newTaxis);
     }
 
-    public final void updateTaxiLocations(List<Taxi> taxis) {
+
+    /**
+     * Adds markers for each taxi on the specified list and to link
+     * each marker with an item fragment, that is displayed on the ViewPager (if the
+     * orientation is portrait) or the ListView (if the orientation is landscape).
+     *
+     * @param taxis the specified taxi list whose markers will be added to the map
+     */
+    protected final void updateMarkers(List<Taxi> taxis){
+        map.clear();
+
+        for (Taxi t : taxis) {
+            Marker m = map.addMarker(getMarkerOptions(t));
+            TaxiItem item = taxiPagerAdapter.idsToItems.get(t.id());
+            itemToMarkerMappings.put(t.id(), Utils.newPair(m, item));
+        }
+
+    }
+
+
+    public final void updateTaxiLocationsOnly(List<Taxi> taxis) {
         int selectedIndex = taxiPagerAdapter.currentlySelectedIndex;
         for (Taxi t : taxis) {
             String id = t.id();
@@ -349,54 +315,33 @@ public class TaxiChooserFragment extends TravisFragment
             oldM.setVisible(false);
             oldM.remove();
 
-            Marker newM = map.addMarker(new MarkerOptions()
-                    .data(id)
-                    .position(t.currentPosition())
-                    .title(t.name())
-                    .snippet("Tap to select this Taxi")
-                    .visible(true)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)));
+            Marker newM = map.addMarker(getMarkerOptions(t));
 
             itemToMarkerMappings.put(id, Utils.newPair(newM, pair.second));
 
 
-            int thisItemIndex = taxiPagerAdapter.getPositionOfItem(pair.second);
+            int thisItemIndex = taxiPagerAdapter.getItemPosition(pair.second);
             if (thisItemIndex == selectedIndex) {
                 moveMapToMarker(newM);
             }
         }
     }
 
+    private MarkerOptions getMarkerOptions(Taxi t) {
+        MarkerOptions options = new MarkerOptions()
+                .data(t.id())
+                .position(t.currentPosition())
+                .title(t.name())
+                .snippet("Tap to select this Taxi")
+                .visible(true);
 
-    /**
-     * Utility method to add markers for each taxi on the specified list and to link
-     * each marker withUser an item fragment, that is displayed on the ViewPager (if the
-     * orientation is portrait) or the ListView (if the orientation is landscape).
-     *
-     * @param taxis the specified taxi list whose markers will be added to the map
-     * @return the list of item fragments resultant from this conversion and
-     *         marker generation
-     */
-    protected final List<TaxiItem> convertTaxisToItems(List<Taxi> taxis){
-        List<TaxiItem> taxiItemList = Lists.newArrayList();
-        Client c = PersistenceManager.getCurrentlyLoggedInUser();
-
-        for (Taxi t : taxis) {
-
-            Marker m = map.addMarker(new MarkerOptions()
-                    .data(t.id())
-                    .position(t.currentPosition())
-                    .title(t.name())
-                    .snippet("Tap to select this Taxi")
-                    .visible(true)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker)));
-
-            TaxiItem item = TaxiItem.newInstance(c, t);
-            taxiItemList.add(item);
-            itemToMarkerMappings.put(t.id(), Utils.newPair(m, item));
+        if(t.isAvailable()) {
+            options.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_available));
+        } else {
+            options.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_unavailable));
         }
 
-        return taxiItemList;
+        return options;
     }
 
     /**
@@ -434,7 +379,7 @@ public class TaxiChooserFragment extends TravisFragment
         }
 
         Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedMarkerID);
-        int position = taxiPagerAdapter.getPositionOfItem(matchedPair.second);
+        int position = taxiPagerAdapter.getItemPosition(matchedPair.second);
         finishSelect(position, marker);
     }
 
@@ -484,7 +429,7 @@ public class TaxiChooserFragment extends TravisFragment
      */
     public void showOptionsPane(Taxi selectedTaxi){
         parentActivity.getRideBuilder().setTaxi(selectedTaxi);
-        rideOptionspager.setCurrentItem(0, true);
+        rideOptionsPager.setCurrentItem(0, true);
 
         BootstrapButton hereAndNowButton = (BootstrapButton) parentActivity.findViewById(R.id.btHereAndNow);
         hereAndNowButton.setEnabled(selectedTaxi.isAvailable());
@@ -496,14 +441,8 @@ public class TaxiChooserFragment extends TravisFragment
         TextView addressTextView = (TextView) parentActivity.findViewById(R.id.origin_address);
         addressTextView.setText(Utils.addressToString(currentAddress));
 
-        TimePicker timePicker = (TimePicker) parentActivity.findViewById(R.id.timePicker);
-        timePicker.setIs24HourView(true);
-
-        Calendar now = Calendar.getInstance();
-        int hour = now.get(Calendar.HOUR_OF_DAY);
-        int minute = now.get(Calendar.MINUTE);
-        timePicker.setCurrentHour(hour);
-        timePicker.setCurrentMinute(minute);
+        TextView timeTextView = (TextView) parentActivity.findViewById(R.id.time_picker_text);
+        parentActivity.setTimeTextToNow(timeTextView);
 
         slidingPaneLayout.openLayer(true);
     }
@@ -513,7 +452,7 @@ public class TaxiChooserFragment extends TravisFragment
      */
     public void optionsPaneGoToPage(int page){
         if(page==0 || page==1){
-            rideOptionspager.setCurrentItem(page, true);
+            rideOptionsPager.setCurrentItem(page, true);
         }
     }
 
@@ -533,7 +472,7 @@ public class TaxiChooserFragment extends TravisFragment
         Callback<List<Taxi>> callback = new Callback<List<Taxi>>() {
             @Override
             public void onResult(List<Taxi> result) {
-                updateTaxiViews(result);
+                updateTaxis(result);
                 select(0);
                 setContentShown(true);
             }
@@ -571,46 +510,90 @@ public class TaxiChooserFragment extends TravisFragment
 
     private class TaxiItemAdapter extends FragmentStatePagerAdapter {
 
-        private List<TaxiItem> itemList;
+        private Map<String, TaxiItem> idsToItems = Utils.newMap();
+        private List<Taxi> taxiList;
         private int currentlySelectedIndex;
 
-        private TaxiItemAdapter(FragmentManager manager){
+        private Client thisClient;
+
+        private TaxiItemAdapter(FragmentManager manager, List<Taxi> taxiList){
             super(manager);
-            this.itemList = Lists.newArrayList();
+            this.taxiList = taxiList;
             this.currentlySelectedIndex = 0;
+
+            thisClient = PersistenceManager.getCurrentlyLoggedInUser();
+        }
+
+        public void update(List<Taxi> newTaxiList){
+            taxiList.clear();
+            idsToItems.clear();
+            taxiList.addAll(newTaxiList);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public TaxiItem getItem(int position) {
+            String id = getItemId(position);
+
+            if(idsToItems.containsKey(id)) {
+                // caching to prevent multiple instances of the same fragment
+                // for the same position/id
+                return idsToItems.get(id);
+            }
+
+            TaxiItem f = TaxiItem.newInstance(thisClient, taxiList.get(position));
+            idsToItems.put(id, f);
+            return f;
+        }
+
+        public String getItemId(int position) {
+            // return a unique id
+            return taxiList.get(position).id();
         }
 
         @Override
         public int getItemPosition(Object object) {
-//            if(object instanceof TaxiItem) {
-//                TaxiItem item = (TaxiItem) object;
-//                Client c = PersistenceManager.query().clients().loggedInThisDevice();
-//                TaxiItem.paintViewWithTaxi(parentActivity, item.getView(), c, item.getTaxiObject());
-////                return getPositionOfItem(item);
-//            }
-            return POSITION_NONE;
-        }
+        /*
+         * Purpose of this method is to check whether an item in the adapter
+         * still exists in the itemList and where it should show.
+         * For each entry in itemList, request its Fragment.
+         *
+         * If the Fragment is found, return its (new) position. There's
+         * no need to return POSITION_UNCHANGED; ViewPager handles it.
+         *
+         * If the Fragment passed to this method is not found, remove all
+         * references and let the ViewPager remove it from display by
+         * by returning POSITION_NONE;
+         */
+            TaxiItem f = (TaxiItem) object;
 
-        public int getPositionOfItem(TaxiItem item) {
-            int i = 0;
-            for (TaxiItem it : itemList) {
-                if (it.getTaxiObject().id().equals(item.getTaxiObject().id())) {
+            for(int i = 0; i < getCount(); i++) {
+
+                TaxiItem item = getItem(i);
+                if(item.equals(f)) {
+                    // item still exists in itemList; return position
                     return i;
                 }
-                i++;
             }
-            return -1;
-        }
 
-        public TaxiItem getItem(int position) {
-            TaxiItem item = itemList.get(position);
-            taxiPager.setObjectForPosition(item, position);
-            return item;
+            // if we arrive here, the data-item for which the Fragment was created
+            // does not exist anymore.
+
+            // Also, cleanup: remove reference to Fragment from mItems
+            for(Map.Entry<String, TaxiItem> entry : idsToItems.entrySet()) {
+                if(entry.getValue().equals(f)) {
+                    idsToItems.remove(entry.getKey());
+                    break;
+                }
+            }
+
+            // Let ViewPager remove the Fragment by returning POSITION_NONE.
+            return POSITION_NONE;
         }
 
         @Override
         public int getCount() {
-            return itemList.size();
+            return taxiList.size();
         }
 
         public void setCurrentPosition(int position) {

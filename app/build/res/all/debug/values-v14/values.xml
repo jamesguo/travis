@@ -6,7 +6,7 @@
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:background">@color/travis_color</item>
-        <!-- <item name="android:background">@drawable//ab_background_textured_travis</item> -->
+        <!-- <item name="android:background">@drawable/ab_background_textured_travis</item> -->
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_travis</item>
         <item name="android:backgroundSplit">@drawable/ab_background_textured_travis</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>
@@ -17,7 +17,7 @@
         <item name="android:background">@drawable/ab_transparent_travis</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>
     </style>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values-v14/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-v14/values.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -25,6 +25,32 @@
     </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values-v14/styles.xml -->
     <eat-comment />
+
+    <style name="DialogStyleLight.Custom">
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@android:color/white</item>
+    </style>
+
+    <style name="DialogStyleLight.FullScreen">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@android:color/white</item>
+    </style>
 
     <style name="RatingBarSmall_travis" parent="android:Widget.Holo.Light.RatingBar.Small">
         <item name="android:progressDrawable">@drawable/travis_ratingbar_small_holo_light</item>
@@ -117,6 +143,8 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
+        <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
+        <!-- <item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item> -->
     </style>
 
     <style name="Theme.Travis.Widget" parent="@style/Theme.Sherlock">

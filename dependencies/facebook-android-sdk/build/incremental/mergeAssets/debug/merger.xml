@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\projects-android\icm_travis\dependencies\facebook-android-sdk\src\main\assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\projects-android\icm_travis\dependencies\facebook-android-sdk\src\debug\assets" />
+    </dataSet>
+
+</merger>

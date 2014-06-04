@@ -38,6 +38,18 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Atualize o Google Play Services"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Login"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Fazer login com o Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values-pt-rBR/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">Instalar Dropbox</string>
+    <string name="dbx_install_button_cancel">Cancelar</string>
+    <string name="dbx_install_button_ok">Instalar</string>
+    <string name="dbx_install_main">Instale o aplicativo do Dropbox</string>
+    <string name="dbx_install_sub">Com o Dropbox instalado você pode acessar todos os seus arquivos em seus aplicativos favoritos, como este!</string>
+    <string name="dbx_update">Atualizar Dropbox</string>
+    <string name="dbx_update_button_ok">Atualizar</string>
+    <string name="dbx_update_main">Atualize o aplicativo do Dropbox</string>
+    <string name="dbx_update_sub">Com o novo aplicativo do Dropbox, é possível acessar todos os seus arquivos em seus aplicativos favoritos, como este aqui!</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-pt-rBR/values.xml -->
     <eat-comment />
 

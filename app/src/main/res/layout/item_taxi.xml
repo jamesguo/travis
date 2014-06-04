@@ -7,14 +7,7 @@
     android:layout_height="@dimen/taxi_item_height"
     android:background="@color/white_transp">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/available_status"-->
-        <!--android:layout_width="10dp"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:visibility="visible"/>-->
-
-    <pt.ua.travis.ui.customviews.CircularImageView
+    <pt.ua.travis.ui.customviews.SquareCircularImageView
         android:id="@+id/taxi_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,8 +79,5 @@
             android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
-
-
-
 
 </RelativeLayout>

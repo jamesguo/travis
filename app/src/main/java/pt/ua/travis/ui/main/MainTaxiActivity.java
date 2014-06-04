@@ -52,7 +52,7 @@ public class MainTaxiActivity extends MainActivity {
      *                    items or indicators in the drawer navigation menu
      */
     @Override
-    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerViews) {
+    protected void fillDrawerNavigation(final List<BlurDrawerObject> drawerViews, CloseDrawerAction closeDrawer) {
 
 //        final Taxi loggedInTaxi = PersistenceManager.query().taxis().loggedInThisDevice();
 //

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+              android:background="@android:color/white">
+
+    <fragment
+        android:id="@+id/travel_map"
+        android:name="pt.ua.travis.ui.customviews.TravisMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <pt.ua.travis.ui.customviews.SlidingPaneLayout
+        android:id="@+id/sliding_pane_travel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/travel_pane_height"
+        android:layout_alignParentBottom="true"
+        slidingLayer:closeOnTapEnabled="false"
+        android:background="@android:color/white">
+        
+        <FrameLayout
+            android:id="@+id/sliding_pane_travel_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </pt.ua.travis.ui.customviews.SlidingPaneLayout>
+
+</RelativeLayout>

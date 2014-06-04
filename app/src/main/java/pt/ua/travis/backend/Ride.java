@@ -231,7 +231,7 @@ public final class Ride extends ParseObjectWrapper {
         Date scheduled = scheduledC.getTime();
 
         if (now.compareTo(scheduled) >= 0) {
-            return "toNow!";
+            return "now!";
         }
 
         int hour = scheduledC.get(Calendar.HOUR_OF_DAY);

@@ -38,11 +38,28 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Google Play hizmetlerini güncelle"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Oturum aç"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Google\'da oturum aç"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-tr/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"Ayın günleri tablosu"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"<ns1:g id="KEY">%1$s</ns1:g> silindi"</string>
+    <string name="done_label" msgid="7007948707597430919">"Bitti"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Saatler için kaydırma çemberi"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"<ns1:g id="ITEM">%1$s</ns1:g> seçildi"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Dakikalar için kaydırma çemberi"</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-tr/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">Yenilemek için kaydırın…</string>
     <string name="pull_to_refresh_refreshing_label">Yükleniyor…</string>
     <string name="pull_to_refresh_release_label">Yenilemek için bırakın…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-tr/values.xml -->
+    <eat-comment />
+
+    <string name="select_day" msgid="3973338219107019769">"Ayı ve günü seçin"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Saat seçin"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Dakika seçin"</string>
+    <string name="select_year" msgid="2603330600102539372">"Yılı seçin"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Yıl listesi"</string>
 
 </resources>

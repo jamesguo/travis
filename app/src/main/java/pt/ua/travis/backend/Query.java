@@ -622,8 +622,13 @@ public class Query {
             return this;
         }
 
-        public QueryRides scheduled() {
-            filters.add(Filter.gt(Ride.SCHEDULED_TIME, Utils.newTime().toNow()));
+        public QueryRides completed() {
+            filters.add(Filter.eq(Ride.COMPLETED_FLAG, Boolean.TRUE));
+            return this;
+        }
+
+        public QueryRides uncompleted() {
+            filters.add(Filter.eq(Ride.COMPLETED_FLAG, Boolean.FALSE));
             return this;
         }
 

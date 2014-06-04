@@ -1,0 +1,129 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:whatever="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+        <!-- Welcome message 4 -->
+        <TextView
+            android:id="@+id/welcome_text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/welcome_messages_text"
+            android:text="@string/welcome_text4"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/center_shim"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"/>
+
+    <RelativeLayout
+        android:id="@+id/signup_user_type_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-120dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/center_shim">
+
+        <View
+            android:id="@+id/signup_user_type_frame_separator"
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"/>
+
+        <pt.ua.travis.ui.customviews.SquareImageView
+            android:id="@+id/type_client_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/signup_user_type_frame_separator"
+            android:padding="35dp"
+            android:src="@drawable/icon_client" />
+
+
+        <pt.ua.travis.ui.customviews.SquareImageView
+            android:id="@+id/type_taxi_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/signup_user_type_frame_separator"
+            android:padding="35dp"
+            android:src="@drawable/icon_taxi" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/account_type_text_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_user_type_frame"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/account_type_text_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_type_text_view_1"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        android:maxLines="2"
+        android:gravity="center"
+        android:textColor="@color/welcome_messages_text" />
+
+    <ImageView
+        android:id="@+id/img_dots_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:src="@drawable/img_dots_3" />
+
+    <ImageView
+        android:id="@+id/third_prev_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:src="@drawable/circle_arrow_previous" />
+
+    <ImageView
+        android:id="@+id/third_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="13dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:src="@drawable/ic_1401857149_right3" />
+
+</RelativeLayout>

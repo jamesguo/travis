@@ -38,7 +38,28 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Aggiorna Google Play Services"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Accedi"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Accedi con Google"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-it/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"Griglia del mese suddivisa per giorni"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">Installa Dropbox</string>
+    <string name="dbx_install_button_cancel">Annulla</string>
+    <string name="dbx_install_button_ok">Installa</string>
+    <string name="dbx_install_main">Installa l\'applicazione Dropbox</string>
+    <string name="dbx_install_sub">Con Dropbox installato, puoi accedere a tutti i tuoi file nelle tue applicazioni preferite, come questa.</string>
+    <string name="dbx_update">Aggiorna Dropbox</string>
+    <string name="dbx_update_button_ok">Aggiorna</string>
+    <string name="dbx_update_main">Aggiorna l\'applicazione Dropbox</string>
+    <string name="dbx_update_sub">Con la nuova applicazioni Dropbox puoi accedere a tutti i tuoi file nelle tue applicazioni preferite come questa!</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="deleted_key" msgid="6908431551612331381">"<ns1:g id="KEY">%1$s</ns1:g> eliminato"</string>
+    <string name="done_label" msgid="7007948707597430919">"Fine"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-edittext-validator-master/unspecified/res/values-it/values.xml -->
     <eat-comment />
 
     <string name="error_creditcard_number_not_valid">La carta di credito non è valida</string>
@@ -54,11 +75,25 @@
     <string name="error_phone_not_valid">L\'indirizzo di telefono non è velido</string>
     <string name="error_this_field_cannot_contain_special_character">Il campo non può contenere caratteri speciali</string>
     <string name="error_url_not_valid">Il sito web non è valido</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="hour_picker_description" msgid="7586639618712934060">"Dispositivo di scorrimento circolare per le ore"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"Elemento selezionato: <ns1:g id="ITEM">%1$s</ns1:g>"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Dispositivo di scorrimento per i minuti"</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-it/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">Tira per aggiornare…</string>
     <string name="pull_to_refresh_refreshing_label">Caricamento…</string>
     <string name="pull_to_refresh_release_label">Rilascia per aggionare…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-it/values.xml -->
+    <eat-comment />
+
+    <string name="select_day" msgid="3973338219107019769">"Seleziona mese e giorno"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Seleziona le ore"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Seleziona i minuti"</string>
+    <string name="select_year" msgid="2603330600102539372">"Seleziona anno"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Elenco degli anni"</string>
 
 </resources>

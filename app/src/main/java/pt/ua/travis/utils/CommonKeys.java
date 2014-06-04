@@ -7,6 +7,13 @@ package pt.ua.travis.utils;
 public final class CommonKeys {
     private CommonKeys(){}
 
+    public static final String LOGGED_IN_FROM_SOCIAL = "logged_in_from_social_network";
+    public static final String FIRST_NAME = "first1";
+    public static final String LAST_NAME = "last1";
+    public static final String EMAIL = "email1";
+    public static final String PASS = "pass1";
+    public static final String IMAGE_BYTES = "imageData1";
+
     public static final String MAP_TYPE = "map_type";
 
     public static final String DESTROY_THIS = "destroy_this";

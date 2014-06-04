@@ -18,11 +18,12 @@
         <!--android:gravity="center"-->
         <!--android:text="@string/touch_to_instant"/>-->
 
-    <Button
+    <ImageButton
         android:id="@+id/instant_button"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="251dp"
+        android:layout_height="251dp"
         android:background="@drawable/circular_button"
+        android:src="@drawable/logo_button"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:textSize="28sp"
@@ -34,16 +35,17 @@
 
     <com.todddavies.components.progressbar.ProgressWheel
         android:id="@+id/pw_spinner"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         ProgressWheel:textColor="#222"
         ProgressWheel:textSize="14sp"
-        ProgressWheel:rimColor="#330097D6"
-        ProgressWheel:barLength="160dp"
-        ProgressWheel:barColor="#0097D6"
-        ProgressWheel:barWidth="5dp"
-        ProgressWheel:rimWidth="2dp"/>
+        ProgressWheel:contourColor="@android:color/white"
+        ProgressWheel:rimColor="#ffeeeeee"
+        ProgressWheel:barLength="20dp"
+        ProgressWheel:barColor="@color/travis_color_darker"
+        ProgressWheel:barWidth="20dp"
+        ProgressWheel:rimWidth="40dp"/>
 
 </RelativeLayout>

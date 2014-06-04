@@ -39,14 +39,12 @@ public class RideItem extends Fragment {
 
     private int showWhat;
     private Ride rideObject;
-    private RideDeletedListener deletedListener;
 
-    public static RideItem newInstance(int showWhat, Ride rideToRepresent, RideDeletedListener deletedListener) {
+    public static RideItem newInstance(int showWhat, Ride rideToRepresent) {
         RideItem t = new RideItem();
 
         t.showWhat = showWhat;
         t.rideObject = rideToRepresent;
-        t.deletedListener = deletedListener;
 
         return t;
     }
@@ -74,70 +72,35 @@ public class RideItem extends Fragment {
         parentActivity = activity;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if(currentView==null) {
-
-            Client clientObject = rideObject.client();
-            Taxi taxiObject = rideObject.taxi();
-
-            if(showWhat == SHOW_TAXI) {
-                currentView = inflater.inflate(R.layout.item_ride_taxi, null);
-
-                TaxiItem.paintViewWithTaxi(parentActivity, currentView, clientObject, taxiObject);
-
-            } else if(showWhat == SHOW_CLIENT){
-                currentView = inflater.inflate(R.layout.item_ride_taxi, null);
-
-                // set the name
-                TextView nameView = (TextView) currentView.findViewById(R.id.taxi_name);
-                nameView.setText(clientObject.name());
-
-                // set the photo
-                String imageUrl = clientObject.imageUri();
-                if (imageUrl != null && !imageUrl.isEmpty()) {
-                    ImageView photoView = (ImageView) currentView.findViewById(R.id.taxi_photo);
-                    Picasso.with(parentActivity).load(imageUrl).fit().into(photoView);
-                }
-            }
-
-            TextView timeToRide = (TextView) currentView.findViewById(R.id.time_to_ride);
-            timeToRide.setText(rideObject.getRemaining());
-
-
-            LatLng pos = rideObject.destinationPosition();
-            List<Address> addressList = Utils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude);
-            if(addressList!=null && !addressList.isEmpty()) {
-                TextView destination = (TextView) currentView.findViewById(R.id.destination_label);
-                Address destinationAddress = addressList.get(0);
-                destination.setText(Utils.addressToString(destinationAddress));
-            }
-
-            final BootstrapButton deleteButton = (BootstrapButton) currentView.findViewById(R.id.delete_button);
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
-                    builder.setTitle("Confirm delete")
-                            .setMessage("Are you sure you wish to delete this ride?")
-                            .setCancelable(false)
-                            .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    rideObject.setAsCompleted();
-                                    deletedListener.onDeletedRide();
-                                }
-                            })
-                            .setPositiveButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            })
-                            .show();
-                }
-            });
+    public String getUserPhoto() {
+        if (showWhat == SHOW_TAXI) {
+            return rideObject.taxi().imageUri();
+        } else if (showWhat == SHOW_CLIENT) {
+            return rideObject.client().imageUri();
+        } else {
+            return "";
         }
-        return currentView;
+    }
+
+    public String getUserName() {
+        if (showWhat == SHOW_TAXI) {
+            return rideObject.taxi().name();
+        } else if (showWhat == SHOW_CLIENT) {
+            return rideObject.client().name();
+        } else {
+            return "";
+        }
+    }
+
+    public boolean showFavoriteIcon() {
+        return showWhat == SHOW_TAXI && rideObject.client().taxiIsAFavorite(rideObject.taxi());
+    }
+
+    public Ride getRideObject() {
+        return rideObject;
+    }
+
+    public int getUserTypeToShow() {
+        return showWhat;
     }
 }

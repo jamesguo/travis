@@ -38,5 +38,34 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"更新 Google Play 服务"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"登录"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"使用 Google 帐户登录"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-zh-rCN/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"按月份划分的日期网格"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values-zh-rCN/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">安装 Dropbox</string>
+    <string name="dbx_install_button_cancel">取消</string>
+    <string name="dbx_install_button_ok">安装</string>
+    <string name="dbx_install_main">请安装 Dropbox 应用</string>
+    <string name="dbx_install_sub">安装了 Dropbox 之后，您就可以在最喜欢的应用（比如此应用）中访问所有文件了！</string>
+    <string name="dbx_update">更新 Dropbox</string>
+    <string name="dbx_update_button_ok">更新</string>
+    <string name="dbx_update_main">请更新 Dropbox 应用</string>
+    <string name="dbx_update_sub">通过新的 Dropbox 应用，您将可以在自己最爱的应用（就像这个！）中访问所有资料。</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-zh-rCN/values.xml -->
+    <eat-comment />
+
+    <string name="deleted_key" msgid="6908431551612331381">"已删除 <ns1:g id="KEY">%1$s</ns1:g>"</string>
+    <string name="done_label" msgid="7007948707597430919">"完成"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"小时转盘"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"已选择 <ns1:g id="ITEM">%1$s</ns1:g>"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"分钟转盘"</string>
+    <string name="select_day" msgid="3973338219107019769">"选择月份和日期"</string>
+    <string name="select_hours" msgid="7651068754188418859">"选择小时"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"选择分钟"</string>
+    <string name="select_year" msgid="2603330600102539372">"选择年份"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"年份列表"</string>
 
 </resources>

@@ -252,21 +252,20 @@ containing a value of this type.
         public static int thumbnail_circle_minimal=0x7f02001c;
     }
     public static final class id {
-        public static int action_settings=0x7f09000e;
-        public static int container=0x7f090005;
-        public static int dimensionsLabel=0x7f090007;
-        public static int image=0x7f090008;
-        public static int layout=0x7f090000;
-        public static int lblColA=0x7f09000c;
-        public static int lblColB=0x7f09000d;
-        public static int lblLeft=0x7f090001;
-        public static int lblMiddle=0x7f090002;
-        public static int lblRight=0x7f090003;
-        public static int lblSubTitle=0x7f09000b;
-        public static int lblText=0x7f090009;
-        public static int lblTitle=0x7f09000a;
-        public static int placeholder=0x7f090006;
-        public static int txtText=0x7f090004;
+        public static int container=0x7f080005;
+        public static int dimensionsLabel=0x7f080007;
+        public static int image=0x7f080008;
+        public static int layout=0x7f080000;
+        public static int lblColA=0x7f08000c;
+        public static int lblColB=0x7f08000d;
+        public static int lblLeft=0x7f080001;
+        public static int lblMiddle=0x7f080002;
+        public static int lblRight=0x7f080003;
+        public static int lblSubTitle=0x7f08000b;
+        public static int lblText=0x7f080009;
+        public static int lblTitle=0x7f08000a;
+        public static int placeholder=0x7f080006;
+        public static int txtText=0x7f080004;
     }
     public static final class layout {
         public static int bootstrap_button=0x7f030000;
@@ -279,12 +278,22 @@ containing a value of this type.
         public static int row_title_and_subtitle=0x7f030007;
         public static int row_two_columns=0x7f030008;
     }
-    public static final class menu {
-        public static int main=0x7f080000;
-    }
     public static final class string {
         public static int action_settings=0x7f060000;
         public static int app_name=0x7f060001;
+        public static int error_creditcard_number_not_valid=0x7f060003;
+        public static int error_date_not_valid=0x7f060004;
+        public static int error_domain_not_valid=0x7f060005;
+        public static int error_email_address_not_valid=0x7f060006;
+        public static int error_field_must_not_be_empty=0x7f060007;
+        public static int error_ip_not_valid=0x7f060008;
+        public static int error_notvalid_personfullname=0x7f060009;
+        public static int error_notvalid_personname=0x7f06000a;
+        public static int error_only_numeric_digits_allowed=0x7f06000b;
+        public static int error_only_standard_letters_are_allowed=0x7f06000c;
+        public static int error_phone_not_valid=0x7f06000d;
+        public static int error_this_field_cannot_contain_special_character=0x7f06000e;
+        public static int error_url_not_valid=0x7f06000f;
         public static int hello_world=0x7f060002;
     }
     public static final class style {

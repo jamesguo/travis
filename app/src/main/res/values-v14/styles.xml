@@ -14,11 +14,50 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
+        <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
+        <!--<item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item>-->
+    </style>
+
+    <!--<style name="Widget.Custom.PtrHeader" parent="android:Widget">-->
+        <!--<item name="ptrHeaderBackground">@color/travis_color</item>-->
+        <!--<item name="ptrHeaderTitleTextAppearance">@style/TextAppearance.Custom.PtrHeader.Title</item>-->
+        <!--<item name="ptrProgressBarColor">@color/travis_color</item>-->
+    <!--</style>-->
+
+    <!--<style name="TextAppearance.Custom.PtrHeader.Title" parent="android:TextAppearance.Large.Inverse">-->
+        <!--<item name="android:textSize">20sp</item>-->
+        <!--<item name="android:textColor">@android:color/white</item>-->
+    <!--</style>-->
+
+    <style name="DialogStyleLight.Custom">
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@android:color/white</item>
+    </style>
+
+    <style name="DialogStyleLight.FullScreen">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@android:color/white</item>
     </style>
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:background">@color/travis_color</item>
-        <!--<item name="android:background">@drawable//ab_background_textured_travis</item>-->
+        <!--<item name="android:background">@drawable/ab_background_textured_travis</item>-->
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_travis</item>
         <item name="android:backgroundSplit">@drawable/ab_background_textured_travis</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>

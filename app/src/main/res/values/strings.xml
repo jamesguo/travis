@@ -10,6 +10,9 @@
     <string name="users">users</string>
     <string name="rated_by_X">rated by</string>
 
+    <!-- Facebook app id -->
+    <string name="app_id">657569694292796</string>
+
     <!-- TransitionViewPager -->
     <string-array name="effects">
         <item>Standard</item>
@@ -26,27 +29,14 @@
         <item>Accordion</item>
     </string-array>
 
-    <!-- Photo Picker Account type -->
-    <string name="facebook">Facebook</string>
-    <string name="flickr">Flickr</string>
-    <string name="instagram">Instagram</string>
-    <string name="picasa">Picasa</string>
-    <string name="take_photos">Take a photo</string>
-    <string name="record_video">Record a video</string>
-    <string name="last_photo">Last photo taken</string>
-    <string name="last_video_captured">Last video captured</string>
-    <string name="all_media">All media</string>
-    <string name="camera_media">Camera media</string>
-    <string name="title_activity_file_picker">Filepicker</string>
-    <string name="title_activity_file_picker_auth">FilepickerAuthActivity</string>
-    <string name="file_picker_animation_duration">400</string>
-
     <!-- Dialog strings -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 
 
     <!-- Login strings-->
@@ -54,15 +44,15 @@
     <string name="login">Login</string>
     <string name="start_using_travis">Start using Travis</string>
     <string name="login_error">Invalid login!</string>
-    <string name="unknown_address">Unknown Address</string>
+    <string name="unknown_address">Not set</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="plus_sign_out">Switch Google+ account</string>
-    <string name="plus_disconnect">Disconnect from Google+</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login or sign up</string>
+    <string name="state_success">Success</string>
+    <string name="state_logging_in">Logging in…</string>
+    <string name="state_login_failed">Login failed</string>
     <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_password">This password is too short (min. 3 characters)</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
 
@@ -71,13 +61,20 @@
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="pick_a_photo">Pick a Photo</string>
+    <string name="pick_another_photo">Pick another Photo</string>
     <string name="register_ok">Registered successfully!</string>
-    <string name="type_invalid">Please choose a user type…</string>
     <string name="welcome_text1">Welcome to Travis!</string>
     <string name="welcome_text2">It looks like you are a new user.
 Before you start using Travis, please insert your name …</string>
-    <string name="welcome_text3">… then choose a good photo for your profile …</string>
-    <string name="welcome_text4">… and finally pick what type of user are you.</string>
+    <string name="welcome_text2_alt">It looks like you are a new user.
+Before you start using Travis, please confirm name below…</string>
+    <string name="welcome_text3">Now pick a good photo for your profile. Make sure you are smiling! :)</string>
+    <string name="welcome_text3_alt">Now confirm if the photo below is good for your profile. Make sure you are smiling! :)</string>
+    <string name="welcome_text4">Finally, pick what type of user you are by tapping one of the two icons below…</string>
+    <string name="photo_required">Please choose a photo for your profile.</string>
+    <string name="type_required">Please choose an account type.</string>
+    <string name="picked_account_taxi">As a Taxi you will receive ride requests from Clients.<!--, based on proximity to them or based on your average rating given by them.--></string>
+    <string name="picked_account_client">As a Client you will be able to request Taxis for rides.</string>
 
 
     <!-- Side menu strings -->
@@ -91,6 +88,14 @@ Before you start using Travis, please insert your name …</string>
     <!--<string name="drawer_close">Close drawer</string>-->
 
 
+    <!-- Taxi instant dialog -->
+    <string name="instant_dialog_title">Confirm taxi</string>
+    <string name="instant_dialog_msg">Do you wish to shedule the following ride?</string>
+    <string name="instant_dialog_positive">Another taxi</string>
+    <string name="instant_dialog_negative">Yes</string>
+    <string name="instant_dialog_title2">No more taxis</string>
+    <string name="instant_dialog_msg2">Use the Map view function to look for more taxis sorted by proximity, rating or to check your favorites.</string>
+    <string name="instant_dialog_positive2">Ok</string>
 
     <!-- Taxi chooser sort spinner -->
     <string name="closest_to_you">Closest to you</string>
@@ -104,6 +109,7 @@ Before you start using Travis, please insert your name …</string>
     <string name="here_and_now">Here &amp; Now</string>
     <string name="later">Later or at another location</string>
     <string name="set_origin">Set Origin</string>
+    <string name="set_time">Set time</string>
 
 
     <!-- Wait for taxi strings -->
@@ -126,11 +132,6 @@ Before you start using Travis, please insert your name …</string>
     <string name="dont_rate">Don\'t rate</string>
 
 
-    <!-- Notification strings -->
-    <string name="accept">Accept</string>
-    <string name="decline">Decline</string>
-
-
     <string name="touch_to_instant">TOUCH TO FIND
 THE NEAREST TAXI</string>
 
@@ -139,5 +140,13 @@ THE NEAREST TAXI</string>
 The taxi you selected will now need to accept your request…</string>
     <string name="confirm_cancel">Confirm cancel</string>
     <string name="confirm_cancel_msg">Are you sure you wish to cancel this request?</string>
+    <string name="x_requested">requested a ride</string>
+    <string name="x_requested_large">requested you a ride </string>
+    <string name="x_arrived">arrived</string>
+    <string name="x_arrived_large">arrived at the designated location</string>
+
+
+    <!-- Ride item strings -->
+    <string name="confirm_delete">Are you sure you wish to cancel this ride?</string>
 
 </resources>

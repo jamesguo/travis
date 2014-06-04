@@ -1,13 +1,24 @@
 package pt.ua.travis.backend;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import com.firebase.client.*;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.*;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.output.ByteArrayOutputStream;
+import pt.ua.travis.*;
+import pt.ua.travis.R;
+import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.ui.main.MainClientActivity;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
@@ -25,12 +36,16 @@ public final class PersistenceManager {
 
     private static final String TAG = PersistenceManager.class.getSimpleName();
 
+    public static final String TYPE_CLIENT = "client";
+    public static final String TYPE_TAXI = "taxi";
+
     public static final int NO_USER_WITH_THAT_EMAIL = 11;
     public static final int WRONG_CREDENTIALS = 22;
     public static final int SUCCESSFUL_LOGIN = 33;
 
     private static final String RIDE_STATUS_WAITING_FOR_ARRIVAL = "waiting_for_arrival";
     private static final String RIDE_STATUS_TAXI_ARRIVED = "taxi_arrived";
+    private static final String RIDE_STATUS_TRAVELLING = "travelling";
     private static final String RIDE_STATUS_COMPLETED = "completed";
 
     private static final String FB_TAXIS = "taxis";
@@ -49,6 +64,9 @@ public final class PersistenceManager {
      */
     public static void init(Context context) {
         Parse.initialize(context, "pu8HYbkiyqVucSgUNcsYcgu6AyRLlZQhik2CIdQt", "BzI7yfkTisCZXvHecCZHs92qOIu4ozDO3NbgTKTf");
+        ParseFacebookUtils.initialize(context.getResources().getString(R.string.app_id));
+//        ParseTwitterUtils.initialize();
+
         fb = new Firebase("https://burning-fire-4047.firebaseio.com/");
         valueListeners = Lists.newArrayList();
         childListeners = Lists.newArrayList();
@@ -112,10 +130,129 @@ public final class PersistenceManager {
         childListeners.clear();
     }
 
+    /**
+     * Registers a new user and wraps it into a {@link ParseUserWrapper} that
+     * represents a Client or a Taxi in the backend.
+     */
+    public static void registerNewUser(final Activity context,
+                                       String userType,
+                                       String email,
+                                       String password,
+                                       String firstName,
+                                       String lastName,
+                                       byte[] imageData) throws ParseException {
+        User u;
+        if (userType.equals(TYPE_CLIENT)) {
+            u = Client.create();
+        } else if (userType.equals(TYPE_TAXI)) {
+            u = Taxi.create();
+        } else {
+            return;
+        }
+
+        String capitalFirstName = Utils.capitalizeWord(firstName);
+        String capitalLastName = Utils.capitalizeWord(lastName);
+        u.setName(capitalFirstName + " " + capitalLastName);
+        u.po.setUsername(email);
+        u.setEmail(email);
+        u.setPassword(password);
+
+        final User fetchedUser;
+        if (u instanceof Client) {
+            u.po.signUp();
+            fetchedUser = new Client(u.po.fetch());
+
+        } else if (u instanceof Taxi) {
+            u.po.signUp();
+            fetchedUser = new Taxi(u.po.fetch());
+
+        } else {
+            return;
+        }
+
+        continueRegister(context, fetchedUser, imageData);
+    }
 
     /**
-     * Saves the wrapped {@link ParseObject} that represents a Client in the backend,
-     * by updating it or, if it doesn't exist yet, by inserting it.
+     * Saved data to a user that was registered from social media authentication
+     * mechanisms and wraps it into a {@link ParseUserWrapper} that represents a
+     * Client or a Taxi in the backend.
+     */
+    public static void registerNewUserFromSocialMedia(final Activity context,
+                                       String userType,
+                                       String email,
+                                       String firstName,
+                                       String lastName,
+                                       byte[] imageData) throws ParseException {
+        User u;
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (userType.equals(TYPE_CLIENT)) {
+            u = new Client(currentUser);
+
+        } else if (userType.equals(TYPE_TAXI)) {
+            u = new Taxi(currentUser);
+
+        } else {
+            return;
+        }
+
+        String capitalFirstName = Utils.capitalizeWord(firstName);
+        String capitalLastName = Utils.capitalizeWord(lastName);
+        u.setName(capitalFirstName + " " + capitalLastName);
+        u.setEmail(email);
+
+        continueRegister(context, u, imageData);
+    }
+
+    private static void continueRegister(final Activity context,
+                                         final User registeredUser,
+                                         byte[] imageData) throws ParseException {
+
+
+        Bitmap originalBitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
+        Bitmap resizeBitmap = Bitmap.createScaledBitmap(originalBitmap, 200, 200, true);
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        resizeBitmap.compress(Bitmap.CompressFormat.PNG, 0, outStream);
+
+
+        final ParseFile file = new ParseFile(registeredUser.id(), outStream.toByteArray());
+        file.save();
+        registeredUser.setImageUri(file.getUrl());
+
+        if (registeredUser instanceof Client) {
+            PersistenceManager.save((Client) registeredUser, new Callback<Client>() {
+                @Override
+                public void onResult(Client result) {
+                    Intent intent = new Intent(context, MainClientActivity.class);
+                    context.startActivity(intent);
+                    context.finish();
+                }
+            });
+        } else if (registeredUser instanceof Taxi) {
+            final Taxi t = (Taxi) registeredUser;
+            PersistenceManager.save(t, new Callback<Taxi>() {
+                @Override
+                public void onResult(Taxi result) {
+                    TravisApplication app = ((TravisApplication) context.getApplication());
+                    app.addLocationListener(new TravisApplication.CurrentLocationListener() {
+                        @Override
+                        public void onCurrentLocationChanged(LatLng latLng) {
+                            t.setCurrentLocation(latLng.latitude, latLng.longitude);
+                            PersistenceManager.save(t, null);
+                        }
+                    });
+                    Intent intent = new Intent(context, MainTaxiActivity.class);
+                    context.startActivity(intent);
+                    context.finish();
+                }
+            });
+        }
+    }
+
+
+    /**
+     * Saves the wrapped {@link ParseObject} that represents a Client in the backend
+     * by updating it.
      */
     public static void save(final Client toAdd, final Callback<Client> saveHandler){
         toAdd.po.saveInBackground(new com.parse.SaveCallback() {
@@ -139,8 +276,8 @@ public final class PersistenceManager {
 
 
     /**
-     * Saves the wrapped {@link ParseObject} that represents a Taxi in the backend,
-     * by updating it or, if it doesn't exist yet, by inserting it.
+     * Saves the wrapped {@link ParseObject} that represents a Taxi in the backend
+     * by updating it.
      */
     public static void save(final Taxi toAdd, final Callback<Taxi> saveHandler){
         toAdd.po.saveInBackground(new com.parse.SaveCallback() {
@@ -207,35 +344,14 @@ public final class PersistenceManager {
         });
     }
 
-    public static void storeImage(final Context context,
-                                  final String imageName,
-                                  final Uri imageUri,
-                                  final Callback<String> callback) {
-
-        try {
-            Log.e("######################", "1");
-            InputStream in = context.getContentResolver().openInputStream(imageUri);
-//            Log.e("######################", "2");
-//            ByteArrayOutputStream out = new ByteArrayOutputStream();
-//            bitmap.compress(Bitmap.CompressFormat.PNG, 0, out);
-
-            Log.e("######################", "3");
-            final ParseFile file = new ParseFile(imageName, IOUtils.toByteArray(in));
-            file.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-                    Log.e("######################", "4");
-                    callback.onResult(file.getUrl());
-                }
-            });
-        } catch (IOException ex) {
-            Log.e(TAG, "There was a problem uploading the image to the backend storage server.", ex);
+    public static <T extends ParseObjectWrapper> void delete(final T toDelete){
+        if(toDelete instanceof Ride){
+            // cancels the ride
+            Ride r = ((Ride) toDelete);
+            fb.child(FB_RIDES).child(r.client().id()).child(r.id()).removeValue();
         }
 
-    }
-
-    public static <T extends ParseObjectWrapper> void delete(final T toDelete){
-        toDelete.po.deleteEventually();
+        toDelete.po.deleteInBackground();
     }
 
 
@@ -254,7 +370,9 @@ public final class PersistenceManager {
                         requestedRideRef.removeEventListener(this);
 
                         if (response.equals(RideRequestTask.RESPONSE_ACCEPTED)) {
-                            requestedRideRef.setValue(RIDE_STATUS_WAITING_FOR_ARRIVAL);
+                            requestedRideRef.removeValue();
+                            Firebase clientRideRef = fb.child(FB_RIDES).child(requestedRide.client().id()).child(requestedRide.id());
+                            clientRideRef.setValue(RIDE_STATUS_WAITING_FOR_ARRIVAL);
 
                         }
                         responseEvent.onEvent(response);
@@ -278,20 +396,14 @@ public final class PersistenceManager {
         }, 18000);
     }
 
-
-
-    public static void startWatchingNewRidesForTaxi(final Taxi taxiWithRidesToWatch, final WatchEvent<Ride> watchEvent){
-        Firebase ridesRef = fb.child(FB_RIDES);
-
+    public static void startWatchingNewRidesForClient(final Client clientWithRidesToWatch, final WatchEvent<Ride> watchEvent){
         ChildEventListener rideWatcher = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChild) {
                 final String id = dataSnapshot.getName();
                 final String status = dataSnapshot.getValue().toString();
 
-                if(status.equals(RideRequestTask.RESPONSE_WAITING)) {
-                    Log.e("RideWatcher", "Ride with id " + id + " was added!");
-
+                if(status.equals(RIDE_STATUS_TAXI_ARRIVED)) {
                     PersistenceManager.query().rides().withId(id).later(new Callback<List<Ride>>() {
                         @Override
                         public void onResult(List<Ride> result) {
@@ -314,7 +426,40 @@ public final class PersistenceManager {
             public void onCancelled(FirebaseError firebaseError) {}
         };
         childListeners.add(rideWatcher);
-        ridesRef.child(taxiWithRidesToWatch.id()).addChildEventListener(rideWatcher);
+        fb.child(FB_RIDES).child(clientWithRidesToWatch.id()).addChildEventListener(rideWatcher);
+    }
+
+    public static void startWatchingNewRidesForTaxi(final Taxi taxiWithRidesToWatch, final WatchEvent<Ride> watchEvent){
+        ChildEventListener rideWatcher = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChild) {
+                final String id = dataSnapshot.getName();
+                final String status = dataSnapshot.getValue().toString();
+
+                if(status.equals(RideRequestTask.RESPONSE_WAITING)) {
+                    PersistenceManager.query().rides().withId(id).later(new Callback<List<Ride>>() {
+                        @Override
+                        public void onResult(List<Ride> result) {
+                            watchEvent.onEvent(result.get(0));
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {}
+        };
+        childListeners.add(rideWatcher);
+        fb.child(FB_RIDES).child(taxiWithRidesToWatch.id()).addChildEventListener(rideWatcher);
     }
 
     public static void watchTaxis(final List<Taxi> toWatch, final WatchEvent<List<Taxi>> action){

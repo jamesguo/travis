@@ -102,7 +102,7 @@ public class AddressPickerDialog extends SimpleDialogFragment {
         super.onCreate(savedInstanceState);
 
         setRetainInstance(true);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogStyleLight_Custom);
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogStyleLight_FullScreen);
     }
 
 

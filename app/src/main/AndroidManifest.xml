@@ -3,7 +3,8 @@
 
 
     <!-- PERMISSIONS -->
-    <permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE"
+                android:protectionLevel="signature" />
 
     <uses-permission android:name="com.google.cloud.backend.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -58,58 +59,39 @@
     <application android:name=".core.TravisApplication"
                  android:allowBackup="true"
                  android:configChanges="keyboardHidden|orientation|screenSize"
-                 android:icon="@drawable/cabs"
+                 android:icon="@drawable/ic_launcher"
                  android:label="@string/app_name"
                  android:theme="@style/Theme.Travis" >
 
         <!--<uses-library android:name="com.google.android.maps" />-->
 
-        <activity android:name=".ui.login.LoginActivity"
+        <activity android:name=".core.SplashScreenActivity"
                   android:windowSoftInputMode="adjustResize|stateHidden"
                   android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden">
-        </activity>
-        <activity android:name=".ui.login.SignUpLastStepsActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".ui.main.MainClientActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden">
+                  android:configChanges="orientation|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.login.LoginActivity"
+                  android:windowSoftInputMode="adjustPan"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".ui.login.SignUpActivity"
+                  android:windowSoftInputMode="adjustPan"
+                  android:screenOrientation="portrait" />
+        <activity android:name=".ui.main.MainClientActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:launchMode="singleTop" />
         <activity android:name=".ui.main.MainTaxiActivity"
                   android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" >
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN"/>-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".ui.main.IntroductionActivity"
-                  android:parentActivityName=".ui.main.MainClientActivity"
-                  android:screenOrientation="portrait">
-            <!-- If you use the Android SDK 15 or less, the attributes android:parentActivityName doesn't work -->
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="pt.ua.travis.ui.main.MainClientActivity"/>
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
+                  android:configChanges="orientation|keyboardHidden"
+                  android:launchMode="singleTop" />
         <activity android:name=".nfc.NFCActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden"/>
-        <activity android:name=".ui.riderequest.WaitForTaxiActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|keyboardHidden" />
         <activity android:name=".ui.currenttravel.AuthenticationClientActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
@@ -126,10 +108,10 @@
         <activity android:name=".ui.currenttravel.PaymentActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="orientation|keyboardHidden" />
-        <activity android:name=".filepicker.FilePicker"
-            android:label="@string/title_activity_file_picker" />
-        <activity android:name=".filepicker.AuthActivity"
-            android:label="@string/title_activity_file_picker_auth" />
+        <activity android:name=".ui.login.GoogleDrivePicker"
+                  android:screenOrientation="portrait"/>
+        <activity android:name="com.facebook.LoginActivity"
+                  android:screenOrientation="portrait" />
 
 
 
@@ -140,11 +122,16 @@
         <!-- META-DATA -->
         <!-- Google Maps API key for the application -->
         <meta-data android:name="com.google.android.maps.v2.API_KEY"
-                   android:value="AIzaSyCryjdvpJFZihGbMx-ut9tdiUBLRwUKOYU" />
+                   android:value="AIzaSyBIoQSloN_-hofV7zbgU_F9DBi1YkkkZV4" />
 
         <!-- Reference to the Google Play services version -->
         <meta-data android:name="com.google.android.gms.version"
                    android:value="@integer/google_play_services_version" />
+
+        <!-- Reference to the Facebook API key -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
 
 
 

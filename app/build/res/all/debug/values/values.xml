@@ -63,6 +63,14 @@
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
     <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="actionBarBackground">#007de3</color>
+    <color name="actionBarHighlight">#000000</color>
+    <color name="actionModeBackground">#FFFFFFFF</color>
+    <color name="actionModeHighlight">#FF000000</color>
+    <color name="album_list_cover_image_frame">#FF000000</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
@@ -78,12 +86,23 @@
     <color name="ame_default_cluster_circle_shadow_color">#8000</color>
     <color name="ame_default_cluster_text_color">#FFF</color>
     <color name="ame_default_cluster_text_shadow_color">#000</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="ampm_text_color">#8c8c8c</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
     <color name="background">#FFA500</color>
     <color name="background_activity">#2d2d2d</color>
     <color name="background_title">#413a36</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="barDark">#444</color>
+    <color name="barDarkBorder">#666</color>
+    <color name="barLight">#dcdcdc</color>
+    <color name="barLightBorder">#c1c1c1</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
     <eat-comment />
 
@@ -131,10 +150,49 @@
     <color name="bbutton_warning_edge">#ffeea236</color>
     <color name="bbutton_warning_pressed">#ffed9c28</color>
     <color name="bbutton_warning_pressed_edge">#ffd58512</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="blackBackground">#000000</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="blue">#ff33b5e5</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="blueBackground">#1865a9</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="blue_normal">#ff33b5e5</color>
+    <color name="blue_pressed">#ff0099cc</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
+    <eat-comment />
+
     <color name="bthumbnail_background">#ffffffff</color>
     <color name="bthumbnail_border">#dbdbdb</color>
     <color name="bthumbnail_font">#7e7e7e</color>
     <color name="bthumbnail_placeholder">#e9e9e9</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="buttonHighlight">#ffa443</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="calendar_header">#ff999999</color>
+    <color name="circle_background">#fff2f2f2</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="com_facebook_blue">#3B5998</color>
+    <color name="com_facebook_loginview_text_color">#FFFFFF</color>
+    <color name="com_facebook_picker_search_bar_background">#f5f5f7</color>
+    <color name="com_facebook_picker_search_bar_text">#bcbdc2</color>
+    <color name="com_facebook_usersettingsfragment_connected_shadow_color">#000000</color>
+    <color name="com_facebook_usersettingsfragment_connected_text_color">#FFFFFF</color>
+    <color name="com_facebook_usersettingsfragment_not_connected_text_color">#A6AED7</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/common_colors.xml -->
     <eat-comment />
 
@@ -148,15 +206,31 @@
     <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="darkBlueText">#2B405C</color>
+    <color name="darkButtonText">#FFFFFF</color>
+    <color name="darkGrayText">#323436</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
     <color name="dark_gray">#333333</color>
     <color name="dark_grey">#212121</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="darker_blue">#ff0099cc</color>
+    <color name="date_picker_text_normal">#ff999999</color>
+    <color name="date_picker_view_animator">#fff2f2f2</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values/values.xml -->
     <eat-comment />
 
     <color name="default_progress_bar_color">#FF33B5E5</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="dialogBoxTitleBackground">#DD000000</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
@@ -168,15 +242,119 @@
     <color name="dialog_message_text">#333333</color>
     <color name="dialog_title_separator">#f3a71e</color>
     <color name="dialog_title_text">#f3a71e</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="done_text_color_disabled">#ffcccccc</color>
+    <color name="done_text_color_normal">#ff333333</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="errorText">#bb0000</color>
+    <color name="feature_popover_bg">#EAF3FF</color>
+    <color name="feature_popover_border">#000000</color>
+    <color name="fileListMediumGrayText">#666666</color>
+    <color name="filelistBackground">#ffffff</color>
+    <color name="filelistItemFocused">#d3e7fa</color>
+    <color name="filelistItemPressed">#f4faff</color>
+    <color name="folderTitleBackground">#e6e7e8</color>
+    <color name="folderTitleBackgroundBorder">#a9a9a9</color>
+    <color name="galleryChromeBackground" ns1:default="#000000" ns1:samsung="#ff2b2b2b">#000000</color>
+    <color name="galleryChromeTransparencyBackgroundDark" ns1:default="#cc000000" ns1:samsung="#ff000000">#cc000000</color>
+    <color name="galleryChromeTransparencyBackgroundLight" ns1:default="#99000000" ns1:samsung="#ff0d0d0d">#99000000</color>
+    <color name="galleryItemSelectedOverlay" ns1:default="#55007ee5" ns1:samsung="#00000000">#55007ee5</color>
+    <color name="grayBlueishText">#768195</color>
+    <color name="grayButtonText">#111</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="gray_light">#C0C0C0</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="green">#FF00FF00</color>
+    <color name="greenButtonText">#FFFFFF</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="green_complete">#ff99cc00</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="grey">#5f5f5f</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="lightBlueBackground">#F4FAFF</color>
+    <color name="lightBlueBackground2">#f2f8fc</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="light_grey">#acacac</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="line_background">#ffcccccc</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="listEmptyText">#666</color>
+    <color name="localFilelistBackground">#000000</color>
+    <color name="localListEmptyText">#999999</color>
+    <color name="loginButtonText">#FF000000</color>
+    <color name="loginText">#FFFFFF</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="mainBg">#fff0eded</color>
     <color name="mainText">#ff131414</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="mediumGrayText">#738499</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="medium_grey">#333333</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="numbers_text_color">#8c8c8c</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="offwhite">#eeeeee</color>
     <color name="orange">#ffb449</color>
     <color name="pagerBorder">#ff909494</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="passcodeBackgroundOverride">#ff454545</color>
+    <color name="passwordStrength1">#ad1a11</color>
+    <color name="passwordStrength2">#ecab1a</color>
+    <color name="passwordStrength3">#adc061</color>
+    <color name="passwordStrength4">#68b321</color>
+    <color name="passwordStrengthMeterLit">#ff00ff</color>
+    <color name="passwordStrengthMeterUnlit">#e7e7e7</color>
+    <color name="passwordStrengthText">#58C473</color>
+    <color name="passwordStrengthUnlitPhone">#e7e7e7</color>
+    <color name="photoTabBackground">#ffffff</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="purple_progress">#ffaa66cc</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="red">#FFFF0000</color>
+    <color name="redButtonText">#FFFFFF</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="red_error">#ffff4444</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="row_selector_color">#29413a36</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
@@ -214,16 +392,60 @@
     <eat-comment />
 
     <color name="spb_default_color">#33b5e5</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="ssLoginText">#354045</color>
+    <color name="ss_passwordStrengthMeterLit">#96a5b2</color>
+    <color name="ss_passwordStrengthMeterUnlit">#ffffff</color>
+    <color name="ss_passwordStrengthText">#96a5b2</color>
+    <color name="statusBarSeparator">#333333</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
     <color name="taxi_available_border">#ff00C322</color>
     <color name="taxi_unavailable_border">#ffff5943</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="text">#FF000000</color>
+    <color name="textFieldStroke">#359cf8</color>
+    <color name="textHighlight">#1865a9</color>
+    <color name="titleBarText">#333333</color>
+    <color name="titleBarTextWhite">#FFFFFF</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="title_name">#1e4761</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="tourBoxText">#000000</color>
+    <color name="tourGrayBorder">#999999</color>
+    <color name="tourText">#718297</color>
+    <color name="tourTitleText">#2a405c</color>
+    <color name="translucentBlackBackground" ns1:default="#E6000000" ns1:samsung="#FF000000">#E6000000</color>
+    <color name="translucentFileListMediumGrayText">#E6666666</color>
+    <color name="translucentWhiteBackground" ns1:default="#E6FFFFFF" ns1:samsung="#FFFFFFFF">#E6FFFFFF</color>
+    <color name="translucentWhiteText">#E6FFFFFF</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="transparent">#09000000</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="transparent_black">#7F000000</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="travis_color">#ffab00</color>
     <color name="travis_color_darker">#ffdd9000</color>
     <color name="travis_color_lighter">#ffffd137</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="videoIconDetailsBackground" ns1:default="#AA000000" ns1:samsung="#ff000000">#AA000000</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_colors.xml -->
     <eat-comment />
 
@@ -244,6 +466,18 @@
     <eat-comment />
 
     <color name="welcome_messages_text">#ff757575</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="white">#ffffffff</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <color name="whiteBackground">#FFFFFF</color>
+    <color name="whiteText">#ffffff</color>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/colors.xml -->
+    <eat-comment />
+
     <color name="white_transp">#CCFFFFFF</color>
     <color name="yellow">#ffbb33</color>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/admob_ads_attrs.xml -->
@@ -315,6 +549,12 @@
         <attr name="border_color" format="color" />
         <attr name="shadow" format="boolean" />
     </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="CustomTheme">
+        <attr name="showcaseViewStyle" format="reference" />
+    </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
 
@@ -329,6 +569,14 @@
         <attr name="buttonBackgroundColorPressed" format="color|reference" />
         <attr name="buttonBackgroundColorFocused" format="color|reference" />
     </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="FlatButton">
+        <attr name="colorPressed" format="color" />
+        <attr name="colorNormal" format="color" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
     <eat-comment />
 
@@ -337,7 +585,7 @@
         <attr name="android:textSize" />
         <attr name="android:textColor" />
     </declare-styleable>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-edittext-validator-master/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <declare-styleable name="FormEditText">
@@ -389,6 +637,17 @@
         <attr name="uiZoomGestures" format="boolean" />
         <attr name="useViewLifecycle" format="boolean" />
         <attr name="zOrderOnTop" format="boolean" />
+    </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="ProcessButton">
+        <attr name="textProgress" format="string" />
+        <attr name="textComplete" format="string" />
+        <attr name="textError" format="string" />
+        <attr name="colorProgress" format="color" />
+        <attr name="colorComplete" format="color" />
+        <attr name="colorError" format="color" />
     </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ProgressWheel-master/unspecified/res/values/values.xml -->
     <eat-comment />
@@ -899,6 +1158,21 @@
     <declare-styleable name="SherlockView">
         <attr name="android:focusable" />
     </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="ShowcaseView">
+        <attr name="sv_backgroundColor" format="color|reference" />
+        <attr name="sv_detailTextColor" format="color|reference" />
+        <attr name="sv_titleTextColor" format="color|reference" />
+        <attr name="sv_buttonBackgroundColor" format="color|reference" />
+        <attr name="sv_buttonForegroundColor" format="color|reference" />
+        <attr name="sv_buttonText" format="string|reference" />
+        <attr name="sv_detailTextAppearance" format="reference" />
+        <attr name="sv_titleTextAppearance" format="reference" />
+        <attr name="sv_showcaseColor" format="color|reference" />
+        <attr name="sv_tintButtonColor" format="boolean|reference" />
+    </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/attr.xml -->
     <eat-comment />
 
@@ -949,6 +1223,36 @@
         <attr name="sdlDialogStyle" format="reference" />
         <attr name="sdlTitleTextStyle" format="reference" />
         <attr name="sdlMessageTextStyle" format="reference" />
+    </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.fortysevendeg.swipelistview/swipelistview/1.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="SwipeListView">
+        <attr name="swipeOpenOnLongPress" format="boolean" />
+        <attr name="swipeAnimationTime" format="integer" />
+        <attr name="swipeOffsetLeft" format="dimension" />
+        <attr name="swipeOffsetRight" format="dimension" />
+        <attr name="swipeCloseAllItemsWhenMoveList" format="boolean" />
+        <attr name="swipeFrontView" format="reference" />
+        <attr name="swipeBackView" format="reference" />
+        <attr name="swipeMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="both" value="1" />
+            <enum name="right" value="2" />
+            <enum name="left" value="3" />
+        </attr>
+        <attr name="swipeActionLeft" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeActionRight" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="swipeDrawableChecked" format="reference" />
+        <attr name="swipeDrawableUnchecked" format="reference" />
     </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/attr.xml -->
     <eat-comment />
@@ -1049,6 +1353,43 @@
             <enum name="monochrome" value="2" />
         </attr>
     </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <declare-styleable name="com_facebook_friend_picker_fragment">
+        <attr name="multi_select" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="com_facebook_login_view">
+        <attr name="confirm_logout" format="boolean" />
+        <attr name="fetch_user_info" format="boolean" />
+        <attr name="login_text" format="string" />
+        <attr name="logout_text" format="string" />
+    </declare-styleable>
+    <declare-styleable name="com_facebook_picker_fragment">
+        <attr name="show_pictures" format="boolean" />
+        <attr name="extra_fields" format="string" />
+        <attr name="show_title_bar" format="boolean" />
+        <attr name="title_text" format="string" />
+        <attr name="done_button_text" format="string" />
+        <attr name="title_bar_background" format="reference" />
+        <attr name="done_button_background" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="com_facebook_place_picker_fragment">
+        <attr name="radius_in_meters" format="integer" />
+        <attr name="results_limit" format="integer" />
+        <attr name="search_text" format="string" />
+        <attr name="show_search_box" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="com_facebook_profile_picture_view">
+        <attr name="preset_size">
+
+            <!-- Keep in sync with constants in ProfilePictureView -->
+            <enum name="small" value="-2" />
+            <enum name="normal" value="-3" />
+            <enum name="large" value="-4" />
+        </attr>
+        <attr name="is_cropped" format="boolean" />
+    </declare-styleable>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -1065,6 +1406,10 @@
     <dimen name="abs__dropdownitem_text_padding_right">8dip</dimen>
     <dimen name="abs__search_view_preferred_width">320dip</dimen>
     <dimen name="abs__search_view_text_min_width">160dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="action_bar_offset">66dp</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
@@ -1082,15 +1427,92 @@
     <dimen name="ame_default_cluster_text_shadow_offset_x">1dp</dimen>
     <dimen name="ame_default_cluster_text_shadow_offset_y">1dp</dimen>
     <dimen name="ame_default_cluster_text_size">16dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="ampm_label_size">16sp</dimen>
+    <dimen name="ampm_left_padding">6dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="appStoreInterstitialMargin">25dp</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <dimen name="bbuton_rounded_corner_radius">5dp</dimen>
     <dimen name="bthumbnail_rounded_corner_radius">3dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="buttonTextSize">15sp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="button_margin">12dp</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
     <dimen name="choose_service_fragment_size">300dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="com_facebook_loginview_compound_drawable_padding">12dp</dimen>
+    <dimen name="com_facebook_loginview_padding_bottom">12dp</dimen>
+    <dimen name="com_facebook_loginview_padding_left">12dip</dimen>
+    <dimen name="com_facebook_loginview_padding_right">16dp</dimen>
+    <dimen name="com_facebook_loginview_padding_top">12dp</dimen>
+    <dimen name="com_facebook_loginview_text_size">16.0sp</dimen>
+    <dimen name="com_facebook_picker_place_image_size">64dp</dimen>
+    <dimen name="com_facebook_profilepictureview_preset_size_large">180dp</dimen>
+    <dimen name="com_facebook_profilepictureview_preset_size_normal">100dp</dimen>
+    <dimen name="com_facebook_profilepictureview_preset_size_small">50dp</dimen>
+    <dimen name="com_facebook_tooltip_horizontal_padding">10dp</dimen>
+    <dimen name="com_facebook_usersettingsfragment_profile_picture_height">64dp</dimen>
+    <dimen name="com_facebook_usersettingsfragment_profile_picture_width">64dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="corner_radius">2dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="date_picker_component_width">270dip</dimen>
+    <dimen name="date_picker_header_height">30dip</dimen>
+    <dimen name="date_picker_header_text_size">14dip</dimen>
+    <dimen name="date_picker_view_animator_height">270dip</dimen>
+    <dimen name="day_number_select_circle_radius">16dip</dimen>
+    <dimen name="day_number_size">16sp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="dbx_action_bar_default_height">48dip</dimen>
+    <dimen name="dbx_action_bar_icon_vertical_padding">8dip</dimen>
+    <dimen name="dbx_action_bar_subtitle_bottom_margin">5dip</dimen>
+    <dimen name="dbx_action_bar_subtitle_text_size">14dp</dimen>
+    <dimen name="dbx_action_bar_subtitle_top_margin">-3dp</dimen>
+    <dimen name="dbx_action_bar_title_text_size">18dp</dimen>
+    <dimen name="dbx_action_button_min_width">56dip</dimen>
+    <dimen name="dbx_dropdownitem_icon_width">32dip</dimen>
+    <dimen name="dbx_dropdownitem_text_padding_left">8dip</dimen>
+    <dimen name="dbx_dropdownitem_text_padding_right">8dip</dimen>
+    <dimen name="dbx_search_view_preferred_width">320dip</dimen>
+    <dimen name="dbx_search_view_text_min_width">160dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="done_label_size">14sp</dimen>
+    <dimen name="extra_time_label_margin">-30dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="fileChooserButtonLeft">2dp</dimen>
+    <dimen name="fileChooserButtonRight">2dp</dimen>
+    <dimen name="fileChooserButtonsPadding">4dp</dimen>
+    <dimen name="fileChooserPaddingBottom">8dp</dimen>
+    <dimen name="fileChooserPaddingLeft">8dp</dimen>
+    <dimen name="fileChooserPaddingRight">8dp</dimen>
+    <dimen name="fileChooserPaddingTop">12dp</dimen>
+    <dimen name="fileChooserTitleText">20sp</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
 
@@ -1124,6 +1546,23 @@
     <dimen name="grid_8">32dp</dimen>
     <dimen name="grid_9">36dp</dimen>
     <dimen name="grid_90">360dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="header_height">96dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/0.0.7/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="layer_padding">3dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="minimum_margin_sides">48dip</dimen>
+    <dimen name="minimum_margin_top_bottom">24dip</dimen>
+    <dimen name="month_day_label_text_size">10sp</dimen>
+    <dimen name="month_label_size">16sp</dimen>
+    <dimen name="month_list_item_header_height">50dip</dimen>
+    <dimen name="month_select_circle_radius">45dip</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
@@ -1140,6 +1579,10 @@
     <eat-comment />
 
     <dimen name="padding_small">8dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="picker_dimen">270dip</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values/values.xml -->
     <eat-comment />
 
@@ -1147,7 +1590,21 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
-    <dimen name="ride_item_height">120dip</dimen>
+    <dimen name="ride_item_height">150dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="selected_calendar_layout_height">155dip</dimen>
+    <dimen name="selected_date_day_size">75dip</dimen>
+    <dimen name="selected_date_month_size">30dip</dimen>
+    <dimen name="selected_date_year_size">30dip</dimen>
+    <dimen name="separator_padding">4dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="showcase_radius">94dp</dimen>
+    <dimen name="showcase_radius_inner">96dp</dimen>
+    <dimen name="showcase_radius_outer">128dp</dimen>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -1159,7 +1616,28 @@
     <dimen name="taxi_item_height">90dip</dimen>
     <dimen name="taxi_item_width">240dp</dimen>
     <dimen name="taxichooser_map_top_margin">83dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="text_padding">24dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="time_label_size">60sp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="travel_pane_height">450dp</dimen>
     <dimen name="viewpager_margin">-32dp</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <dimen name="year_label_height">64dip</dimen>
+    <dimen name="year_label_text_size">22dip</dimen>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <drawable name="com_facebook_picker_default_separator_color">#33464c59</drawable>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -1169,6 +1647,18 @@
     <item name="abs__progress_circular" type="id"/>
     <item name="abs__progress_horizontal" type="id"/>
     <item name="abs__up" type="id"/>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="animator" type="id">false</item>
+    <item name="date_picker_day" type="id">false</item>
+    <item name="date_picker_header" type="id">false</item>
+    <item name="date_picker_month" type="id">false</item>
+    <item name="date_picker_month_and_day" type="id">false</item>
+    <item name="date_picker_year" type="id">false</item>
+    <item name="day_picker_selected_date_layout" type="id">false</item>
+    <item name="done" type="id">false</item>
+    <item name="month_text_view" type="id">false</item>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values/values.xml -->
     <eat-comment />
 
@@ -1181,10 +1671,20 @@
     <item name="sdl__negative_button" type="id"/>
     <item name="sdl__neutral_button" type="id"/>
     <item name="sdl__positive_button" type="id"/>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="showcase_button" type="id"/>
+    <item name="showcase_sub_text" type="id"/>
+    <item name="showcase_title_text" type="id"/>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <integer name="abs__max_action_buttons">2</integer>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <integer name="dbx_max_action_buttons">2</integer>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/version.xml -->
     <eat-comment />
 
@@ -1236,16 +1736,58 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="all_media">All media</string>
+    <string name="action_sign_in">Login or sign up</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="ampm_circle_radius_multiplier" format="float" type="string">0.19</item>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="app_id">657569694292796</string>
     <string name="app_name">Travis</string>
     <string name="auto_login">Automatically login every time</string>
     <string name="call_another_taxi">Call another taxi</string>
-    <string name="camera_media">Camera media</string>
     <string name="cancel">Cancel</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="circle_radius_multiplier" format="float" type="string">0.82</item>
+    <item name="circle_radius_multiplier_24HourMode" format="float" type="string">0.85</item>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="client">Client</string>
     <string name="closest_to_you">Closest to you</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="com_facebook_choose_friends">Choose Friends</string>
+    <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
+    <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
+    <string name="com_facebook_internet_permission_error_title">AndroidManifest Error</string>
+    <string name="com_facebook_loading">Loading...</string>
+    <string name="com_facebook_loginview_cancel_action">Cancel</string>
+    <string name="com_facebook_loginview_log_in_button">Log in with Facebook</string>
+    <string name="com_facebook_loginview_log_out_action">Log out</string>
+    <string name="com_facebook_loginview_log_out_button">Log out</string>
+    <string name="com_facebook_loginview_logged_in_as">Logged in as: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_using_facebook">Logged in using Facebook</string>
+    <string name="com_facebook_logo_content_description">Facebook Logo</string>
+    <string name="com_facebook_nearby">Nearby</string>
+    <string name="com_facebook_picker_done_button_text">Done</string>
+    <string name="com_facebook_placepicker_subtitle_catetory_only_format">%1$s</string>
+    <string name="com_facebook_placepicker_subtitle_format">%1$s • %2$,d were here</string>
+    <string name="com_facebook_placepicker_subtitle_were_here_only_format">%1$,d were here</string>
+    <string name="com_facebook_requesterror_password_changed">Your Facebook password has changed. Please log into this app again to reconnect your Facebook account.</string>
+    <string name="com_facebook_requesterror_permissions">This app doesn’t have permission to do this. To change permissions, try logging into the app again.</string>
+    <string name="com_facebook_requesterror_reconnect">Please log into this app again to reconnect your Facebook account.</string>
+    <string name="com_facebook_requesterror_relogin">Please log into this app again to reconnect your Facebook account.</string>
+    <string name="com_facebook_requesterror_web_login">Your Facebook account is locked. Please log into www.facebook.com to continue.</string>
+    <string name="com_facebook_tooltip_default">New! You\'re in control - choose what info you want to share with apps.</string>
+    <string name="com_facebook_usersettingsfragment_log_in_button">Log in…</string>
+    <string name="com_facebook_usersettingsfragment_logged_in">Logged in</string>
+    <string name="com_facebook_usersettingsfragment_not_logged_in">Not logged in</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/common_strings.xml -->
     <eat-comment />
 
@@ -1279,8 +1821,33 @@
 
     <string name="confirm_cancel">Confirm cancel</string>
     <string name="confirm_cancel_msg">Are you sure you wish to cancel this request?</string>
+    <string name="confirm_delete">Are you sure you wish to cancel this ride?</string>
     <string name="current_travel">Current Travel</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="day_of_week_label_typeface" translatable="false">sans-serif</string>
+    <string name="day_picker_description">Month grid of days</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">Install Dropbox</string>
+    <string name="dbx_install_button_cancel">Cancel</string>
+    <string name="dbx_install_button_ok">Install</string>
+    <string name="dbx_install_main">Please Install the Dropbox App</string>
+    <string name="dbx_install_sub">With Dropbox installed, you can access all your stuff in your favorite apps, like this one!</string>
+    <string name="dbx_update">Update Dropbox</string>
+    <string name="dbx_update_button_ok">Update</string>
+    <string name="dbx_update_main">Please Update the Dropbox App</string>
+    <string name="dbx_update_sub">With the new Dropbox app, you can access all your stuff in your favorite apps, like this one!</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="decline">Decline</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="deleted_key"><ns1:g id="key" example="4">%1$s</ns1:g> deleted</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
 
@@ -1289,9 +1856,16 @@
     <eat-comment />
 
     <string name="done">Done</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="done_label">Done</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="dont_rate">Don\'t rate</string>
     <string name="empty"></string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-edittext-validator-master/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <string name="error_creditcard_number_not_valid">Credit card number is not valid</string>
@@ -1305,8 +1879,8 @@
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values/values.xml -->
+    <string name="error_invalid_password">This password is too short (min. 3 characters)</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-edittext-validator-master/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <string name="error_ip_not_valid">IP Address not valid</string>
@@ -1320,10 +1894,7 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
-    <string name="facebook">Facebook</string>
-    <string name="file_picker_animation_duration">400</string>
     <string name="first_name">First name</string>
-    <string name="flickr">Flickr</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/ProgressWheel-master/unspecified/res/values/values.xml -->
     <eat-comment />
 
@@ -1337,45 +1908,104 @@
 
     <string name="here_and_now">Here &amp; Now</string>
     <string name="highest_rated">Highest Rated</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="hour_picker_description">Hours circular slider</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="insert_address">Insert address…</string>
-    <string name="instagram">Instagram</string>
     <string name="instant">Instant Taxi</string>
+    <string name="instant_dialog_msg">Do you wish to shedule the following ride?</string>
+    <string name="instant_dialog_msg2">Use the Map view function to look for more taxis sorted by proximity, rating or to check your favorites.</string>
+    <string name="instant_dialog_negative">Yes</string>
+    <string name="instant_dialog_positive">Another taxi</string>
+    <string name="instant_dialog_positive2">Ok</string>
+    <string name="instant_dialog_title">Confirm taxi</string>
+    <string name="instant_dialog_title2">No more taxis</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="item_is_selected">%1$s selected</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="last_name">Last name</string>
-    <string name="last_photo">Last photo taken</string>
-    <string name="last_video_captured">Last video captured</string>
     <string name="later">Later or at another location</string>
     <string name="login">Login</string>
     <string name="login_error">Invalid login!</string>
     <string name="logout">Logout</string>
     <string name="map_view">Map View</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="minute_picker_description">Minutes circular slider</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="no">No</string>
     <string name="not_found">Not found</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="numbers_radius_multiplier_inner" format="float" type="string">0.60</item>
+    <item name="numbers_radius_multiplier_normal" format="float" type="string">0.81</item>
+    <item name="numbers_radius_multiplier_outer" format="float" type="string">0.83</item>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="ok">OK</string>
-    <string name="picasa">Picasa</string>
+    <string name="photo_required">Please choose a photo for your profile.</string>
     <string name="pick_a_photo">Pick a Photo</string>
-    <string name="plus_disconnect">Disconnect from Google+</string>
-    <string name="plus_sign_out">Switch Google+ account</string>
+    <string name="pick_another_photo">Pick another Photo</string>
+    <string name="picked_account_client">As a Client you will be able to request Taxis for rides.</string>
+    <string name="picked_account_taxi">As a Taxi you will receive ride requests from Clients.        <!-- , based on proximity to them or based on your average rating given by them. -->
+    </string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_password">Password</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">Pull to refresh…</string>
     <string name="pull_to_refresh_refreshing_label">Loading…</string>
     <string name="pull_to_refresh_release_label">Release to refresh…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="radial_numbers_typeface" translatable="false">sans-serif</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
     <string name="rated_by_X">rated by</string>
-    <string name="record_video">Record a video</string>
     <string name="register_ok">Registered successfully!</string>
     <string name="ride_request_please_wait">Please wait
 The taxi you selected will now need to accept your request…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="sans_serif" translatable="false">sans-serif</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="scheduled_rides">Scheduled Rides</string>
     <string name="search">Search</string>
     <string name="see_more">See all your scheduled rides</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="select_day">Select month and day</string>
+    <string name="select_hours">Select hours</string>
+    <string name="select_minutes">Select minutes</string>
+    <string name="select_year">Select year</string>
+
+    <item name="selection_radius_multiplier" format="float" type="string">0.16</item>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="set_destination">Set Destination</string>
     <string name="set_origin">Set Origin</string>
+    <string name="set_time">Set time</string>
     <string name="settings">Settings</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.castorflex.smoothprogressbar/library/0.4.0/res/values/values.xml -->
     <eat-comment />
@@ -1385,15 +2015,27 @@ The taxi you selected will now need to accept your request…</string>
     <eat-comment />
 
     <string name="start_using_travis">Start using Travis</string>
+    <string name="state_logging_in">Logging in…</string>
+    <string name="state_login_failed">Login failed</string>
+    <string name="state_success">Success</string>
     <string name="submit">Submit</string>
-    <string name="take_photos">Take a photo</string>
     <string name="taxi">Taxi</string>
-    <string name="title_activity_file_picker">Filepicker</string>
-    <string name="title_activity_file_picker_auth">FilepickerAuthActivity</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <item name="text_size_multiplier_inner" format="float" type="string">0.14</item>
+    <item name="text_size_multiplier_normal" format="float" type="string">0.17</item>
+    <item name="text_size_multiplier_outer" format="float" type="string">0.11</item>
+
+    <string name="time_placeholder" translatable="false">--</string>
+    <string name="time_separator" translatable="false">:</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="touch_to_instant">TOUCH TO FIND
 THE NEAREST TAXI</string>
-    <string name="type_invalid">Please choose a user type…</string>
-    <string name="unknown_address">Unknown Address</string>
+    <string name="type_required">Please choose an account type.</string>
+    <string name="unknown_address">Not set</string>
     <string name="users">users</string>
     <string name="wait_for_taxi">Done! Your taxi will arrive soon…</string>
     <string name="wait_for_taxi_suggestion">        We will notify you when your taxi arrives.
@@ -1409,8 +2051,22 @@ THE NEAREST TAXI</string>
     <string name="welcome_text1">Welcome to Travis!</string>
     <string name="welcome_text2">It looks like you are a new user.
 Before you start using Travis, please insert your name …</string>
-    <string name="welcome_text3">… then choose a good photo for your profile …</string>
-    <string name="welcome_text4">… and finally pick what type of user are you.</string>
+    <string name="welcome_text2_alt">It looks like you are a new user.
+Before you start using Travis, please confirm name below…</string>
+    <string name="welcome_text3">Now pick a good photo for your profile. Make sure you are smiling! :)</string>
+    <string name="welcome_text3_alt">Now confirm if the photo below is good for your profile. Make sure you are smiling! :)</string>
+    <string name="welcome_text4">Finally, pick what type of user you are by tapping one of the two icons below…</string>
+    <string name="x_arrived"> arrived</string>
+    <string name="x_arrived_large"> arrived at the designated location</string>
+    <string name="x_requested"> requested a ride</string>
+    <string name="x_requested_large"> requested you a ride </string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <string name="year_picker_description">Year list</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="yes">Yes</string>
     <string name="your_favorites">Your favorites</string>
     <string name="your_scheduled_ride">Your scheduled ride:</string>
@@ -1419,10 +2075,12 @@ Before you start using Travis, please insert your name …</string>
     <eat-comment />
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
-        <item name="background">@drawable/ab_solid_travis</item>
+        <item name="android:background">@color/travis_color</item>
+        <!-- <item name="background">@drawable/ab_solid_travis</item> -->
         <item name="backgroundStacked">@drawable/ab_stacked_solid_travis</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_travis</item>
         <item name="progressBarStyle">@style/ProgressBar.Travis</item>
+        <item name="android:displayOptions">none</item>
     </style>
 
     <style name="ActionBar.Transparent.Travis" parent="@style/Widget.Sherlock.Light.ActionBar">
@@ -1445,7 +2103,7 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/AndroidBootstrap/unspecified/res/values/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="android:Theme.Light">
@@ -1455,11 +2113,55 @@ Before you start using Travis, please insert your name …</string>
             backward-compatibility can go here.
         -->
     </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
     <style name="BaseText">
         <item name="android:typeface">sans</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="BottomBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/common_bar_light_gray_bottom</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="BottomBarContainer">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CommonButtonGreen" parent="_CommonButtonBase">
+        <item name="android:background">@drawable/common_button_green</item>
+        <item name="android:textColor">@color/greenButtonText</item>
+    </style>
+
+    <style name="CommonButtonLightGray" parent="_CommonButtonBase">
+        <item name="android:background">@drawable/common_button_light_gray</item>
+        <item name="android:textColor">@color/grayButtonText</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="CustomShowcaseTheme" parent="ShowcaseView.Light">
+        <item name="sv_backgroundColor">@color/travis_color_darker</item>
+        <item name="sv_showcaseColor">@color/travis_color</item>
+        <item name="sv_buttonText">Hide</item>
+        <item name="sv_tintButtonColor">false</item>
+        <item name="sv_titleTextAppearance">@style/CustomTitle</item>
+    </style>
+
+    <style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title">
+        <item name="android:textColor">@color/travis_color</item>
     </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/eu.inmite.android.lib/android-styled-dialogs/1.1.2/res/values/values.xml -->
     <eat-comment />
@@ -1491,6 +2193,18 @@ Before you start using Travis, please insert your name …</string>
     <eat-comment />
 
     <style name="DialogStyleLight.Custom">
+        <item name="titleTextColor">@color/travis_color</item>
+        <item name="titleSeparatorColor">@color/dialog_title_separator</item>
+        <item name="messageTextColor">@color/dialog_message_text</item>
+        <item name="buttonTextColor">@color/dialog_button_text</item>
+        <item name="buttonSeparatorColor">@android:color/white</item>
+        <item name="buttonBackgroundColorNormal">@android:color/white</item>
+        <item name="buttonBackgroundColorPressed">@color/dialog_button_pressed</item>
+        <item name="buttonBackgroundColorFocused">@color/dialog_button_focused</item>
+        <item name="dialogBackground">@android:color/white</item>
+    </style>
+
+    <style name="DialogStyleLight.FullScreen">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="titleTextColor">@color/travis_color</item>
@@ -1751,6 +2465,32 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:completionThreshold">2</item>
         <item name="android:dropDownWidth">wrap_content</item>
     </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="ShowcaseButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">96dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/button</item>
+    </style>
+
+    <style name="ShowcaseView">
+        <item name="sv_titleTextAppearance">@style/TextAppearance.ShowcaseView.Title</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail</item>
+        <item name="sv_backgroundColor">#3333B5E5</item>
+        <item name="sv_buttonText">@string/ok</item>
+    </style>
+
+    <style name="ShowcaseView.Light">
+        <item name="sv_titleTextAppearance">@style/TextAppearance.ShowcaseView.Title</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail.Light</item>
+        <item name="sv_backgroundColor">#3333B5E5</item>
+        <item name="sv_buttonText">@string/ok</item>
+    </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
@@ -1887,6 +2627,28 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0-SNAPSHOT/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="TextAppearance.ShowcaseView.Detail" parent="android:style/TextAppearance">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TextAppearance.ShowcaseView.Detail.Light">
+        <item name="android:textColor">#333333</item>
+        <item name="android:shadowColor">#FF0000</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+
+    <style name="TextAppearance.ShowcaseView.Title" parent="android:style/TextAppearance.Large">
+        <item name="android:textColor">#33B5E5</item>
+    </style>
+
+    <style name="TextAppearance.ShowcaseView.Title.Light">
+        <item name="android:shadowRadius">0</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <eat-comment />
 
     <style name="Theme.Sherlock" parent="Sherlock.__Theme">
 
@@ -2078,9 +2840,8 @@ Before you start using Travis, please insert your name …</string>
     <eat-comment />
 
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="windowNoTitle">false</item>
-        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:windowActionBarOverlay">true</item>
         <item name="actionBarItemBackground">@drawable/selectable_background_travis</item>
         <item name="popupMenuStyle">@style/PopupMenu.Travis</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Travis</item>
@@ -2090,13 +2851,6 @@ Before you start using Travis, please insert your name …</string>
         <item name="actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
-        <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
-    </style>
-
-    <style name="Theme.Travis.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen_background</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="Theme.Travis.Widget" parent="@style/Theme.Sherlock">
@@ -2391,6 +3145,49 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
     </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="_CommonButtonBase">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="ampm_label">
+        <item name="android:textSize">@dimen/ampm_label_size</item>
+        <item name="android:textColor">@color/ampm_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="com_facebook_loginview_default_style" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/com_facebook_button_blue</item>
+        <item name="android:textColor">@color/com_facebook_loginview_text_color</item>
+        <item name="android:textSize">@dimen/com_facebook_loginview_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/com_facebook_loginview_padding_left</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="com_facebook_loginview_silver_style" parent="@android:style/Widget.Button">
+        <item name="android:width">205dp</item>
+        <item name="android:height">44dp</item>
+        <item name="android:background">@drawable/com_facebook_loginbutton_silver</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#4B5164</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="day_of_week_label_condensed" />
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
@@ -2457,6 +3254,24 @@ Before you start using Travis, please insert your name …</string>
         <item name="android:gravity">center</item>
         <!-- <item name="android:background">?topBarBackground</item> -->
         <!-- <item name="android:textColor">?topBarTextColor</item> -->
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="time_label">
+        <item name="android:textSize">@dimen/time_label_size</item>
+        <item name="android:textColor">@color/numbers_text_color</item>
+    </style>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/facebook-android-sdk/unspecified/res/values/values.xml -->
+    <eat-comment />
+
+    <style name="tooltip_bubble_text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.25</item>
+        <item name="android:shadowColor">#40000000</item>
     </style>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/themes.xml -->
     <eat-comment />

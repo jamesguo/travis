@@ -38,11 +38,43 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Обновите Сервисы Google Play"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Войти"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Войти в аккаунт Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"Окно выбора даты"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">Установить Dropbox</string>
+    <string name="dbx_install_button_cancel">Отмена</string>
+    <string name="dbx_install_button_ok">Установить</string>
+    <string name="dbx_install_main">Пожалуйста, установите приложение Dropbox</string>
+    <string name="dbx_install_sub">Приложение Dropbox позволит вам использовать ваши документы во всех ваших любимых приложения! Например, в этом!</string>
+    <string name="dbx_update">Обновить Dropbox</string>
+    <string name="dbx_update_button_ok">Обновить</string>
+    <string name="dbx_update_main">Пожалуйста, обновите приложение Dropbox</string>
+    <string name="dbx_update_sub">Новое приложение Dropbox позволит вам использовать ваши файлы в ваших любимых приложениях, как, например, это!</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="deleted_key" msgid="6908431551612331381">"Цифра <ns1:g id="KEY">%1$s</ns1:g> удалена"</string>
+    <string name="done_label" msgid="7007948707597430919">"Готово"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Выбор часов на циферблате"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"Выбран элемент <ns1:g id="ITEM">%1$s</ns1:g>"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Выбор минут на циферблате"</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ru/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">потяните</string>
     <string name="pull_to_refresh_refreshing_label">обновление</string>
     <string name="pull_to_refresh_release_label">отпустите</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ru/values.xml -->
+    <eat-comment />
+
+    <string name="select_day" msgid="3973338219107019769">"Выберите месяц и день"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Выберите часы"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Выберите минуты"</string>
+    <string name="select_year" msgid="2603330600102539372">"Выберите год"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Меню выбора года"</string>
 
 </resources>

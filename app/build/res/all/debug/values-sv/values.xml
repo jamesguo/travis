@@ -38,11 +38,28 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Uppdatera Google Play Tjänster"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Logga in"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Logga in med Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-sv/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"Rutnät för månad"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"<ns1:g id="KEY">%1$s</ns1:g> har tagits bort"</string>
+    <string name="done_label" msgid="7007948707597430919">"Klar"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Cirkelreglage för timmar"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"<ns1:g id="ITEM">%1$s</ns1:g> har markerats"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Cirkelreglage för minuter"</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-sv/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">Dra nedåt om du vill uppdatera</string>
     <string name="pull_to_refresh_refreshing_label">Uppdaterar…</string>
     <string name="pull_to_refresh_release_label">Släpp om du vill uppdatera</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-sv/values.xml -->
+    <eat-comment />
+
+    <string name="select_day" msgid="3973338219107019769">"Välj månad och dag"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Välj timmar"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Välj minuter"</string>
+    <string name="select_year" msgid="2603330600102539372">"Välj år"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Lista över år"</string>
 
 </resources>

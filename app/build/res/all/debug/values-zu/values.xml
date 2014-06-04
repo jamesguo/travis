@@ -38,5 +38,19 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Buyekeza amasevisi e-Google Play"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"Ngena ngemvume"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Ngena ngemvume nge-Google"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-zu/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"Igridi yenyanga yezinsuku"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"I-<ns1:g id="KEY">%1$s</ns1:g> isusiwe"</string>
+    <string name="done_label" msgid="7007948707597430919">"Kwenziwe"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Amahora weslayidi esiyindingilizi"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"I-<ns1:g id="ITEM">%1$s</ns1:g> ekhethiwe"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Amaminithi weslayidi esiyindingilizi"</string>
+    <string name="select_day" msgid="3973338219107019769">"Khetha inyanga nosuku"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Khetha amahora"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Khetha amaminithi"</string>
+    <string name="select_year" msgid="2603330600102539372">"Khetha unyaka"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Uhlu lonyaka"</string>
 
 </resources>

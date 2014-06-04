@@ -1,6 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger>
 
+    <dataSet config="1.0.5" >
+        <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res" >
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values\values.xml"
+                qualifiers="" >
+                <string name="error_email_address_not_valid" >Email address not valid
+                </string>
+                <string name="error_notvalid_personname" >Not a valid first or last name.
+                </string>
+                <string name="error_field_must_not_be_empty" >The field must not be empty
+                </string>
+                <string name="error_this_field_cannot_contain_special_character" >This field cannot contain any special character
+                </string>
+                <string name="error_domain_not_valid" >Domain name not valid
+                </string>
+                <string name="error_only_numeric_digits_allowed" >Only numeric digits are allowed.
+                </string>
+                <string name="error_ip_not_valid" >IP Address not valid
+                </string>
+                <string name="error_creditcard_number_not_valid" >Credit card number is not valid
+                </string>
+                <string name="error_date_not_valid" >Format not valid
+                </string>
+                <string name="error_phone_not_valid" >Phone number not valid
+                </string>
+                <string name="error_notvalid_personfullname" >Not a valid full name.
+                </string>
+                <string name="error_url_not_valid" >Web Url is not valid
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >Only standard letters are allowed
+                </string>
+
+                <declare-styleable name="FormEditText" >
+                    <attr name="testType" >
+                        <enum
+                            name="regexp"
+                            value="0" />
+                        <enum
+                            name="numeric"
+                            value="1" />
+                        <enum
+                            name="alpha"
+                            value="2" />
+                        <enum
+                            name="alphaNumeric"
+                            value="3" />
+                        <enum
+                            name="email"
+                            value="4" />
+                        <enum
+                            name="creditCard"
+                            value="5" />
+                        <enum
+                            name="phone"
+                            value="6" />
+                        <enum
+                            name="domainName"
+                            value="7" />
+                        <enum
+                            name="ipAddress"
+                            value="8" />
+                        <enum
+                            name="webUrl"
+                            value="9" />
+                        <enum
+                            name="nocheck"
+                            value="10" />
+                        <enum
+                            name="custom"
+                            value="11" />
+                        <enum
+                            name="personName"
+                            value="12" />
+                        <enum
+                            name="personFullName"
+                            value="13" />
+                        <enum
+                            name="date"
+                            value="14" />
+                    </attr>
+                    <attr
+                        name="testErrorString"
+                        format="string" />
+                    <attr
+                        name="emptyErrorString"
+                        format="string" />
+                    <attr
+                        name="customRegexp"
+                        format="string" />
+                    <attr
+                        name="customFormat"
+                        format="string" />
+                    <attr
+                        name="emptyAllowed"
+                        format="boolean" />
+                    <attr
+                        name="classType"
+                        format="string" />
+                </declare-styleable>
+            </file>
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values-de\values.xml"
+                qualifiers="de" >
+                <string name="error_domain_not_valid" >Domainname ist nicht gültig
+                </string>
+                <string name="error_phone_not_valid" >Telefonnummer ist nicht gültig
+                </string>
+                <string name="error_field_must_not_be_empty" >Pflichtfeld
+                </string>
+                <string name="error_creditcard_number_not_valid" >Kreditkartennummer ist nicht gültig
+                </string>
+                <string name="error_only_numeric_digits_allowed" >Bitte verwenden Sie nur Ziffern
+                </string>
+                <string name="error_url_not_valid" >Webadresse is nicht gültig
+                </string>
+                <string name="error_date_not_valid" >Format nicht gültig
+                </string>
+                <string name="error_ip_not_valid" >IP Adresse ist nicht gültig
+                </string>
+                <string name="error_this_field_cannot_contain_special_character" >Bitte verwenden Sie keine Sonderzeichen
+                </string>
+                <string name="error_email_address_not_valid" >E-mail Adresse ist nicht gültig
+                </string>
+                <string name="error_notvalid_personfullname" >Kein vollständiger Name
+                </string>
+                <string name="error_notvalid_personname" >Kein gültiger Vor- oder Nachname
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >Bitte verwenden Sie nur Buchstaben
+                </string>
+            </file>
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values-es\values.xml"
+                qualifiers="es" >
+                <string name="error_this_field_cannot_contain_special_character" >Este campo puede contener caracteres especiales
+                </string>
+                <string name="error_url_not_valid" >URL inválido
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >Solo los caracteres estándares son aceptados
+                </string>
+                <string name="error_domain_not_valid" >Nombre de domino inválido
+                </string>
+                <string name="error_creditcard_number_not_valid" >Número de tarjeta inválida
+                </string>
+                <string name="error_ip_not_valid" >IP inválida
+                </string>
+                <string name="error_date_not_valid" >Formato no válido
+                </string>
+                <string name="error_phone_not_valid" >Número de teléfono inválido
+                </string>
+                <string name="error_field_must_not_be_empty" >Este campo es obligarorio
+                </string>
+                <string name="error_email_address_not_valid" >Correo electronico inválido
+                </string>
+                <string name="error_only_numeric_digits_allowed" >Solo los caracteres numéricos son aceptados
+                </string>
+            </file>
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values-fr\values.xml"
+                qualifiers="fr" >
+                <string name="error_only_numeric_digits_allowed" >Seuls les caractères numériques sont autorisés
+                </string>
+                <string name="error_phone_not_valid" >Numéro de téléphone invalide
+                </string>
+                <string name="error_domain_not_valid" >Nom de domaine invalide
+                </string>
+                <string name="error_url_not_valid" >Adresse url invalide
+                </string>
+                <string name="error_date_not_valid" >Format non valide
+                </string>
+                <string name="error_creditcard_number_not_valid" >Numéro de carte invalide
+                </string>
+                <string name="error_field_must_not_be_empty" >Le champ ne doit pas être vide
+                </string>
+                <string name="error_this_field_cannot_contain_special_character" >Ce champ ne peut contenir de caractères spéciaux
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >Seuls les caractères standards sont autorisés
+                </string>
+                <string name="error_ip_not_valid" >Adresse IP invalide
+                </string>
+                <string name="error_email_address_not_valid" >Adresse email invalide
+                </string>
+            </file>
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values-it\values.xml"
+                qualifiers="it" >
+                <string name="error_notvalid_personname" >Il nome o cognome non è valido.
+                </string>
+                <string name="error_creditcard_number_not_valid" >La carta di credito non è valida
+                </string>
+                <string name="error_phone_not_valid" >L\'indirizzo di telefono non è velido
+                </string>
+                <string name="error_ip_not_valid" >L\'ip non è valido
+                </string>
+                <string name="error_date_not_valid" >Formato non valido
+                </string>
+                <string name="error_only_numeric_digits_allowed" >Inserire solamente numeri
+                </string>
+                <string name="error_email_address_not_valid" >L\'indirizzo email non è valido
+                </string>
+                <string name="error_domain_not_valid" >Il nome di dominio non è valido
+                </string>
+                <string name="error_notvalid_personfullname" >Il campo non contiene un nome completo valido.
+                </string>
+                <string name="error_url_not_valid" >Il sito web non è valido
+                </string>
+                <string name="error_field_must_not_be_empty" >Il campo non può essere vuoto
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >Inserire solamente lettere
+                </string>
+                <string name="error_this_field_cannot_contain_special_character" >Il campo non può contenere caratteri speciali
+                </string>
+            </file>
+            <file
+                path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\exploded-aar\com.andreabaccega\android-form-edittext\1.0.5\res\values-ja\values.xml"
+                qualifiers="ja" >
+                <string name="error_url_not_valid" >有効なURLではありません。
+                </string>
+                <string name="error_this_field_cannot_contain_special_character" >特別な文字を含むことはできません。
+                </string>
+                <string name="error_only_numeric_digits_allowed" >数字のみ入力可能です。
+                </string>
+                <string name="error_field_must_not_be_empty" >入力必須です。
+                </string>
+                <string name="error_email_address_not_valid" >有効な電子メールアドレスではありません。
+                </string>
+                <string name="error_creditcard_number_not_valid" >有効なクレジットカード番号ではありません。
+                </string>
+                <string name="error_only_standard_letters_are_allowed" >一般的なアルファベットのみ入力可能です。
+                </string>
+                <string name="error_date_not_valid" >有効な形式ではありません。
+                </string>
+                <string name="error_phone_not_valid" >有効な電話番号ではありません。
+                </string>
+                <string name="error_domain_not_valid" >有効なドメイン名ではありません。
+                </string>
+                <string name="error_ip_not_valid" >有効なIPアドレスではありません。
+                </string>
+            </file>
+        </source>
+    </dataSet>
     <dataSet config="main" >
         <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\res" >
             <file
@@ -291,35 +531,57 @@
             <file
                 path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\res\values\colors.xml"
                 qualifiers="" >
-                <color name="bbutton_default_pressed" >#ffebebeb
+                <color name="bbutton_success" >#ff5cb85c
+                </color>
+                <color name="bbutton_inverse_edge" >#ff141414
                 </color>
                 <color name="bbutton_default_disabled_edge" >#a5cccccc
                 </color>
-                <color name="bbutton_inverse_edge" >#ff141414
+                <color name="bbutton_default_pressed" >#ffebebeb
+                </color>
+                <color name="bbutton_warning_edge" >#ffeea236
+                </color>
+                <color name="bbutton_danger" >#ffd9534f
                 </color>
                 <color name="bbutton_success_pressed" >#ff47a447
                 </color>
                 <color name="bbutton_inverse_pressed_edge" >#ff292929
                 </color>
+                <color name="bbutton_inverse_disabled" >#a50a0a0a
+                </color>
+                <color name="bbutton_inverse_pressed" >#ff1f1f1f
+                </color>
                 <color name="bbutton_inverse" >#ff0a0a0a
                 </color>
                 <color name="bthumbnail_background" >#ffffffff
                 </color>
+                <color name="bbutton_info_pressed" >#ff39b3d7
+                </color>
                 <color name="bbutton_info_edge" >#ff46b8da
+                </color>
+                <color name="bbutton_warning_pressed_edge" >#ffd58512
                 </color>
                 <color name="bthumbnail_font" >#7e7e7e
                 </color>
-                <color name="bbutton_primary" >#ff428bca
+                <color name="bbutton_success_disabled_edge" >#a54cae4c
                 </color>
-                <color name="bbutton_primary_pressed_edge" >#ff285e8e
+                <color name="bbutton_danger_edge" >#ffd43f3a
+                </color>
+                <color name="bbutton_primary" >#ff428bca
                 </color>
                 <color name="bbutton_info_pressed_edge" >#ff269abc
                 </color>
+                <color name="bbutton_primary_pressed_edge" >#ff285e8e
+                </color>
+                <color name="bbutton_danger_disabled" >#a5d9534f
+                </color>
                 <color name="bbutton_success_pressed_edge" >#ff398439
                 </color>
-                <color name="bbutton_warning" >#fff0ad4e
+                <color name="bbutton_info_disabled" >#a55bc0de
                 </color>
-                <color name="black" >#ff000000
+                <color name="bbutton_inverse_disabled_edge" >#a5141414
+                </color>
+                <color name="bbutton_warning" >#fff0ad4e
                 </color>
                 <color name="bbutton_edittext_disabled" >#ffe0e0e0
                 </color>
@@ -329,7 +591,11 @@
                 </color>
                 <color name="bbutton_default_disabled" >#a5ffffff
                 </color>
+                <color name="bbutton_primary_edge" >#ff357ebd
+                </color>
                 <color name="bthumbnail_placeholder" >#e9e9e9
+                </color>
+                <color name="bthumbnail_border" >#dbdbdb
                 </color>
                 <color name="bbutton_default_edge" >#ffcccccc
                 </color>
@@ -337,55 +603,25 @@
                 </color>
                 <color name="bbutton_warning_disabled" >#a5f0ad4e
                 </color>
+                <color name="bbutton_info" >#ff5bc0de
+                </color>
                 <color name="bbutton_default" >#ffffffff
                 </color>
                 <color name="bbutton_primary_pressed" >#ff3276b1
-                </color>
-                <color name="bbutton_primary_disabled_edge" >#a5357ebd
-                </color>
-                <color name="bbutton_info_disabled_edge" >#a546b8da
-                </color>
-                <color name="bbutton_success" >#ff5cb85c
-                </color>
-                <color name="bbutton_warning_edge" >#ffeea236
-                </color>
-                <color name="bbutton_danger" >#ffd9534f
-                </color>
-                <color name="bbutton_inverse_disabled" >#a50a0a0a
-                </color>
-                <color name="bbutton_inverse_pressed" >#ff1f1f1f
-                </color>
-                <color name="bbutton_info_pressed" >#ff39b3d7
-                </color>
-                <color name="bbutton_warning_pressed_edge" >#ffd58512
-                </color>
-                <color name="bbutton_success_disabled_edge" >#a54cae4c
-                </color>
-                <color name="bbutton_danger_edge" >#ffd43f3a
-                </color>
-                <color name="bbutton_danger_disabled" >#a5d9534f
-                </color>
-                <color name="bbutton_info_disabled" >#a55bc0de
-                </color>
-                <color name="bbutton_inverse_disabled_edge" >#a5141414
-                </color>
-                <color name="bbutton_primary_edge" >#ff357ebd
-                </color>
-                <color name="bthumbnail_border" >#dbdbdb
-                </color>
-                <color name="bbutton_info" >#ff5bc0de
                 </color>
                 <color name="bbutton_warning_pressed" >#ffed9c28
                 </color>
                 <color name="bbutton_success_disabled" >#a55cb85c
                 </color>
-                <color name="bbutton_success_edge" >#ff4cae4c
-                </color>
                 <color name="bbutton_danger_disabled_edge" >#a5d43f3a
                 </color>
-                <color name="white" >#ffffffff
+                <color name="bbutton_success_edge" >#ff4cae4c
                 </color>
                 <color name="bbutton_edittext_border" >#ccc
+                </color>
+                <color name="bbutton_primary_disabled_edge" >#a5357ebd
+                </color>
+                <color name="bbutton_info_disabled_edge" >#a546b8da
                 </color>
                 <color name="bbutton_default_pressed_edge" >#ffadadad
                 </color>
@@ -467,6 +703,7 @@
             </file>
         </source>
         <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\res\rs\debug" />
+        <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\build\res\generated\debug" />
     </dataSet>
     <dataSet config="debug" >
         <source path="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\src\debug\res" />

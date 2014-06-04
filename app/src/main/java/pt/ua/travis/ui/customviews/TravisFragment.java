@@ -1,9 +1,11 @@
 package pt.ua.travis.ui.customviews;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -278,5 +280,58 @@ public class TravisFragment extends SherlockFragment {
         }
     }
 
+    /**
+     * Animation performance improvement that uses hardware layers.
+     */
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        Animation animation = super.onCreateAnimation(transit, enter, nextAnim);
+
+        // HW layer support only exists on API 11+
+        if (Build.VERSION.SDK_INT >= 11) {
+            if (animation == null && nextAnim != 0) {
+                animation = AnimationUtils.loadAnimation(getActivity(), nextAnim);
+            }
+
+            if (animation != null) {
+                getView().setLayerType(View.LAYER_TYPE_HARDWARE, null);
+
+                animation.setAnimationListener(new Animation.AnimationListener() {
+
+                    /**
+                     * Notifies the start of the animation.
+                     *
+                     * @param animation The started animation.
+                     */
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        // DO NOTHING
+                    }
+
+                    /**
+                     * Notifies the end of the animation. This callback is not invoked
+                     * for animations with repeat count set to INFINITE.
+                     *
+                     * @param animation The animation which reached its end.
+                     */
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        getView().setLayerType(View.LAYER_TYPE_NONE, null);
+                    }
+
+                    /**
+                     * Notifies the repetition of the animation.
+                     *
+                     * @param animation The animation which was repeated.
+                     */
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                        // DO NOTHING
+                    }
+                });
+            }
+        }
+
+        return animation;
+    }
 }
 

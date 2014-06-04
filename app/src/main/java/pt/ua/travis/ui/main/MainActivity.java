@@ -1,8 +1,8 @@
 package pt.ua.travis.ui.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -15,7 +15,6 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
@@ -23,6 +22,7 @@ import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.User;
+import pt.ua.travis.core.SplashScreenActivity;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
 import pt.ua.travis.ui.ridelist.RideDeletedListener;
@@ -54,7 +54,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
             new AsyncTask<Void, Void, List<Ride>>() {
                 @Override
                 protected List<Ride> doInBackground(Void... params) {
-                    return PersistenceManager.query().rides().withUser(u).scheduled().sortedByTime().now();
+                    return PersistenceManager.query().rides().withUser(u).uncompleted().sortedByTime().now();
                 }
 
                 @Override
@@ -99,8 +99,15 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
                 }
             });
 
+            CloseDrawerAction closeDrawerAction = new CloseDrawerAction() {
+                @Override
+                public void closeDrawer() {
+                    drawerLayout.close();
+                }
+            };
+
             drawerItems.add(userItem);
-            fillDrawerNavigation(drawerItems);
+            fillDrawerNavigation(drawerItems, closeDrawerAction);
             drawerItems.add(settingsItem);
             drawerItems.add(logoutItem);
         }
@@ -110,7 +117,6 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 
         drawerLayout = new BlurDrawerLayout(this);
         drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
-        drawerLayout.setBackground(R.drawable.bokeh_travis);
         drawerLayout.setShadowVisible(true);
         drawerLayout.attachToActivity(this);
         for(BlurDrawerObject item : drawerItems) {
@@ -152,6 +158,11 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 //        drawerLayout.setDrawerListener(drawerToggle);
     }
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
     public void forceTabs(){
         try {
             final android.app.ActionBar actionBar = getActionBar();
@@ -180,13 +191,17 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
 //        });
 //    }
 
+    protected interface CloseDrawerAction {
+        void closeDrawer();
+    }
+
     /**
      * Populates the drawerLayout navigation menu.
      *
      * @param drawerItems the list that must be populated to translate into
      *                    items or indicators in the drawerLayout navigation menu
      */
-    protected abstract void fillDrawerNavigation(List<BlurDrawerObject> drawerItems);
+    protected abstract void fillDrawerNavigation(List<BlurDrawerObject> drawerItems, CloseDrawerAction closeDrawerAction);
 
     /**
      * Overridden method to sync the toggle state of the navigation drawerLayout
@@ -227,11 +242,17 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
     }
 
     public void logout(View view){
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.putExtra(LoginActivity.NO_AUTO_LOGIN, true);
-        startActivity(intent);
-//        drawerItems = null;
+        SharedPreferences prefs = this.getSharedPreferences("TravisPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(SplashScreenActivity.DO_AUTO_LOGIN, false);
+        editor.putString(SplashScreenActivity.AUTO_EMAIL, "");
+        editor.putString(SplashScreenActivity.AUTO_PASS, "");
+        editor.commit();
         PersistenceManager.logout();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         finish();
     }
 

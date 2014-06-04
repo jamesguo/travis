@@ -90,7 +90,8 @@ public final class Utils {
      */
     public static int dpToPx(Context context, int dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
+        int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return px;
     }
 
 
@@ -99,7 +100,8 @@ public final class Utils {
      */
     public static int pxToDp(Context context, int px) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        int dp = Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return dp;
     }
 
 
@@ -356,12 +358,24 @@ public final class Utils {
         return sb.toString();
     }
 
+    public static String capitalizeWord(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return str;
+        }
+        return new StringBuilder(strLen)
+                .append(Character.toTitleCase(str.charAt(0)))
+                .append(str.substring(1))
+                .toString();
+    }
+
 
 
     public interface Code<T> {
         T execute();
     }
 
+    // TODO DELETE THIS
     public static <T> T lockThreadAndExecute(Code<T> code){
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
         T toReturn = code.execute();

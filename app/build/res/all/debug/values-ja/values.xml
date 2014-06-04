@@ -38,7 +38,28 @@
     <string name="common_google_play_services_update_title" msgid="6006316683626838685">"Play開発者サービスの更新"</string>
     <string name="common_signin_button_text" msgid="9071884888741449141">"ログイン"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Googleでログイン"</string>
-    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.andreabaccega/android-form-edittext/1.0.5/res/values-ja/values.xml -->
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="day_picker_description" msgid="3968620852217927702">"日グリッド（月別）"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/DropboxChooserSDK/unspecified/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="dbx_install">Dropbox をインストールする</string>
+    <string name="dbx_install_button_cancel">キャンセル</string>
+    <string name="dbx_install_button_ok">インストール</string>
+    <string name="dbx_install_main">Dropbox アプリをインストールしてください</string>
+    <string name="dbx_install_sub">Dropbox をインストールすれば、お気に入りのアプリから自分のアイテムにアクセスできます！</string>
+    <string name="dbx_update">Dropbox の更新</string>
+    <string name="dbx_update_button_ok">更新</string>
+    <string name="dbx_update_main">Dropbox アプリを更新してください</string>
+    <string name="dbx_update_sub">新しい Dropbox アプリをお使いになると、こちらのようなお気に入りのアプリにあるすべてのアイテムにアクセスすることができます！</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="deleted_key" msgid="6908431551612331381">"<ns1:g id="KEY">%1$s</ns1:g>を削除しました"</string>
+    <string name="done_label" msgid="7007948707597430919">"完了"</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/icm_travis.dependencies/android-edittext-validator-master/unspecified/res/values-ja/values.xml -->
     <eat-comment />
 
     <string name="error_creditcard_number_not_valid">有効なクレジットカード番号ではありません。</string>
@@ -52,11 +73,25 @@
     <string name="error_phone_not_valid">有効な電話番号ではありません。</string>
     <string name="error_this_field_cannot_contain_special_character">特別な文字を含むことはできません。</string>
     <string name="error_url_not_valid">有効なURLではありません。</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="hour_picker_description" msgid="7586639618712934060">"円形スライダー（時）"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"<ns1:g id="ITEM">%1$s</ns1:g>を選択しました"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"円形スライダー（分）"</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.chrisbanes.actionbarpulltorefresh/library/0.9.9/res/values-ja/values.xml -->
     <eat-comment />
 
     <string name="pull_to_refresh_pull_label">画面を引っ張って…</string>
     <string name="pull_to_refresh_refreshing_label">読み込み中…</string>
     <string name="pull_to_refresh_release_label">指を離して更新…</string>
+    <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values-ja/values.xml -->
+    <eat-comment />
+
+    <string name="select_day" msgid="3973338219107019769">"月と日を選択"</string>
+    <string name="select_hours" msgid="7651068754188418859">"時間を選択"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"分を選択"</string>
+    <string name="select_year" msgid="2603330600102539372">"年を選択"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"年リスト"</string>
 
 </resources>

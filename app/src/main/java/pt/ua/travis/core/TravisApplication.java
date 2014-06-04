@@ -3,6 +3,7 @@ package pt.ua.travis.core;
 import android.app.Application;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Criteria;
 import android.location.Location;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
@@ -21,6 +23,7 @@ import com.google.common.collect.Lists;
 import com.parse.ParseGeoPoint;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.ui.login.SignUpActivity;
 import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.Validate;
 
@@ -49,12 +52,11 @@ public class TravisApplication extends Application implements LocationListener,
         }
 
         CommonRes.init(this);
-//        FilePickerAPI.setKey("AKIepy8VQnykiqorCVkRCz");
         PersistenceManager.init(this);
 
         // TODO: REMOVE THIS
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
-        PersistenceManager.attemptLogin("cr7@gmail.com", "123");
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
+//        PersistenceManager.attemptNormalLogin("cr7@gmail.com", "123");
 
         listeners = Lists.newArrayList();
 
@@ -99,14 +101,15 @@ public class TravisApplication extends Application implements LocationListener,
 
     @Override
     public final void onConnectionFailed(ConnectionResult connectionResult) {
-//        if (connectionResult.hasResolution()) {
+        if (connectionResult.hasResolution()) {
+            locationClient.connect();
 //            try {
 //                connectionResult.startResolutionForResult(this, ConnectionResult.RESOLUTION_REQUIRED);
 //            } catch (IntentSender.SendIntentException e) {
 //            }
 //        } else {
-////            showErrorDialog(connectionResult.getErrorCode());
-//        }
+//            showErrorDialog(connectionResult.getErrorCode());
+        }
     }
 
     private void startPeriodicUpdates() {
