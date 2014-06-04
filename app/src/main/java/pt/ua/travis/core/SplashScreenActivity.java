@@ -9,6 +9,7 @@ import com.google.common.base.Strings;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ObjectAnimator;
 import pt.ua.travis.R;
+import pt.ua.travis.backend.User;
 import pt.ua.travis.ui.login.LoginTask;
 import pt.ua.travis.ui.login.LoginActivity;
 import pt.ua.travis.utils.Utils;
@@ -44,10 +45,15 @@ public class SplashScreenActivity extends SherlockActivity {
             if(!Strings.isNullOrEmpty(email) && !Strings.isNullOrEmpty(pass)){
                 // Credentials stored in the shared preferences are not null nor
                 // empty, which means that they were previously set by the user.
-                new LoginTask(this, email, pass).execute(new LoginTask.OnTaskEndedListener() {
+                new LoginTask(email, pass).execute(new LoginTask.OnTaskEndedListener() {
                     @Override
-                    public void onLoginSuccess() {
-                        // DO NOTHING
+                    public void onLoginSuccess(User loggedUser) {
+                        LoginTask.goToMainActivity(SplashScreenActivity.this, loggedUser);
+                    }
+
+                    @Override
+                    public void onNewCredentials() {
+                        goToLoginScreen();
                     }
 
                     @Override

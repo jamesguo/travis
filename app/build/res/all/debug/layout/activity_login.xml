@@ -102,19 +102,7 @@
                 custom:textComplete="@string/state_success"
                 custom:textProgress="@string/state_logging_in"
                 custom:textError="@string/state_login_failed"
-                custom:colorError="@color/red_error"/>
-
-            <Button
-                android:id="@+id/facebook_login_button"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/com_facebook_loginview_log_in_button"
-                android:textColor="@android:color/white"
-                android:onClick="attemptFacebookLogin"/>
+                custom:colorError="@color/red_error" />
 
         </LinearLayout>
 

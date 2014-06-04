@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/dependencies/ProgressWheel-master/ProgressWheel-master.iml" filepath="$PROJECT_DIR$/dependencies/ProgressWheel-master/ProgressWheel-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/dependencies/android-edittext-validator-master/android-edittext-validator-master.iml" filepath="$PROJECT_DIR$/dependencies/android-edittext-validator-master/android-edittext-validator-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dependencies/facebook-android-sdk/facebook-android-sdk.iml" filepath="$PROJECT_DIR$/dependencies/facebook-android-sdk/facebook-android-sdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/icm_travis.iml" filepath="$PROJECT_DIR$/icm_travis.iml" />
     </modules>
   </component>

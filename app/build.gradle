@@ -60,9 +60,6 @@ dependencies {
     // "Pull action bar to refresh" feature
     compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:+'
 
-//    // Translucid action bar effect
-//    compile 'com.github.manuelpeinado.glassactionbar:glassactionbar-abs:0.3.0'
-
     // Honeycomb animation compatibility for SDK versions lower than 3.0
     compile 'com.nineoldandroids:library:2.4.0'
 
@@ -93,9 +90,6 @@ dependencies {
         transitive = false
     }
 
-    // Facebook SDK for login
-    compile project(':dependencies:facebook-android-sdk')
-
     // Showcase wheel for tutorials
     compile 'com.github.amlcurran.showcaseview:library:5.0.0-SNAPSHOT'
 
@@ -107,4 +101,12 @@ dependencies {
         transitive = false
     }
 
+    // Paypal SDK for payment
+    compile fileTree(dir: 'src/main/libs/PayPalSDK', include: '*.jar')
+
+//    // Better payment price picker
+//    compile ('com.doomonafireball.betterpickers:library:1.5.2') {
+//        exclude group: 'com.android.support', module: 'support-v4'
+//        exclude group: 'com.squareup.picasso', module: 'picasso:2.2.0'
+//    }
 }

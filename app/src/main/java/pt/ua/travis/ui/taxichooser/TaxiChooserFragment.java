@@ -196,13 +196,14 @@ public class TaxiChooserFragment extends TravisFragment
         });
 
 
-        pullToRefreshLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.pull_to_refresh_layout);
-        ActionBarPullToRefresh.from(getSherlockActivity())
+        pullToRefreshLayout = (PullToRefreshLayout) parentActivity.findViewById(R.id.pull_to_refresh_layout);
+        ActionBarPullToRefresh.from(parentActivity)
                 .options(Options.create()
                         .refreshOnUp(true)
                         .scrollDistance(3.5f)
                         .build())
                 .allChildrenArePullable()
+                .useViewDelegate(TransitionViewPager.class, new TransitionViewPagerDelegate())
                 .listener(this)
                 .setup(pullToRefreshLayout);
 

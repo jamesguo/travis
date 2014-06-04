@@ -14,6 +14,18 @@
         <item name="actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
+        <item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item>
+    </style>
+
+    <style name="Widget.Custom.PtrHeader" parent="android:Widget">
+        <item name="ptrHeaderBackground">@color/travis_color</item>
+        <item name="ptrHeaderTitleTextAppearance">@style/TextAppearance.Custom.PtrHeader.Title</item>
+        <item name="ptrProgressBarColor">@color/travis_color</item>
+    </style>
+
+    <style name="TextAppearance.Custom.PtrHeader.Title" parent="android:TextAppearance.Large.Inverse">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="DialogStyleLight.Custom">

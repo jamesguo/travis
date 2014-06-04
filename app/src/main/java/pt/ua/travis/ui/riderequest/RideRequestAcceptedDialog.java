@@ -13,8 +13,6 @@ import android.support.v4.app.TaskStackBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.beardedhen.androidbootstrap.BootstrapButton;
-import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
@@ -22,12 +20,9 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
-import pt.ua.travis.ui.currenttravel.AuthenticationClientActivity;
+import pt.ua.travis.ui.travel.AuthenticationClientActivity;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
-import pt.ua.travis.ui.ridelist.RideDeletedListener;
-import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.utils.CommonKeys;
 
 

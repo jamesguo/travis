@@ -28,7 +28,7 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
-import pt.ua.travis.ui.currenttravel.CurrentTravelFragment;
+import pt.ua.travis.ui.travel.CurrentTravelFragment;
 import pt.ua.travis.ui.customviews.BlurDrawerItem;
 import pt.ua.travis.ui.customviews.BlurDrawerObject;
 import pt.ua.travis.ui.ridelist.RideItem;
@@ -736,7 +736,7 @@ public class MainClientActivity extends MainActivity
             notificationManager.cancel(rideToNotificationID.get(rideID));
 
             goToTab(2);
-            currentlyShownTravelFragment.showAuthentication();
+            currentlyShownTravelFragment.showPayment();
         }
     }
 }

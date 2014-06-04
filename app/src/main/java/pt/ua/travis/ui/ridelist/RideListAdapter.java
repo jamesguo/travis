@@ -87,7 +87,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
 
         final Ride r = item.getRideObject();
         holder.timeToRide.setText(r.getRemaining());
-        if (item.getUserTypeToShow() == RideItem.SHOW_CLIENT) {
+        if (item.getUserTypeToShow() == RideItem.SHOW_TAXI) {
             holder.originIcon.setIcon("fa-taxi");
         }
         LatLng pos1 = r.originPosition();

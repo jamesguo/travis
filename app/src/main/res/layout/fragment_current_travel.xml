@@ -20,6 +20,7 @@
         android:layout_height="@dimen/travel_pane_height"
         android:layout_alignParentBottom="true"
         slidingLayer:closeOnTapEnabled="false"
+        android:visibility="gone"
         android:background="@android:color/white">
         
         <FrameLayout

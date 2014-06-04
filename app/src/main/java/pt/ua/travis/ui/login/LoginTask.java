@@ -1,5 +1,6 @@
 package pt.ua.travis.ui.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -31,19 +32,19 @@ public class LoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
 
     public interface OnTaskEndedListener {
 
-        void onLoginSuccess();
+        void onLoginSuccess(User loggedInUser);
+
+        void onNewCredentials();
 
         void onWrongCredentials();
 
     }
 
-    private final SherlockActivity parentActivity;
     private final String email;
     private final String password;
     private final List<OnTaskEndedListener> mListeners;
 
-    public LoginTask(SherlockActivity parentActivity, String email, String password) {
-        this.parentActivity = parentActivity;
+    public LoginTask(String email, String password) {
         this.email = email;
         this.password = password;
         this.mListeners = Lists.newArrayList();
@@ -73,14 +74,8 @@ public class LoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
 
             // Email does not exist, so register account
             for(OnTaskEndedListener l : mListeners) {
-                l.onLoginSuccess();
+                l.onNewCredentials();
             }
-            Intent intent = new Intent(parentActivity, SignUpActivity.class);
-            intent.putExtra(CommonKeys.EMAIL, email);
-            intent.putExtra(CommonKeys.PASS, password);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            parentActivity.startActivity(intent);
-            parentActivity.finish();
 
 
         } else if(result.first == PersistenceManager.WRONG_CREDENTIALS){
@@ -92,37 +87,38 @@ public class LoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
 
 
         } else if(result.first == PersistenceManager.SUCCESSFUL_LOGIN){
+            User loggedInUser = result.second;
 
             // Email and password match a user
             for(OnTaskEndedListener l : mListeners) {
-                l.onLoginSuccess();
+                l.onLoginSuccess(loggedInUser);
             }
-
-            User loggedInUser = result.second;
-
-            Intent activityIntent;
-            if(loggedInUser instanceof Client){
-                activityIntent = new Intent(parentActivity, MainClientActivity.class);
-
-            } else if(loggedInUser instanceof Taxi){
-                activityIntent = new Intent(parentActivity, MainTaxiActivity.class);
-                final Taxi t = ((Taxi)loggedInUser);
-                TravisApplication app = (TravisApplication) parentActivity.getApplication();
-                app.addLocationListener(new TravisApplication.CurrentLocationListener() {
-                    @Override
-                    public void onCurrentLocationChanged(LatLng latLng) {
-                        t.setCurrentLocation(latLng.latitude, latLng.longitude);
-                        PersistenceManager.save(t, null);
-                    }
-                });
-
-            } else {
-                return;
-            }
-
-            activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            parentActivity.startActivity(activityIntent);
-            parentActivity.finish();
         }
+    }
+
+    public static void goToMainActivity(SherlockActivity parentActivity, User loggedInUser){
+        Intent activityIntent;
+        if(loggedInUser instanceof Client){
+            activityIntent = new Intent(parentActivity, MainClientActivity.class);
+
+        } else if(loggedInUser instanceof Taxi){
+            activityIntent = new Intent(parentActivity, MainTaxiActivity.class);
+            final Taxi t = ((Taxi)loggedInUser);
+            TravisApplication app = (TravisApplication) parentActivity.getApplication();
+            app.addLocationListener(new TravisApplication.CurrentLocationListener() {
+                @Override
+                public void onCurrentLocationChanged(LatLng latLng) {
+                    t.setCurrentLocation(latLng.latitude, latLng.longitude);
+                    PersistenceManager.save(t, null);
+                }
+            });
+
+        } else {
+            return;
+        }
+
+        activityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        parentActivity.startActivity(activityIntent);
+        parentActivity.finish();
     }
 }

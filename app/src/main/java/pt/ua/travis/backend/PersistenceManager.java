@@ -64,15 +64,13 @@ public final class PersistenceManager {
      */
     public static void init(Context context) {
         Parse.initialize(context, "pu8HYbkiyqVucSgUNcsYcgu6AyRLlZQhik2CIdQt", "BzI7yfkTisCZXvHecCZHs92qOIu4ozDO3NbgTKTf");
-        ParseFacebookUtils.initialize(context.getResources().getString(R.string.app_id));
-//        ParseTwitterUtils.initialize();
 
         fb = new Firebase("https://burning-fire-4047.firebaseio.com/");
         valueListeners = Lists.newArrayList();
         childListeners = Lists.newArrayList();
         cachedParseObjects = Utils.newMap();
 
-//        // UNCOMMENT THIS ONLY DURING DEVELOPMENT
+        // UNCOMMENT THIS ONLY DURING DEVELOPMENT
         populateDB();
     }
 

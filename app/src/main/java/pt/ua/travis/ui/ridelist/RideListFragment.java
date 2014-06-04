@@ -70,7 +70,6 @@ public class RideListFragment extends TravisFragment implements OnRefreshListene
                 ActionBarPullToRefresh.from(getSherlockActivity())
                         .options(Options.create()
                                 .refreshOnUp(true)
-                                .scrollDistance(3.5f)
                                 .build())
                         .allChildrenArePullable()
                         .listener(RideListFragment.this)

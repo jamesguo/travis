@@ -256,6 +256,11 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
         finish();
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
 
     protected abstract class TabPagerAdapter extends FragmentPagerAdapter {
 

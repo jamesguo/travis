@@ -13,10 +13,8 @@ import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.currenttravel.TravelToOriginActivity;
+import pt.ua.travis.ui.travel.TravelToOriginActivity;
 import pt.ua.travis.ui.customviews.BlurDrawerObject;
-import pt.ua.travis.ui.ridelist.RideItem;
-import pt.ua.travis.ui.ridelist.RideListFragment;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.List;

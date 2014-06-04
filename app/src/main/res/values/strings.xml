@@ -149,4 +149,30 @@ The taxi you selected will now need to accept your request…</string>
     <!-- Ride item strings -->
     <string name="confirm_delete">Are you sure you wish to cancel this ride?</string>
 
+
+    <!-- Authentication strings -->
+    <string name="authenticate_for_client">Please authenticate the taxi by placing your phone near the taxi\'s phone!</string>
+    <string name="authenticate_for_taxi">Please authenticate the client by having him placing his phone near yours!</string>
+    <string name="dialog_authentication_failed_title">Authentication failed!</string>
+    <string name="dialog_authentication_failed_msg_taxi">Authentication with taxi failed! If the present taxi is in fact your taxi, please contact Travis support.</string>
+    <string name="dialog_authentication_failed_msg_client">Authentication with client failed! If the present client is in fact your client, please contact Travis support.</string>
+
+
+    <!-- Payment strings -->
+    <string name="title_activity_main">NFC</string>
+    <string name="title_activity_writetag">Write Tag</string>
+    <string name="title_activity_readtag">Read Tag</string>
+    <string name="title_activity_beam">Beam</string>
+    <string name="text_button_writetag">Write Tag</string>
+    <string name="text_button_readtag">Read Tag</string>
+    <string name="text_button_beam">Beam</string>
+    <string name="text_android">The Android</string>
+    <string name="text_warning_nfc_is_off">NFC is currently turned off!</string>
+    <string name="text_turn_on_nfc">This app cannot be used without NFC enabled. Please turn on NFC in the Settings and then use the back button to return to this app.</string>
+    <string name="text_update_settings">Update Settings</string>
+    <string name="insert_price_large">Please insert the price to send to the client.</string>
+    <string name="insert_price">Please insert a price</string>
+    <string name="pick_price">Tap here to pick a price</string>
+    <string name="place_phone_near">Once done, place the client\'s phone near yours so that the price can be transferred.</string>
+
 </resources>

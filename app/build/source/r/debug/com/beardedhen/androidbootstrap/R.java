@@ -82,10 +82,10 @@ public final class R {
 		public static final int activity_vertical_margin = 0x7f09000f;
 		public static final int bbuton_rounded_corner_radius = 0x7f09001c;
 		public static final int bthumbnail_rounded_corner_radius = 0x7f09001d;
-		public static final int padding_large = 0x7f090074;
-		public static final int padding_medium = 0x7f090075;
-		public static final int padding_micro = 0x7f090076;
-		public static final int padding_small = 0x7f090077;
+		public static final int padding_large = 0x7f090067;
+		public static final int padding_medium = 0x7f090068;
+		public static final int padding_micro = 0x7f090069;
+		public static final int padding_small = 0x7f09006a;
 	}
 	public static final class drawable {
 		public static final int bbuton_danger = 0x7f020077;
@@ -105,34 +105,34 @@ public final class R {
 		public static final int bthumbnail_container_rounded = 0x7f020086;
 		public static final int bthumbnail_container_square = 0x7f020087;
 		public static final int bthumbnail_placeholder_default = 0x7f020088;
-		public static final int edittext_background = 0x7f0200e6;
-		public static final int edittext_background_danger = 0x7f0200e7;
-		public static final int edittext_background_rounded = 0x7f0200e8;
-		public static final int edittext_background_rounded_danger = 0x7f0200e9;
-		public static final int edittext_background_rounded_success = 0x7f0200ea;
-		public static final int edittext_background_rounded_warning = 0x7f0200eb;
-		public static final int edittext_background_success = 0x7f0200ec;
-		public static final int edittext_background_warning = 0x7f0200ed;
-		public static final int ic_launcher = 0x7f020107;
-		public static final int thumbnail_circle = 0x7f020156;
-		public static final int thumbnail_circle_container = 0x7f020157;
-		public static final int thumbnail_circle_minimal = 0x7f020158;
+		public static final int edittext_background = 0x7f0200be;
+		public static final int edittext_background_danger = 0x7f0200bf;
+		public static final int edittext_background_rounded = 0x7f0200c0;
+		public static final int edittext_background_rounded_danger = 0x7f0200c1;
+		public static final int edittext_background_rounded_success = 0x7f0200c2;
+		public static final int edittext_background_rounded_warning = 0x7f0200c3;
+		public static final int edittext_background_success = 0x7f0200c4;
+		public static final int edittext_background_warning = 0x7f0200c5;
+		public static final int ic_launcher = 0x7f0200df;
+		public static final int thumbnail_circle = 0x7f02012e;
+		public static final int thumbnail_circle_container = 0x7f02012f;
+		public static final int thumbnail_circle_minimal = 0x7f020130;
 	}
 	public static final class id {
-		public static final int container = 0x7f0800bb;
-		public static final int dimensionsLabel = 0x7f0800bd;
-		public static final int image = 0x7f0800be;
-		public static final int layout = 0x7f0800b6;
-		public static final int lblColA = 0x7f08014c;
-		public static final int lblColB = 0x7f08014d;
-		public static final int lblLeft = 0x7f0800b7;
-		public static final int lblMiddle = 0x7f0800b8;
-		public static final int lblRight = 0x7f0800b9;
-		public static final int lblSubTitle = 0x7f08014b;
-		public static final int lblText = 0x7f0800fa;
-		public static final int lblTitle = 0x7f08014a;
-		public static final int placeholder = 0x7f0800bc;
-		public static final int txtText = 0x7f0800ba;
+		public static final int container = 0x7f0800b8;
+		public static final int dimensionsLabel = 0x7f0800ba;
+		public static final int image = 0x7f0800bb;
+		public static final int layout = 0x7f0800b3;
+		public static final int lblColA = 0x7f080134;
+		public static final int lblColB = 0x7f080135;
+		public static final int lblLeft = 0x7f0800b4;
+		public static final int lblMiddle = 0x7f0800b5;
+		public static final int lblRight = 0x7f0800b6;
+		public static final int lblSubTitle = 0x7f080133;
+		public static final int lblText = 0x7f0800dd;
+		public static final int lblTitle = 0x7f080132;
+		public static final int placeholder = 0x7f0800b9;
+		public static final int txtText = 0x7f0800b7;
 	}
 	public static final class layout {
 		public static final int bootstrap_button = 0x7f030029;
@@ -140,28 +140,28 @@ public final class R {
 		public static final int bootstrap_edit_text = 0x7f03002b;
 		public static final int bootstrap_thumbnail = 0x7f03002c;
 		public static final int bootstrap_thumbnail_circle = 0x7f03002d;
-		public static final int font_awesome_text = 0x7f030051;
-		public static final int row_title = 0x7f030066;
-		public static final int row_title_and_subtitle = 0x7f030067;
-		public static final int row_two_columns = 0x7f030068;
+		public static final int font_awesome_text = 0x7f030042;
+		public static final int row_title = 0x7f030059;
+		public static final int row_title_and_subtitle = 0x7f03005a;
+		public static final int row_two_columns = 0x7f03005b;
 	}
 	public static final class string {
 		public static final int action_settings = 0x7f0c000e;
 		public static final int app_name = 0x7f0c0012;
-		public static final int error_creditcard_number_not_valid = 0x7f0c0063;
-		public static final int error_date_not_valid = 0x7f0c0064;
-		public static final int error_domain_not_valid = 0x7f0c0065;
-		public static final int error_email_address_not_valid = 0x7f0c0066;
-		public static final int error_field_must_not_be_empty = 0x7f0c0067;
-		public static final int error_ip_not_valid = 0x7f0c006c;
-		public static final int error_notvalid_personfullname = 0x7f0c006d;
-		public static final int error_notvalid_personname = 0x7f0c006e;
-		public static final int error_only_numeric_digits_allowed = 0x7f0c006f;
-		public static final int error_only_standard_letters_are_allowed = 0x7f0c0070;
-		public static final int error_phone_not_valid = 0x7f0c0071;
-		public static final int error_this_field_cannot_contain_special_character = 0x7f0c0072;
-		public static final int error_url_not_valid = 0x7f0c0073;
-		public static final int hello_world = 0x7f0c0076;
+		public static final int error_creditcard_number_not_valid = 0x7f0c004e;
+		public static final int error_date_not_valid = 0x7f0c004f;
+		public static final int error_domain_not_valid = 0x7f0c0050;
+		public static final int error_email_address_not_valid = 0x7f0c0051;
+		public static final int error_field_must_not_be_empty = 0x7f0c0052;
+		public static final int error_ip_not_valid = 0x7f0c0057;
+		public static final int error_notvalid_personfullname = 0x7f0c0058;
+		public static final int error_notvalid_personname = 0x7f0c0059;
+		public static final int error_only_numeric_digits_allowed = 0x7f0c005a;
+		public static final int error_only_standard_letters_are_allowed = 0x7f0c005b;
+		public static final int error_phone_not_valid = 0x7f0c005c;
+		public static final int error_this_field_cannot_contain_special_character = 0x7f0c005d;
+		public static final int error_url_not_valid = 0x7f0c005e;
+		public static final int hello_world = 0x7f0c0061;
 	}
 	public static final class style {
 		public static final int AppBaseTheme = 0x7f0d0005;

@@ -16,7 +16,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Please authenticate the taxi by placing your phone near the taxi's phone!"
+        android:text="@string/authenticate_for_client"
         android:textSize="25sp"
         android:layout_margin="30dp"
         android:gravity="center"

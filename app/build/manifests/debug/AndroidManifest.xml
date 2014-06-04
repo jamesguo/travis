@@ -47,6 +47,7 @@
     <uses-feature android:name="android.hardware.location" android:required="true"/>
     <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
 
 
 
@@ -68,17 +69,32 @@
         <activity android:name="pt.ua.travis.ui.login.SignUpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.main.MainClientActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.main.MainTaxiActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.nfc.NFCActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationClientActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.AuthenticationTaxiActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.TravelToOriginActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.currenttravel.TravelToDestinationActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.currenttravel.PaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.travel.AuthenticationClientActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.travel.AuthenticationTaxiActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="pt.ua.travis.ui.travel.TravelToOriginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:launchMode="singleTop" android:name="pt.ua.travis.ui.travel.TravelToDestinationActivity" android:screenOrientation="portrait"/>
         <activity android:name="pt.ua.travis.ui.login.GoogleDrivePicker" android:screenOrientation="portrait"/>
-        <activity android:name="com.facebook.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity" android:screenOrientation="portrait"/>
+        <activity android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_readtag" android:name="pt.ua.travis.ui.travel.ReadTag" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <data android:mimeType="application/com.elsinga.sample.nfc"/>
+            </intent-filter>
+        </activity>
 
 
 
+
+        <!-- SERVICES -->
+        <service android:exported="false" android:name="com.paypal.android.sdk.payments.PayPalService"/>
 
 
 
