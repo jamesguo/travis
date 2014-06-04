@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="travis_color">#ffab00</color>
     <color name="travis_color_darker">#ffdd9000</color>
     <color name="travis_color_lighter">#ffffd137</color>

@@ -3036,6 +3036,8 @@ containing a value of this type.
         public static final int time_to_ride=0x7f080119;
         public static final int top=0x7f080023;
         public static final int travel_map=0x7f0800df;
+        public static final int travis_notification_photo=0x7f08014c;
+        public static final int travis_notification_text=0x7f08014d;
         public static final int tv_progressText=0x7f08012c;
         public static final int tv_title=0x7f0800b1;
         public static final int txtText=0x7f0800b7;
@@ -3166,7 +3168,8 @@ containing a value of this type.
         public static final int tab_with_badge=0x7f030061;
         public static final int time_header_label=0x7f030062;
         public static final int time_picker_dialog=0x7f030063;
-        public static final int year_label_text_view=0x7f030064;
+        public static final int travis_notification_bar=0x7f030064;
+        public static final int year_label_text_view=0x7f030065;
     }
     public static final class plurals {
         public static final int numberOfLoadedAlbums=0x7f0b0000;

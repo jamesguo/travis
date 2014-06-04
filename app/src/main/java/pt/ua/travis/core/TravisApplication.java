@@ -69,12 +69,12 @@ public class TravisApplication extends Application implements LocationListener,
         locationClient = new LocationClient(this, this, this);
         locationClient.connect();
 
-        listeners.add(new CurrentLocationListener() {
-            @Override
-            public void onCurrentLocationChanged(LatLng latLng) {
-                Toast.makeText(TravisApplication.this, latLng.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
+//        listeners.add(new CurrentLocationListener() {
+//            @Override
+//            public void onCurrentLocationChanged(LatLng latLng) {
+//                Toast.makeText(TravisApplication.this, latLng.toString(), Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     @Override

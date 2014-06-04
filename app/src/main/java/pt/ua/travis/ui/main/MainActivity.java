@@ -1,5 +1,7 @@
 package pt.ua.travis.ui.main;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -7,16 +9,21 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
+import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
@@ -44,7 +51,6 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
     private BlurDrawerLayout drawerLayout;
     private static List<BlurDrawerObject> drawerItems;
 
-
     private static List<Ride> rideList;
 
     public void getRideList(boolean forceQuery, final Callback<List<Ride>> callback) {
@@ -61,6 +67,15 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
                 protected void onPostExecute(List<Ride> result) {
                     super.onPostExecute(result);
                     rideList = result;
+                    final TextView badge = (TextView) findViewById(R.id.badge);
+                    badge.setVisibility(View.GONE);
+                    badge.setText(result.size()+"");
+                    if(result.isEmpty()){
+                        badge.setVisibility(View.GONE);
+                    } else {
+                        badge.setVisibility(View.VISIBLE);
+                    }
+
                     if (callback != null) {
                         callback.onResult(rideList);
                     }
@@ -71,6 +86,59 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
                 callback.onResult(rideList);
             }
         }
+    }
+
+    public enum NotificationColor {
+        DEFAULT(R.color.travis_color),
+        GREEN(R.color.taxi_available_border),
+        RED(R.color.taxi_unavailable_border);
+
+        private int resID;
+
+        private NotificationColor(int resID) {
+            this.resID = resID;
+        }
+    }
+
+    public void showTravisNotification(String text, String imageUri, NotificationColor color){
+        final Dialog overlayInfo = new Dialog(MainActivity.this);
+        overlayInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        overlayInfo.getWindow().setBackgroundDrawableResource(getResources().getColor(color.resID));
+
+        overlayInfo.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        WindowManager.LayoutParams params = overlayInfo.getWindow().getAttributes();
+        params.gravity = Gravity.TOP | Gravity.LEFT;
+        params.x = 0;
+        params.y = 0;
+        overlayInfo.setCancelable(false);
+        overlayInfo.setContentView(R.layout.travis_notification_bar);
+
+        TextView textView = (TextView) overlayInfo.findViewById(R.id.travis_notification_text);
+        textView.setText(text);
+
+        CircularImageView imageView = (CircularImageView) overlayInfo.findViewById(R.id.travis_notification_photo);
+        Picasso.with(this).load(imageUri).into(imageView);
+
+        overlayInfo.show();
+
+        final Handler handler  = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (overlayInfo.isShowing()) {
+                    overlayInfo.dismiss();
+                }
+            }
+        };
+
+        overlayInfo.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                handler.removeCallbacks(runnable);
+            }
+        });
+
+        handler.postDelayed(runnable, 10000);
     }
 
     @Override

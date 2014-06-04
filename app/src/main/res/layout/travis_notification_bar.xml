@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="?attr/actionBarSize" >
+
+    <pt.ua.travis.ui.customviews.SquareCircularImageView
+        android:id="@+id/travis_notification_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:layout_toRightOf="@id/travis_notification_photo"
+        android:id="@+id/travis_notification_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:background="@color/travis_color"
+        android:text="TextView"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

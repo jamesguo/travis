@@ -97,15 +97,7 @@ public class MainClientActivity extends MainActivity
         rideBuilder = new RideBuilder((TravisApplication) getApplication());
 
         View scheduledRidesTab = getLayoutInflater().inflate(R.layout.tab_with_badge, null);
-        final TextView badge = (TextView) scheduledRidesTab.findViewById(R.id.badge);
-        badge.setVisibility(View.INVISIBLE);
-        getRideList(true, new Callback<List<Ride>>() {
-            @Override
-            public void onResult(List<Ride> result) {
-                badge.setText(result.size()+"");
-                badge.setVisibility(View.VISIBLE);
-            }
-        });
+
 
 
 
