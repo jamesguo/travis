@@ -161,7 +161,7 @@ public class SignUpActivity extends SherlockFragmentActivity implements SignUpNa
                         @Override
                         protected void onPreExecute() {
                             super.onPreExecute();
-                            photoHolder.setImageDrawable(getResources().getDrawable(R.drawable.spinner));
+                            photoHolder.setImageDrawable(getResources().getDrawable(R.drawable.progress_bar));
                         }
 
                         @Override

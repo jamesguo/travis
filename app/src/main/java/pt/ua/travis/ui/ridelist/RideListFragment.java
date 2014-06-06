@@ -15,6 +15,7 @@ import pt.ua.travis.ui.customviews.TravisFragment;
 import pt.ua.travis.ui.main.MainActivity;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
@@ -63,7 +64,7 @@ public class RideListFragment extends TravisFragment implements OnRefreshListene
         parentActivity.getRideList(false, new Callback<List<Ride>>() {
             @Override
             public void onResult(List<Ride> result) {
-                adapter = new RideListAdapter(parentActivity, convertRidesToItems(showWhat, result));
+                adapter = new RideListAdapter(parentActivity, RideListFragment.this, convertRidesToItems(showWhat, result));
                 listView.setAdapter(adapter);
 
                 pullToRefreshLayout = (PullToRefreshLayout) getActivity().findViewById(R.id.pull_to_refresh_ride_list);
@@ -74,6 +75,7 @@ public class RideListFragment extends TravisFragment implements OnRefreshListene
                         .allChildrenArePullable()
                         .listener(RideListFragment.this)
                         .setup(pullToRefreshLayout);
+
 
                 setContentShown(true);
             }
@@ -92,6 +94,7 @@ public class RideListFragment extends TravisFragment implements OnRefreshListene
 
     @Override
     public void onRefreshStarted(View view) {
+        pullToRefreshLayout.setRefreshing(true);
         parentActivity.getRideList(true, new Callback<List<Ride>>() {
             @Override
             public void onResult(List<Ride> result) {

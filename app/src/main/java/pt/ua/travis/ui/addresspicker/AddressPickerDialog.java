@@ -23,7 +23,7 @@ import eu.inmite.android.lib.dialogs.BaseDialogFragment;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
 import pt.ua.travis.ui.customviews.TravisMapFragment;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -108,7 +108,7 @@ public class AddressPickerDialog extends SimpleDialogFragment {
 
     public View generateView(LayoutInflater inflater) {
         View v = inflater.inflate(R.layout.dialog_address_picker, null);
-        addressLookupHistory = Utils.newMap();
+        addressLookupHistory = TravisUtils.newMap();
 
 
         // configures the map fragment to occupy it's container
@@ -139,7 +139,7 @@ public class AddressPickerDialog extends SimpleDialogFragment {
                             address.getLatitude(),
                             address.getLongitude());
 
-                    String addressLine = Utils.addressToString(address);
+                    String addressLine = TravisUtils.addressToString(address);
                     addressLookupHistory.put(position, addressLine);
                     select(position, addressLine);
                 }
@@ -217,14 +217,14 @@ public class AddressPickerDialog extends SimpleDialogFragment {
             select(position, addressLine);
 
         } else {
-            List<Address> addresses = Utils.addressesFromLocation(parentActivity, position.latitude, position.longitude);
+            List<Address> addresses = TravisUtils.addressesFromLocation(parentActivity, position.latitude, position.longitude);
             if (addresses == null || addresses.isEmpty()) {
                 Toast.makeText(parentActivity,
                         "No addresses at the tapped location were found!",
                         Toast.LENGTH_SHORT)
                         .show();
             } else {
-                addressLine = Utils.addressToString(addresses.get(0));
+                addressLine = TravisUtils.addressToString(addresses.get(0));
                 addressLookupHistory.put(position, addressLine);
                 select(position, addressLine);
             }

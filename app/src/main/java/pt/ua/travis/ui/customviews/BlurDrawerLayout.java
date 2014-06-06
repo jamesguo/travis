@@ -121,11 +121,11 @@ public class BlurDrawerLayout extends FrameLayout implements GestureDetector.OnG
     /**
      * Adds a drawer object to the drawer in the specified side.
      */
-    public void addDrawerObject(BlurDrawerObject drawerObject, int side){
-        if (side == LEFT_SIDE){
+    public void addDrawerObject(BlurDrawerObject drawerObject, int side) {
+        if (side == LEFT_SIDE) {
             this.leftDrawerObjects.add(drawerObject);
             layoutLeftDrawer.addView(drawerObject);
-        } else if(side == RIGHT_SIDE) {
+        } else if (side == RIGHT_SIDE) {
             this.rightDrawerObject.add(drawerObject);
             layoutRightDrawer.addView(drawerObject);
         }

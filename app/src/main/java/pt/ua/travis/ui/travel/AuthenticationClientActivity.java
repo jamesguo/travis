@@ -23,14 +23,14 @@ public class AuthenticationClientActivity extends SherlockActivity {
         setContentView(R.layout.activity_authent_client);
         getSupportActionBar().hide();
 
-        final String rideID = getIntent().getStringExtra(CommonKeys.SCHEDULED_RIDE_ID);
+        final String rideID = getIntent().getStringExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID);
         thisRide = PersistenceManager.getFromCache(rideID);
 
     }
 
     public void onAuthentButtonClicked(View view){
         Intent intent = new Intent(this, TravelToDestinationActivity.class);
-        intent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
+        intent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, thisRide.id());
         intent.putExtra(CommonKeys.USER_TYPE, "client");
         startActivity(intent);
     }

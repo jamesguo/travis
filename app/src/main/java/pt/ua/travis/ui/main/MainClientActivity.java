@@ -38,7 +38,7 @@ import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.ui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.ui.taxiinstant.TaxiInstantFragment;
 import pt.ua.travis.utils.CommonKeys;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,8 +49,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-// TODO: BACK STACK NEEDS WORK!
-
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
@@ -60,7 +58,7 @@ public class MainClientActivity extends MainActivity
         TimePickerDialog.OnTimeSetListener,
         WatchEvent<Ride> {
 
-    private static final Map<String, Integer> rideToNotificationID = Utils.newMap();
+    private static final Map<String, Integer> rideToNotificationID = TravisUtils.newMap();
 
     private static List<Taxi> nearTaxiList;
     private static List<Taxi> highestRatedTaxiList;
@@ -160,6 +158,10 @@ public class MainClientActivity extends MainActivity
 //                return;
 //            }
 //        }
+
+        String loggedInString = getString(R.string.logged_in_as_X);
+        loggedInString += " " + thisClient.name();
+        showTravisNotification(loggedInString, thisClient.imageUri(), NotificationColor.DEFAULT);
     }
 
     @Override
@@ -475,31 +477,15 @@ public class MainClientActivity extends MainActivity
 
     public void requestRideToTaxi(Ride newRide) {
 
-        rideRequest = new RideRequestTask(MainClientActivity.this, getSupportFragmentManager(), newRide, new RideRequestTask.OnTaskFinished() {
+        rideRequest = new RideRequestTask(MainClientActivity.this, getSupportFragmentManager(), newRide, new RideRequestTask.OnRequestAccepted() {
             @Override
-            public void onFinished(String result, Ride ride) {
-                MainClientActivity context = MainClientActivity.this;
-
-                if (result.equals(RideRequestTask.RESPONSE_ACCEPTED)) {
-
-//                    PersistenceManager.addToCache(ride);
-//                    RideRequestAcceptedDialog
-//                            .newInstance(context, ride.id())
-//                            .show(context.getSupportFragmentManager(), "RideRequestAcceptedDialog");
-
-                } else if (result.equals(RideRequestTask.RESPONSE_REFUSED)) {
-                    // THE TAXI DENIED THE REQUEST
-
-
-                } else if (result.equals(RideRequestTask.RESPONSE_TIMEOUT)) {
-                    // THE TAXI DID NOT RESPOND TO THE REQUEST
-
-
-                }
+            public void onAccepted(Ride ride) {
+                currentlyShownRideListFragment.onRefreshStarted(null);
             }
         });
         rideRequest.execute();
 
+        currentlyShownChooserFragment.closeSlidingPane();
     }
 
     @Override
@@ -515,18 +501,12 @@ public class MainClientActivity extends MainActivity
 
 
     @Override
-    public void onDeletedRide(){
-        goToTab(3);
-    }
-
-
-    @Override
     public void logout(View view) {
         super.logout(view);
     }
 
     public void goToTab(int tabIndex) {
-        Fragment fragmentToShow;
+        currentlyShownTaxiListIndex = tabIndex;
 
         ActionBar bar = getSupportActionBar();
         bar.selectTab(bar.getTabAt(tabIndex));
@@ -629,7 +609,7 @@ public class MainClientActivity extends MainActivity
         responseRide.setOriginLocation(latLng.latitude, latLng.longitude);
 
         Intent resultIntent = new Intent(this, MainClientActivity.class)
-                .putExtra(CommonKeys.SCHEDULED_RIDE_ID, responseRide.id())
+                .putExtra(CommonKeys.RIDE_ARRIVED_ID, responseRide.id())
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PersistenceManager.addToCache(responseRide);
@@ -719,7 +699,7 @@ public class MainClientActivity extends MainActivity
 
         Bundle extras = intent.getExtras();
         String rideID;
-        if(extras!=null && (rideID = extras.getString(CommonKeys.SCHEDULED_RIDE_ID))!=null) {
+        if(extras!=null && (rideID = extras.getString(CommonKeys.RIDE_ARRIVED_ID))!=null) {
             // Received intent from notification of taxi arrival
 
             Ride r = PersistenceManager.getFromCache(rideID);
@@ -728,7 +708,7 @@ public class MainClientActivity extends MainActivity
             notificationManager.cancel(rideToNotificationID.get(rideID));
 
             goToTab(2);
-            currentlyShownTravelFragment.showPayment();
+            currentlyShownTravelFragment.showAuthentication(r);
         }
     }
 }

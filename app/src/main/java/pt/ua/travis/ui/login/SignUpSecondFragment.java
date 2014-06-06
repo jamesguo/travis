@@ -67,14 +67,11 @@ public class SignUpSecondFragment extends TravisFragment implements OnClickListe
         if(imageData!=null){
             photoHolder.setImageBitmap(BitmapFactory.decodeByteArray(imageData, 0, imageData.length));
         }
+        photoHolder.setOnClickListener(parentActivity);
 
-        Button button = (Button) parentActivity.findViewById(R.id.pick_photo_button);
         if(parentActivity.userIsAlreadyCreated()){
             welcomeMsg3.setText(R.string.welcome_text3_alt);
-            button.setText(R.string.pick_another_photo);
         }
-
-        button.setOnClickListener(parentActivity);
 
         mPrevBtn = (ImageView) parentActivity.findViewById(R.id.second_prev_btn);
         mPrevBtn.setOnClickListener(this);

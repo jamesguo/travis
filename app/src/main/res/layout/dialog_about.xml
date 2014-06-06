@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/marca_ua"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:text="Trabalho desenvolvido no contexto das unidades curriculares de Introdução à Computação Móvel e Projecto em Design 3 , 2013-14."
+        android:textSize="15sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="
+Deti:
+Pedro Fernandes 61255
+João Pedro Pedrosa 61565
+Eduardo Duarte 60658"/>
+
+
+        <ImageView
+            android:id="@+id/deti_logo"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/deti"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="
+Deca:
+Ricardo Silva 67968
+Tiago Marabuto 38963"/>
+
+
+        <ImageView
+            android:id="@+id/deca_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/deca"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

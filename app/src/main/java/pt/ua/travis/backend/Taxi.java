@@ -166,14 +166,16 @@ public final class Taxi extends User {
      * Returns the average of all of the stored ratings in the wrapped {@link ParseUser}.
      */
     public float getRatingAverage() {
-        return new Double(po.getDouble(RATING_AVERAGE)).floatValue();
+        double rating = po.getDouble(RATING_AVERAGE);
+        return rating != 0 ? new Double(rating).floatValue() : 0;
     }
 
     /**
      * Returns the quantity of users that rated the wrapped {@link ParseUser}.
      */
     public int getRatingQuantity() {
-        return Integer.valueOf(po.getString(RATING_QUANTITY));
+        String rating = po.getString(RATING_QUANTITY);
+        return rating != null ? Integer.valueOf(rating) : 0;
     }
 
     @Override

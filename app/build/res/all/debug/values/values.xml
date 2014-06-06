@@ -1642,6 +1642,10 @@
         <item quantity="one">Loaded 1 item in this album</item>
         <item quantity="other">Loaded %d items in this album</item>
     </plurals>
+    <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="about">About</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
@@ -1684,6 +1688,7 @@
     <string name="auto_login">Automatically login every time</string>
     <string name="call_another_taxi">Call another taxi</string>
     <string name="cancel">Cancel</string>
+    <string name="cancel_ride">Cancel ride</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
     <eat-comment />
 
@@ -1725,8 +1730,6 @@
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
-    <string name="confirm_cancel">Confirm cancel</string>
-    <string name="confirm_cancel_msg">Are you sure you wish to cancel this request?</string>
     <string name="confirm_delete">Are you sure you wish to cancel this ride?</string>
     <string name="current_travel">Current Travel</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
@@ -1847,6 +1850,7 @@
 
     <string name="last_name">Last name</string>
     <string name="later">Later or at another location</string>
+    <string name="logged_in_as_X">Logged in as</string>
     <string name="login">Login</string>
     <string name="login_error">Invalid login!</string>
     <string name="logout">Logout</string>
@@ -1895,8 +1899,10 @@
 
     <string name="rated_by_X">rated by</string>
     <string name="register_ok">Registered successfully!</string>
-    <string name="ride_request_please_wait">Please wait
-The taxi you selected will now need to accept your request…</string>
+    <string name="request_accepted">Request accepted.</string>
+    <string name="request_declined">Request declined.</string>
+    <string name="request_sent">Request sent…</string>
+    <string name="request_timed_out">Request timed out.</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
     <eat-comment />
 
@@ -1904,6 +1910,7 @@ The taxi you selected will now need to accept your request…</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="scheduled_ride_was_cancelled">Scheduled ride was cancelled.</string>
     <string name="scheduled_rides">Scheduled Rides</string>
     <string name="search">Search</string>
     <string name="see_more">See all your scheduled rides</string>
@@ -1930,6 +1937,7 @@ The taxi you selected will now need to accept your request…</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="start_travel">Start travel to origin</string>
     <string name="start_using_travis">Start using Travis</string>
     <string name="state_logging_in">Logging in…</string>
     <string name="state_login_failed">Login failed</string>
@@ -1988,10 +1996,10 @@ Before you start using Travis, please confirm name below…</string>
     <string name="welcome_text3">Now pick a good photo for your profile. Make sure you are smiling! :)</string>
     <string name="welcome_text3_alt">Now confirm if the photo below is good for your profile. Make sure you are smiling! :)</string>
     <string name="welcome_text4">Finally, pick what type of user you are by tapping one of the two icons below…</string>
-    <string name="x_arrived">arrived</string>
-    <string name="x_arrived_large">arrived at the designated location</string>
-    <string name="x_requested">requested a ride</string>
-    <string name="x_requested_large">requested you a ride </string>
+    <string name="x_arrived">arrived.</string>
+    <string name="x_arrived_large">arrived at the designated location.</string>
+    <string name="x_requested">requested a ride.</string>
+    <string name="x_requested_large">requested you a ride.</string>
     <!-- From: file:/C:/projects-android/icm_travis/app/build/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.1/res/values/values.xml -->
     <eat-comment />
 

@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import pt.ua.travis.R;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -48,18 +48,18 @@ public class OutlineContainer extends FrameLayout implements Animatable {
     private void init() {
         mOutlinePaint = new Paint();
         mOutlinePaint.setAntiAlias(true);
-        mOutlinePaint.setStrokeWidth(Utils.dpToPx(getContext(), 2));
+        mOutlinePaint.setStrokeWidth(TravisUtils.dpToPx(getContext(), 2));
         mOutlinePaint.setColor(getResources().getColor(R.color.travis_color));
         mOutlinePaint.setStyle(Paint.Style.STROKE);
 
-        int padding = Utils.dpToPx(getContext(), 10);
+        int padding = TravisUtils.dpToPx(getContext(), 10);
         setPadding(padding, padding, padding, padding);
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        int offset = Utils.dpToPx(getContext(), 5);
+        int offset = TravisUtils.dpToPx(getContext(), 5);
         if (mOutlinePaint.getColor() != TransitionViewPager.sOutlineColor) {
             mOutlinePaint.setColor(TransitionViewPager.sOutlineColor);
         }

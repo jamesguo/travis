@@ -1,29 +1,12 @@
 package pt.ua.travis.ui.ridelist;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.beardedhen.androidbootstrap.BootstrapButton;
-import com.google.android.gms.maps.model.LatLng;
-import com.squareup.picasso.Picasso;
-import pt.ua.travis.R;
-import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
-import pt.ua.travis.backend.Taxi;
-import pt.ua.travis.ui.taxichooser.TaxiItem;
 import pt.ua.travis.utils.CommonKeys;
-import pt.ua.travis.utils.Utils;
-
-import java.util.List;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

@@ -13,10 +13,7 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
@@ -24,6 +21,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import com.squareup.picasso.Picasso;
+import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
@@ -32,7 +30,7 @@ import pt.ua.travis.backend.User;
 import pt.ua.travis.core.SplashScreenActivity;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
-import pt.ua.travis.ui.ridelist.RideDeletedListener;
+import pt.ua.travis.utils.TravisUtils;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 
 import java.lang.reflect.Method;
@@ -43,7 +41,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends SherlockFragmentActivity implements RideDeletedListener {
+public abstract class MainActivity extends SherlockFragmentActivity {
 
     private FrameLayout container;
     protected LockedTransitionViewPager tabPager;
@@ -101,23 +99,30 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
     }
 
     public void showTravisNotification(String text, String imageUri, NotificationColor color){
-        final Dialog overlayInfo = new Dialog(MainActivity.this);
+        final Dialog overlayInfo = new Dialog(this);
         overlayInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        overlayInfo.getWindow().setBackgroundDrawableResource(getResources().getColor(color.resID));
 
-        overlayInfo.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        Window window = overlayInfo.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(getResources().getColor(color.resID)));
+        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
         WindowManager.LayoutParams params = overlayInfo.getWindow().getAttributes();
         params.gravity = Gravity.TOP | Gravity.LEFT;
         params.x = 0;
         params.y = 0;
+        params.width = TravisUtils.getScreenWidth(this);
         overlayInfo.setCancelable(false);
         overlayInfo.setContentView(R.layout.travis_notification_bar);
 
         TextView textView = (TextView) overlayInfo.findViewById(R.id.travis_notification_text);
         textView.setText(text);
 
-        CircularImageView imageView = (CircularImageView) overlayInfo.findViewById(R.id.travis_notification_photo);
-        Picasso.with(this).load(imageUri).into(imageView);
+        if(imageUri != null) {
+            CircularImageView imageView = (CircularImageView) overlayInfo.findViewById(R.id.travis_notification_photo);
+            Picasso.with(this).load(imageUri).into(imageView);
+        }
 
         overlayInfo.show();
 
@@ -138,7 +143,7 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
             }
         });
 
-        handler.postDelayed(runnable, 10000);
+        handler.postDelayed(runnable, 2500);
     }
 
     @Override
@@ -159,11 +164,11 @@ public abstract class MainActivity extends SherlockFragmentActivity implements R
                 }
             });
 
-            BlurDrawerItem settingsItem = new BlurDrawerItem(this, R.drawable.ic_settings, R.string.settings);
+            BlurDrawerItem settingsItem = new BlurDrawerItem(this, R.drawable.ic_settings, "About");
             settingsItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO
+                    AboutDialog.newInstance(MainActivity.this).show(getSupportFragmentManager(), "AboutDialog");
                 }
             });
 

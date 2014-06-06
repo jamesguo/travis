@@ -56,16 +56,6 @@
             app:border="false"
             app:shadow="true"/>
 
-        <Button
-            android:id="@+id/pick_photo_button"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:hint="@string/pick_a_photo"
-            android:ems="15"
-            android:textSize="20sp"/>
-
     </LinearLayout>
 
     <ImageView

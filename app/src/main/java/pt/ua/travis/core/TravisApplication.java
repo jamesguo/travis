@@ -20,8 +20,11 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
+import com.parse.LocationCallback;
+import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import pt.ua.travis.R;
+import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.ui.login.SignUpActivity;
 import pt.ua.travis.utils.CommonRes;
@@ -68,6 +71,10 @@ public class TravisApplication extends Application implements LocationListener,
         // Create a new location client, using the enclosing class to handle callbacks.
         locationClient = new LocationClient(this, this, this);
         locationClient.connect();
+
+        currentLocation = new Location("");
+        currentLocation.setLatitude(40.631147);
+        currentLocation.setLongitude(-8.659045);
 
 //        listeners.add(new CurrentLocationListener() {
 //            @Override
@@ -150,17 +157,23 @@ public class TravisApplication extends Application implements LocationListener,
     }
 
     public final LatLng getCurrentLocation() {
-        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        criteria.setAltitudeRequired(false);
-        criteria.setBearingRequired(false);
-        criteria.setCostAllowed(true);
-        String strLocationProvider = lm.getBestProvider(criteria, true);
-
-        currentLocation = lm.getLastKnownLocation(strLocationProvider);
         return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+//        Criteria criteria = new Criteria();
+//        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+//        criteria.setAltitudeRequired(false);
+//        criteria.setBearingRequired(false);
+//        criteria.setCostAllowed(true);
+//
+//        ParseGeoPoint.getCurrentLocati(50000, criteria, new LocationCallback() {
+//            @Override
+//            public void done(ParseGeoPoint point, ParseException ex) {
+//                if (ex == null) {
+//                    locationCallback.onResult(new LatLng(point.getLatitude(), point.getLongitude()));
+//                } else {
+//                    Log.e("TravisApplication", "Error getting current location", ex);
+//                }
+//            }
+//        });
     }
 
     public interface CurrentLocationListener{

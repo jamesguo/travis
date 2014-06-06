@@ -3,6 +3,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +16,19 @@
         android:name="pt.ua.travis.ui.customviews.TravisMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/go_to_next_step_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:textSize="40sp"
+        android:text="test"
+        bootstrapbutton:bb_type="warning"
+        bootstrapbutton:bb_roundedCorners="true"
+        bootstrapbutton:bb_size="large"/>
 
     <pt.ua.travis.ui.customviews.SlidingPaneLayout
         android:id="@+id/sliding_pane_travel"

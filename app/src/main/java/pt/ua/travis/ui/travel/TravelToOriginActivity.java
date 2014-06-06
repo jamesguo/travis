@@ -42,7 +42,7 @@ public class TravelToOriginActivity extends SherlockFragmentActivity implements 
         map = mapFragment.getMap();
 //        routeList = (ListView) findViewById(R.id.route_list);
 
-        final String rideID = getIntent().getStringExtra(CommonKeys.SCHEDULED_RIDE_ID);
+        final String rideID = getIntent().getStringExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID);
         thisRide = PersistenceManager.getFromCache(rideID);
 
     }
@@ -69,7 +69,7 @@ public class TravelToOriginActivity extends SherlockFragmentActivity implements 
 
     public void onAuthentButtonClicked(View view){
         Intent intent = new Intent(this, AuthenticationTaxiActivity.class);
-        intent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
+        intent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, thisRide.id());
         startActivity(intent);
     }
 

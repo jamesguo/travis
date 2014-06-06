@@ -180,27 +180,27 @@
 2
                 </integer>
 
-                <dimen name="dbx_action_bar_default_height" >48dip
-                </dimen>
-                <dimen name="dbx_search_view_preferred_width" >320dip
-                </dimen>
                 <dimen name="dbx_action_bar_title_text_size" >18dp
                 </dimen>
                 <dimen name="dbx_action_bar_subtitle_top_margin" >-3dp
                 </dimen>
                 <dimen name="dbx_action_bar_subtitle_bottom_margin" >5dip
                 </dimen>
-                <dimen name="dbx_search_view_text_min_width" >160dip
-                </dimen>
-                <dimen name="dbx_dropdownitem_icon_width" >32dip
-                </dimen>
                 <dimen name="dbx_action_button_min_width" >56dip
-                </dimen>
-                <dimen name="dbx_dropdownitem_text_padding_right" >8dip
                 </dimen>
                 <dimen name="dbx_dropdownitem_text_padding_left" >8dip
                 </dimen>
+                <dimen name="dbx_action_bar_default_height" >48dip
+                </dimen>
+                <dimen name="dbx_search_view_preferred_width" >320dip
+                </dimen>
+                <dimen name="dbx_dropdownitem_icon_width" >32dip
+                </dimen>
+                <dimen name="dbx_search_view_text_min_width" >160dip
+                </dimen>
                 <dimen name="dbx_action_bar_icon_vertical_padding" >8dip
+                </dimen>
+                <dimen name="dbx_dropdownitem_text_padding_right" >8dip
                 </dimen>
                 <dimen name="dbx_action_bar_subtitle_text_size" >14dp
                 </dimen>

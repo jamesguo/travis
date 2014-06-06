@@ -17,7 +17,7 @@ import android.view.View;
 import com.nineoldandroids.view.ViewHelper;
 import pt.ua.travis.BuildConfig;
 import pt.ua.travis.R;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.Map;
 
@@ -453,7 +453,7 @@ public class TransitionViewPager  extends ViewPager {
     private Camera mCamera = new Camera();
     private float[] mTempFloat2 = new float[2];
 
-    private Map<Integer, Object> mObjs = Utils.newMap();
+    private Map<Integer, Object> mObjs = TravisUtils.newMap();
 
     public void setObjectForPosition(Object obj, int position) {
         mObjs.put(Integer.valueOf(position), obj);

@@ -1,4 +1,5 @@
-<!-- From: file:/C:/projects-android/icm_travis/dependencies/DropboxChooserSDK/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.dropbox.chooser.android">
+<!-- From: file:/C:/projects-android/icm_travis/dependencies/DropboxChooserSDK/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.dropbox.chooser.android">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
 
 </manifest>

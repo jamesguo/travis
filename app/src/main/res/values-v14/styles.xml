@@ -19,9 +19,9 @@
     </style>
 
     <style name="Widget.Custom.PtrHeader" parent="android:Widget">
+        <item name="ptrProgressBarColor">@color/travis_color</item>
         <item name="ptrHeaderBackground">@color/travis_color</item>
         <item name="ptrHeaderTitleTextAppearance">@style/TextAppearance.Custom.PtrHeader.Title</item>
-        <item name="ptrProgressBarColor">@color/travis_color</item>
     </style>
 
     <style name="TextAppearance.Custom.PtrHeader.Title" parent="android:TextAppearance.Large.Inverse">

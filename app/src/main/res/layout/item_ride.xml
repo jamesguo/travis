@@ -12,38 +12,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_gravity="center"
+        android:orientation="horizontal"
         android:gravity="center"
         android:id="@+id/back"
         android:tag="back"
         android:background="@color/selectorBg">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:gravity="center"
-            android:singleLine="true"
-            android:textSize="19sp"
-            android:text="@string/confirm_delete"/>
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/ride_item_option_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text"
+            bootstrapbutton:bb_type="warning"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="large"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:gravity="center">
-
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/accept_button"
-                android:text="@string/yes"
-                bootstrapbutton:bb_type="danger"
-                bootstrapbutton:bb_roundedCorners="true"
-                bootstrapbutton:bb_size="large"/>
-
-        </LinearLayout>
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel_ride_button"
+            android:text="@string/cancel_ride"
+            bootstrapbutton:bb_type="danger"
+            bootstrapbutton:bb_roundedCorners="true"
+            bootstrapbutton:bb_size="large"/>
 
     </LinearLayout>
 

@@ -5,27 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import com.firebase.client.*;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.*;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.ByteArrayOutputStream;
-import pt.ua.travis.*;
-import pt.ua.travis.R;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.Uno;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -68,7 +62,7 @@ public final class PersistenceManager {
         fb = new Firebase("https://burning-fire-4047.firebaseio.com/");
         valueListeners = Lists.newArrayList();
         childListeners = Lists.newArrayList();
-        cachedParseObjects = Utils.newMap();
+        cachedParseObjects = TravisUtils.newMap();
 
         // UNCOMMENT THIS ONLY DURING DEVELOPMENT
         populateDB();
@@ -148,8 +142,8 @@ public final class PersistenceManager {
             return;
         }
 
-        String capitalFirstName = Utils.capitalizeWord(firstName);
-        String capitalLastName = Utils.capitalizeWord(lastName);
+        String capitalFirstName = TravisUtils.capitalizeWord(firstName);
+        String capitalLastName = TravisUtils.capitalizeWord(lastName);
         u.setName(capitalFirstName + " " + capitalLastName);
         u.po.setUsername(email);
         u.setEmail(email);
@@ -194,8 +188,8 @@ public final class PersistenceManager {
             return;
         }
 
-        String capitalFirstName = Utils.capitalizeWord(firstName);
-        String capitalLastName = Utils.capitalizeWord(lastName);
+        String capitalFirstName = TravisUtils.capitalizeWord(firstName);
+        String capitalLastName = TravisUtils.capitalizeWord(lastName);
         u.setName(capitalFirstName + " " + capitalLastName);
         u.setEmail(email);
 
@@ -352,10 +346,36 @@ public final class PersistenceManager {
         toDelete.po.deleteInBackground();
     }
 
+    public static void setTaxiArrived(final Ride requestedRide){
+        Map<String, Object> toSet = new HashMap<String, Object>();
+        Map<String, Object> ride = new HashMap<String, Object>();
+        ride.put(requestedRide.id(), RIDE_STATUS_TAXI_ARRIVED);
+        toSet.put(requestedRide.client().id(), ride);
+
+        fb.child(FB_RIDES).updateChildren(toSet);
+    }
+
+    public static void setRequestAccepted(final Ride requestedRide){
+        Map<String, Object> toSet = new HashMap<String, Object>();
+        Map<String, Object> ride = new HashMap<String, Object>();
+        ride.put(requestedRide.id(), RideRequestTask.RESPONSE_ACCEPTED);
+        toSet.put(requestedRide.taxi().id(), ride);
+
+        fb.child(FB_RIDES).updateChildren(toSet);
+    }
+
+    public static void setRequestDeclined(final Ride requestedRide){
+        Map<String, Object> toSet = new HashMap<String, Object>();
+        Map<String, Object> ride = new HashMap<String, Object>();
+        ride.put(requestedRide.id(), RideRequestTask.RESPONSE_DECLINED);
+        toSet.put(requestedRide.taxi().id(), ride);
+
+        fb.child(FB_RIDES).updateChildren(toSet);
+    }
 
     public static void waitForRideResponse(final Ride requestedRide, final WatchEvent<String> responseEvent){
         final Firebase requestedRideRef = fb.child(FB_RIDES).child(requestedRide.taxi().id()).child(requestedRide.id());
-        final Uno<Boolean> receivedResponse = Utils.newUno(false);
+        final Uno<Boolean> receivedResponse = TravisUtils.newUno(false);
 
         final ValueEventListener responseWatcher = new ValueEventListener() {
             @Override
@@ -525,7 +545,7 @@ public final class PersistenceManager {
 
             if(resultUser == null){
                 // Email doesn't exist, can create a new account withUser credentials
-                return Utils.newPair(NO_USER_WITH_THAT_EMAIL, null);
+                return TravisUtils.newPair(NO_USER_WITH_THAT_EMAIL, null);
 
             } else {
 
@@ -533,9 +553,9 @@ public final class PersistenceManager {
             }
 
             if(resultUser == null) {
-                return Utils.newPair(WRONG_CREDENTIALS, null);
+                return TravisUtils.newPair(WRONG_CREDENTIALS, null);
             } else {
-                return Utils.newPair(SUCCESSFUL_LOGIN, resultUser);
+                return TravisUtils.newPair(SUCCESSFUL_LOGIN, resultUser);
             }
 
         } catch (ParseException ex){

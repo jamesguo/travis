@@ -38,6 +38,9 @@
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
 
+    <string name="start_travel">Start travel to origin</string>
+
+    <string name="cancel_ride">Cancel ride</string>
 
     <!-- Login strings-->
     <string name="auto_login">Automatically login every time</string>
@@ -80,6 +83,7 @@ Before you start using Travis, please confirm name below…</string>
     <!-- Side menu strings -->
     <string name="logout">Logout</string>
     <string name="settings">Settings</string>
+    <string name="about">About</string>
     <string name="instant">Instant Taxi</string>
     <string name="map_view">Map View</string>
     <string name="current_travel">Current Travel</string>
@@ -136,14 +140,16 @@ Before you start using Travis, please confirm name below…</string>
 THE NEAREST TAXI</string>
 
     <!-- Ride request strings -->
-    <string name="ride_request_please_wait">Please wait
-The taxi you selected will now need to accept your request…</string>
-    <string name="confirm_cancel">Confirm cancel</string>
-    <string name="confirm_cancel_msg">Are you sure you wish to cancel this request?</string>
-    <string name="x_requested">requested a ride</string>
-    <string name="x_requested_large">requested you a ride </string>
-    <string name="x_arrived">arrived</string>
-    <string name="x_arrived_large">arrived at the designated location</string>
+    <string name="logged_in_as_X">Logged in as</string>
+    <string name="request_sent">Request sent…</string>
+    <string name="x_requested">requested a ride.</string>
+    <string name="x_requested_large">requested you a ride.</string>
+    <string name="request_accepted">Request accepted.</string>
+    <string name="request_declined">Request declined.</string>
+    <string name="request_timed_out">Request timed out.</string>
+    <string name="x_arrived">arrived.</string>
+    <string name="x_arrived_large">arrived at the designated location.</string>
+    <string name="scheduled_ride_was_cancelled">Scheduled ride was cancelled.</string>
 
 
     <!-- Ride item strings -->

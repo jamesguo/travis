@@ -56,7 +56,7 @@ public class AuthenticationFragment extends TravisFragment implements NfcAdapter
         super.onActivityCreated(savedInstanceState);
         setContentView(R.layout.fragment_authentication);
 
-        TextView textView = (TextView) parentActivity.findViewById(R.id.textView);
+        TextView textView = (TextView) parentActivity.findViewById(R.id.authenticate_text_view);
 
         if(currentUser instanceof Client) {
             textView.setText(R.string.authenticate_for_client);

@@ -4,7 +4,7 @@ import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.*;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.Calendar;
 import java.util.Collections;
@@ -588,7 +588,7 @@ public class Query {
 
         @Override
         protected void fetchLater(final ParseObject po, final Callback<Ride> instantiateCallback) {
-            Ride ride = Utils.lockThreadAndExecute(new Utils.Code<Ride>() {
+            Ride ride = TravisUtils.lockThreadAndExecute(new TravisUtils.Code<Ride>() {
                 @Override
                 public Ride execute() {
                     return fetchNow(po);
@@ -618,7 +618,7 @@ public class Query {
         }
 
         public QueryRides performed() {
-            filters.add(Filter.lt(Ride.SCHEDULED_TIME, Utils.newTime().toNow()));
+            filters.add(Filter.lt(Ride.SCHEDULED_TIME, TravisUtils.newTime().toNow()));
             return this;
         }
 

@@ -49,7 +49,7 @@
     <!-- Background -->
     <item>
         <shape>
-            <solid />
+            <solid android:color="@color/white_transp" />
         </shape>
     </item>
 </layer-list>

@@ -12,7 +12,7 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.User;
 import pt.ua.travis.ui.login.LoginTask;
 import pt.ua.travis.ui.login.LoginActivity;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -70,7 +70,7 @@ public class SplashScreenActivity extends SherlockActivity {
     }
 
     private void goToLoginScreen() {
-        final int moveUpValue = Utils.dpToPx(this, -176);
+        final int moveUpValue = TravisUtils.dpToPx(this, -176);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "translationY", 0, moveUpValue);
         animator.setDuration(1000);

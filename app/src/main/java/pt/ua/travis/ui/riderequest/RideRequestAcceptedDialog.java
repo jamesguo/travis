@@ -98,7 +98,7 @@ public class RideRequestAcceptedDialog extends SimpleDialogFragment {
         });
 
         Intent intent = new Intent(parentActivity, AuthenticationClientActivity.class);
-        intent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
+        intent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, thisRide.id());
         PersistenceManager.addToCache(thisRide);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(parentActivity);

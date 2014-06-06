@@ -51,7 +51,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_toRightOf="@id/taxi_photo"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"

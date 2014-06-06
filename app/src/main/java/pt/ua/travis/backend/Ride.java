@@ -2,7 +2,7 @@ package pt.ua.travis.backend;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseObject;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -113,7 +113,7 @@ public final class Ride extends ParseObjectWrapper {
      * "hour" and "minute" respectively.
      */
     public Ride setScheduledTime(int hour, int minute){
-        Date d = Utils.newTime().withHourAndMinute(hour, minute);
+        Date d = TravisUtils.newTime().withHourAndMinute(hour, minute);
         po.put(SCHEDULED_TIME, d);
 //        po.put(SCHEDULED_HOUR, hour);
 //        po.put(SCHEDULED_MINUTE, minute);
@@ -216,7 +216,7 @@ public final class Ride extends ParseObjectWrapper {
 //        int hour = (Integer) po.get(SCHEDULED_HOUR);
 //        int minute = (Integer) po.get(SCHEDULED_MINUTE);
         Date d = po.getDate(SCHEDULED_TIME);
-        return Utils.calendarFromDate(d);
+        return TravisUtils.calendarFromDate(d);
     }
 
 
@@ -225,17 +225,19 @@ public final class Ride extends ParseObjectWrapper {
      * in a String.
      */
     public String getRemaining() {
-        Date now = Calendar.getInstance().getTime();
+        Calendar now = Calendar.getInstance();
 
         Calendar scheduledC = getScheduledTime();
         Date scheduled = scheduledC.getTime();
 
-        if (now.compareTo(scheduled) >= 0) {
+        if (now.getTime().compareTo(scheduled) >= 0) {
             return "now!";
         }
 
-        int hour = scheduledC.get(Calendar.HOUR_OF_DAY);
-        int minute = scheduledC.get(Calendar.MINUTE);
+        int hour = scheduledC.get(Calendar.HOUR_OF_DAY) - scheduledC.get(Calendar.HOUR_OF_DAY);
+        int scheduledMinute = scheduledC.get(Calendar.MINUTE);
+        int nowMinute = now.get(Calendar.MINUTE);
+        int minute = nowMinute >= scheduledMinute ? nowMinute - scheduledMinute : scheduledMinute - nowMinute;
 
         StringBuilder sb = new StringBuilder();
         sb.append("in ");
@@ -246,10 +248,7 @@ public final class Ride extends ParseObjectWrapper {
         }
         sb.append(" and ");
         sb.append(minute);
-        sb.append(" minute");
-        if (minute != 1) {
-            sb.append("s");
-        }
+        sb.append(" min.");
 
         return sb.toString();
     }

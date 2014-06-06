@@ -10,7 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 import com.google.common.collect.Lists;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.List;
 
@@ -36,7 +36,7 @@ public class AutoCompleteAdapter extends ArrayAdapter<Address> implements Filter
                 tv = (TextView) inflater.inflate(android.R.layout.simple_dropdown_item_1line, parent, false);
             }
 
-            tv.setText(Utils.addressToString(getItem(position)));
+            tv.setText(TravisUtils.addressToString(getItem(position)));
             return tv;
         }
 
@@ -48,7 +48,7 @@ public class AutoCompleteAdapter extends ArrayAdapter<Address> implements Filter
                     List<Address> addressList = Lists.newArrayList();
                     if (constraint != null) {
 
-                        List<Address> retrieved = Utils.addressesFromString(getContext(), constraint.toString());
+                        List<Address> retrieved = TravisUtils.addressesFromString(getContext(), constraint.toString());
                         if(retrieved != null){
                             addressList = retrieved;
                         }

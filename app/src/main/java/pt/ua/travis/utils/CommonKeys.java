@@ -28,8 +28,9 @@ public final class CommonKeys {
     public static final String SAVED_CLIENT_OBJECT_ID = "saved_client_object_id";
     public static final String SAVED_RIDE_OBJECT_ID = "saved_ride_object_id";
 
-    public static final String SELECTED_TAXI_ID = "selected_taxi_id";
-    public static final String SCHEDULED_RIDE_ID = "scheduled_ride_id";
+    public static final String RIDE_REQUEST_ACCEPTED_ID = "scheduled_ride_request_response_id";
+    public static final String RIDE_REQUEST_DECLINED_ID = "scheduled_ride_request_response_id";
+    public static final String RIDE_ARRIVED_ID = "scheduled_ride_arrived_id";
 
     public static final int RIDE_REQUEST = 124125125;
 

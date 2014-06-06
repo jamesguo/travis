@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Address;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -33,16 +32,16 @@ import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideRequestPagerAdapter;
 import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Pair;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 /**
@@ -75,7 +74,7 @@ public class TaxiChooserFragment extends TravisFragment
 
 
     public TaxiChooserFragment() {
-        itemToMarkerMappings = Utils.newMap();
+        itemToMarkerMappings = TravisUtils.newMap();
     }
 
 
@@ -206,6 +205,8 @@ public class TaxiChooserFragment extends TravisFragment
                 .useViewDelegate(TransitionViewPager.class, new TransitionViewPagerDelegate())
                 .listener(this)
                 .setup(pullToRefreshLayout);
+        DefaultHeaderTransformer headerTransformer = (DefaultHeaderTransformer) pullToRefreshLayout.getHeaderTransformer();
+        headerTransformer.setProgressBarColor(getResources().getColor(R.color.travis_color));
 
 //        // sets how much of the next item is shown
 //        if(Validate.isTablet(getActivity())){
@@ -300,7 +301,7 @@ public class TaxiChooserFragment extends TravisFragment
         for (Taxi t : taxis) {
             Marker m = map.addMarker(getMarkerOptions(t));
             TaxiItem item = taxiPagerAdapter.idsToItems.get(t.id());
-            itemToMarkerMappings.put(t.id(), Utils.newPair(m, item));
+            itemToMarkerMappings.put(t.id(), TravisUtils.newPair(m, item));
         }
 
     }
@@ -318,7 +319,7 @@ public class TaxiChooserFragment extends TravisFragment
 
             Marker newM = map.addMarker(getMarkerOptions(t));
 
-            itemToMarkerMappings.put(id, Utils.newPair(newM, pair.second));
+            itemToMarkerMappings.put(id, TravisUtils.newPair(newM, pair.second));
 
 
             int thisItemIndex = taxiPagerAdapter.getItemPosition(pair.second);
@@ -424,6 +425,10 @@ public class TaxiChooserFragment extends TravisFragment
         }
     }
 
+    public void closeSlidingPane() {
+        slidingPaneLayout.closeLayer(true);
+    }
+
 
     /**
      * Slides the options page into view.
@@ -437,10 +442,10 @@ public class TaxiChooserFragment extends TravisFragment
         hereAndNowButton.setClickable(selectedTaxi.isAvailable());
 
         LatLng pos = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
-        Address currentAddress = Utils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude).get(0);
+        Address currentAddress = TravisUtils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude).get(0);
 
         TextView addressTextView = (TextView) parentActivity.findViewById(R.id.origin_address);
-        addressTextView.setText(Utils.addressToString(currentAddress));
+        addressTextView.setText(TravisUtils.addressToString(currentAddress));
 
         TextView timeTextView = (TextView) parentActivity.findViewById(R.id.time_picker_text);
         parentActivity.setTimeTextToNow(timeTextView);
@@ -475,10 +480,10 @@ public class TaxiChooserFragment extends TravisFragment
             public void onResult(List<Taxi> result) {
                 updateTaxis(result);
                 select(0);
-                setContentShown(true);
+                pullToRefreshLayout.setRefreshComplete();
             }
         };
-        setContentShown(false);
+        pullToRefreshLayout.setRefreshing(true);
 
         switch (position){
             case 0: // Near you was selected
@@ -511,7 +516,7 @@ public class TaxiChooserFragment extends TravisFragment
 
     private class TaxiItemAdapter extends FragmentStatePagerAdapter {
 
-        private Map<String, TaxiItem> idsToItems = Utils.newMap();
+        private Map<String, TaxiItem> idsToItems = TravisUtils.newMap();
         private List<Taxi> taxiList;
         private int currentlySelectedIndex;
 

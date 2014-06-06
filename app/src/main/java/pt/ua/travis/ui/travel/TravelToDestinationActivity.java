@@ -19,9 +19,8 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.mapnavigator.Directions;
 import pt.ua.travis.mapnavigator.Navigator;
-import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.CommonKeys;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.Calendar;
 import java.util.List;
@@ -57,7 +56,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
         userType = intent.getStringExtra(CommonKeys.USER_TYPE);
 
-        final String rideID = getIntent().getStringExtra(CommonKeys.SCHEDULED_RIDE_ID);
+        final String rideID = getIntent().getStringExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID);
         thisRide = PersistenceManager.getFromCache(rideID);
 
 
@@ -135,11 +134,11 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
                 Calendar nowPlusOneHour = Calendar.getInstance();
                 nowPlusOneHour.add(Calendar.HOUR_OF_DAY, 1);
-                incomingRide.setScheduledTime(Utils.dateFromCalendar(nowPlusOneHour));
+                incomingRide.setScheduledTime(TravisUtils.dateFromCalendar(nowPlusOneHour));
 
                 Intent resultIntent = new Intent(context, TravelToDestinationActivity.class);
                 resultIntent.putExtra(CommonKeys.USER_TYPE, userType);
-                resultIntent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
+                resultIntent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, thisRide.id());
                 resultIntent.putExtra(CommonKeys.NEW_REQUEST_ACCEPTED_DURING_TRAVEL, incomingRide.id());
                 resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -150,7 +149,7 @@ public class TravelToDestinationActivity extends SherlockFragmentActivity implem
 
                 Intent dismissIntent = new Intent(context, TravelToDestinationActivity.class);
                 dismissIntent.putExtra(CommonKeys.USER_TYPE, userType);
-                dismissIntent.putExtra(CommonKeys.SCHEDULED_RIDE_ID, thisRide.id());
+                dismissIntent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, thisRide.id());
 //        dismissIntent.setAction(CommonConstants.ACTION_DISMISS);
                 PendingIntent piDecline = PendingIntent.getActivity(context, 0, dismissIntent, 0);
 

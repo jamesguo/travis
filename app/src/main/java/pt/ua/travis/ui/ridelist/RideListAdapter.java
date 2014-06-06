@@ -14,10 +14,12 @@ import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
+import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.customviews.CircularImageView;
 import pt.ua.travis.ui.main.MainActivity;
+import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.utils.CommonRes;
-import pt.ua.travis.utils.Utils;
+import pt.ua.travis.utils.TravisUtils;
 
 import java.util.List;
 
@@ -28,10 +30,12 @@ import java.util.List;
 public class RideListAdapter extends BaseAdapter implements ListAdapter {
 
     private MainActivity parentActivity;
+    private RideListFragment rideListFragment;
     private List<RideItem> itemList;
 
-    RideListAdapter(final MainActivity parentActivity, final List<RideItem> rideItemList) {
+    RideListAdapter(final MainActivity parentActivity, final RideListFragment rideListFragment, final List<RideItem> rideItemList) {
         this.parentActivity = parentActivity;
+        this.rideListFragment = rideListFragment;
         this.itemList = rideItemList;
     }
 
@@ -57,7 +61,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         final RideItem item = getItem(position);
         ViewHolder holder;
         if (convertView == null) {
@@ -71,7 +75,8 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
             holder.originIcon = (FontAwesomeText) convertView.findViewById(R.id.origin_icon);
             holder.originLabel = (TextView) convertView.findViewById(R.id.origin_label);
             holder.destinationLabel = (TextView) convertView.findViewById(R.id.destination_label);
-            holder.acceptDelete = (BootstrapButton) convertView.findViewById(R.id.accept_button);
+            holder.optionButton = (BootstrapButton) convertView.findViewById(R.id.ride_item_option_button);
+            holder.cancelRideButton = (BootstrapButton) convertView.findViewById(R.id.cancel_ride_button);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -91,25 +96,54 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
             holder.originIcon.setIcon("fa-taxi");
         }
         LatLng pos1 = r.originPosition();
-        List<Address> addressList1 = Utils.addressesFromLocation(parentActivity, pos1.latitude, pos1.longitude);
+        List<Address> addressList1 = TravisUtils.addressesFromLocation(parentActivity, pos1.latitude, pos1.longitude);
         if(addressList1!=null && !addressList1.isEmpty()) {
-            holder.originLabel.setText(Utils.addressToString(addressList1.get(0)));
+            holder.originLabel.setText(TravisUtils.addressToString(addressList1.get(0)));
         }
         LatLng pos2 = r.destinationPosition();
-        List<Address> addressList2 = Utils.addressesFromLocation(parentActivity, pos2.latitude, pos2.longitude);
+        List<Address> addressList2 = TravisUtils.addressesFromLocation(parentActivity, pos2.latitude, pos2.longitude);
         if(addressList2!=null && !addressList2.isEmpty()) {
-            holder.destinationLabel.setText(Utils.addressToString(addressList2.get(0)));
+            holder.destinationLabel.setText(TravisUtils.addressToString(addressList2.get(0)));
         } else {
             holder.destinationLabel.setText(parentActivity.getString(R.string.unknown_address));
         }
 
+        if (item.getUserTypeToShow() == RideItem.SHOW_TAXI) {
+            holder.optionButton.setText("Set Destination");
+            holder.optionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AddressPickerDialog.newInstance(parentActivity, new AddressPickerDialog.OnDoneButtonClickListener() {
+                        @Override
+                        public void onClick(LatLng pickedPosition, String addressText) {
+                            Ride r  = item.getRideObject();
+                            r.setDestinationLocation(pickedPosition.latitude, pickedPosition.longitude);
+                            PersistenceManager.save(r, null);
+                        }
+                    }).show(parentActivity.getSupportFragmentManager(), "DestinationPicker");
+                }
+            });
+        } else {
+            holder.optionButton.setText("Start travel");
+            holder.optionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((MainTaxiActivity) parentActivity).startTravel(item.getRideObject());
+                    rideListFragment.onRefreshStarted(null);
+                }
+            });
+        }
 
-        holder.acceptDelete.setOnClickListener(new View.OnClickListener() {
+        holder.cancelRideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 itemList.remove(r);
                 PersistenceManager.delete(r);
                 notifyDataSetChanged();
+
+                String cancelString = parentActivity.getString(R.string.scheduled_ride_was_cancelled);
+                parentActivity.showTravisNotification(cancelString, null, MainActivity.NotificationColor.DEFAULT);
+                rideListFragment.onRefreshStarted(null);
             }
         });
 
@@ -125,6 +159,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
         FontAwesomeText originIcon;
         TextView originLabel;
         TextView destinationLabel;
-        BootstrapButton acceptDelete;
+        BootstrapButton optionButton;
+        BootstrapButton cancelRideButton;
     }
 }
