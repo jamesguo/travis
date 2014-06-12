@@ -9,13 +9,13 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
-import com.actionbarsherlock.app.SherlockActivity;
 import com.beardedhen.androidbootstrap.BootstrapAutoCompleteEditText;
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.parse.ParseFacebookUtils;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.User;
 import pt.ua.travis.core.SplashScreenActivity;
+import pt.ua.travis.core.TravisActivity;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.regex.Matcher;
@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class LoginActivity extends SherlockActivity {
+public class LoginActivity extends TravisActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 

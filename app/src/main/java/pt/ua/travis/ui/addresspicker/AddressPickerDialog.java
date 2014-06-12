@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import eu.inmite.android.lib.dialogs.BaseDialogFragment;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
-import pt.ua.travis.ui.customviews.TravisMapFragment;
+import pt.ua.travis.core.TravisMapFragment;
 import pt.ua.travis.utils.TravisUtils;
 
 import java.util.List;

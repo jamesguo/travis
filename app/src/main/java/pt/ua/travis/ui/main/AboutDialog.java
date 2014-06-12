@@ -1,31 +1,16 @@
 package pt.ua.travis.ui.main;
 
 import android.content.Intent;
-import android.location.Address;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.androidmapsextensions.GoogleMap;
-import com.androidmapsextensions.Marker;
-import com.androidmapsextensions.MarkerOptions;
-import com.androidmapsextensions.SupportMapFragment;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
 import eu.inmite.android.lib.dialogs.BaseDialogFragment;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
-import pt.ua.travis.ui.customviews.TravisMapFragment;
-import pt.ua.travis.utils.TravisUtils;
-
-import java.util.List;
-import java.util.Map;
 
 
 /**

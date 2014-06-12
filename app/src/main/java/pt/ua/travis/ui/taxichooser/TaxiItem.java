@@ -4,18 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
+import android.widget.*;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.ui.customviews.CircularImageView;
+import pt.ua.travis.ui.main.MainActivity;
+import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.CommonRes;
 
@@ -25,66 +26,33 @@ import pt.ua.travis.utils.CommonRes;
  */
 public class TaxiItem extends Fragment {
 
+    private MainActivity context;
+    private Client clientObject;
+    private Taxi taxiObject;
 
-    private View currentView;
-    private Activity parentActivity;
-
-    private Client currentClient;
-    private Taxi taxiToRepresent;
-
-    public static TaxiItem newInstance(Client currentClient, Taxi taxiToRepresent) {
-        TaxiItem t = new TaxiItem();
-
-        t.currentClient = currentClient;
-        t.taxiToRepresent = taxiToRepresent;
-
-        return t;
+    /**
+     * Simple constructor to use when creating a taxi item from code.
+     */
+    public static TaxiItem create(MainActivity context, Client currentClient, Taxi taxiToRepresent) {
+        TaxiItem newInstance = new TaxiItem();
+        newInstance.context = context;
+        newInstance.clientObject = currentClient;
+        newInstance.taxiObject = taxiToRepresent;
+        return newInstance;
     }
 
-    Taxi getTaxiObject(){
-        return taxiToRepresent;
+    public Client getClientObject() {
+        return clientObject;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if(savedInstanceState!=null){
-            final String taxiID = savedInstanceState.getString(CommonKeys.SAVED_TAXI_OBJECT_ID);
-            taxiToRepresent = PersistenceManager.getFromCache(taxiID);
-
-            final String clientID = savedInstanceState.getString(CommonKeys.SAVED_CLIENT_OBJECT_ID);
-            currentClient = PersistenceManager.getFromCache(clientID);
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putString(CommonKeys.SAVED_TAXI_OBJECT_ID, taxiToRepresent.id());
-        PersistenceManager.addToCache(taxiToRepresent);
-
-        outState.putString(CommonKeys.SAVED_CLIENT_OBJECT_ID, currentClient.id());
-        PersistenceManager.addToCache(currentClient);
-
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        parentActivity = activity;
+    public Taxi getTaxiObject() {
+        return taxiObject;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if(currentView==null) {
-            currentView = inflater.inflate(R.layout.item_taxi, null);
-            TaxiItem.paintViewWithTaxi(parentActivity, currentView, currentClient, taxiToRepresent);
-        }
-        return currentView;
-    }
-
-    public View getCurrentView() {
+        View currentView = inflater.inflate(R.layout.item_taxi, null);
+        TaxiItem.paintViewWithTaxi(context, currentView, clientObject, taxiObject);
         return currentView;
     }
 

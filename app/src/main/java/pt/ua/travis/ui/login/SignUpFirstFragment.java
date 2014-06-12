@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.andreabaccega.widget.FormEditText;
 import pt.ua.travis.R;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 
 /**
  * This fragment shows the first screen of the signup process.

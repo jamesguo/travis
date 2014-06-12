@@ -19,8 +19,8 @@ import java.util.List;
 public class TaxiFilterSpinnerAdapter extends ArrayAdapter<String> {
 
     private Activity activity;
-    private static final int[] textIDs = { R.string.closest_to_you, R.string.highest_rated, R.string.your_favorites, R.string.search  };
-    private static final int[] iconIDs = { R.drawable.ic_closest, R.drawable.ic_star, R.drawable.ic_fav, R.drawable.ic_search };
+    private static final int[] textIDs = { R.string.closest_to_you, R.string.highest_rated, R.string.your_favorites };
+    private static final int[] iconIDs = { R.drawable.ic_closest, R.drawable.ic_star, R.drawable.ic_fav };
 
     public static List<String> getTexts(Activity parentActivity) {
         List<String> result = new ArrayList<String>(textIDs.length);

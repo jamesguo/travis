@@ -2,7 +2,7 @@ package pt.ua.travis.ui.main;
 
 import android.support.v4.app.FragmentTransaction;
 import com.actionbarsherlock.app.ActionBar;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

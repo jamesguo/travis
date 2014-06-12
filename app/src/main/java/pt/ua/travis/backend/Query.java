@@ -56,8 +56,6 @@ public class Query {
     private int limit;
     private String idFilter;
     private ParseGeoPoint currentLocation;
-    private ParseGeoPoint locationFilterSW;
-    private ParseGeoPoint locationFilterNE;
     private boolean filterNear;
     private String sortKey;
 
@@ -87,10 +85,6 @@ public class Query {
 
         if (limit > 0) {
             q.setLimit(limit);
-        }
-
-        if (locationFilterSW!=null && locationFilterNE!=null) {
-            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
         }
 
         if(sortKey!=null) {
@@ -146,6 +140,10 @@ public class Query {
             q.setLimit(limit);
         }
 
+        if(sortKey!=null) {
+            q.orderByAscending(sortKey);
+        }
+
         try {
             if(idFilter==null) {
                 for (Filter f : filters) {
@@ -183,8 +181,7 @@ public class Query {
         }
 
         if (filterNear) {
-            Log.e("+++++++++++++++++++++", "lets filter near!!!");
-            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
+            q.whereNear(Taxi.CURRENT_LOCATION, currentLocation);
         }
 
         if(sortKey!=null) {
@@ -210,9 +207,9 @@ public class Query {
                     if (ex != null) {
                         Log.e("PersistenceManager SafeQuery Find", "Error querying " + objectName + "s. ", ex);
                     } else {
-                        if(filterNear){
-                            sortListByNearness(parseUsers);
-                        }
+//                        if(filterNear){
+//                            sortListByClosest(parseUsers);
+//                        }
                         queryHandler.done(parseUsers, null);
                     }
                 }
@@ -245,7 +242,7 @@ public class Query {
         }
 
         if (filterNear) {
-            q.whereWithinGeoBox(Taxi.CURRENT_LOCATION, locationFilterSW, locationFilterNE);
+            q.whereNear(Taxi.CURRENT_LOCATION, currentLocation);
         }
 
         if(sortKey!=null) {
@@ -265,9 +262,9 @@ public class Query {
                 }
 
                 List<ParseUser> list = q.find();
-                if(filterNear){
-                    sortListByNearness(list);
-                }
+//                if(filterNear){
+//                    sortListByClosest(list);
+//                }
                 return list;
 
 
@@ -283,14 +280,14 @@ public class Query {
         return Lists.newArrayList();
     }
 
-    private void sortListByNearness(List<ParseUser> list) {
+    private void sortListByClosest(List<ParseUser> list) {
         Collections.sort(list, new Comparator<ParseUser>() {
             @Override
             public int compare(ParseUser lhs, ParseUser rhs) {
                 ParseGeoPoint lhsPoint = lhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
                 ParseGeoPoint rhsPoint = rhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
-                int dist1 = Double.valueOf(currentLocation.distanceInKilometersTo(lhsPoint)).intValue();
-                int dist2 = Double.valueOf(currentLocation.distanceInKilometersTo(rhsPoint)).intValue();
+                int dist1 = Double.valueOf(currentLocation.distanceInRadiansTo(lhsPoint)).intValue();
+                int dist2 = Double.valueOf(currentLocation.distanceInRadiansTo(rhsPoint)).intValue();
                 return dist1 - dist2;
             }
         });
@@ -414,16 +411,6 @@ public class Query {
         public QueryTaxis near(LatLng latLng) {
             filterNear = true;
             currentLocation = new ParseGeoPoint(latLng.latitude, latLng.longitude);
-            locationFilterSW = new ParseGeoPoint(latLng.latitude - 0.02, latLng.longitude - 0.02);
-            locationFilterNE = new ParseGeoPoint(latLng.latitude + 0.02, latLng.longitude + 0.02);
-            return this;
-        }
-
-        public QueryTaxis inTheSameDistrict(LatLng latLng) {
-            filterNear = true;
-            currentLocation = new ParseGeoPoint(latLng.latitude, latLng.longitude);
-            locationFilterSW = new ParseGeoPoint(latLng.latitude - 0.05, latLng.longitude - 0.05);
-            locationFilterNE = new ParseGeoPoint(latLng.latitude + 0.05, latLng.longitude + 0.05);
             return this;
         }
 

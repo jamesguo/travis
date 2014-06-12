@@ -8,13 +8,11 @@ import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.ui.main.MainActivity;
 
 import java.nio.charset.Charset;

@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.Window;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import pt.ua.travis.R;
+import pt.ua.travis.core.TravisActivity;
 import pt.ua.travis.ui.customviews.CircularImageView;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.utils.CommonKeys;
 
 import java.util.Arrays;
@@ -26,7 +27,7 @@ import java.util.Arrays;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class SignUpActivity extends SherlockFragmentActivity implements SignUpNavigationListener, View.OnClickListener {
+public class SignUpActivity extends TravisActivity implements SignUpNavigationListener, View.OnClickListener {
     private boolean userIsAlreadyCreated;
 
     private String firstName = "";

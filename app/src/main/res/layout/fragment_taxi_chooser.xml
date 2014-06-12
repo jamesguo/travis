@@ -10,14 +10,14 @@
 
     <fragment
         android:id="@+id/taxi_map"
-        android:name="pt.ua.travis.ui.customviews.TravisMapFragment"
+        android:name="pt.ua.travis.core.TravisMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     
     <Spinner
         android:id="@+id/taxi_sort_spinner"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
@@ -31,7 +31,7 @@
         android:layout_marginTop="?attr/actionBarSize"
         ptr:ptrProgressBarColor="@color/travis_color">
 
-        <pt.ua.travis.ui.customviews.TransitionViewPager
+        <android.support.v4.view.ViewPager
             android:id="@+id/taxi_pager"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taxi_item_height"

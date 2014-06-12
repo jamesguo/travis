@@ -32,9 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="
-Deti:
-Pedro Fernandes 61255
-João Pedro Pedrosa 61565
+Deti:\n
+Pedro Fernandes 61255\n
+João Pedro Pedrosa 61565\n
 Eduardo Duarte 60658"/>
 
 
@@ -57,8 +57,8 @@ Eduardo Duarte 60658"/>
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="
-Deca:
-Ricardo Silva 67968
+Deca:\n
+Ricardo Silva 67968\n
 Tiago Marabuto 38963"/>
 
 

@@ -123,21 +123,32 @@ public class BlurDrawerLayout extends FrameLayout implements GestureDetector.OnG
      */
     public void addDrawerObject(BlurDrawerObject drawerObject, int side) {
         if (side == LEFT_SIDE) {
+            cleanObject(drawerObject);
             this.leftDrawerObjects.add(drawerObject);
             layoutLeftDrawer.addView(drawerObject);
         } else if (side == RIGHT_SIDE) {
+            cleanObject(drawerObject);
             this.rightDrawerObject.add(drawerObject);
             layoutRightDrawer.addView(drawerObject);
         }
     }
 
-    private void rebuildMenu(){
+    private void rebuildMenu() {
         layoutLeftDrawer.removeAllViews();
         layoutRightDrawer.removeAllViews();
-        for(int i = 0; i < leftDrawerObjects.size() ; i ++)
+        for (int i = 0; i < leftDrawerObjects.size(); i++) {
             layoutLeftDrawer.addView(leftDrawerObjects.get(i), i);
-        for(int i = 0; i < rightDrawerObject.size() ; i ++)
+        }
+        for (int i = 0; i < rightDrawerObject.size(); i++) {
             layoutRightDrawer.addView(rightDrawerObject.get(i), i);
+        }
+    }
+
+    public void cleanObject(BlurDrawerObject drawerObject){
+        ViewGroup parent = (ViewGroup) drawerObject.getParent();
+        if (parent != null) {
+            parent.removeViewAt(parent.indexOfChild(drawerObject));
+        }
     }
 
     /**

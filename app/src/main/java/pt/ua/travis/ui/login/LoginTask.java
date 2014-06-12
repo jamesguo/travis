@@ -1,5 +1,6 @@
 package pt.ua.travis.ui.login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -96,7 +97,7 @@ public class LoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
         }
     }
 
-    public static void goToMainActivity(SherlockActivity parentActivity, User loggedInUser){
+    public static void goToMainActivity(Activity parentActivity, User loggedInUser){
         Intent activityIntent;
         if(loggedInUser instanceof Client){
             activityIntent = new Intent(parentActivity, MainClientActivity.class);

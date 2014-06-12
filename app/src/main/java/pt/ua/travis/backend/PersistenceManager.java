@@ -7,12 +7,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.util.Log;
+import com.actionbarsherlock.app.SherlockActivity;
 import com.firebase.client.*;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
 import com.parse.*;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.ui.login.LoginTask;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
 import pt.ua.travis.ui.riderequest.RideRequestTask;
@@ -127,12 +129,12 @@ public final class PersistenceManager {
      * represents a Client or a Taxi in the backend.
      */
     public static void registerNewUser(final Activity context,
-                                       String userType,
-                                       String email,
-                                       String password,
-                                       String firstName,
-                                       String lastName,
-                                       byte[] imageData) throws ParseException {
+                                       final String userType,
+                                       final String email,
+                                       final String password,
+                                       final String firstName,
+                                       final String lastName,
+                                       final byte[] imageData) throws ParseException {
         User u;
         if (userType.equals(TYPE_CLIENT)) {
             u = Client.create();
@@ -171,11 +173,11 @@ public final class PersistenceManager {
      * Client or a Taxi in the backend.
      */
     public static void registerNewUserFromSocialMedia(final Activity context,
-                                       String userType,
-                                       String email,
-                                       String firstName,
-                                       String lastName,
-                                       byte[] imageData) throws ParseException {
+                                                      final String userType,
+                                                      final String email,
+                                                      final String firstName,
+                                                      final String lastName,
+                                                      final byte[] imageData) throws ParseException {
         User u;
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (userType.equals(TYPE_CLIENT)) {
@@ -198,7 +200,7 @@ public final class PersistenceManager {
 
     private static void continueRegister(final Activity context,
                                          final User registeredUser,
-                                         byte[] imageData) throws ParseException {
+                                         final byte[] imageData) throws ParseException {
 
 
         Bitmap originalBitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
@@ -211,34 +213,12 @@ public final class PersistenceManager {
         file.save();
         registeredUser.setImageUri(file.getUrl());
 
-        if (registeredUser instanceof Client) {
-            PersistenceManager.save((Client) registeredUser, new Callback<Client>() {
-                @Override
-                public void onResult(Client result) {
-                    Intent intent = new Intent(context, MainClientActivity.class);
-                    context.startActivity(intent);
-                    context.finish();
-                }
-            });
-        } else if (registeredUser instanceof Taxi) {
-            final Taxi t = (Taxi) registeredUser;
-            PersistenceManager.save(t, new Callback<Taxi>() {
-                @Override
-                public void onResult(Taxi result) {
-                    TravisApplication app = ((TravisApplication) context.getApplication());
-                    app.addLocationListener(new TravisApplication.CurrentLocationListener() {
-                        @Override
-                        public void onCurrentLocationChanged(LatLng latLng) {
-                            t.setCurrentLocation(latLng.latitude, latLng.longitude);
-                            PersistenceManager.save(t, null);
-                        }
-                    });
-                    Intent intent = new Intent(context, MainTaxiActivity.class);
-                    context.startActivity(intent);
-                    context.finish();
-                }
-            });
-        }
+        registeredUser.po.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                LoginTask.goToMainActivity(context, registeredUser);
+            }
+        });
     }
 
 

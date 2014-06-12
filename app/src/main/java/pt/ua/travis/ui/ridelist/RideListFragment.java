@@ -2,20 +2,16 @@ package pt.ua.travis.ui.ridelist;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.swipelistview.SwipeListView;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
-import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.ui.main.MainActivity;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
-import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 

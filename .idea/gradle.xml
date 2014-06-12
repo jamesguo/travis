@@ -7,13 +7,13 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\projects-android\icm_travis" />
-            <option value="C:\projects-android\icm_travis\app" />
-            <option value="C:\projects-android\icm_travis\dependencies" />
-            <option value="C:\projects-android\icm_travis\dependencies\AndroidBootstrap" />
-            <option value="C:\projects-android\icm_travis\dependencies\DropboxChooserSDK" />
-            <option value="C:\projects-android\icm_travis\dependencies\ProgressWheel-master" />
-            <option value="C:\projects-android\icm_travis\dependencies\android-edittext-validator-master" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/dependencies" />
+            <option value="$PROJECT_DIR$/dependencies/AndroidBootstrap" />
+            <option value="$PROJECT_DIR$/dependencies/DropboxChooserSDK" />
+            <option value="$PROJECT_DIR$/dependencies/ProgressWheel-master" />
+            <option value="$PROJECT_DIR$/dependencies/android-edittext-validator-master" />
           </set>
         </option>
       </GradleProjectSettings>

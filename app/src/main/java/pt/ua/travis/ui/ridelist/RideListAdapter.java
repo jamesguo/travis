@@ -119,6 +119,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
                             Ride r  = item.getRideObject();
                             r.setDestinationLocation(pickedPosition.latitude, pickedPosition.longitude);
                             PersistenceManager.save(r, null);
+                            rideListFragment.onRefreshStarted(null);
                         }
                     }).show(parentActivity.getSupportFragmentManager(), "DestinationPicker");
                 }

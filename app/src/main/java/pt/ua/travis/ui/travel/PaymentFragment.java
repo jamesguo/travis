@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 //import com.doomonafireball.betterpickers.numberpicker.NumberPicker;
@@ -20,7 +19,7 @@ import android.widget.Toast;
 import com.paypal.android.sdk.payments.*;
 import org.json.JSONException;
 import pt.ua.travis.R;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.ui.main.MainActivity;
 
 import java.nio.charset.Charset;

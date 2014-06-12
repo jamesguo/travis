@@ -187,12 +187,7 @@ public class MainClientActivity extends MainActivity
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-                getCurrentlyShownTaxiList(false, new Callback<List<Taxi>>() {
-                    @Override
-                    public void onResult(List<Taxi> result) {
-                        // TODO
-                    }
-                });
+
                 return true;
             }
         });
@@ -289,23 +284,23 @@ public class MainClientActivity extends MainActivity
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
 
-        switch (currentlyShownTaxiListIndex){
-            case 0:
-                break;
-            case 1:
+//        switch (currentlyShownTaxiListIndex){
+//            case 0:
+//                break;
+//            case 1:
                 if (currentlyShownChooserFragment != null) {
                     currentlyShownChooserFragment.attemptCloseSlidingPane(event);
                 }
-                break;
-            case 2:
+//                break;
+//            case 2:
                 if (currentlyShownTravelFragment != null && currentlyShownTravelFragment.slidingPaneIsOpened()) {
                     // DO NOTHING
                     return true;
                 }
-                break;
-            case 3:
-                break;
-        }
+//                break;
+//            case 3:
+//                break;
+//        }
 
         return super.dispatchTouchEvent(event);
     }
@@ -356,11 +351,9 @@ public class MainClientActivity extends MainActivity
             new AsyncTask<Void, Void, List<Taxi>>(){
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
-                    LatLng currentPos = ((TravisApplication) getApplication()).getCurrentLocation();
                     return PersistenceManager.query()
                             .taxis()
                             .online()
-                            .inTheSameDistrict(currentPos)
                             .sortedByRating()
                             .now();
                 }
@@ -579,6 +572,7 @@ public class MainClientActivity extends MainActivity
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         tabPager.setCurrentItem(tab.getPosition(), true);
+        currentlyShownTaxiListIndex = tab.getPosition();
     }
 
     @Override

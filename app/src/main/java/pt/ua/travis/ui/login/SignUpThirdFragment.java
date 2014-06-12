@@ -1,31 +1,19 @@
 package pt.ua.travis.ui.login;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.google.android.gms.maps.model.LatLng;
+import android.widget.Toast;
 import com.parse.ParseException;
-import com.parse.ParseUser;
-import org.apache.commons.io.output.ByteArrayOutputStream;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.customviews.SquareImageView;
-import pt.ua.travis.ui.customviews.TravisFragment;
-import pt.ua.travis.ui.main.MainClientActivity;
-import pt.ua.travis.ui.main.MainTaxiActivity;
+import pt.ua.travis.core.TravisFragment;
 
 /**
  * This fragment shows the third screen of the signup process.
@@ -92,7 +80,11 @@ public class SignUpThirdFragment extends TravisFragment implements OnClickListen
             mCallback.toSecond(TAG);
 
         } else if (v.getId() == R.id.third_done) {
-            register();
+            if (userType == null) {
+                Toast.makeText(parentActivity, R.string.type_required, Toast.LENGTH_LONG).show();
+            } else {
+                register();
+            }
 
         } else if (v.getId() == R.id.type_client_icon) {
             userType = PersistenceManager.TYPE_CLIENT;

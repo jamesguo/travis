@@ -1,16 +1,25 @@
 package pt.ua.travis.core;
 
 import android.app.Application;
+import android.app.Dialog;
 import android.app.WallpaperManager;
-import android.content.Context;
-import android.content.Intent;
+import android.content.*;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -23,11 +32,14 @@ import com.google.common.collect.Lists;
 import com.parse.LocationCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
+import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.ui.customviews.CircularImageView;
 import pt.ua.travis.ui.login.SignUpActivity;
 import pt.ua.travis.utils.CommonRes;
+import pt.ua.travis.utils.TravisUtils;
 import pt.ua.travis.utils.Validate;
 
 import java.io.IOException;
@@ -43,7 +55,7 @@ public class TravisApplication extends Application implements LocationListener,
 
     private List<CurrentLocationListener> listeners;
 
-    private Location currentLocation;
+    private Location currentLocation = new Location("");
     private LocationRequest locationRequest;
     private LocationClient locationClient;
 
@@ -54,34 +66,41 @@ public class TravisApplication extends Application implements LocationListener,
             return;
         }
 
+        // starts common resources and backend connections
         CommonRes.init(this);
         PersistenceManager.init(this);
 
-        // TODO: REMOVE THIS
-//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
-//        PersistenceManager.attemptNormalLogin("cr7@gmail.com", "123");
-
         listeners = Lists.newArrayList();
 
+
+        // get a current location right now
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setAltitudeRequired(false);
+        criteria.setBearingRequired(false);
+        criteria.setCostAllowed(true);
+
+        ParseGeoPoint.getCurrentLocationInBackground(60000, criteria, new LocationCallback() {
+            @Override
+            public void done(ParseGeoPoint point, ParseException ex) {
+                if (ex == null) {
+                    currentLocation.setLatitude(point.getLatitude());
+                    currentLocation.setLongitude(point.getLongitude());
+                } else {
+                    Log.e("TravisApplication", "Error getting current location", ex);
+                }
+            }
+        });
+
+        // enable a location listener
         locationRequest = LocationRequest.create();
         locationRequest.setInterval(120);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setFastestInterval(120);
 
-        // Create a new location client, using the enclosing class to handle callbacks.
+        // create a new location client, using the enclosing class to handle callbacks.
         locationClient = new LocationClient(this, this, this);
         locationClient.connect();
-
-        currentLocation = new Location("");
-        currentLocation.setLatitude(40.631147);
-        currentLocation.setLongitude(-8.659045);
-
-//        listeners.add(new CurrentLocationListener() {
-//            @Override
-//            public void onCurrentLocationChanged(LatLng latLng) {
-//                Toast.makeText(TravisApplication.this, latLng.toString(), Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 
     @Override
@@ -140,9 +159,9 @@ public class TravisApplication extends Application implements LocationListener,
     }
 
     @Override
-    public final void onLocationChanged(Location location) {
+    public final void onLocationChanged(Location newLocation) {
         if(currentLocation!=null){
-            ParseGeoPoint currentPoint = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
+            ParseGeoPoint currentPoint = new ParseGeoPoint(newLocation.getLatitude(), newLocation.getLongitude());
             ParseGeoPoint lastPoint = new ParseGeoPoint(currentLocation.getLatitude(), currentLocation.getLongitude());
 
             if (currentPoint.distanceInKilometersTo(lastPoint) < 0.01) {
@@ -150,30 +169,14 @@ public class TravisApplication extends Application implements LocationListener,
             }
         }
 
-        currentLocation = location;
+        currentLocation = newLocation;
         for (CurrentLocationListener l : listeners) {
-            l.onCurrentLocationChanged(new LatLng(location.getLatitude(), location.getLongitude()));
+            l.onCurrentLocationChanged(new LatLng(newLocation.getLatitude(), newLocation.getLongitude()));
         }
     }
 
     public final LatLng getCurrentLocation() {
         return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-//        Criteria criteria = new Criteria();
-//        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-//        criteria.setAltitudeRequired(false);
-//        criteria.setBearingRequired(false);
-//        criteria.setCostAllowed(true);
-//
-//        ParseGeoPoint.getCurrentLocati(50000, criteria, new LocationCallback() {
-//            @Override
-//            public void done(ParseGeoPoint point, ParseException ex) {
-//                if (ex == null) {
-//                    locationCallback.onResult(new LatLng(point.getLatitude(), point.getLongitude()));
-//                } else {
-//                    Log.e("TravisApplication", "Error getting current location", ex);
-//                }
-//            }
-//        });
     }
 
     public interface CurrentLocationListener{

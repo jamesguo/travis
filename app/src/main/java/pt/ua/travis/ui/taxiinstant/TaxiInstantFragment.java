@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 import com.google.android.gms.maps.model.LatLng;
 import com.todddavies.components.progressbar.ProgressWheel;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
@@ -14,7 +13,7 @@ import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.customviews.TravisFragment;
+import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideBuilder;
 

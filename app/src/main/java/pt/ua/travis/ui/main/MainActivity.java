@@ -28,6 +28,7 @@ import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.User;
 import pt.ua.travis.core.SplashScreenActivity;
+import pt.ua.travis.core.TravisActivity;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
 import pt.ua.travis.utils.TravisUtils;
@@ -41,7 +42,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends SherlockFragmentActivity {
+public abstract class MainActivity extends TravisActivity {
 
     private FrameLayout container;
     protected LockedTransitionViewPager tabPager;
@@ -84,66 +85,6 @@ public abstract class MainActivity extends SherlockFragmentActivity {
                 callback.onResult(rideList);
             }
         }
-    }
-
-    public enum NotificationColor {
-        DEFAULT(R.color.travis_color),
-        GREEN(R.color.taxi_available_border),
-        RED(R.color.taxi_unavailable_border);
-
-        private int resID;
-
-        private NotificationColor(int resID) {
-            this.resID = resID;
-        }
-    }
-
-    public void showTravisNotification(String text, String imageUri, NotificationColor color){
-        final Dialog overlayInfo = new Dialog(this);
-        overlayInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        Window window = overlayInfo.getWindow();
-        window.setBackgroundDrawable(new ColorDrawable(getResources().getColor(color.resID)));
-        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-
-        WindowManager.LayoutParams params = overlayInfo.getWindow().getAttributes();
-        params.gravity = Gravity.TOP | Gravity.LEFT;
-        params.x = 0;
-        params.y = 0;
-        params.width = TravisUtils.getScreenWidth(this);
-        overlayInfo.setCancelable(false);
-        overlayInfo.setContentView(R.layout.travis_notification_bar);
-
-        TextView textView = (TextView) overlayInfo.findViewById(R.id.travis_notification_text);
-        textView.setText(text);
-
-        if(imageUri != null) {
-            CircularImageView imageView = (CircularImageView) overlayInfo.findViewById(R.id.travis_notification_photo);
-            Picasso.with(this).load(imageUri).into(imageView);
-        }
-
-        overlayInfo.show();
-
-        final Handler handler  = new Handler();
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                if (overlayInfo.isShowing()) {
-                    overlayInfo.dismiss();
-                }
-            }
-        };
-
-        overlayInfo.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                handler.removeCallbacks(runnable);
-            }
-        });
-
-        handler.postDelayed(runnable, 2500);
     }
 
     @Override
@@ -324,7 +265,7 @@ public abstract class MainActivity extends SherlockFragmentActivity {
         PersistenceManager.logout();
 
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
         finish();
     }

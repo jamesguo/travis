@@ -1,28 +1,16 @@
 package pt.ua.travis.ui.login;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.beardedhen.androidbootstrap.BootstrapButton;
 import pt.ua.travis.R;
 import pt.ua.travis.ui.customviews.CircularImageView;
-import pt.ua.travis.ui.customviews.TravisFragment;
-
-import java.util.Arrays;
+import pt.ua.travis.core.TravisFragment;
 
 /**
  * This fragment shows the second screen of the signup process.

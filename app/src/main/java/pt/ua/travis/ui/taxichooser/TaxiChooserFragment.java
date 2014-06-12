@@ -27,6 +27,8 @@ import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.core.TravisFragment;
+import pt.ua.travis.core.TravisMapFragment;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideRequestPagerAdapter;
@@ -63,7 +65,7 @@ public class TaxiChooserFragment extends TravisFragment
 
     protected TaxiItemAdapter taxiPagerAdapter;
 
-    private TransitionViewPager taxiPager;
+    private ViewPager taxiPager;
 
     private PullToRefreshLayout pullToRefreshLayout;
 
@@ -171,12 +173,12 @@ public class TaxiChooserFragment extends TravisFragment
         map.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
 
 
-        taxiPager = (TransitionViewPager) getActivity().findViewById(R.id.taxi_pager);
+        taxiPager = (ViewPager) getActivity().findViewById(R.id.taxi_pager);
         taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), new ArrayList<Taxi>());
         taxiPager.setAdapter(taxiPagerAdapter);
-        taxiPager.setOffscreenPageLimit(5);
-        taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
-        taxiPager.setFadeEnabled(true);
+        taxiPager.setOffscreenPageLimit(3);
+//        taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
+//        taxiPager.setFadeEnabled(true);
         taxiPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -202,7 +204,7 @@ public class TaxiChooserFragment extends TravisFragment
                         .scrollDistance(3.5f)
                         .build())
                 .allChildrenArePullable()
-                .useViewDelegate(TransitionViewPager.class, new TransitionViewPagerDelegate())
+                .useViewDelegate(ViewPager.class, new ViewPagerDelegate())
                 .listener(this)
                 .setup(pullToRefreshLayout);
         DefaultHeaderTransformer headerTransformer = (DefaultHeaderTransformer) pullToRefreshLayout.getHeaderTransformer();
@@ -479,8 +481,8 @@ public class TaxiChooserFragment extends TravisFragment
             @Override
             public void onResult(List<Taxi> result) {
                 updateTaxis(result);
-                select(0);
                 pullToRefreshLayout.setRefreshComplete();
+                select(0);
             }
         };
         pullToRefreshLayout.setRefreshing(true);
@@ -495,8 +497,16 @@ public class TaxiChooserFragment extends TravisFragment
             case 2: // Your favorites was selected
                 parentActivity.getFavoriteTaxiList(false, callback);
                 break;
-            case 3: // Search selected
-                break;
+//            case 3: // Search selected
+//                SearchManager mgr = ((SearchManager) parentActivity.getSystemService(Context.SEARCH_SERVICE));
+//                mgr.setOnDismissListener(new SearchManager.OnDismissListener() {
+//                    @Override
+//                    public void onDismiss() {
+//                        spinner.setSelection(0, true);
+//                    }
+//                });
+//                mgr.startSearch(null, false, parentActivity.getComponentName(), null, false);
+//                break;
         }
 
     }
@@ -547,7 +557,7 @@ public class TaxiChooserFragment extends TravisFragment
                 return idsToItems.get(id);
             }
 
-            TaxiItem f = TaxiItem.newInstance(thisClient, taxiList.get(position));
+            TaxiItem f = TaxiItem.create(parentActivity, thisClient, taxiList.get(position));
             idsToItems.put(id, f);
             return f;
         }

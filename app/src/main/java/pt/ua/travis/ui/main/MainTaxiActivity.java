@@ -314,6 +314,8 @@ public class MainTaxiActivity extends MainActivity
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 notificationManager.cancel(rideToNotificationID.get(rideID));
 
+                currentlyShownRideListFragment.onRefreshStarted(null);
+
                 goToTab(0);
                 currentlyShownTravelFragment.goToOrigin(r);
 

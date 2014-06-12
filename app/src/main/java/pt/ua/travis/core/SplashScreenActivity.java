@@ -1,7 +1,6 @@
 package pt.ua.travis.core;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.*;
 import android.os.Bundle;
 import android.widget.ImageView;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -18,7 +17,7 @@ import pt.ua.travis.utils.TravisUtils;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class SplashScreenActivity extends SherlockActivity {
+public class SplashScreenActivity extends TravisActivity {
 
     public static final String DO_AUTO_LOGIN = "no_auto_login";
 
@@ -81,6 +80,7 @@ public class SplashScreenActivity extends SherlockActivity {
                 Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                finish();
             }
 
             @Override
