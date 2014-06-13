@@ -2,13 +2,13 @@ package pt.ua.travis.ui.main;
 
 import android.support.v4.app.FragmentTransaction;
 import com.actionbarsherlock.app.ActionBar;
-import pt.ua.travis.core.TravisFragment;
+import pt.ua.travis.core.BaseFragment;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class TravisTabListener<T extends TravisFragment> implements ActionBar.TabListener {
+public abstract class TravisTabListener<T extends BaseFragment> implements ActionBar.TabListener {
     private T mFragment;
     private final MainActivity mActivity;
     private final String mTag;
@@ -34,7 +34,7 @@ public abstract class TravisTabListener<T extends TravisFragment> implements Act
         // Check if the fragment is already initialized
         if (mFragment == null) {
             // If not, instantiate and add it to the activity
-            mFragment = (T) TravisFragment.instantiate(mActivity, mClass.getName());
+            mFragment = (T) BaseFragment.instantiate(mActivity, mClass.getName());
             ft.add(mfragmentContainerId, mFragment, mTag);
         } else {
             // If it exists, simply attach it in order to show it

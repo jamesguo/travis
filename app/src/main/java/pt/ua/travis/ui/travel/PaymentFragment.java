@@ -19,13 +19,13 @@ import android.widget.Toast;
 import com.paypal.android.sdk.payments.*;
 import org.json.JSONException;
 import pt.ua.travis.R;
-import pt.ua.travis.core.TravisFragment;
+import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.ui.main.MainActivity;
 
 import java.nio.charset.Charset;
 
 
-public class PaymentFragment extends TravisFragment implements NfcAdapter.CreateNdefMessageCallback
+public class PaymentFragment extends BaseFragment implements NfcAdapter.CreateNdefMessageCallback
 //        , NumberPickerDialogFragment.NumberPickerDialogHandler
 {
     /**

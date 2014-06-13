@@ -60,10 +60,12 @@
                 android:gravity="center"
                 android:hint="@string/prompt_email"
                 android:ems="15"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/field_password" />
 
             <com.beardedhen.androidbootstrap.BootstrapEditText
-                android:id="@+id/field_password"
+                android:id="@id/field_password"
                 android:password="true"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
@@ -77,8 +79,8 @@
                 android:hint="@string/prompt_password"
                 android:ems="15"
                 android:textSize="16sp"
-                android:imeActionId="@+id/login"
-                android:imeOptions="actionUnspecified" />
+                android:imeOptions="actionDone"
+                android:imeActionId="@+id/normal_login_button" />
 
             <CheckBox
                 android:id="@+id/auto_login_check"
@@ -89,7 +91,7 @@
                 android:layout_marginBottom="20dp"/>
 
             <com.dd.processbutton.iml.ActionProcessButton
-                android:id="@+id/normal_login_button"
+                android:id="@id/normal_login_button"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"

@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/taxi_map"
-        android:name="pt.ua.travis.core.TravisMapFragment"
+        android:name="pt.ua.travis.core.BaseMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     

@@ -1,29 +1,14 @@
 package pt.ua.travis.core;
 
 import android.app.Application;
-import android.app.Dialog;
-import android.app.WallpaperManager;
-import android.content.*;
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.StrictMode;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
@@ -32,26 +17,37 @@ import com.google.common.collect.Lists;
 import com.parse.LocationCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
-import com.squareup.picasso.Picasso;
-import pt.ua.travis.R;
-import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
-import pt.ua.travis.ui.customviews.CircularImageView;
-import pt.ua.travis.ui.login.SignUpActivity;
+import pt.ua.travis.backend.Ride;
 import pt.ua.travis.utils.CommonRes;
 import pt.ua.travis.utils.TravisUtils;
 import pt.ua.travis.utils.Validate;
 
-import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 /**
+ * Main application class that acts as a bridge for every activity. Common
+ * functionality, like location query and listening and notification handling,
+ * is implemented here, so that any activity can access it using the
+ * "getApplication()" method.
+ *
+ * Every backend, API, and common resource is initialized with this application's
+ * "onCreate", simply because this is the first component that starts when Travis
+ * is launched.
+ *
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
 public class TravisApplication extends Application implements LocationListener,
         GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener {
+
+    private NotificationManager notificationManager;
+
+    private Map<String, Integer> rideIdsToNotificationIds;
+    private Random random;
 
     private List<CurrentLocationListener> listeners;
 
@@ -66,9 +62,14 @@ public class TravisApplication extends Application implements LocationListener,
             return;
         }
 
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
         // starts common resources and backend connections
         CommonRes.init(this);
         PersistenceManager.init(this);
+
+        rideIdsToNotificationIds = TravisUtils.newMap();
+        random = new Random(10000);
 
         listeners = Lists.newArrayList();
 
@@ -105,10 +106,32 @@ public class TravisApplication extends Application implements LocationListener,
 
     @Override
     public void onTerminate() {
-        super.onTerminate();
         locationClient.disconnect();
         PersistenceManager.logout();
-//        TravisLocation.stopTaxiLocationListener();
+        listeners.clear();
+        stopAllRideNotifications();
+
+        super.onTerminate();
+    }
+
+
+
+    public void startNotificationForRide(Notification n, Ride ride){
+        int notificationId = random.nextInt();
+        rideIdsToNotificationIds.put(ride.id(), notificationId);
+        notificationManager.notify(notificationId, n);
+    }
+
+    public void stopNotificationForRide(Ride ride) {
+        int notificationId = rideIdsToNotificationIds.get(ride.id());
+        notificationManager.cancel(notificationId);
+    }
+
+    public void stopAllRideNotifications() {
+        // removes all notifications
+        for(int id : rideIdsToNotificationIds.values()){
+            notificationManager.cancel(id);
+        }
     }
 
     @Override

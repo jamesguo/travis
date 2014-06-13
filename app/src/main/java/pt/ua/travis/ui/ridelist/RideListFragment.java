@@ -8,7 +8,7 @@ import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Ride;
-import pt.ua.travis.core.TravisFragment;
+import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.ui.main.MainActivity;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class RideListFragment extends TravisFragment implements OnRefreshListener {
+public class RideListFragment extends BaseFragment implements OnRefreshListener {
 
     private static final String SAVED_SHOW_WHAT = "saved_show_what";
     private static final String SAVED_RIDE_LIST = "saved_ride_list";

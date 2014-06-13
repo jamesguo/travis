@@ -26,9 +26,9 @@ import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.core.BaseFragment;
+import pt.ua.travis.core.BaseMapFragment;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.core.TravisFragment;
-import pt.ua.travis.core.TravisMapFragment;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideRequestPagerAdapter;
@@ -50,10 +50,10 @@ import java.util.Map;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiChooserFragment extends TravisFragment
+public class TaxiChooserFragment extends BaseFragment
         implements AdapterView.OnItemSelectedListener, OnRefreshListener {
 
-    protected MainClientActivity parentActivity;
+    private MainClientActivity parentActivity;
 
     private Map<String, Pair<Marker, TaxiItem>> itemToMarkerMappings;
 
@@ -104,7 +104,7 @@ public class TaxiChooserFragment extends TravisFragment
 
     private void initializeFragmentViews() {
 
-        TravisMapFragment mapFragment = (TravisMapFragment) parentActivity
+        BaseMapFragment mapFragment = (BaseMapFragment) parentActivity
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.taxi_map);
         map = mapFragment.getExtendedMap();
@@ -285,7 +285,9 @@ public class TaxiChooserFragment extends TravisFragment
 
     public final void updateTaxis(List<Taxi> newTaxis) {
         itemToMarkerMappings.clear();
-        taxiPagerAdapter.update(newTaxis);
+        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), newTaxis);
+        taxiPager.setAdapter(taxiPagerAdapter);
+        taxiPagerAdapter.notifyDataSetChanged();
         updateMarkers(newTaxis);
     }
 
@@ -315,6 +317,11 @@ public class TaxiChooserFragment extends TravisFragment
             String id = t.id();
 
             Pair<Marker, TaxiItem> pair = itemToMarkerMappings.get(id);
+            if(pair == null){
+                // taxi to update could not be found, probably because the list was updated again
+                continue;
+            }
+
             Marker oldM = pair.first;
             oldM.setVisible(false);
             oldM.remove();
@@ -444,15 +451,20 @@ public class TaxiChooserFragment extends TravisFragment
         hereAndNowButton.setClickable(selectedTaxi.isAvailable());
 
         LatLng pos = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
-        Address currentAddress = TravisUtils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude).get(0);
+        TravisUtils.addressesFromLocation(parentActivity, pos.latitude, pos.longitude, new Callback<List<Address>>() {
+            @Override
+            public void onResult(List<Address> result) {
+                Address currentAddress = result.get(0);
 
-        TextView addressTextView = (TextView) parentActivity.findViewById(R.id.origin_address);
-        addressTextView.setText(TravisUtils.addressToString(currentAddress));
+                TextView addressTextView = (TextView) parentActivity.findViewById(R.id.origin_address);
+                addressTextView.setText(TravisUtils.addressToString(currentAddress));
 
-        TextView timeTextView = (TextView) parentActivity.findViewById(R.id.time_picker_text);
-        parentActivity.setTimeTextToNow(timeTextView);
+                TextView timeTextView = (TextView) parentActivity.findViewById(R.id.time_picker_text);
+                parentActivity.setTimeTextToNow(timeTextView);
 
-        slidingPaneLayout.openLayer(true);
+                slidingPaneLayout.openLayer(true);
+            }
+        });
     }
 
     /**
@@ -482,7 +494,7 @@ public class TaxiChooserFragment extends TravisFragment
             public void onResult(List<Taxi> result) {
                 updateTaxis(result);
                 pullToRefreshLayout.setRefreshComplete();
-                select(0);
+//                select(0);
             }
         };
         pullToRefreshLayout.setRefreshing(true);

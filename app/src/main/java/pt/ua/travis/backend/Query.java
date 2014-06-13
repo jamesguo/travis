@@ -1,5 +1,6 @@
 package pt.ua.travis.backend;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
@@ -575,13 +576,21 @@ public class Query {
 
         @Override
         protected void fetchLater(final ParseObject po, final Callback<Ride> instantiateCallback) {
-            Ride ride = TravisUtils.lockThreadAndExecute(new TravisUtils.Code<Ride>() {
-                @Override
-                public Ride execute() {
-                    return fetchNow(po);
-                }
-            });
-            instantiateCallback.onResult(ride);
+//            new AsyncTask<Void, Void, Ride>() {
+//
+//                @Override
+//                protected Ride doInBackground(Void... params) {
+//                    return fetchNow(po);
+//                }
+//
+//                @Override
+//                protected void onPostExecute(Ride ride) {
+//                    super.onPostExecute(ride);
+//                    instantiateCallback.onResult(ride);
+//                }
+//
+//            }.execute();
+            instantiateCallback.onResult(fetchNow(po));
         }
 
         @Override

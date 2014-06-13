@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
@@ -23,8 +22,8 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.travel.CurrentTravelFragment;
-import pt.ua.travis.ui.customviews.BlurDrawerItem;
-import pt.ua.travis.ui.customviews.BlurDrawerObject;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
 import pt.ua.travis.utils.CommonKeys;
@@ -45,8 +44,6 @@ import java.util.Random;
 public class MainTaxiActivity extends MainActivity
         implements ActionBar.TabListener,
         WatchEvent<Ride> {
-
-    private static final Map<String, Integer> rideToNotificationID = TravisUtils.newMap();
 
     private CurrentTravelFragment currentlyShownTravelFragment;
     private RideListFragment currentlyShownRideListFragment;
@@ -286,16 +283,11 @@ public class MainTaxiActivity extends MainActivity
                         .addAction(R.drawable.ic_action_cancel,
                                 getString(R.string.decline), piDecline);
 
-
-
-
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 Notification n = builder.build();
-
                 n.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_ONGOING_EVENT;
-                int notificationID = new Random(10000).nextInt();
-                rideToNotificationID.put(requestRide.id(), notificationID);
-                notificationManager.notify(notificationID, n);
+
+                TravisApplication app = (TravisApplication) getApplication();
+                app.startNotificationForRide(n, requestRide);
             }
         }.execute();
     }
@@ -311,23 +303,22 @@ public class MainTaxiActivity extends MainActivity
                 Ride r = PersistenceManager.getFromCache(rideID);
 
                 PersistenceManager.setRequestAccepted(r);
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.cancel(rideToNotificationID.get(rideID));
+
+                TravisApplication app = (TravisApplication) getApplication();
+                app.stopNotificationForRide(r);
 
                 currentlyShownRideListFragment.onRefreshStarted(null);
 
                 goToTab(0);
                 currentlyShownTravelFragment.goToOrigin(r);
 
-            } else if ((rideID = extras.getString(CommonKeys.RIDE_REQUEST_ACCEPTED_ID))!=null) {
+            } else if ((rideID = extras.getString(CommonKeys.RIDE_REQUEST_DECLINED_ID))!=null) {
                 Ride r = PersistenceManager.getFromCache(rideID);
 
                 PersistenceManager.setRequestDeclined(r);
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.cancel(rideToNotificationID.get(rideID));
 
-                // DO NOTHING
-
+                TravisApplication app = (TravisApplication) getApplication();
+                app.stopNotificationForRide(r);
             }
         }
     }

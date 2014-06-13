@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
-import pt.ua.travis.core.TravisFragment;
+import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.ui.main.MainActivity;
 
 import java.nio.charset.Charset;
@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class AuthenticationFragment extends TravisFragment implements NfcAdapter.CreateNdefMessageCallback {
+public class AuthenticationFragment extends BaseFragment implements NfcAdapter.CreateNdefMessageCallback {
 
     public interface OnAuthenticationCompleteListener {
         void onAuthenticationComplete(boolean valid);

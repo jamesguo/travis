@@ -1,22 +1,17 @@
 package pt.ua.travis.ui.login;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import com.actionbarsherlock.app.SherlockActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.common.collect.Lists;
-import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.backend.User;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.login.SignUpActivity;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.main.MainTaxiActivity;
-import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Pair;
 
 import java.util.Arrays;

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/taxi_item_height"
+    android:background="@color/white_transp">
+
+    <pt.ua.travis.ui.customviews.CircularImageView
+        android:id="@+id/taxi_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerInside"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        app:border="true"
+        app:border_width="1dp"
+        app:shadow="true"/>
+
+    <ImageView
+        android:id="@+id/taxi_favorite_flag"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@id/taxi_photo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="-30dip"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/taxi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_toRightOf="@+id/taxi_photo"
+        android:layout_alignParentRight="true"
+        android:paddingTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="25sp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:text="@string/not_found"
+        android:textColor="@color/sideMenuBgV2" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@id/taxi_photo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/taxi_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_gravity="left|center_vertical"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:rating="0"
+            android:layout_marginBottom="1dp"
+            style="@style/RatingBarSmall_travis"/>
+
+        <TextView
+            android:id="@+id/taxi_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

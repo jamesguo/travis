@@ -29,8 +29,8 @@ import pt.ua.travis.backend.*;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
 import pt.ua.travis.ui.travel.CurrentTravelFragment;
-import pt.ua.travis.ui.customviews.BlurDrawerItem;
-import pt.ua.travis.ui.customviews.BlurDrawerObject;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
 import pt.ua.travis.ui.riderequest.RideBuilder;
@@ -38,7 +38,6 @@ import pt.ua.travis.ui.riderequest.RideRequestTask;
 import pt.ua.travis.ui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.ui.taxiinstant.TaxiInstantFragment;
 import pt.ua.travis.utils.CommonKeys;
-import pt.ua.travis.utils.TravisUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,8 +45,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -57,8 +54,6 @@ public class MainClientActivity extends MainActivity
         implements ActionBar.TabListener,
         TimePickerDialog.OnTimeSetListener,
         WatchEvent<Ride> {
-
-    private static final Map<String, Integer> rideToNotificationID = TravisUtils.newMap();
 
     private static List<Taxi> nearTaxiList;
     private static List<Taxi> highestRatedTaxiList;
@@ -351,9 +346,11 @@ public class MainClientActivity extends MainActivity
             new AsyncTask<Void, Void, List<Taxi>>(){
                 @Override
                 protected List<Taxi> doInBackground(Void... params) {
+                    LatLng currentPos = ((TravisApplication) getApplication()).getCurrentLocation();
                     return PersistenceManager.query()
                             .taxis()
                             .online()
+                            .near(currentPos)
                             .sortedByRating()
                             .now();
                 }
@@ -572,7 +569,7 @@ public class MainClientActivity extends MainActivity
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         tabPager.setCurrentItem(tab.getPosition(), true);
-        currentlyShownTaxiListIndex = tab.getPosition();
+        currentlyShownFragmentIndex = tab.getPosition();
     }
 
     @Override
@@ -598,6 +595,9 @@ public class MainClientActivity extends MainActivity
 
     @Override
     public void onEvent(final Ride responseRide) {
+        if(responseRide==null)
+            return;
+
         // TAXI FROM RIDE ARRIVED AT LOCATION!!!
         LatLng latLng = ((TravisApplication) getApplication()).getCurrentLocation();
         responseRide.setOriginLocation(latLng.latitude, latLng.longitude);
@@ -676,13 +676,12 @@ public class MainClientActivity extends MainActivity
 
 
 
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 Notification n = builder.build();
                 n.contentIntent = contentIntent;
                 n.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_ONGOING_EVENT;
-                int notificationID = new Random(10000).nextInt();
-                rideToNotificationID.put(responseRide.id(), notificationID);
-                notificationManager.notify(notificationID, n);
+
+                TravisApplication app = (TravisApplication) getApplication();
+                app.startNotificationForRide(n, responseRide);
             }
         }.execute();
     }
@@ -698,8 +697,8 @@ public class MainClientActivity extends MainActivity
 
             Ride r = PersistenceManager.getFromCache(rideID);
 
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.cancel(rideToNotificationID.get(rideID));
+            TravisApplication app = (TravisApplication) getApplication();
+            app.stopNotificationForRide(r);
 
             goToTab(2);
             currentlyShownTravelFragment.showAuthentication(r);

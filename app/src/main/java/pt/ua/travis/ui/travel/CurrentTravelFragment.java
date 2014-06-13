@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -16,11 +17,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
+import pt.ua.travis.core.BaseFragment;
+import pt.ua.travis.core.BaseMapFragment;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.mapnavigator.Navigator;
 import pt.ua.travis.ui.customviews.SlidingPaneLayout;
-import pt.ua.travis.core.TravisFragment;
-import pt.ua.travis.core.TravisMapFragment;
 import pt.ua.travis.ui.main.MainActivity;
 import pt.ua.travis.utils.CommonKeys;
 
@@ -28,13 +29,13 @@ import pt.ua.travis.utils.CommonKeys;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class CurrentTravelFragment extends TravisFragment {
+public class CurrentTravelFragment extends BaseFragment {
 
     private MainActivity parentActivity;
 
     private String oldFragmentTag;
 
-    private TravisMapFragment mapFragment;
+    private BaseMapFragment mapFragment;
 
     private BootstrapButton button;
 
@@ -62,7 +63,7 @@ public class CurrentTravelFragment extends TravisFragment {
         button = (BootstrapButton) parentActivity.findViewById(R.id.go_to_next_step_button);
         button.setVisibility(View.GONE);
 
-        mapFragment = (TravisMapFragment) parentActivity
+        mapFragment = (BaseMapFragment) parentActivity
                 .getSupportFragmentManager()
                 .findFragmentById(R.id.travel_map);
         map = mapFragment.getMap();
@@ -85,7 +86,7 @@ public class CurrentTravelFragment extends TravisFragment {
 
         slidingPaneLayout = (SlidingPaneLayout) parentActivity.findViewById(R.id.sliding_pane_travel);
         slidingPaneLayout.setStickTo(SlidingPaneLayout.STICK_TO_BOTTOM);
-        slidingPaneLayout.setSlidingEnabled(true);
+        slidingPaneLayout.setSlidingEnabled(false);
         slidingPaneLayout.closeLayer(false);
 
         container = (FrameLayout) parentActivity.findViewById(R.id.sliding_pane_travel_container);
@@ -93,12 +94,10 @@ public class CurrentTravelFragment extends TravisFragment {
         app.addLocationListener(new TravisApplication.CurrentLocationListener() {
             @Override
             public void onCurrentLocationChanged(LatLng latLng) {
+                map.clear();
+                map.addMarker(new MarkerOptions().position(latLng));
                 map.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
                 map.animateCamera(CameraUpdateFactory.newLatLng(latLng), 900, null);
-                map.addMarker(new MarkerOptions()
-                .position(latLng)
-//                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_available))
-                );
             }
         });
 
@@ -109,13 +108,14 @@ public class CurrentTravelFragment extends TravisFragment {
     public void goToOrigin(final Ride requestedRide) {
         setContentShown(false);
 
-        button.setText("Arrived");
+        button.setText(parentActivity.getString(R.string.arrived_at_client));
         button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PersistenceManager.setTaxiArrived(requestedRide);
+                Log.e("hahaha", "hahaha");
                 showAuthentication(requestedRide);
+                PersistenceManager.setTaxiArrived(requestedRide);
             }
         });
         TravisApplication app = (TravisApplication) parentActivity.getApplication();
@@ -128,7 +128,7 @@ public class CurrentTravelFragment extends TravisFragment {
     }
 
     public void goToDestination(Ride requestedRide) {
-        button.setText("Arrived");
+        button.setText(parentActivity.getString(R.string.arrived_at_dest));
         button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +144,8 @@ public class CurrentTravelFragment extends TravisFragment {
     }
 
     public void showAuthentication(final Ride arrivedRide) {
+        slidingPaneLayout.openLayer(true);
+
         String newTag = AuthenticationFragment.class.getSimpleName();
 
         final User currentUser = PersistenceManager.getCurrentlyLoggedInUser();
@@ -185,7 +187,6 @@ public class CurrentTravelFragment extends TravisFragment {
         oldFragmentTag = newTag;
         ft.commit();
 
-        slidingPaneLayout.openLayer(true);
     }
 
     public void showPayment() {

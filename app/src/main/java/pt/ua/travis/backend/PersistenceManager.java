@@ -291,22 +291,19 @@ public final class PersistenceManager {
                         @Override
                         public void done(ParseObject object, ParseException e) {
 
-                            PersistenceManager.query().rides().fetchLater(object, new Callback<Ride>() {
-                                @Override
-                                public void onResult(Ride result) {
+                            String taxiId = object.getString(Ride.TAXI_ID);
 
-                                    Map<String, Object> toSet = new HashMap<String, Object>();
-                                    Map<String, Object> ride = new HashMap<String, Object>();
-                                    ride.put(result.id(), RideRequestTask.RESPONSE_WAITING);
-                                    toSet.put(result.taxi().id(), ride);
+                            Map<String, Object> toSet = new HashMap<String, Object>();
+                            Map<String, Object> ride = new HashMap<String, Object>();
+                            ride.put(object.getObjectId(), RideRequestTask.RESPONSE_WAITING);
+                            toSet.put(taxiId, ride);
 
-                                    fb.child(FB_RIDES).updateChildren(toSet);
+                            fb.child(FB_RIDES).updateChildren(toSet);
 
-                                    if (saveHandler != null) {
-                                        saveHandler.onResult(result);
-                                    }
-                                }
-                            });
+                            if (saveHandler != null) {
+                                Ride r = PersistenceManager.query().rides().fetchNow(object);
+                                saveHandler.onResult(r);
+                            }
                         }
                     });
                 } else {

@@ -12,6 +12,7 @@ import com.fortysevendeg.swipelistview.SwipeListView;
 import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
+import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
@@ -63,7 +64,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
         final RideItem item = getItem(position);
-        ViewHolder holder;
+        final ViewHolder holder;
         if (convertView == null) {
             LayoutInflater li = (LayoutInflater) parentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = li.inflate(R.layout.item_ride, parent, false);
@@ -95,18 +96,30 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
         if (item.getUserTypeToShow() == RideItem.SHOW_TAXI) {
             holder.originIcon.setIcon("fa-taxi");
         }
+
+
         LatLng pos1 = r.originPosition();
-        List<Address> addressList1 = TravisUtils.addressesFromLocation(parentActivity, pos1.latitude, pos1.longitude);
-        if(addressList1!=null && !addressList1.isEmpty()) {
-            holder.originLabel.setText(TravisUtils.addressToString(addressList1.get(0)));
-        }
+        TravisUtils.addressesFromLocation(parentActivity, pos1.latitude, pos1.longitude, new Callback<List<Address>>() {
+            @Override
+            public void onResult(List<Address> addressList1) {
+                if(addressList1!=null && !addressList1.isEmpty()) {
+                    holder.originLabel.setText(TravisUtils.addressToString(addressList1.get(0)));
+                }
+            }
+        });
+
+
         LatLng pos2 = r.destinationPosition();
-        List<Address> addressList2 = TravisUtils.addressesFromLocation(parentActivity, pos2.latitude, pos2.longitude);
-        if(addressList2!=null && !addressList2.isEmpty()) {
-            holder.destinationLabel.setText(TravisUtils.addressToString(addressList2.get(0)));
-        } else {
-            holder.destinationLabel.setText(parentActivity.getString(R.string.unknown_address));
-        }
+        TravisUtils.addressesFromLocation(parentActivity, pos2.latitude, pos2.longitude, new Callback<List<Address>>() {
+            @Override
+            public void onResult(List<Address> addressList2) {
+                if(addressList2!=null && !addressList2.isEmpty()) {
+                    holder.destinationLabel.setText(TravisUtils.addressToString(addressList2.get(0)));
+                } else {
+                    holder.destinationLabel.setText(parentActivity.getString(R.string.unknown_address));
+                }
+            }
+        });
 
         if (item.getUserTypeToShow() == RideItem.SHOW_TAXI) {
             holder.optionButton.setText("Set Destination");

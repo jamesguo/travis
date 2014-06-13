@@ -12,8 +12,8 @@ import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
+import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.core.TravisFragment;
 import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.ui.riderequest.RideBuilder;
 
@@ -23,7 +23,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class TaxiInstantFragment extends TravisFragment {
+public class TaxiInstantFragment extends BaseFragment {
 
     private MainClientActivity parentActivity;
     private ProgressWheel pwSpinner;

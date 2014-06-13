@@ -1,7 +1,5 @@
 package pt.ua.travis.ui.main;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -9,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
@@ -17,21 +14,22 @@ import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
-import com.squareup.picasso.Picasso;
-import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.backend.User;
-import pt.ua.travis.core.SplashScreenActivity;
-import pt.ua.travis.core.TravisActivity;
+import pt.ua.travis.core.BaseActivity;
+import pt.ua.travis.core.TravisApplication;
+import pt.ua.travis.ui.login.SplashScreenActivity;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.login.LoginActivity;
-import pt.ua.travis.utils.TravisUtils;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerLayout;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
+import pt.ua.travis.ui.navigationdrawer.BlurDrawerUser;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 
 import java.lang.reflect.Method;
@@ -42,10 +40,10 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends TravisActivity {
+public abstract class MainActivity extends BaseActivity {
 
     private FrameLayout container;
-    protected LockedTransitionViewPager tabPager;
+    protected LockedViewPager tabPager;
     private PullToRefreshLayout pullToRefreshLayout;
     private BlurDrawerLayout drawerLayout;
     private static List<BlurDrawerObject> drawerItems;
@@ -92,7 +90,7 @@ public abstract class MainActivity extends TravisActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
 
-        if(drawerItems == null) {
+        if (drawerItems == null) {
             drawerItems = Lists.newArrayList();
             User u = PersistenceManager.getCurrentlyLoggedInUser();
             BlurDrawerUser userItem = new BlurDrawerUser(this, u);
@@ -105,7 +103,7 @@ public abstract class MainActivity extends TravisActivity {
                 }
             });
 
-            BlurDrawerItem settingsItem = new BlurDrawerItem(this, R.drawable.ic_settings, "About");
+            BlurDrawerItem settingsItem = new BlurDrawerItem(this, R.drawable.ic_settings, R.string.about);
             settingsItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -126,14 +124,14 @@ public abstract class MainActivity extends TravisActivity {
             drawerItems.add(logoutItem);
         }
 
-        tabPager = (LockedTransitionViewPager) findViewById(R.id.tab_pager);
+        tabPager = (LockedViewPager) findViewById(R.id.tab_pager);
         tabPager.setOffscreenPageLimit(0);
 
         drawerLayout = new BlurDrawerLayout(this);
         drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
         drawerLayout.setShadowVisible(true);
         drawerLayout.attachToActivity(this);
-        for(BlurDrawerObject item : drawerItems) {
+        for (BlurDrawerObject item : drawerItems) {
             drawerLayout.addDrawerObject(item, BlurDrawerLayout.LEFT_SIDE);
         }
 
@@ -262,6 +260,9 @@ public abstract class MainActivity extends TravisActivity {
         editor.putString(SplashScreenActivity.AUTO_EMAIL, "");
         editor.putString(SplashScreenActivity.AUTO_PASS, "");
         editor.commit();
+
+        TravisApplication app = (TravisApplication) getApplication();
+        app.stopAllRideNotifications();
         PersistenceManager.logout();
 
         Intent intent = new Intent(this, LoginActivity.class);

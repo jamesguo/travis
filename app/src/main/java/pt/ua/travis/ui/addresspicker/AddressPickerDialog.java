@@ -22,7 +22,8 @@ import com.google.android.gms.maps.model.LatLng;
 import eu.inmite.android.lib.dialogs.BaseDialogFragment;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
-import pt.ua.travis.core.TravisMapFragment;
+import pt.ua.travis.backend.Callback;
+import pt.ua.travis.core.BaseMapFragment;
 import pt.ua.travis.utils.TravisUtils;
 
 import java.util.List;
@@ -112,7 +113,7 @@ public class AddressPickerDialog extends SimpleDialogFragment {
 
 
         // configures the map fragment to occupy it's container
-        mapFragment = new TravisMapFragment();
+        mapFragment = new BaseMapFragment();
         getChildFragmentManager()
                 .beginTransaction()
                 .add(R.id.map_container, mapFragment)
@@ -210,24 +211,28 @@ public class AddressPickerDialog extends SimpleDialogFragment {
         });
     }
 
-    private void select(LatLng position){
+    private void select(final LatLng position){
         String addressLine = addressLookupHistory.get(position);
 
         if(addressLine!=null) {
             select(position, addressLine);
 
         } else {
-            List<Address> addresses = TravisUtils.addressesFromLocation(parentActivity, position.latitude, position.longitude);
-            if (addresses == null || addresses.isEmpty()) {
-                Toast.makeText(parentActivity,
-                        "No addresses at the tapped location were found!",
-                        Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                addressLine = TravisUtils.addressToString(addresses.get(0));
-                addressLookupHistory.put(position, addressLine);
-                select(position, addressLine);
-            }
+            TravisUtils.addressesFromLocation(parentActivity, position.latitude, position.longitude, new Callback<List<Address>>() {
+                @Override
+                public void onResult(List<Address> addresses) {
+                    if (addresses == null || addresses.isEmpty()) {
+                        Toast.makeText(parentActivity,
+                                "No addresses at the tapped location were found!",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    } else {
+                        String addressLine = TravisUtils.addressToString(addresses.get(0));
+                        addressLookupHistory.put(position, addressLine);
+                        select(position, addressLine);
+                    }
+                }
+            });
         }
     }
 

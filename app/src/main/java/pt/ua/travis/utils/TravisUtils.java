@@ -6,6 +6,7 @@ import android.graphics.Point;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v4.util.ArrayMap;
 import android.util.DisplayMetrics;
@@ -23,7 +24,17 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Taxi;
+import android.annotation.TargetApi;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION_CODES;
+import android.view.LayoutInflater;
+import pt.ua.travis.ui.main.MainClientActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -211,60 +222,70 @@ public final class TravisUtils {
      * Google Maps APIs to convertLater the provided latitude and longitude values into
      * a list of {@link Address}.
      */
-    public static List<Address> addressesFromLocation(final Context context, final double lat, final double lng){
-        if(geocoder==null)
+    public static void addressesFromLocation(final Context context,
+                                             final double lat,
+                                             final double lng,
+                                             final Callback<List<Address>> callback){
+        if(geocoder==null) {
             geocoder = new Geocoder(context);
+        }
 
         try {
-            return geocoder.getFromLocation(lat, lng, 1);
+            callback.onResult(geocoder.getFromLocation(lat, lng, 1));
+
         } catch (IOException ex){
-            return lockThreadAndExecute(new Code<List<Address>>() {
-                @Override
-                public List<Address> execute() {
-                    try {
 
-
-                        String uri = String.format(Locale.ENGLISH,
-                                "http://maps.googleapis.com/maps/api/geocode/json?latlng=%1$f,%2$f&sensor=true&language="+Locale.getDefault().getCountry(),
-                                lat, lng);
-
-                        HttpGet httpGet = new HttpGet(uri);
-                        HttpClient client = new DefaultHttpClient();
-                        HttpResponse response = client.execute(httpGet);
-                        StringBuilder stringBuilder = new StringBuilder();
-
-                        HttpEntity entity = response.getEntity();
-                        InputStream stream = entity.getContent();
-                        int b;
-                        while ((b = stream.read()) != -1) {
-                            stringBuilder.append((char) b);
-                        }
-
-                        List<Address> toReturn = Lists.newArrayList();
+                new AsyncTask<Void, Void, List<Address>>() {
+                    @Override
+                    protected List<Address> doInBackground(Void... params) {
                         try {
-                            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
-                            if ("OK".equalsIgnoreCase(jsonObject.getString("status"))) {
-                                JSONArray results = jsonObject.getJSONArray("results");
-                                for (int i = 0; i < results.length(); i++) {
-                                    JSONObject result = results.getJSONObject(i);
-                                    String indiStr = result.getString("formatted_address");
-                                    Address addr = new Address(Locale.getDefault());
-                                    addr.setAddressLine(0, indiStr);
-                                    toReturn.add(addr);
-                                }
+                            String uri = String.format(Locale.ENGLISH,
+                                    "http://maps.googleapis.com/maps/api/geocode/json?latlng=%1$f,%2$f&sensor=true&language=" + Locale.getDefault().getCountry(),
+                                    lat, lng);
+
+                            HttpGet httpGet = new HttpGet(uri);
+                            HttpClient client = new DefaultHttpClient();
+                            HttpResponse response = client.execute(httpGet);
+                            StringBuilder stringBuilder = new StringBuilder();
+
+                            HttpEntity entity = response.getEntity();
+                            InputStream stream = entity.getContent();
+                            int b;
+                            while ((b = stream.read()) != -1) {
+                                stringBuilder.append((char) b);
                             }
-                        }catch (JSONException exx) {
-                            // all JSON mappings that were used exist, so this exception will not occur
+
+                            List<Address> toReturn = Lists.newArrayList();
+                            try {
+                                JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+                                if ("OK".equalsIgnoreCase(jsonObject.getString("status"))) {
+                                    JSONArray results = jsonObject.getJSONArray("results");
+                                    for (int i = 0; i < results.length(); i++) {
+                                        JSONObject result = results.getJSONObject(i);
+                                        String indiStr = result.getString("formatted_address");
+                                        Address addr = new Address(Locale.getDefault());
+                                        addr.setAddressLine(0, indiStr);
+                                        toReturn.add(addr);
+                                    }
+                                }
+                            } catch (JSONException exx) {
+                                // all JSON mappings that were used exist, so this exception will not occur
+                            }
+
+                            return toReturn;
+                        }catch (IOException exx) {
+                            Log.e("TravisUtils", "addressesFromLocation", exx);
+                            return Lists.newArrayList();
                         }
-
-                        return toReturn;
-
-                    }catch (IOException exx) {
-                        Log.e("TravisUtils", "addressesFromLocation", exx);
-                        return Lists.newArrayList();
                     }
-                }
-            });
+
+                    @Override
+                    protected void onPostExecute(List<Address> addresses) {
+                        super.onPostExecute(addresses);
+                        callback.onResult(addresses);
+                    }
+
+                }.execute();
         }
     }
 
@@ -287,69 +308,69 @@ public final class TravisUtils {
     }
 
 
-    /**
-     * Uses a {@link Geocoder} or, if the Geocoding service is unavailable, the
-     * Google Maps APIs to convertLater the provided string into latitude and longitude
-     * values.
-     */
-    public static LatLng locationFromString(final Context context, final String address){
-        if(geocoder==null)
-            geocoder = new Geocoder(context);
-
-        try {
-            List<Address> addresses = geocoder.getFromLocationName(address, 1);
-            if(addresses.isEmpty()) {
-                return null;
-            } else {
-                Address a = addresses.get(0);
-                return new LatLng(a.getLatitude(), a.getLongitude());
-            }
-        } catch (IOException ex){
-            return lockThreadAndExecute(new Code<LatLng>() {
-                @Override
-                public LatLng execute() {
-                    try {
-
-                        HttpGet httpGet = new HttpGet(
-                                "http://maps.google.com/maps/api/geocode/json?address="+address+"&ka&sensor=false");
-
-                        HttpClient client = new DefaultHttpClient();
-                        HttpResponse response = client.execute(httpGet);
-                        StringBuilder stringBuilder = new StringBuilder();
-
-
-                        HttpEntity entity = response.getEntity();
-                        InputStream stream = entity.getContent();
-                        int b;
-                        while ((b = stream.read()) != -1) {
-                            stringBuilder.append((char) b);
-                        }
-
-
-                        try {
-                            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
-                            double lng = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                                    .getJSONObject("geometry").getJSONObject("location")
-                                    .getDouble("lng");
-
-                            double lat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
-                                    .getJSONObject("geometry").getJSONObject("location")
-                                    .getDouble("lat");
-
-                            return new LatLng(lat, lng);
-
-                        } catch (JSONException exx){
-                            // all JSON mappings that were used exist, so this exception will not occur
-                        }
-                    } catch (IOException exx) {
-                        Log.e("TravisUtils", "locationFromString", exx);
-                    }
-
-                    return null;
-                }
-            });
-        }
-    }
+//    /**
+//     * Uses a {@link Geocoder} or, if the Geocoding service is unavailable, the
+//     * Google Maps APIs to convertLater the provided string into latitude and longitude
+//     * values.
+//     */
+//    public static LatLng locationFromString(final Context context, final String address){
+//        if(geocoder==null)
+//            geocoder = new Geocoder(context);
+//
+//        try {
+//            List<Address> addresses = geocoder.getFromLocationName(address, 1);
+//            if(addresses.isEmpty()) {
+//                return null;
+//            } else {
+//                Address a = addresses.get(0);
+//                return new LatLng(a.getLatitude(), a.getLongitude());
+//            }
+//        } catch (IOException ex){
+//            return lockThreadAndExecute(new Code<LatLng>() {
+//                @Override
+//                public LatLng execute() {
+//                    try {
+//
+//                        HttpGet httpGet = new HttpGet(
+//                                "http://maps.google.com/maps/api/geocode/json?address="+address+"&ka&sensor=false");
+//
+//                        HttpClient client = new DefaultHttpClient();
+//                        HttpResponse response = client.execute(httpGet);
+//                        StringBuilder stringBuilder = new StringBuilder();
+//
+//
+//                        HttpEntity entity = response.getEntity();
+//                        InputStream stream = entity.getContent();
+//                        int b;
+//                        while ((b = stream.read()) != -1) {
+//                            stringBuilder.append((char) b);
+//                        }
+//
+//
+//                        try {
+//                            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+//                            double lng = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+//                                    .getJSONObject("geometry").getJSONObject("location")
+//                                    .getDouble("lng");
+//
+//                            double lat = ((JSONArray) jsonObject.get("results")).getJSONObject(0)
+//                                    .getJSONObject("geometry").getJSONObject("location")
+//                                    .getDouble("lat");
+//
+//                            return new LatLng(lat, lng);
+//
+//                        } catch (JSONException exx){
+//                            // all JSON mappings that were used exist, so this exception will not occur
+//                        }
+//                    } catch (IOException exx) {
+//                        Log.e("TravisUtils", "locationFromString", exx);
+//                    }
+//
+//                    return null;
+//                }
+//            });
+//        }
+//    }
 
 
     /**
@@ -384,17 +405,17 @@ public final class TravisUtils {
 
 
 
-    public interface Code<T> {
-        T execute();
-    }
-
-    // TODO DELETE THIS
-    public static <T> T lockThreadAndExecute(Code<T> code){
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
-        T toReturn = code.execute();
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
-        return toReturn;
-    }
+//    public interface Code<T> {
+//        T execute();
+//    }
+//
+//    // TODO DELETE THIS
+//    public static <T> T lockThreadAndExecute(Code<T> code){
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
+//        T toReturn = code.execute();
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
+//        return toReturn;
+//    }
 
 
 

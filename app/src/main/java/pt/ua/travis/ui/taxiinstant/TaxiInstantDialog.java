@@ -42,7 +42,7 @@ public class TaxiInstantDialog extends SimpleDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogStyleLight_Custom);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogStyleLight_FullScreen);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class TaxiInstantDialog extends SimpleDialogFragment {
         builder.setTitle(R.string.instant_dialog_title);
         builder.setMessage(R.string.instant_dialog_msg);
 
-        View v = LayoutInflater.from(parentActivity).inflate(R.layout.item_taxi, null);
+        View v = LayoutInflater.from(parentActivity).inflate(R.layout.item_taxi_instant, null);
         TaxiItem.paintViewWithTaxi(parentActivity, v, client, taxi);
         builder.setView(v);
 

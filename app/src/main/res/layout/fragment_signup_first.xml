@@ -68,10 +68,12 @@
             whatever:testType="personName"
             android:hint="@string/first_name"
             android:ems="15"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@+id/field_last_name"/>
 
         <com.andreabaccega.widget.FormEditText
-            android:id="@+id/field_last_name"
+            android:id="@id/field_last_name"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_margin="10dp"
@@ -81,7 +83,9 @@
             whatever:testType="personName"
             android:hint="@string/last_name"
             android:ems="15"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:imeOptions="actionDone"
+            android:imeActionId="@+id/first_next_btn"/>
 
     </LinearLayout>
 
@@ -95,7 +99,7 @@
         android:src="@drawable/img_dots_1" />
 
     <ImageView
-        android:id="@+id/first_next_btn"
+        android:id="@id/first_next_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
