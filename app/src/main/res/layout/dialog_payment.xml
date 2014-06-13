@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+              xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="?attr/actionBarSize"
+              android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/insert_price_large"
+        android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/price_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:inputType="numberDecimal"
+        bootstrapbutton:be_roundedCorners="true"
+        bootstrapbutton:be_state="warning"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:singleLine="true"
+        android:gravity="center"
+        android:hint="@string/insert_price"
+        android:ems="20"
+        android:textSize="16sp"
+        android:imeOptions="actionDone"
+        android:imeActionId="@+id/normal_login_button" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/place_phone_near"/>
+
+    <Button
+        android:id="@+id/skip_payment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/skip_payment"/>
+
+</LinearLayout>

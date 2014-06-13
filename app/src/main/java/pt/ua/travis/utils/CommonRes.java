@@ -18,6 +18,7 @@ public final class CommonRes {
     public final int UNAVAILABLE_COLOR;
     public final Drawable FAVORITE_ICON;
     public final Drawable FAVORITE_ICON_FILLED;
+    public final Drawable FAVORITE_ICON_FILLED_RED;
     public final int SELECTED_ITEM_COLOR;
     public final String UNKNOWN_ADDRESS;
     public final Drawable LOADING_PLACEHOLDER;
@@ -29,6 +30,7 @@ public final class CommonRes {
         UNAVAILABLE_COLOR = context.getResources().getColor(R.color.taxi_unavailable_border);
         FAVORITE_ICON = context.getResources().getDrawable(R.drawable.ic_fav);
         FAVORITE_ICON_FILLED = context.getResources().getDrawable(R.drawable.ic_fav_2);
+        FAVORITE_ICON_FILLED_RED = context.getResources().getDrawable(R.drawable.ic_fav_3);
         SELECTED_ITEM_COLOR = context.getResources().getColor(R.color.selectorSelectedBg);
         UNKNOWN_ADDRESS = context.getResources().getString(R.string.unknown_address);
         LOADING_PLACEHOLDER = context.getResources().getDrawable(R.drawable.progress_bar);

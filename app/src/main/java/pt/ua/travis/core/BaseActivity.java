@@ -1,5 +1,6 @@
 package pt.ua.travis.core;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.*;
 import android.graphics.drawable.ColorDrawable;
@@ -8,12 +9,17 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.squareup.picasso.Picasso;
+import org.json.JSONException;
 import pt.ua.travis.R;
 import pt.ua.travis.ui.customviews.CircularImageView;
 import pt.ua.travis.utils.TravisUtils;
@@ -23,6 +29,10 @@ import pt.ua.travis.utils.TravisUtils;
  * @version 1.0
  */
 public class BaseActivity extends SherlockFragmentActivity {
+
+    private static final String TAG = BaseActivity.class.getSimpleName();
+
+    private static final int REQUEST_CODE_PAYMENT = 1;
 
     private Dialog wifiNotification;
 
@@ -47,6 +57,34 @@ public class BaseActivity extends SherlockFragmentActivity {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(wifiStateReceiver);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (confirm != null) {
+                    try {
+                        Log.i(TAG, confirm.toJSONObject().toString(4));
+                        Log.i(TAG, confirm.getPayment().toJSONObject().toString(4));
+                        String paymentAmount = confirm.getPayment().getAmountAsLocalizedString();
+
+
+                        Toast.makeText(this,"PaymentConfirmation info received from PayPal", Toast.LENGTH_LONG).show();
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i(TAG, "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(TAG, "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     public void showTravisNotification(String text, String imageUri, NotificationColor color){

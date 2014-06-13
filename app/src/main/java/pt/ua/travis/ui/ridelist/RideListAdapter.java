@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
+import pt.ua.travis.backend.Client;
 import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.ui.addresspicker.AddressPickerDialog;
@@ -133,6 +134,9 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
                             r.setDestinationLocation(pickedPosition.latitude, pickedPosition.longitude);
                             PersistenceManager.save(r, null);
                             rideListFragment.onRefreshStarted(null);
+                            Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
+                            PersistenceManager.stopWatchingRides();
+                            PersistenceManager.startWatchingNewRidesForClient(thisClient, parentActivity);
                         }
                     }).show(parentActivity.getSupportFragmentManager(), "DestinationPicker");
                 }

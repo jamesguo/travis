@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -52,8 +55,7 @@ import java.util.List;
  */
 public class MainClientActivity extends MainActivity
         implements ActionBar.TabListener,
-        TimePickerDialog.OnTimeSetListener,
-        WatchEvent<Ride> {
+        TimePickerDialog.OnTimeSetListener {
 
     private static List<Taxi> nearTaxiList;
     private static List<Taxi> highestRatedTaxiList;
@@ -64,7 +66,6 @@ public class MainClientActivity extends MainActivity
     private TaxiInstantFragment currentlyShownInstantFragment;
     private TaxiChooserFragment currentlyShownChooserFragment;
     private CurrentTravelFragment currentlyShownTravelFragment;
-    private RideListFragment currentlyShownRideListFragment;
     private int currentlyShownFragmentIndex;
 
     private RideBuilder rideBuilder;
@@ -288,10 +289,10 @@ public class MainClientActivity extends MainActivity
                 }
 //                break;
 //            case 2:
-                if (currentlyShownTravelFragment != null && currentlyShownTravelFragment.slidingPaneIsOpened()) {
+//                if (currentlyShownTravelFragment != null && currentlyShownTravelFragment.slidingPaneIsOpened()) {
                     // DO NOTHING
-                    return true;
-                }
+//                    return true;
+//                }
 //                break;
 //            case 3:
 //                break;
@@ -470,6 +471,9 @@ public class MainClientActivity extends MainActivity
         rideRequest = new RideRequestTask(MainClientActivity.this, getSupportFragmentManager(), newRide, new RideRequestTask.OnRequestAccepted() {
             @Override
             public void onAccepted(Ride ride) {
+                Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
+                PersistenceManager.stopWatchingRides();
+                PersistenceManager.startWatchingNewRidesForClient(thisClient, MainClientActivity.this);
                 currentlyShownRideListFragment.onRefreshStarted(null);
             }
         });
@@ -692,7 +696,11 @@ public class MainClientActivity extends MainActivity
 
         Bundle extras = intent.getExtras();
         String rideID;
-        if(extras!=null && (rideID = extras.getString(CommonKeys.RIDE_ARRIVED_ID))!=null) {
+        if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
+            Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            Toast.makeText(this, tag.toString(), Toast.LENGTH_LONG).show();
+
+        } else if(extras!=null && (rideID = extras.getString(CommonKeys.RIDE_ARRIVED_ID))!=null) {
             // Received intent from notification of taxi arrival
 
             Ride r = PersistenceManager.getFromCache(rideID);

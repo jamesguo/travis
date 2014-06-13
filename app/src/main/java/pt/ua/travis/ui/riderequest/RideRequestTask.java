@@ -50,6 +50,7 @@ public class RideRequestTask extends AsyncTask<Void, Void, Void>{
         PersistenceManager.save(ride, new Callback<Ride>() {
             @Override
             public void onResult(final Ride result) {
+                PersistenceManager.setRequestWaiting(result);
                 PersistenceManager.waitForRideResponse(result, new WatchEvent<String>() {
                     @Override
                     public void onEvent(String response) {

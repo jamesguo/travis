@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/dependencies/android-edittext-validator-master/android-edittext-validator-master.iml" filepath="$PROJECT_DIR$/dependencies/android-edittext-validator-master/android-edittext-validator-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/icm_travis.iml" filepath="$PROJECT_DIR$/icm_travis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencies/numberpicker-gradle/numberpicker-gradle.iml" filepath="$PROJECT_DIR$/dependencies/numberpicker-gradle/numberpicker-gradle.iml" />
     </modules>
   </component>
 </project>

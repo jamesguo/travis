@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+              xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="2dip"
+              android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <pt.ua.travis.ui.customviews.CircularImageView
+            android:id="@+id/ratefav_taxi_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            app:border="true"
+            app:border_width="1dp"
+            app:shadow="true"/>
+
+        <TextView
+            android:id="@+id/ratefav_taxi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_toRightOf="@+id/taxi_photo"
+            android:layout_alignParentRight="true"
+            android:paddingTop="13dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="25sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="@string/not_found"
+            android:textColor="@color/sideMenuBgV2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+
+        <RatingBar
+            android:id="@+id/ratefav_ratingbar"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:rating="0"
+            android:isIndicator="false" />
+
+        <ToggleButton
+            android:id="@+id/ratefav_favorite_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Yes"
+            android:textOff="No"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:background="@drawable/ic_fav_2" />
+
+    </LinearLayout>
+
+</LinearLayout>

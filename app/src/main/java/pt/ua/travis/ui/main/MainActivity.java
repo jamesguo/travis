@@ -13,14 +13,12 @@ import android.util.Log;
 import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.Callback;
-import pt.ua.travis.backend.PersistenceManager;
-import pt.ua.travis.backend.Ride;
-import pt.ua.travis.backend.User;
+import pt.ua.travis.backend.*;
 import pt.ua.travis.core.BaseActivity;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.login.SplashScreenActivity;
@@ -30,6 +28,7 @@ import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerLayout;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerUser;
+import pt.ua.travis.ui.ridelist.RideListFragment;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 
 import java.lang.reflect.Method;
@@ -40,13 +39,18 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends BaseActivity {
+public abstract class MainActivity extends BaseActivity implements WatchEvent<Ride> {
 
+    protected RideListFragment currentlyShownRideListFragment;
     private FrameLayout container;
     protected LockedViewPager tabPager;
     private PullToRefreshLayout pullToRefreshLayout;
     private BlurDrawerLayout drawerLayout;
     private static List<BlurDrawerObject> drawerItems;
+
+    public void updateRideList() {
+        currentlyShownRideListFragment.onRefreshStarted(null);
+    }
 
     private static List<Ride> rideList;
 

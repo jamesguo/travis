@@ -105,7 +105,6 @@ public final class Taxi extends User {
         int quantity = Integer.valueOf(po.getString(RATING_QUANTITY));
 
         double newAverage = ((oldAverage * quantity) + rating) / (quantity + 1);
-        String newAverageString = Double.toString(newAverage);
         String quantityString = Integer.toString(quantity + 1);
 
         po.put(RATING_AVERAGE, newAverage);

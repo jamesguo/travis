@@ -124,26 +124,13 @@ public class BaseFragment extends SherlockFragment {
     }
 
     /**
-     * The default content for a SherlockProgressFragment has a TextView that can be shown when
-     * the content is empty {@link #setContentEmpty(boolean)}.
-     * If you would like to have it shown, call this method to supply the text it should use.
+     * Sets the text to be shown when {@link #setContentEmpty(boolean)} is used.
      *
-     * @param resId Identification of string from a resources
-     * @see #setEmptyText(CharSequence)
+     * @param resId Identification of string from resources
      */
     public void setEmptyText(int resId) {
-        setEmptyText(getString(resId));
-    }
+        String text = getString(resId);
 
-    /**
-     * The default content for a SherlockProgressFragment has a TextView that can be shown when
-     * the content is empty {@link #setContentEmpty(boolean)}.
-     * If you would like to have it shown, call this method to supply the text it should use.
-     *
-     * @param text Text for empty view
-     * @see #setEmptyText(int)
-     */
-    public void setEmptyText(CharSequence text) {
         ensureContent();
         if (mEmptyView != null && mEmptyView instanceof TextView) {
             ((TextView) mEmptyView).setText(text);
@@ -153,9 +140,9 @@ public class BaseFragment extends SherlockFragment {
     }
 
     /**
-     * Control whether the content is being displayed. You can make it not
+     * Controls whether the content is being displayed. You can make it not
      * displayed if you are waiting for the initial data to show in it. During
-     * this time an indeterminant progress indicator will be shown instead.
+     * this time an indeterminate progress indicator will be shown instead.
      *
      * @param shown If true, the content view is shown; if false, the progress
      * indicator. The initial value is true.

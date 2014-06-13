@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Travis</string>
+    <string name="empty"></string>
+    <string name="taxi">Taxista</string>
+    <string name="client">Cliente</string>
+    <string name="users">pessoas</string>
+    <string name="rated_by_X">por</string>
+
+    <!-- Facebook app id -->
+    <string name="app_id">657569694292796</string>
+
+    <!-- TransitionViewPager -->
+    <string-array name="effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </string-array>
+
+    <string name="no_wifi">Por favor ligue-se à rede wifi.</string>
+
+    <!-- Dialog strings -->
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="done">Feito</string>
+    <string name="accept">Aceito</string>
+    <string name="decline">Recuso</string>
+    <string name="start_travel">Começar viagem até à origem</string>
+    <string name="cancel_ride">Cancelar viagem</string>
+    <string name="loading">A carregar…</string>
+
+
+    <!-- Login strings -->
+    <string name="auto_login">Login automático da próx. vez</string>
+    <string name="login">Login</string>
+    <string name="start_using_travis">Começar a usar o Travis</string>
+    <string name="login_error">Login inválido!</string>
+    <string name="unknown_address">Não definido</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login ou registo</string>
+    <string name="state_success">Successo</string>
+    <string name="state_logging_in">A fazer o login…</string>
+    <string name="state_login_failed">Login falhado</string>
+    <string name="error_invalid_email">Este email é inválido</string>
+    <string name="error_invalid_password">Esta password é demasiado curta (min. 3 caractéres)</string>
+    <string name="error_incorrect_password">Esta password é incorrecta</string>
+    <string name="error_field_required">Este campo é requirido</string>
+
+
+    <!-- Sign up strings -->
+    <string name="first_name">Primeiro nome</string>
+    <string name="last_name">Último nome</string>
+    <string name="pick_a_photo">Escolher uma foto</string>
+    <string name="pick_another_photo">Escolher outra foto</string>
+    <string name="register_ok">Registo com sucesso!</string>
+    <string name="welcome_text1">Bem-vindo ao Travis!</string>
+    <string name="welcome_text2">Verificámos que é um novo utilizador.
+Antes de começar a usar o Travis, por favor insira o seu nome …</string>
+    <string name="welcome_text2_alt">Verificámos que é um novo utilizador.
+Antes de começar a usar o Travis, por favor confirme o seu name…</string>
+    <string name="welcome_text3">Agora escolha uma foto para o seu perfil. Não se esqueça de sorrir! :)</string>
+    <string name="welcome_text3_alt">Agora confirme a foto abaixo para o seu perfil. Não se esqueça de sorrir! :)</string>
+    <string name="welcome_text4">Finalmente, escolha o tipo de conta tocando num dos dois ícones abaixo…</string>
+    <string name="photo_required">Por favor escolha um fotografia para o seu perfil.</string>
+    <string name="type_required">Por favor escolha um tipo de conta.</string>
+    <string name="picked_account_taxi">Como Taxista, irá receber pedidos de viagem por Clientes.</string>
+    <string name="picked_account_client">Como Cliente, irá poder fazer pedidos de viagens a Taxistas.</string>
+    <string name="setting_up">Por favor aguarde um momento, estamos a configurar a sua conta.</string>
+
+
+    <!-- Side menu strings -->
+    <string name="logout">Logout</string>
+    <string name="settings">Definições</string>
+    <string name="about">Sobre</string>
+    <string name="instant">Taxi Instantâneo</string>
+    <string name="map_view">Vista Mapa</string>
+    <string name="current_travel">Viagem actual</string>
+    <string name="scheduled_rides">Viagens reservadas</string>
+    <!--<string name="drawer_open">Open drawer</string>-->
+    <!--<string name="drawer_close">Close drawer</string>-->
+
+
+    <!-- Taxi instant dialog -->
+    <string name="instant_dialog_title">Confirmar taxista</string>
+    <string name="instant_dialog_msg">Gostaria de começar a sua viagem a partir da localização actual com o taxista mais próximo e disponível abaixo?</string>
+    <string name="instant_dialog_positive">Outro taxista</string>
+    <string name="instant_dialog_negative">Sim</string>
+    <string name="instant_dialog_title2">Use a vista mapa</string>
+    <string name="instant_dialog_msg2">Use a vista mapa para procurar mais taxistas, ordenados por proximidade ou classificação ou procure os seu favoritos.</string>
+
+
+    <!-- Taxi chooser sort spinner -->
+    <string name="closest_to_you">Mais próximos de si</string>
+    <string name="highest_rated">Melhor classificados</string>
+    <string name="your_favorites">Favoritos</string>
+    <string name="search">Procurar</string>
+
+
+    <!-- Taxi ride setup strings -->
+    <string name="not_found">Não encontrado</string>
+    <string name="here_and_now">Aqui &amp; Agora</string>
+    <string name="later">Mais tarde ou noutra localização</string>
+    <string name="set_origin">Definir origem</string>
+    <string name="set_time">Definir tempo</string>
+
+
+    <!-- Wait for taxi strings -->
+    <string name="your_scheduled_ride">A viagem agendada:</string>
+    <string name="see_more">Veja todas as viagens agendadas</string>
+    <string name="your_scheduled_rides">As suas viagens agendadas:</string>
+    <string name="wait_for_taxi">Feito! O seu taxi chegará em breve…</string>
+    <string name="wait_for_taxi_suggestion">
+        Iremos notificar-lo quando o seu taxi chegar.
+        \nDica: Deveria definir o destino para poder imediatamente prosseguir para o destino quando o seu taxi chegar!
+    </string>
+    <string name="set_destination">Definir destino</string>
+    <string name="call_another_taxi">Chamar outro taxi</string>
+    <string name="insert_address">Insira endereço…</string>
+
+
+    <!-- Payment strings -->
+    <string name="submit">Submeter</string>
+    <string name="dont_rate">Não classificar</string>
+
+
+    <!-- Ride request strings -->
+    <string name="logged_in_as_X">Login como </string>
+    <string name="request_sent">Pedido enviado…</string>
+    <string name="x_requested">pediu-lhe uma viagem.</string>
+    <string name="x_requested_large">pediu-lhe uma viagem.</string>
+    <string name="request_accepted">Pedido aceite.</string>
+    <string name="request_declined">Pedido recusado.</string>
+    <string name="request_timed_out">Pedido expirado.</string>
+    <string name="x_arrived">chegou.</string>
+    <string name="x_arrived_large">chegou à localização designada.</string>
+    <string name="scheduled_ride_was_cancelled">A viagem agendada foi cancelada.</string>
+    <string name="arrived_at_client">Chegada ao cliente</string>
+    <string name="arrived_at_dest">Chegada ao dest.</string>
+
+
+    <!-- Ride item strings -->
+    <string name="confirm_delete">Temn a certeza que deseja cancelar esta viagem?</string>
+
+
+    <!-- Authentication strings -->
+    <string name="authenticate_for_client">Autentique o taxista ao colocar o seu telemóvel perto do telemóvel do taxista!</string>
+    <string name="authenticate_for_taxi">Coloque o telefone perto do telefone do cliente e clique para começar a autenticação!</string>
+    <string name="start_authentication">Começar autenticação!</string>
+    <string name="skip_authentication">Ignorar autenticação!</string>
+    <string name="skip_payment">Ignorar pagamento!</string>
+    <string name="dialog_authentication_failed_title">Autenticação falhada!</string>
+    <string name="dialog_authentication_failed_msg_taxi">Authenticação com o taxista falhou! Se o taxista presente é de facto o seu taxista, por favor contacte o suporte do Travis.</string>
+    <string name="dialog_authentication_failed_msg_client">Authenticação com o cliente falhou! Se o cliente presente é de facto o seu cliente, por favor contacte o suporte do Travis.</string>
+
+
+    <!-- Payment strings -->
+    <string name="text_warning_nfc_is_off">NFC está de momento desligado!</string>
+    <string name="text_turn_on_nfc">Esta app não pode ser utilizada sem o NFC ligado. Por favor, ligue o NFC no menu de definições e depois utilize o botão "retroceder" para voltar a esta aplicação.</string>
+    <string name="text_update_settings">Actualizar definições</string>
+    <string name="insert_price_large">Por favor insira o preço para enviar para o cliente.</string>
+    <string name="insert_price">Insira um preço aqui</string>
+    <string name="pick_price">Toque aqui para escolher um preço</string>
+    <string name="place_phone_near">Quando definido, coloque o telemóvel do cliente perto do seu para que o preço seja transferido.</string>
+    <string name="travel_cost">Custo da viagem</string>
+
+</resources>

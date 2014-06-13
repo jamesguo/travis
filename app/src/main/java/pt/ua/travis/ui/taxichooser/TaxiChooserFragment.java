@@ -286,7 +286,10 @@ public class TaxiChooserFragment extends BaseFragment
     public final void updateTaxis(List<Taxi> newTaxis) {
         itemToMarkerMappings.clear();
         taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), newTaxis);
+
+        // FIX-ME app might crash below for some unspecified reason (not frequent)
         taxiPager.setAdapter(taxiPagerAdapter);
+
         taxiPagerAdapter.notifyDataSetChanged();
         updateMarkers(newTaxis);
     }

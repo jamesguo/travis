@@ -20,13 +20,11 @@ import pt.ua.travis.R;
 
 import java.math.BigDecimal;
 
-
-public class ReadTag extends Activity
-{
+public class ReadTag extends Activity {
 
     private static final String TAG = ReadTag.class.getSimpleName();
     private static final int REQUEST_CODE_PAYMENT = 1;
-    private static final String MOEDA = "EUR";
+    private static final String CURRENCY = "EUR";
     // NFC-related variables
     private NfcAdapter nfcAdapter;
     private PendingIntent nfcPendingIntent;
@@ -34,15 +32,14 @@ public class ReadTag extends Activity
 
     private TextView textViewData;
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
-        if (nfcAdapter == null)
-        {
+        if (nfcAdapter == null) {
             Toast.makeText(this, "Your device does not support NFC. Cannot run this demo.", Toast.LENGTH_LONG).show();
             finish();
             return;
@@ -53,29 +50,24 @@ public class ReadTag extends Activity
         nfcPendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
 
         IntentFilter ndefDetected = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
-        try
-        {
-            ndefDetected.addDataType("application/com.elsinga.sample.nfc");
-        }
-        catch (IntentFilter.MalformedMimeTypeException e)
-        {
+        try {
+            ndefDetected.addDataType("application/travis.nfc");
+        } catch (IntentFilter.MalformedMimeTypeException e) {
             throw new RuntimeException("Could not add MIME type.", e);
         }
-        Log.d("NFC", "onCreate - ReadTagActivity");
+        Toast.makeText(this, "NFC onCreate - ReadTagActivity", Toast.LENGTH_LONG).show();
         readTagFilters = new IntentFilter[]{ndefDetected};
     }
 
+
     @Override
-    protected void onResume()
-    {
+    protected void onResume() {
         super.onResume();
 
         checkNfcEnabled();
 
-        if (getIntent().getAction() != null)
-        {
-            if (getIntent().getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED))
-            {
+        if (getIntent().getAction() != null) {
+            if (getIntent().getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED)) {
                 NdefMessage[] msgs = getNdefMessagesFromIntent(getIntent());
                 NdefRecord record = msgs[0].getRecords()[0];
                 byte[] payload = record.getPayload();
@@ -83,65 +75,56 @@ public class ReadTag extends Activity
                 //Aqui e onde ele detecta a TAG e inicia a actividade que queremos!
                 String payloadString = new String(payload);
                 BigDecimal value = new BigDecimal(payloadString);
-                PayPalPayment tour = new PayPalPayment(value , MOEDA , "Preço Viagem", PayPalPayment.PAYMENT_INTENT_AUTHORIZE);
+                String travelCostString = getString(R.string.travel_cost);
+                PayPalPayment tour = new PayPalPayment(value , CURRENCY, travelCostString, PayPalPayment.PAYMENT_INTENT_AUTHORIZE);
                 Intent intent = new Intent(this, PaymentActivity.class);
                 intent.putExtra(PaymentActivity.EXTRA_PAYMENT, tour);
 
-                Log.e("++++++++++++++++++++++++++++++++++++++", "EEERE");
                 startActivityForResult(intent, REQUEST_CODE_PAYMENT);
             }
         }
-        Log.d("NFC","onResume - ReadTagActivity");
+        Toast.makeText(this, "NFC onResume - ReadTagActivity", Toast.LENGTH_LONG).show();
         nfcAdapter.enableForegroundDispatch(this, nfcPendingIntent, readTagFilters, null);
-
     }
 
+
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
 
-        Log.d("NFC","onPause - ReadTagActivity");
+        Toast.makeText(this, "NFC onPause - ReadTagActivity", Toast.LENGTH_LONG).show();
         nfcAdapter.disableForegroundDispatch(this);
     }
 
+
     @Override
-    protected void onNewIntent(Intent intent)
-    {
-        Log.d("NFC","onNewIntent - ReadTagActivity");
-        if (intent.getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED))
-        {
+    protected void onNewIntent(Intent intent) {
+        Toast.makeText(this, "NFC onNewIntent - ReadTagActivity", Toast.LENGTH_LONG).show();
+        if (intent.getAction().equals(NfcAdapter.ACTION_NDEF_DISCOVERED)) {
             NdefMessage[] msgs = getNdefMessagesFromIntent(intent);
             confirmDisplayedContentOverwrite(msgs[0]);
 
-        }
-        else if (intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED))
-        {
+        } else if (intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)) {
             Toast.makeText(this, "This NFC tag has no NDEF data.", Toast.LENGTH_LONG).show();
         }
     }
 
-    NdefMessage[] getNdefMessagesFromIntent(Intent intent)
-    {
+
+    private NdefMessage[] getNdefMessagesFromIntent(Intent intent) {
         // Parse the intent
         NdefMessage[] msgs = null;
         String action = intent.getAction();
-        Log.d("NFC","getNdefMessagesFromIntent - ReadTagActivity");
+        Toast.makeText(this, "NFC getNdefMessagesFromIntent - ReadTagActivity", Toast.LENGTH_LONG).show();
 
-        if (action.equals(NfcAdapter.ACTION_TAG_DISCOVERED) || action.equals(NfcAdapter.ACTION_NDEF_DISCOVERED))
-        {
+        if (action.equals(NfcAdapter.ACTION_TAG_DISCOVERED) || action.equals(NfcAdapter.ACTION_NDEF_DISCOVERED)) {
             Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
-            if (rawMsgs != null)
-            {
+            if (rawMsgs != null) {
                 msgs = new NdefMessage[rawMsgs.length];
-                for (int i = 0; i < rawMsgs.length; i++)
-                {
+                for (int i = 0; i < rawMsgs.length; i++) {
                     msgs[i] = (NdefMessage) rawMsgs[i];
                 }
 
-            }
-            else
-            {
+            } else {
                 // Unknown tag type
                 byte[] empty = new byte[]{};
                 NdefRecord record = new NdefRecord(NdefRecord.TNF_UNKNOWN, empty, empty, empty);
@@ -149,19 +132,17 @@ public class ReadTag extends Activity
                 msgs = new NdefMessage[]{msg};
             }
 
-        }
-        else
-        {
+        } else {
             Log.e(TAG, "Unknown intent.");
             finish();
         }
         return msgs;
     }
 
-    private void confirmDisplayedContentOverwrite(final NdefMessage msg)
-    {
+
+    private void confirmDisplayedContentOverwrite(final NdefMessage msg) {
         final String data = textViewData.getText().toString().trim();
-        Log.d("NFC","confirmDisplayedContentOverwrite - ReadTagActivity");
+        Toast.makeText(this, "NFC confirmDisplayedContentOverwrite - ReadTagActivity", Toast.LENGTH_LONG).show();
 
         new AlertDialog.Builder(this).setTitle("New tag found!").setMessage("Do you wanna show the content of this tag?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener()
@@ -184,12 +165,11 @@ public class ReadTag extends Activity
         }).show();
     }
 
-    private void checkNfcEnabled()
-    {
-        Log.d("NFC","checkNfcEnabled - ReadTagActivity");
+
+    private void checkNfcEnabled() {
+        Toast.makeText(this, "NFC checkNfcEnabled - ReadTagActivity", Toast.LENGTH_LONG).show();
         Boolean nfcEnabled = nfcAdapter.isEnabled();
-        if (!nfcEnabled)
-        {
+        if (!nfcEnabled) {
             new AlertDialog.Builder(ReadTag.this).setTitle(getString(R.string.text_warning_nfc_is_off))
                     .setMessage(getString(R.string.text_turn_on_nfc)).setCancelable(false)
                     .setPositiveButton(getString(R.string.text_update_settings), new DialogInterface.OnClickListener()

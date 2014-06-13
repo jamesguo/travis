@@ -42,11 +42,9 @@ import java.util.Random;
  * @version 1.0
  */
 public class MainTaxiActivity extends MainActivity
-        implements ActionBar.TabListener,
-        WatchEvent<Ride> {
+        implements ActionBar.TabListener {
 
     private CurrentTravelFragment currentlyShownTravelFragment;
-    private RideListFragment currentlyShownRideListFragment;
     private int currentlyShownFragmentIndex;
 
     @Override
@@ -230,7 +228,7 @@ public class MainTaxiActivity extends MainActivity
                 .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         dismissIntent.putExtra(CommonKeys.RIDE_REQUEST_DECLINED_ID, requestRide.id());
-        final PendingIntent piDecline = PendingIntent.getActivity(this, 0, dismissIntent, 0);
+        final PendingIntent piDecline = PendingIntent.getActivity(this, 0, dismissIntent, PendingIntent.FLAG_ONE_SHOT);
 
         final String clientName = requestRide.client().name();
         final String requestedString = getString(R.string.x_requested);
@@ -309,8 +307,8 @@ public class MainTaxiActivity extends MainActivity
 
                 currentlyShownRideListFragment.onRefreshStarted(null);
 
-                goToTab(0);
-                currentlyShownTravelFragment.goToOrigin(r);
+//                goToTab(0);
+//                currentlyShownTravelFragment.goToOrigin(r);
 
             } else if ((rideID = extras.getString(CommonKeys.RIDE_REQUEST_DECLINED_ID))!=null) {
                 Ride r = PersistenceManager.getFromCache(rideID);

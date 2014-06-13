@@ -60,7 +60,7 @@
     <string name="error_field_required">This field is required</string>
 
 
-    <!-- Register strings -->
+    <!-- Sign up strings -->
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="pick_a_photo">Pick a Photo</string>
@@ -76,9 +76,9 @@ Before you start using Travis, please confirm name below…</string>
     <string name="welcome_text4">Finally, pick what type of user you are by tapping one of the two icons below…</string>
     <string name="photo_required">Please choose a photo for your profile.</string>
     <string name="type_required">Please choose an account type.</string>
-    <string name="picked_account_taxi">As a Taxi you will receive ride requests from Clients. <!-- , based on proximity to them or based on your average rating given by them. -->
-    </string>
+    <string name="picked_account_taxi">As a Taxi you will receive ride requests from Clients.</string>
     <string name="picked_account_client">As a Client you will be able to request Taxis for rides.</string>
+    <string name="setting_up">Please wait a moment, we are setting up your account.</string>
 
 
     <!-- Side menu strings -->
@@ -161,7 +161,10 @@ THE NEAREST TAXI</string>
 
     <!-- Authentication strings -->
     <string name="authenticate_for_client">Please authenticate the taxi by placing your phone near the taxi\'s phone!</string>
-    <string name="authenticate_for_taxi">Please authenticate the client by having him placing his phone near yours!</string>
+    <string name="authenticate_for_taxi">Place phone near client\'s phone and press to start authentication!</string>
+    <string name="start_authentication">Start authentication!</string>
+    <string name="skip_authentication">Skip authentication!</string>
+    <string name="skip_payment">Skip payment!</string>
     <string name="dialog_authentication_failed_title">Authentication failed!</string>
     <string name="dialog_authentication_failed_msg_taxi">Authentication with taxi failed! If the present taxi is in fact your taxi, please contact Travis support.</string>
     <string name="dialog_authentication_failed_msg_client">Authentication with client failed! If the present client is in fact your client, please contact Travis support.</string>
@@ -180,8 +183,9 @@ THE NEAREST TAXI</string>
     <string name="text_turn_on_nfc">This app cannot be used without NFC enabled. Please turn on NFC in the Settings and then use the back button to return to this app.</string>
     <string name="text_update_settings">Update Settings</string>
     <string name="insert_price_large">Please insert the price to send to the client.</string>
-    <string name="insert_price">Please insert a price</string>
+    <string name="insert_price">Insert a price here</string>
     <string name="pick_price">Tap here to pick a price</string>
     <string name="place_phone_near">Once done, place the client\'s phone near yours so that the price can be transferred.</string>
+    <string name="travel_cost">Travel cost</string>
 
 </resources>

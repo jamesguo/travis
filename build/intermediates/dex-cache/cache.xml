@@ -56,17 +56,17 @@
         revision="19.1.0"
         sha1="b6dde38349ba9bb5e6ea6320531eae969985dae5"/>
     <item
-        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\PayPalAndroidSDK-4e1bd92c92973cb92e898f71e15ed5544bcccb2f.jar"
-        jar="C:\projects-android\icm_travis\app\src\main\libs\PayPalSDK\PayPalAndroidSDK.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="c826d32d47ffa1ed9c0dce20c66e4bf073699be3"/>
-    <item
         dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\classes-ae2543c58b14da08a11ba9015061959510ce90b1.jar"
         jar="C:\projects-android\icm_travis\build\intermediates\exploded-aar\com.github.castorflex.smoothprogressbar\library\0.4.0\classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="6ca319f998430aa20c4dde97ba6df213d6cf3dd0"/>
+    <item
+        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\PayPalAndroidSDK-4e1bd92c92973cb92e898f71e15ed5544bcccb2f.jar"
+        jar="C:\projects-android\icm_travis\app\src\main\libs\PayPalSDK\PayPalAndroidSDK.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="c826d32d47ffa1ed9c0dce20c66e4bf073699be3"/>
     <item
         dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\classes-bc8fc73f5e5dea0a87efb7153bda23a1f1a32998.jar"
         jar="C:\projects-android\icm_travis\build\intermediates\exploded-aar\com.github.amlcurran.showcaseview\library\5.0.0-SNAPSHOT\classes.jar"
@@ -92,11 +92,11 @@
         revision="19.1.0"
         sha1="06ca4ea902f14efb76284d918edb085df33cc365"/>
     <item
-        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\PayPal_MPL-00aaa9e17fad8c2af99386fe25b4f2d08cb261c3.jar"
-        jar="C:\projects-android\icm_travis\app\src\main\libs\PayPalSDK\PayPal_MPL.jar"
+        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\tubesock-0.0.8-dbd773eb73e4a50e91f45b48389c2000487a82a7.jar"
+        jar="C:\Users\tmn\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.8\7e88ecf193992e8b3f533ebf9be4736052e9d9ed\tubesock-0.0.8.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="7322c3ef85eea27ec806b742a52f067676fab173"/>
+        sha1="7e88ecf193992e8b3f533ebf9be4736052e9d9ed"/>
     <item
         dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\KenBurnsView-1.0.1-0c60d0a4169cbfb9f9d60845de55fcfebc0ec5bb.jar"
         jar="C:\projects-android\icm_travis\app\src\main\libs\KenBurnsView-1.0.1.jar"
@@ -104,11 +104,11 @@
         revision="19.1.0"
         sha1="28ef130d15f6f1a02bde0003365ac5b70c57567c"/>
     <item
-        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\tubesock-0.0.8-dbd773eb73e4a50e91f45b48389c2000487a82a7.jar"
-        jar="C:\Users\tmn\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.8\7e88ecf193992e8b3f533ebf9be4736052e9d9ed\tubesock-0.0.8.jar"
+        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\PayPal_MPL-00aaa9e17fad8c2af99386fe25b4f2d08cb261c3.jar"
+        jar="C:\projects-android\icm_travis\app\src\main\libs\PayPalSDK\PayPal_MPL.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="7e88ecf193992e8b3f533ebf9be4736052e9d9ed"/>
+        sha1="7322c3ef85eea27ec806b742a52f067676fab173"/>
     <item
         dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\image-chooser-library-1.3.0-b5dff21cb977d215e2ee0950b03c0a6094d0f81f.jar"
         jar="C:\projects-android\icm_travis\app\src\main\libs\image-chooser-library-1.3.0.jar"
@@ -181,5 +181,11 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="6cf55959214df9f6fcb4fe7b2a794594a321dafd"/>
+    <item
+        dex="C:\projects-android\icm_travis\app\build\intermediates\pre-dexed\debug\classes-0223fa9f53b3619c165374fa565cffc750fb91f0.jar"
+        jar="C:\projects-android\icm_travis\build\intermediates\exploded-aar\icm_travis.dependencies\android-betterpickers\unspecified\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="948e3097d91522154f1b4be337ebcdf47baf88ab"/>
 
 </pre-dex-items>

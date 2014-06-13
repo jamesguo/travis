@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/numberpicker-gradle/res/values/attrs.xml -->
+    <eat-comment />
+
+    <attr name="numberPickerDownButtonStyle" format="reference" />
+    <attr name="numberPickerInputTextStyle" format="reference" />
+    <attr name="numberPickerStyle" format="reference" />
+    <attr name="numberPickerUpButtonStyle" format="reference" />
+
+    <declare-styleable name="numberpicker">
+        <attr name="startRange" format="integer" />
+        <attr name="endRange" format="integer" />
+        <attr name="step" format="integer" />
+        <attr name="defaultValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="wrap" format="boolean" />
+    </declare-styleable>
+    <!-- From: file:/C:/projects-android/icm_travis/dependencies/numberpicker-gradle/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="NumberPickerDownButton" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@drawable/numberpicker_down_btn</item>
+        <item name="android:paddingTop">22dip</item>
+        <item name="android:paddingBottom">22dip</item>
+    </style>
+
+    <style name="NumberPickerInputText" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAppearance">@style/NumberPickerInputText</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/numberpicker_input</item>
+    </style>
+
+    <style name="NumberPickerUpButton" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@drawable/numberpicker_up_btn</item>
+        <item name="android:paddingTop">22dip</item>
+        <item name="android:paddingBottom">22dip</item>
+    </style>
+
+</resources>

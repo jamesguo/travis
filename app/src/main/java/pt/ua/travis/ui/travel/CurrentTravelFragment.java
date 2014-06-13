@@ -4,16 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
-import android.widget.FrameLayout;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import eu.inmite.android.lib.dialogs.SimpleDialogFragment;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.*;
@@ -21,9 +19,10 @@ import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.core.BaseMapFragment;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.mapnavigator.Navigator;
-import pt.ua.travis.ui.customviews.SlidingPaneLayout;
 import pt.ua.travis.ui.main.MainActivity;
 import pt.ua.travis.utils.CommonKeys;
+
+import java.util.List;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
@@ -33,16 +32,13 @@ public class CurrentTravelFragment extends BaseFragment {
 
     private MainActivity parentActivity;
 
-    private String oldFragmentTag;
+    private AuthenticationDialog authenticationDialog;
 
     private BaseMapFragment mapFragment;
 
     private BootstrapButton button;
 
     private GoogleMap map;
-
-    private SlidingPaneLayout slidingPaneLayout;
-    private FrameLayout container;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -84,13 +80,6 @@ public class CurrentTravelFragment extends BaseFragment {
         );
 
 
-        slidingPaneLayout = (SlidingPaneLayout) parentActivity.findViewById(R.id.sliding_pane_travel);
-        slidingPaneLayout.setStickTo(SlidingPaneLayout.STICK_TO_BOTTOM);
-        slidingPaneLayout.setSlidingEnabled(false);
-        slidingPaneLayout.closeLayer(false);
-
-        container = (FrameLayout) parentActivity.findViewById(R.id.sliding_pane_travel_container);
-
         app.addLocationListener(new TravisApplication.CurrentLocationListener() {
             @Override
             public void onCurrentLocationChanged(LatLng latLng) {
@@ -122,93 +111,99 @@ public class CurrentTravelFragment extends BaseFragment {
 
         Navigator nav = new Navigator(map, app.getCurrentLocation(), requestedRide.originPosition());
         nav.findDirections(true);
-        slidingPaneLayout.closeLayer(true);
 
         setContentShown(true);
     }
 
-    public void goToDestination(Ride requestedRide) {
-        button.setText(parentActivity.getString(R.string.arrived_at_dest));
-        button.setVisibility(View.VISIBLE);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPayment();
-            }
-        });
-        TravisApplication app = (TravisApplication) parentActivity.getApplication();
-
-        Navigator nav = new Navigator(map, app.getCurrentLocation(), requestedRide.destinationPosition());
-        nav.findDirections(true);
-        slidingPaneLayout.closeLayer(true);
-    }
-
     public void showAuthentication(final Ride arrivedRide) {
-        slidingPaneLayout.openLayer(true);
-
-        String newTag = AuthenticationFragment.class.getSimpleName();
-
         final User currentUser = PersistenceManager.getCurrentlyLoggedInUser();
 
-        AuthenticationFragment.OnAuthenticationCompleteListener listener =
-                new AuthenticationFragment.OnAuthenticationCompleteListener() {
-            @Override
-            public void onAuthenticationComplete(boolean valid) {
-                if(valid){
-                    goToDestination(arrivedRide);
-                } else {
-                    SimpleDialogFragment.SimpleDialogBuilder builder = SimpleDialogFragment
-                            .createBuilder(parentActivity, getChildFragmentManager())
-                            .setTitle(R.string.state_login_failed);
+        AuthenticationDialog.OnAuthenticationCompleteListener listener =
+                new AuthenticationDialog.OnAuthenticationCompleteListener() {
+                    @Override
+                    public void onAuthenticationComplete(boolean valid) {
+                        authenticationDialog.dismiss();
+                        if (valid) {
+                            goToDestination(arrivedRide);
+                        } else {
+                            SimpleDialogFragment.SimpleDialogBuilder builder = SimpleDialogFragment
+                                    .createBuilder(parentActivity, getChildFragmentManager())
+                                    .setTitle(R.string.state_login_failed);
 
-                    if(currentUser instanceof Client) {
-                        builder.setMessage(R.string.dialog_authentication_failed_msg_taxi);
-                    } else if (currentUser instanceof Taxi) {
-                        builder.setMessage(R.string.dialog_authentication_failed_msg_client);
+                            if (currentUser instanceof Client) {
+                                builder.setMessage(R.string.dialog_authentication_failed_msg_taxi);
+                            } else if (currentUser instanceof Taxi) {
+                                builder.setMessage(R.string.dialog_authentication_failed_msg_client);
+                            }
+
+                            builder.show();
+
+                        }
                     }
+                };
+//
+        authenticationDialog = AuthenticationDialog.newInstance(parentActivity, arrivedRide, currentUser, listener);
+        authenticationDialog.show(getChildFragmentManager(), "AuthDialog");
 
-                    builder.show();
+        setContentShown(false);
+    }
 
+    public void goToDestination(final Ride requestedRide) {
+        if(authenticationDialog !=null) {
+            authenticationDialog.dismiss();
+        }
+
+        LatLng destPos = requestedRide.destinationPosition();
+        if (destPos != null) {
+            TravisApplication app = (TravisApplication) parentActivity.getApplication();
+            final Navigator nav = new Navigator(map, app.getCurrentLocation(), destPos);
+            nav.findDirections(true);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<Polyline> list = nav.getPathLines();
+                    for(Polyline p : list){
+                        p.remove();
+                    }
+                    finishRide(requestedRide);
                 }
-            }
-        };
-
-        Fragment fragment = getChildFragmentManager().findFragmentByTag(oldFragmentTag);
-        FragmentTransaction ft = getChildFragmentManager()
-                .beginTransaction()
-                .add(R.id.sliding_pane_travel_container,
-                        AuthenticationFragment.newInstance(arrivedRide, currentUser, listener), newTag)
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-
-        if (fragment != null) {
-            ft.remove(getChildFragmentManager().findFragmentByTag(oldFragmentTag));
+            });
+        } else {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finishRide(requestedRide);
+                }
+            });
         }
 
-        oldFragmentTag = newTag;
-        ft.commit();
+        button.setText(parentActivity.getString(R.string.arrived_at_dest));
+        button.setVisibility(View.VISIBLE);
 
+
+        setContentShown(true);
     }
 
-    public void showPayment() {
-        String newTag = PaymentFragment.class.getSimpleName();
+    public void finishRide(final Ride finishedRide) {
+        button.setVisibility(View.GONE);
 
-        Fragment fragment = getChildFragmentManager().findFragmentByTag(oldFragmentTag);
-        FragmentTransaction ft = getChildFragmentManager()
-                .beginTransaction()
-                .add(R.id.sliding_pane_travel_container, new PaymentFragment(), newTag)
-                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        User u = PersistenceManager.getCurrentlyLoggedInUser();
+        if(u instanceof Client) {
+            RateAndFavDialog.newInstance(parentActivity, (Client)u, finishedRide.taxi())
+                    .show(getChildFragmentManager(), "RateAndFavDialog");
 
-        if (fragment != null) {
-            ft.remove(getChildFragmentManager().findFragmentByTag(oldFragmentTag));
+        } else if(u instanceof Taxi) {
+            PaymentDialog.newInstance(new PaymentDialog.OnPaymentCompleteListener(){
+                @Override
+                public void onPaymentComplete(boolean success) {
+                    if(success) {
+                        PersistenceManager.delete(finishedRide);
+                        parentActivity.updateRideList();
+                        setContentShown(true);
+                    }
+                }
+            }).show(getChildFragmentManager(), "PayDialog");
+
         }
-
-        oldFragmentTag = newTag;
-        ft.commit();
-
-        slidingPaneLayout.openLayer(true);
-    }
-
-    public boolean slidingPaneIsOpened() {
-        return slidingPaneLayout.isOpened();
     }
 }
