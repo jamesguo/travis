@@ -1,4 +1,9 @@
 .gradle
-/local.properties
-/.idea/workspace.xml
+.idea
+*.iml
+
+# osx noise
 .DS_Store
+profile
+
+/build

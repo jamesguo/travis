@@ -21,6 +21,7 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Client;
@@ -42,6 +43,7 @@ import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -284,6 +286,10 @@ public class TaxiChooserFragment extends BaseFragment
     }
 
     public final void updateTaxis(List<Taxi> newTaxis) {
+
+        // remove duplicates
+        newTaxis = new ArrayList<Taxi>(new LinkedHashSet<Taxi>(newTaxis));
+
         itemToMarkerMappings.clear();
         taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), newTaxis);
 

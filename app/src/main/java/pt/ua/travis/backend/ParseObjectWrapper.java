@@ -30,9 +30,17 @@ public abstract class ParseObjectWrapper implements ParseWrapper {
         return po.getObjectId();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof ParseObjectWrapper))
+            return false;
 
+        ParseObjectWrapper obj = (ParseObjectWrapper) o;
 
-//    protected void writeObject(java.io.ObjectOutputStream stream) throws IOException {
+        return this.id().equals(obj.id());
+    }
+
+    //    protected void writeObject(java.io.ObjectOutputStream stream) throws IOException {
 //        stream.writeObject(thisObjectName());
 //        stream.writeObject(po.getObjectId());
 //    }

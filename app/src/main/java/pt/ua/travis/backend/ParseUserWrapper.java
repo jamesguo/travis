@@ -27,4 +27,14 @@ public abstract class ParseUserWrapper implements ParseWrapper {
         return po.getObjectId();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof ParseUserWrapper))
+            return false;
+
+        ParseUserWrapper obj = (ParseUserWrapper) o;
+
+        return this.id().equals(obj.id());
+    }
+
 }

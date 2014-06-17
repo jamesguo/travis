@@ -92,19 +92,19 @@ public class Query {
             q.orderByAscending(sortKey);
         }
 
-        if(idFilter==null) {
-            for (Filter f : filters) {
-                if (f.type.equals(Filter.Type.EQ)) {
-                    q.whereEqualTo(f.key, f.value);
-                } else if(f.type.equals(Filter.Type.CT)) {
-                    q.whereContains(f.key, (String)f.value);
-                } else if (f.type.equals(Filter.Type.GT)){
-                    q.whereGreaterThanOrEqualTo(f.key, f.value);
-                } else if (f.type.equals(Filter.Type.LT)){
-                    q.whereLessThan(f.key, f.value);
-                }
+        for (Filter f : filters) {
+            if (f.type.equals(Filter.Type.EQ)) {
+                q.whereEqualTo(f.key, f.value);
+            } else if(f.type.equals(Filter.Type.CT)) {
+                q.whereContains(f.key, (String)f.value);
+            } else if (f.type.equals(Filter.Type.GT)){
+                q.whereGreaterThanOrEqualTo(f.key, f.value);
+            } else if (f.type.equals(Filter.Type.LT)){
+                q.whereLessThan(f.key, f.value);
             }
+        }
 
+        if(idFilter==null) {
             q.findInBackground(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> parseObjects, ParseException ex) {
@@ -129,7 +129,6 @@ public class Query {
                     }
                 }
             });
-
         }
     }
 
@@ -146,19 +145,18 @@ public class Query {
         }
 
         try {
-            if(idFilter==null) {
-                for (Filter f : filters) {
-                    if (f.type.equals(Filter.Type.EQ)) {
-                        q.whereEqualTo(f.key, f.value);
-                    } else if (f.type.equals(Filter.Type.GT)){
-                        q.whereGreaterThanOrEqualTo(f.key, f.value);
-                    } else if (f.type.equals(Filter.Type.LT)){
-                        q.whereLessThan(f.key, f.value);
-                    }
+            for (Filter f : filters) {
+                if (f.type.equals(Filter.Type.EQ)) {
+                    q.whereEqualTo(f.key, f.value);
+                } else if (f.type.equals(Filter.Type.GT)){
+                    q.whereGreaterThanOrEqualTo(f.key, f.value);
+                } else if (f.type.equals(Filter.Type.LT)){
+                    q.whereLessThan(f.key, f.value);
                 }
+            }
 
+            if(idFilter==null) {
                 return q.find();
-
 
             } else {
                 List<ParseObject> list = Lists.newArrayList();
@@ -189,28 +187,25 @@ public class Query {
             q.orderByDescending(sortKey);
         }
 
-        if(idFilter==null) {
-            for (Filter f : filters) {
-                if (f.type.equals(Filter.Type.EQ)) {
-                    q.whereEqualTo(f.key, f.value);
-                } else if(f.type.equals(Filter.Type.CT)) {
-                    q.whereContains(f.key, (String)f.value);
-                } else if (f.type.equals(Filter.Type.GT)){
-                    q.whereGreaterThanOrEqualTo(f.key, f.value);
-                } else if (f.type.equals(Filter.Type.LT)){
-                    q.whereLessThan(f.key, f.value);
-                }
+        for (Filter f : filters) {
+            if (f.type.equals(Filter.Type.EQ)) {
+                q.whereEqualTo(f.key, f.value);
+            } else if(f.type.equals(Filter.Type.CT)) {
+                q.whereContains(f.key, (String)f.value);
+            } else if (f.type.equals(Filter.Type.GT)){
+                q.whereGreaterThanOrEqualTo(f.key, f.value);
+            } else if (f.type.equals(Filter.Type.LT)){
+                q.whereLessThan(f.key, f.value);
             }
+        }
 
+        if(idFilter==null) {
             q.findInBackground(new FindCallback<ParseUser>() {
                 @Override
                 public void done(List<ParseUser> parseUsers, ParseException ex) {
                     if (ex != null) {
                         Log.e("PersistenceManager SafeQuery Find", "Error querying " + objectName + "s. ", ex);
                     } else {
-//                        if(filterNear){
-//                            sortListByClosest(parseUsers);
-//                        }
                         queryHandler.done(parseUsers, null);
                     }
                 }
@@ -229,7 +224,6 @@ public class Query {
                     }
                 }
             });
-
         }
     }
 
@@ -251,23 +245,18 @@ public class Query {
         }
 
         try {
-            if(idFilter==null) {
-                for (Filter f : filters) {
-                    if (f.type.equals(Filter.Type.EQ)) {
-                        q.whereEqualTo(f.key, f.value);
-                    } else if (f.type.equals(Filter.Type.GT)){
-                        q.whereGreaterThanOrEqualTo(f.key, f.value);
-                    } else if (f.type.equals(Filter.Type.LT)){
-                        q.whereLessThan(f.key, f.value);
-                    }
+            for (Filter f : filters) {
+                if (f.type.equals(Filter.Type.EQ)) {
+                    q.whereEqualTo(f.key, f.value);
+                } else if (f.type.equals(Filter.Type.GT)){
+                    q.whereGreaterThanOrEqualTo(f.key, f.value);
+                } else if (f.type.equals(Filter.Type.LT)){
+                    q.whereLessThan(f.key, f.value);
                 }
+            }
 
-                List<ParseUser> list = q.find();
-//                if(filterNear){
-//                    sortListByClosest(list);
-//                }
-                return list;
-
+            if(idFilter==null) {
+                return q.find();
 
             } else {
                 List<ParseUser> list = Lists.newArrayList();
@@ -280,20 +269,6 @@ public class Query {
 
         return Lists.newArrayList();
     }
-
-    private void sortListByClosest(List<ParseUser> list) {
-        Collections.sort(list, new Comparator<ParseUser>() {
-            @Override
-            public int compare(ParseUser lhs, ParseUser rhs) {
-                ParseGeoPoint lhsPoint = lhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
-                ParseGeoPoint rhsPoint = rhs.getParseGeoPoint(Taxi.CURRENT_LOCATION);
-                int dist1 = Double.valueOf(currentLocation.distanceInRadiansTo(lhsPoint)).intValue();
-                int dist2 = Double.valueOf(currentLocation.distanceInRadiansTo(rhsPoint)).intValue();
-                return dist1 - dist2;
-            }
-        });
-    }
-
 
 
     public abstract class QueryGeneric<T extends ParseWrapper, E extends ParseObject> {

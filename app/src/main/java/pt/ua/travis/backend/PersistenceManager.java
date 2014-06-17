@@ -574,8 +574,6 @@ public final class PersistenceManager {
                     return new Client(user);
                 else if(type.equals(Taxi.OBJECT_NAME)) {
                     Taxi t = new Taxi(user);
-                    t.setAsAvailable();
-                    t.setAsOnline();
                     save(t, null);
                     return t;
                 }

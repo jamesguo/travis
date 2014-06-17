@@ -100,6 +100,7 @@ public class LoginTask extends AsyncTask<Void, Void, Pair<Integer, User>> {
         } else if(loggedInUser instanceof Taxi){
             activityIntent = new Intent(parentActivity, MainTaxiActivity.class);
             final Taxi t = ((Taxi)loggedInUser);
+            t.setAsAvailable();
             t.setAsOnline();
             TravisApplication app = (TravisApplication) parentActivity.getApplication();
             LatLng latLng = app.getCurrentLocation();

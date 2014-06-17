@@ -14,7 +14,8 @@ import java.util.Date;
  *      - HAS-ONE {@link Client} that requests the ride
  *      - HAS-ONE origin position
  *      - HAS-ONE destination position (OPTIONAL)
- *      - HAS-MANY performed {@link Ride}
+ *      - {@link Taxi} HAS-MANY performed {@link Ride}
+ *      - {@link Client} HAS-MANY requested {@link Ride}
  *
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
