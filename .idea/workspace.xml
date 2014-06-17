@@ -60,24 +60,7 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00d128b7-69fd-467e-809b-c5e7a102c646" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\app\app.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\dependencies\AndroidBootstrap\AndroidBootstrap.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\dependencies\DropboxChooserSDK\DropboxChooserSDK.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\dependencies\android-edittext-validator-master\android-edittext-validator-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\projects-android\icm_travis\icm_travis.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/login/LoginTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseObjectWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/ParseUserWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/PersistenceManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Query.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/backend/Ride.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ua/travis/ui/taxichooser/TaxiChooserFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="00d128b7-69fd-467e-809b-c5e7a102c646" name="Default" comment="" />
     <ignored path="Travis.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -4756,7 +4739,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="24" width="1928" height="1060" extended-state="6" />
+    <frame x="-4" y="24" width="1928" height="1060" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
