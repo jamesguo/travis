@@ -128,6 +128,7 @@ public class TravisApplication extends Application implements LocationListener,
     }
 
     public void stopAllRideNotifications() {
+
         // removes all notifications
         for(int id : rideIdsToNotificationIds.values()){
             notificationManager.cancel(id);
@@ -152,12 +153,6 @@ public class TravisApplication extends Application implements LocationListener,
     public final void onConnectionFailed(ConnectionResult connectionResult) {
         if (connectionResult.hasResolution()) {
             locationClient.connect();
-//            try {
-//                connectionResult.startResolutionForResult(this, ConnectionResult.RESOLUTION_REQUIRED);
-//            } catch (IntentSender.SendIntentException e) {
-//            }
-//        } else {
-//            showErrorDialog(connectionResult.getErrorCode());
         }
     }
 

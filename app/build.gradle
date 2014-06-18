@@ -26,7 +26,7 @@ android {
 
 dependencies {
     // Unit and Integration testing libraries
-    //    androidTestCompile 'com.jayway.android.robotium:robotium-solo:4.3.1'
+
 
     // SupportLib v4
     compile 'com.android.support:support-v4:+'
@@ -37,28 +37,28 @@ dependencies {
     }
 
     // Parse API to manage persistence of entities
-    compile fileTree(dir: 'src/main/libs/Parse-1.5.0', include: '*.jar')
+    compile fileTree(dir: '../libraries/Parse-1.5.0', include: '*.jar')
 
     // Firebase API to manage real-time push-based queries
-    compile 'com.firebase:firebase-client:+'
+    compile 'com.firebase:firebase-client:1.0.12'
 
     // Google Play services library to provide maps
-    compile 'com.google.android.gms:play-services:4.4.52'
+    compile 'com.google.android.gms:play-services:+'
 
     // Maps v2 extension library that supports data storage in Markers and clustering management
-    compile 'com.androidmapsextensions:android-maps-extensions:+'
+    compile 'com.androidmapsextensions:android-maps-extensions:2.1.1-SNAPSHOT'
 
     // Asynchronous image downloading, handling and caching
     compile 'com.squareup.picasso:picasso:2.2.0'
 
     // Photo picker API to pick user photos from gallery, camera or social networks
-    compile files('src/main/libs/image-chooser-library-1.3.0.jar')
+    compile files('../libraries/image-chooser-library-1.3.0.jar')
 
     // Progress wheel around the instant taxi button
-    compile project(':dependencies:ProgressWheel-master')
+    compile project(':libraries-sources:ProgressWheel-master')
 
     // "Pull action bar to refresh" feature
-    compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:+'
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:0.9.3'
 
     // Honeycomb animation compatibility for SDK versions lower than 3.0
     compile 'com.nineoldandroids:library:2.4.0'
@@ -71,36 +71,29 @@ dependencies {
     compile 'org.apache.commons:commons-io:1.3.2'
 
     // Better time picker for ride scheduling
-    compile 'com.github.flavienlaurent.datetimepicker:library:+'
+    compile 'com.github.flavienlaurent.datetimepicker:library:0.0.1'
 
     // Styled buttons and edit-texts
-    compile project(':dependencies:AndroidBootstrap'){
-        transitive = false
-    }
+    compile project(':libraries-sources:AndroidBootstrap')
 
     // Login button with progress bar
     compile 'com.github.dmytrodanylyk.android-process-button:library:0.0.7'
 
-    compile project(':dependencies:android-edittext-validator-master'){
-        transitive = false
-    }
+    // EditText Validator used in the sign up process
+    compile project(':libraries-sources:android-edittext-validator-master')
 
     // Dropbox SDK for photo picking
-    compile project(':dependencies:DropboxChooserSDK'){
-        transitive = false
-    }
+    compile project(':libraries-sources:DropboxChooserSDK')
 
     // Showcase wheel for tutorials
     compile 'com.github.amlcurran.showcaseview:library:5.0.0-SNAPSHOT'
 
     // Image View with Ken Burns effect
-    compile files('src/main/libs/KenBurnsView-1.0.1.jar')
+    compile files('../libraries/KenBurnsView-1.0.1.jar')
 
     // Swipe list view to present scheduled rides
-    compile ('com.fortysevendeg.swipelistview:swipelistview:1.0-SNAPSHOT@aar') {
-        transitive = false
-    }
+    compile ('com.fortysevendeg.swipelistview:swipelistview:1.0-SNAPSHOT@aar')
 
     // Paypal SDK for payment
-    compile fileTree(dir: 'src/main/libs/PayPalSDK', include: '*.jar')
+    compile fileTree(dir: '../libraries/PayPalSDK', include: '*.jar')
 }

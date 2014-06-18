@@ -267,6 +267,7 @@ public abstract class MainActivity extends BaseActivity implements WatchEvent<Ri
 
         TravisApplication app = (TravisApplication) getApplication();
         app.stopAllRideNotifications();
+        app.clearListeners();
         PersistenceManager.logout();
 
         Intent intent = new Intent(this, LoginActivity.class);
