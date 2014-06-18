@@ -88,7 +88,7 @@ public class SignUpThirdFragment extends BaseFragment implements OnClickListener
 
         } else if (v.getId() == R.id.type_client_icon) {
             userType = PersistenceManager.TYPE_CLIENT;
-            clientIcon.setBackgroundResource(R.drawable.signup_user_type_frame);
+            clientIcon.setBackgroundResource(R.drawable.background_user_type);
             taxiIcon.setBackgroundResource(android.R.color.white);
             accountTypeName.setText(R.string.client);
             accountTypeInfo.setText(R.string.picked_account_client);
@@ -96,7 +96,7 @@ public class SignUpThirdFragment extends BaseFragment implements OnClickListener
         } else if (v.getId() == R.id.type_taxi_icon) {
             userType = PersistenceManager.TYPE_TAXI;
             clientIcon.setBackgroundResource(android.R.color.white);
-            taxiIcon.setBackgroundResource(R.drawable.signup_user_type_frame);
+            taxiIcon.setBackgroundResource(R.drawable.background_user_type);
             accountTypeName.setText(R.string.taxi);
             accountTypeInfo.setText(R.string.picked_account_taxi);
         }

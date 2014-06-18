@@ -1,5 +1,4 @@
-include ':app'
-include ':libraries-sources:AndroidBootstrap'
-include ':libraries-sources:ProgressWheel-master'
-include ':libraries-sources:DropboxChooserSDK'
-include ':libraries-sources:android-edittext-validator-master'
+include ':app', ':DropboxChooserSDK', 'AndroidBootstrap', 'ProgressWheel-master'
+project(':DropboxChooserSDK').projectDir = new File('libraries-sources/DropboxChooserSDK')
+project(':AndroidBootstrap').projectDir = new File('libraries-sources/AndroidBootstrap')
+project(':ProgressWheel-master').projectDir = new File('libraries-sources/ProgressWheel-master')

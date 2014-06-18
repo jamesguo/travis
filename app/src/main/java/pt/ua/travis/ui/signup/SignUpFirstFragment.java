@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.andreabaccega.widget.FormEditText;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import pt.ua.travis.R;
 import pt.ua.travis.core.BaseFragment;
 
@@ -23,7 +24,7 @@ public class SignUpFirstFragment extends BaseFragment implements OnClickListener
     private SignUpActivity parentActivity;
     private SignUpNavigationListener mCallback;
 
-    private FormEditText firstName, lastName;
+    private BootstrapEditText firstName, lastName;
     private ImageView mNextBtn;
 
     @Override
@@ -49,9 +50,9 @@ public class SignUpFirstFragment extends BaseFragment implements OnClickListener
             welcomeMsg2.setText(R.string.welcome_text2_alt);
         }
 
-        firstName = (FormEditText) parentActivity.findViewById(R.id.field_first_name);
+        firstName = (BootstrapEditText) parentActivity.findViewById(R.id.field_first_name);
         firstName.setText(parentActivity.getFirstName());
-        lastName = (FormEditText) parentActivity.findViewById(R.id.field_last_name);
+        lastName = (BootstrapEditText) parentActivity.findViewById(R.id.field_last_name);
         lastName.setText(parentActivity.getLastName());
 
         mNextBtn = (ImageView) parentActivity.findViewById(R.id.first_next_btn);
@@ -60,19 +61,24 @@ public class SignUpFirstFragment extends BaseFragment implements OnClickListener
         setContentShown(true);
     }
 
+    public static boolean testNameValidity(EditText formWithName){
+        // TODO
+        return true;
+    }
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.first_next_btn) {
 
             boolean failed = false;
-            if(!firstName.testValidity()) {
+            if(!testNameValidity(firstName)) {
                 firstName.setDanger();
                 failed = true;
             } else {
                 firstName.setSuccess();
             }
 
-            if(!lastName.testValidity()) {
+            if(!testNameValidity(lastName)) {
                 lastName.setDanger();
                 failed = true;
             } else {

@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
@@ -28,7 +27,7 @@ import pt.ua.travis.utils.TravisUtils;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class BaseActivity extends SherlockFragmentActivity {
+public abstract class BaseActivity extends SherlockFragmentActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
@@ -103,7 +102,7 @@ public class BaseActivity extends SherlockFragmentActivity {
         params.y = 0;
         params.width = TravisUtils.getScreenWidth(this);
         overlayInfo.setCancelable(false);
-        overlayInfo.setContentView(R.layout.travis_notification_bar);
+        overlayInfo.setContentView(R.layout.notification_bar);
 
         TextView textView = (TextView) overlayInfo.findViewById(R.id.travis_notification_text);
         textView.setText(text);
@@ -152,7 +151,7 @@ public class BaseActivity extends SherlockFragmentActivity {
             params.y = 0;
             params.width = TravisUtils.getScreenWidth(this);
             wifiNotification.setCancelable(false);
-            wifiNotification.setContentView(R.layout.wifi_notification_bar);
+            wifiNotification.setContentView(R.layout.notification_bar_wifi);
             wifiNotification.show();
         }
     }

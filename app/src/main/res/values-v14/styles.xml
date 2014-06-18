@@ -3,9 +3,9 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
-        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_travis</item>
+        <item name="android:actionBarItemBackground">@drawable/background_selectable</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Travis</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Travis</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Travis</item>
@@ -14,7 +14,7 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_travis</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_travis</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Travis</item>
-        <item name="sdlDialogStyle">@style/DialogStyleLight.Custom</item>
+        <item name="sdlDialogStyle">@style/DialogStyleLight_Custom</item>
         <item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item>
     </style>
 
@@ -29,7 +29,7 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="DialogStyleLight.Custom">
+    <style name="DialogStyleLight_Custom">
         <item name="titleTextColor">@color/travis_color</item>
         <item name="titleSeparatorColor">@color/dialog_title_separator</item>
         <item name="messageTextColor">@color/dialog_message_text</item>
@@ -41,7 +41,7 @@
         <item name="dialogBackground">@android:color/white</item>
     </style>
 
-    <style name="DialogStyleLight.FullScreen">
+    <style name="DialogStyleLight_FullScreen">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="titleTextColor">@color/travis_color</item>
@@ -57,9 +57,9 @@
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:background">@color/travis_color</item>
-        <!--<item name="android:background">@drawable/ab_background_textured_travis</item>-->
+        <!--<item name="android:background">@drawable/background_action_bar</item>-->
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_travis</item>
-        <item name="android:backgroundSplit">@drawable/ab_background_textured_travis</item>
+        <item name="android:backgroundSplit">@drawable/background_action_bar</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Travis</item>
         <item name="android:displayOptions">none</item>
     </style>
@@ -76,8 +76,8 @@
     </style>
 
     <style name="RatingBarSmall_travis" parent="android:Widget.Holo.Light.RatingBar.Small">
-        <item name="android:progressDrawable">@drawable/travis_ratingbar_small_holo_light</item>
-        <item name="android:indeterminateDrawable">@drawable/travis_ratingbar_small_holo_light</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_small</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small</item>
     </style>
 
 </resources>

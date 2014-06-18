@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-  <style name="travis" parent="Theme.Sherlock.Light">
-
-    <item name="android:ratingBarStyleSmall">@style/RatingBarSmall_travis</item>
-
-  </style>
-
+    <style name="travis" parent="Theme.Sherlock.Light">
+        <item name="android:ratingBarStyleSmall">@style/RatingBarSmall_travis</item>
+    </style>
 </resources>

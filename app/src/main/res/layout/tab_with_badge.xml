@@ -19,7 +19,7 @@
         android:textSize="10sp"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:background="@drawable/tab_badge"/>
+        android:background="@drawable/action_bar_tab_badge"/>
 
 
 </RelativeLayout>

@@ -21,7 +21,6 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Client;

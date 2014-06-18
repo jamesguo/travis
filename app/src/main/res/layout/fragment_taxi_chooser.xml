@@ -21,7 +21,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/sort_spinner"/>
+        android:background="@drawable/background_sort_spinner"/>
 
 
     <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
@@ -37,7 +37,7 @@
             android:layout_height="@dimen/taxi_item_height"
             android:fadingEdge="horizontal"
             android:animateLayoutChanges="true"
-            android:background="@drawable/item_taxi_shadow"/>
+            android:background="@drawable/shadow_taxi_item"/>
 
     </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
 
@@ -52,7 +52,7 @@
             android:id="@+id/sliding_pane_pager"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@drawable/sliding_pane_shadow"/>
+            android:background="@drawable/shadow_sliding_pane"/>
 
     </pt.ua.travis.ui.customviews.SlidingPaneLayout>
 

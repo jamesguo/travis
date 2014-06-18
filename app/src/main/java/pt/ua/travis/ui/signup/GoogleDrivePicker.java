@@ -53,7 +53,7 @@ public class GoogleDrivePicker extends SherlockActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_travis);
+        setContentView(R.layout.fragment_base);
         LinearLayout layout = (LinearLayout) findViewById(R.id.progress_container);
         layout.setVisibility(View.VISIBLE);
     }

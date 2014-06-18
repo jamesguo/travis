@@ -18,7 +18,7 @@ import pt.ua.travis.R;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class BaseFragment extends SherlockFragment {
+public abstract class BaseFragment extends SherlockFragment {
 
     private View mProgressContainer;
     private View mContentContainer;
@@ -40,14 +40,14 @@ public class BaseFragment extends SherlockFragment {
      * that is to be shown when the content is empty.
      * <p/>
      * <p>If you are overriding this method with your own custom content,
-     * consider including the standard layout {@link R.layout#fragment_travis}
+     * consider including the standard layout {@link R.layout#fragment_base}
      * in your layout file, so that you continue to retain all of the standard
      * behavior of SherlockProgressFragment. In particular, this is currently the only
      * way to have the built-in indeterminant progress state be shown.
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_travis, container, false);
+        return inflater.inflate(R.layout.fragment_base, container, false);
     }
 
     /**

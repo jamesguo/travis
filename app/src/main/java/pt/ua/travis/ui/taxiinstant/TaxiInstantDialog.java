@@ -50,7 +50,7 @@ public class TaxiInstantDialog extends SimpleDialogFragment {
         builder.setTitle(R.string.instant_dialog_title);
         builder.setMessage(R.string.instant_dialog_msg);
 
-        View v = LayoutInflater.from(parentActivity).inflate(R.layout.item_taxi_instant, null);
+        View v = LayoutInflater.from(parentActivity).inflate(R.layout.item_taxi_compact, null);
         TaxiItem.paintViewWithTaxi(parentActivity, v, client, taxi);
         builder.setView(v);
 

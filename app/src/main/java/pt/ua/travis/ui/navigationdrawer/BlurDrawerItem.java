@@ -24,7 +24,7 @@ public class BlurDrawerItem extends BlurDrawerObject {
 
     private void init(Context context){
         LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.blur_item, this);
+        inflater.inflate(R.layout.drawer_item, this);
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         tv_title = (TextView) findViewById(R.id.tv_title);
     }

@@ -22,7 +22,7 @@
         android:id="@+id/instant_button"
         android:layout_width="251dp"
         android:layout_height="251dp"
-        android:background="@drawable/circular_button"
+        android:background="@drawable/button_instant_taxi"
         android:src="@drawable/logo_button"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"

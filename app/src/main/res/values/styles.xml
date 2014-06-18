@@ -3,9 +3,9 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
     <style name="Theme.Travis" parent="@style/Theme.Sherlock.Light">
-        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="actionBarItemBackground">@drawable/selectable_background_travis</item>
+        <item name="actionBarItemBackground">@drawable/background_selectable</item>
         <item name="popupMenuStyle">@style/PopupMenu.Travis</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Travis</item>
         <item name="actionBarTabStyle">@style/ActionBarTabStyle.Travis</item>
@@ -28,7 +28,7 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="DialogStyleLight.Custom">
+    <style name="DialogStyleLight_Custom">
         <item name="titleTextColor">@color/travis_color</item>
         <item name="titleSeparatorColor">@color/dialog_title_separator</item>
         <item name="messageTextColor">@color/dialog_message_text</item>
@@ -40,7 +40,7 @@
         <item name="dialogBackground">@android:color/white</item>
     </style>
 
-    <style name="DialogStyleLight.FullScreen">
+    <style name="DialogStyleLight_FullScreen">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="titleTextColor">@color/travis_color</item>
@@ -85,23 +85,23 @@
     </style>
 
     <style name="DropDownListView.Travis" parent="@style/Widget.Sherlock.Light.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_background_travis</item>
+        <item name="android:listSelector">@drawable/background_selectable</item>
     </style>
 
     <style name="ActionBarTabStyle.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator_ab_travis</item>
+        <item name="android:background">@drawable/action_bar_tab_indicator</item>
         <item name="android:padding">9dp</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="DropDownNav.Travis" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
-        <item name="android:background">@drawable/spinner_background_ab_travis</item>
+        <item name="android:background">@drawable/background_action_bar_spinner</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_travis</item>
-        <item name="android:dropDownSelector">@drawable/selectable_background_travis</item>
+        <item name="android:dropDownSelector">@drawable/background_selectable</item>
     </style>
 
     <style name="ProgressBar.Travis" parent="@style/Widget.Sherlock.Light.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/progress_horizontal_travis</item>
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
     </style>
 
     <style name="ActionButton.CloseMode.Travis" parent="@style/Widget.Sherlock.Light.ActionButton.CloseMode">
@@ -115,8 +115,8 @@
     </style>
 
     <style name="RatingBarSmall_travis">
-        <item name="android:progressDrawable">@drawable/travis_ratingbar_small_holo_light</item>
-        <item name="android:indeterminateDrawable">@drawable/travis_ratingbar_small_holo_light</item>
+        <item name="android:progressDrawable">@drawable/ratingbar_small</item>
+        <item name="android:indeterminateDrawable">@drawable/ratingbar_small</item>
         <item name="android:minHeight">16dip</item>
         <item name="android:maxHeight">16dip</item>
     </style>

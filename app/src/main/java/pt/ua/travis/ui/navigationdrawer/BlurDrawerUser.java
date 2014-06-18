@@ -18,7 +18,7 @@ public class BlurDrawerUser extends BlurDrawerObject {
         super(context);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.blur_user, this);
+        inflater.inflate(R.layout.drawer_user, this);
 
         CircularImageView iv_photo = (CircularImageView) findViewById(R.id.iv_photo);
         Picasso.with(context).load(user.imageUri()).into(iv_photo);

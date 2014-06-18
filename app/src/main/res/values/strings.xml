@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Travis</string>
-    <string name="empty"></string>
     <string name="taxi">Taxi</string>
     <string name="client">Client</string>
     <string name="users">users</string>
@@ -89,8 +88,6 @@ Before you start using Travis, please confirm name below…</string>
     <string name="map_view">Map View</string>
     <string name="current_travel">Current Travel</string>
     <string name="scheduled_rides">Scheduled Rides</string>
-    <!--<string name="drawer_open">Open drawer</string>-->
-    <!--<string name="drawer_close">Close drawer</string>-->
 
 
     <!-- Taxi instant dialog -->

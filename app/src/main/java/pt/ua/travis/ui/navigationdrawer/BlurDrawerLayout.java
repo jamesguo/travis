@@ -56,7 +56,7 @@ public class BlurDrawerLayout extends FrameLayout implements GestureDetector.OnG
     public BlurDrawerLayout(Context context) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.blur_drawer, this);
+        inflater.inflate(R.layout.drawer_layout, this);
         scrollViewLeftDrawer = (ScrollView) findViewById(R.id.sv_left_drawer);
         scrollViewRightDrawer = (ScrollView) findViewById(R.id.sv_right_drawer);
         imageViewShadow = (ImageView) findViewById(R.id.iv_shadow);
