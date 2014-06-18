@@ -130,9 +130,6 @@
         <activity android:name="io.card.payment.DataEntryActivity"
                   android:screenOrientation="portrait" />
 
-        <activity android:name=".ui.travel.PriceSelection"
-                  android:screenOrientation="portrait" />
-
         <activity android:name=".ui.travel.ReadTag"
                   android:screenOrientation="portrait">
             <intent-filter>

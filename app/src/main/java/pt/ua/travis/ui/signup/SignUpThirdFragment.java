@@ -108,8 +108,8 @@ public class SignUpThirdFragment extends BaseFragment implements OnClickListener
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                setContentShown(false);
                 setEmptyText(R.string.setting_up);
+                setContentShown(false);
             }
 
             @Override

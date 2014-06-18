@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+
     // Unit and Integration testing libraries
     androidTestCompile 'junit:junit:4.11'
     androidTestCompile 'org.hamcrest:hamcrest-library:1.3'

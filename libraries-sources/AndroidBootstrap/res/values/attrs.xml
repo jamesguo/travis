@@ -27,23 +27,6 @@
         <attr name="android:text"/>
         <attr name="android:hint"/>
         <attr name="android:enabled"/>
-        
-    </declare-styleable>
-    
-     <declare-styleable name="BootstrapThumbnail"> 
-         <attr name="bt_roundedCorners" format="boolean"/>
-         <attr name="bt_image" format="integer"/>
-         <attr name="bt_width" format="dimension"/>
-         <attr name="bt_height" format="dimension"/>
-         <attr name="bt_inside_padding" format="dimension"/>
-         <attr name="android:text"/>
-     </declare-styleable>
-
-    <declare-styleable name="BootstrapCircleThumbnail">
-        <attr name="bct_image" format="integer"/>
-        <attr name="bct_size" format="string" />
-        <attr name="bct_minimal" format="boolean" />
-        <attr name="android:text"/>
     </declare-styleable>
     
 </resources>
