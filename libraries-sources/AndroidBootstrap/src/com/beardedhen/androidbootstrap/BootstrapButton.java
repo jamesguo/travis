@@ -361,7 +361,7 @@ public class BootstrapButton extends FrameLayout {
         if (leftIcon == null) {
             icon = FontAwesomeText.FA_ICON_QUESTION;
         } else {
-            icon = "\\uf" + leftIcon;
+            icon = leftIcon;
         }
 
         lblLeft.setText(icon);
@@ -378,7 +378,7 @@ public class BootstrapButton extends FrameLayout {
         if (rightIcon == null) {
             icon = FontAwesomeText.FA_ICON_QUESTION;
         } else {
-            icon = "\\uf" + rightIcon;
+            icon = rightIcon;
         }
 
         lblRight.setText(icon);

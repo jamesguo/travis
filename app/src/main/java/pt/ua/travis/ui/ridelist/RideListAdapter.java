@@ -95,7 +95,7 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
         final Ride r = item.getRideObject();
         holder.timeToRide.setText(r.getRemaining());
         if (item.getUserTypeToShow() == RideItem.SHOW_TAXI) {
-            holder.originIcon.setIcon("fa-taxi");
+            holder.originIcon.setIcon("1ba");
         }
 
 

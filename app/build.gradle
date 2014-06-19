@@ -28,11 +28,12 @@ android {
 
     lintOptions {
         abortOnError false
+        disable 'InvalidPackage'
     }
 
     buildTypes {
         debug {
-            applicationIdSuffix '.debug'
+//            applicationIdSuffix '.debug'
             runProguard false
             zipAlign false // this is default for debug
         }

@@ -236,7 +236,7 @@ public class FontAwesomeText extends FrameLayout {
         if (faIcon == null) {
             icon = FA_ICON_QUESTION;
         } else {
-            icon = "\\uf" + faIcon;
+            icon = faIcon;
         }
 
         tv.setText(icon);

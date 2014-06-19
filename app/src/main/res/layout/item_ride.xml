@@ -100,7 +100,7 @@
                 <com.beardedhen.androidbootstrap.FontAwesomeText
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    fontawesometext:fa_icon="fa-clock-o"
+                    fontawesometext:fa_icon="\uf017"
                     android:gravity="center|left"
                     android:textSize="18sp"/>
 
@@ -126,7 +126,7 @@
                     android:id="@+id/origin_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    fontawesometext:fa_icon="fa-user"
+                    fontawesometext:fa_icon="\uf007"
                     android:gravity="center|left"
                     android:textSize="18sp"/>
 
@@ -152,7 +152,7 @@
                 <com.beardedhen.androidbootstrap.FontAwesomeText
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    fontawesometext:fa_icon="fa-location-arrow"
+                    fontawesometext:fa_icon="\uf124"
                     android:gravity="center|left"
                     android:textSize="18sp"/>
 
