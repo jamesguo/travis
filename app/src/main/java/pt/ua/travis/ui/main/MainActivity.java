@@ -8,12 +8,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.common.collect.Lists;
@@ -39,11 +39,11 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public abstract class MainActivity extends BaseActivity implements WatchEvent<Ride> {
+public abstract class MainActivity extends BaseActivity implements WatchEvent<Ride>, ActionBar.TabListener {
 
     protected RideListFragment currentlyShownRideListFragment;
     private FrameLayout container;
-    protected LockedViewPager tabPager;
+    private LockedViewPager tabPager;
     private PullToRefreshLayout pullToRefreshLayout;
     private BlurDrawerLayout drawerLayout;
     private static List<BlurDrawerObject> drawerItems;
@@ -129,7 +129,8 @@ public abstract class MainActivity extends BaseActivity implements WatchEvent<Ri
         }
 
         tabPager = (LockedViewPager) findViewById(R.id.tab_pager);
-        tabPager.setOffscreenPageLimit(0);
+        tabPager.setAdapter(getTabPagerAdapter());
+        tabPager.setOffscreenPageLimit(4);
 
         drawerLayout = new BlurDrawerLayout(this);
         drawerLayout.disableSide(BlurDrawerLayout.RIGHT_SIDE);
@@ -172,6 +173,13 @@ public abstract class MainActivity extends BaseActivity implements WatchEvent<Ri
 //            }
 //        };
 //        drawerLayout.setDrawerListener(drawerToggle);
+    }
+
+    protected abstract TabPagerAdapter getTabPagerAdapter();
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        tabPager.setCurrentItem(tab.getPosition(), true);
     }
 
     @Override
@@ -282,7 +290,7 @@ public abstract class MainActivity extends BaseActivity implements WatchEvent<Ri
         setIntent(intent);
     }
 
-    protected abstract class TabPagerAdapter extends FragmentPagerAdapter {
+    protected abstract class TabPagerAdapter extends FragmentStatePagerAdapter {
 
         public TabPagerAdapter() {
             super(getSupportFragmentManager());

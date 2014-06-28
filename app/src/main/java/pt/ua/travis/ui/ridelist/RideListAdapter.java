@@ -2,13 +2,13 @@ package pt.ua.travis.ui.ridelist;
 
 import android.content.Context;
 import android.location.Address;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.FontAwesomeText;
-import com.fortysevendeg.swipelistview.SwipeListView;
 import com.google.android.gms.maps.model.LatLng;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
@@ -29,7 +29,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class RideListAdapter extends BaseAdapter implements ListAdapter {
+public class RideListAdapter extends RecyclerView.Adapter<RideListAdapter.RideItemHolder> {
 
     private MainActivity parentActivity;
     private RideListFragment rideListFragment;
@@ -48,43 +48,36 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
     }
 
     @Override
-    public int getCount() {
-        return itemList.size();
-    }
-
-    @Override
-    public RideItem getItem(int position) {
-        return itemList.get(position);
-    }
-
-    @Override
     public long getItemId(int position) {
         return position;
     }
 
     @Override
-    public View getView(final int position, View convertView, final ViewGroup parent) {
-        final RideItem item = getItem(position);
-        final ViewHolder holder;
-        if (convertView == null) {
-            LayoutInflater li = (LayoutInflater) parentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = li.inflate(R.layout.item_ride, parent, false);
-            holder = new ViewHolder();
-            holder.withUserPhoto = (CircularImageView) convertView.findViewById(R.id.with_user_photo);
-            holder.withUserFavoriteFlag = (ImageView) convertView.findViewById(R.id.with_user_favorite_flag);
-            holder.withUserName = (TextView) convertView.findViewById(R.id.with_user_name);
-            holder.timeToRide = (TextView) convertView.findViewById(R.id.time_to_ride);
-            holder.originIcon = (FontAwesomeText) convertView.findViewById(R.id.origin_icon);
-            holder.originLabel = (TextView) convertView.findViewById(R.id.origin_label);
-            holder.destinationLabel = (TextView) convertView.findViewById(R.id.destination_label);
-            holder.optionButton = (BootstrapButton) convertView.findViewById(R.id.ride_item_option_button);
-            holder.cancelRideButton = (BootstrapButton) convertView.findViewById(R.id.cancel_ride_button);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
+    public int getItemCount() {
+        return itemList.size();
+    }
 
-        ((SwipeListView)parent).recycle(convertView, position);
+    @Override
+    public RideItemHolder onCreateViewHolder(ViewGroup parent, int i) {
+        LayoutInflater li = (LayoutInflater) parentActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = li.inflate(R.layout.item_ride, parent, false);
+
+        final RideItemHolder holder = new RideItemHolder(v);
+        holder.withUserPhoto = (CircularImageView) v.findViewById(R.id.with_user_photo);
+        holder.withUserFavoriteFlag = (ImageView) v.findViewById(R.id.with_user_favorite_flag);
+        holder.withUserName = (TextView) v.findViewById(R.id.with_user_name);
+        holder.timeToRide = (TextView) v.findViewById(R.id.time_to_ride);
+        holder.originIcon = (FontAwesomeText) v.findViewById(R.id.origin_icon);
+        holder.originLabel = (TextView) v.findViewById(R.id.origin_label);
+        holder.destinationLabel = (TextView) v.findViewById(R.id.destination_label);
+        holder.optionButton = (BootstrapButton) v.findViewById(R.id.ride_item_option_button);
+        holder.cancelRideButton = (BootstrapButton) v.findViewById(R.id.cancel_ride_button);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(final RideItemHolder holder, int position) {
+        final RideItem item = itemList.get(position);
 
         Picasso.with(parentActivity).load(item.getUserPhoto()).into(holder.withUserPhoto);
         holder.withUserName.setText(item.getUserName());
@@ -164,12 +157,9 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
                 rideListFragment.onRefreshStarted(null);
             }
         });
-
-
-        return convertView;
     }
 
-    static class ViewHolder {
+    static class RideItemHolder extends RecyclerView.ViewHolder {
         CircularImageView withUserPhoto;
         ImageView withUserFavoriteFlag;
         TextView withUserName;
@@ -179,5 +169,9 @@ public class RideListAdapter extends BaseAdapter implements ListAdapter {
         TextView destinationLabel;
         BootstrapButton optionButton;
         BootstrapButton cancelRideButton;
+
+        private RideItemHolder(View v) {
+            super(v);
+        }
     }
 }

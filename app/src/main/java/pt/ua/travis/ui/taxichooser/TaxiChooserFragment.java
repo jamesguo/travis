@@ -31,7 +31,6 @@ import pt.ua.travis.core.BaseMapFragment;
 import pt.ua.travis.core.TravisApplication;
 import pt.ua.travis.ui.customviews.*;
 import pt.ua.travis.ui.main.MainClientActivity;
-import pt.ua.travis.ui.riderequest.RideRequestPagerAdapter;
 import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.Pair;
 import pt.ua.travis.utils.TravisUtils;
@@ -41,10 +40,7 @@ import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -66,7 +62,7 @@ public class TaxiChooserFragment extends BaseFragment
 
     protected TaxiItemAdapter taxiPagerAdapter;
 
-    private ViewPager taxiPager;
+    private TaxiItemViewPager taxiPager;
 
     private PullToRefreshLayout pullToRefreshLayout;
 
@@ -77,7 +73,7 @@ public class TaxiChooserFragment extends BaseFragment
 
 
     public TaxiChooserFragment() {
-        itemToMarkerMappings = TravisUtils.newMap();
+        itemToMarkerMappings = new LinkedHashMap<String, Pair<Marker, TaxiItem>>();
     }
 
 
@@ -132,15 +128,13 @@ public class TaxiChooserFragment extends BaseFragment
 
             @Override
             public boolean onMyLocationButtonClick() {
-                if(!myLocationToggle){
-                    TaxiItem selectedItem = taxiPagerAdapter.getItem(taxiPagerAdapter.getCurrentPosition());
-                    String selectedItemID = selectedItem.getTaxiObject().id();
-
-                    Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
+                if(!myLocationToggle) {
+                    Pair<Marker, TaxiItem> matchedPair =
+                            itemToMarkerMappings.get(taxiPagerAdapter.getCurrentlySelectedTaxiId());
 
                     lastMarker = matchedPair.first;
                     LatLng userPosition = ((TravisApplication) getActivity().getApplication()).getCurrentLocation();
-                    LatLng realNewPos = new LatLng(userPosition.latitude+0.002, userPosition.longitude);
+                    LatLng realNewPos = new LatLng(userPosition.latitude + 0.002, userPosition.longitude);
                     map.animateCamera(CameraUpdateFactory.newLatLng(realNewPos), 900, null);
                     myLocationToggle = true;
                 } else {
@@ -174,18 +168,17 @@ public class TaxiChooserFragment extends BaseFragment
         map.moveCamera(CameraUpdateFactory.zoomTo(17.0f));
 
 
-        taxiPager = (ViewPager) getActivity().findViewById(R.id.taxi_pager);
-        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), new ArrayList<Taxi>());
+        taxiPager = (TaxiItemViewPager) getActivity().findViewById(R.id.taxi_pager);
+        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager());
         taxiPager.setAdapter(taxiPagerAdapter);
         taxiPager.setOffscreenPageLimit(3);
 //        taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
 //        taxiPager.setFadeEnabled(true);
-        taxiPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        taxiPager.setOnPageChangeListener(new TaxiItemViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int i) {
                 select(i);
-                taxiPagerAdapter.setCurrentPosition(i);
             }
 
             @Override
@@ -205,7 +198,7 @@ public class TaxiChooserFragment extends BaseFragment
                         .scrollDistance(3.5f)
                         .build())
                 .allChildrenArePullable()
-                .useViewDelegate(ViewPager.class, new ViewPagerDelegate())
+                .useViewDelegate(TaxiItemViewPager.class, new CustomViewDelegate())
                 .listener(this)
                 .setup(pullToRefreshLayout);
         DefaultHeaderTransformer headerTransformer = (DefaultHeaderTransformer) pullToRefreshLayout.getHeaderTransformer();
@@ -263,7 +256,6 @@ public class TaxiChooserFragment extends BaseFragment
             @Override
             public void onResult(List<Taxi> result) {
                 updateTaxis(result);
-                select(0);
                 setContentShown(true);
             }
         });
@@ -285,18 +277,32 @@ public class TaxiChooserFragment extends BaseFragment
     }
 
     public final void updateTaxis(List<Taxi> newTaxis) {
+        Client thisClient = PersistenceManager.getCurrentlyLoggedInUser();
 
         // remove duplicates
         newTaxis = new ArrayList<Taxi>(new LinkedHashSet<Taxi>(newTaxis));
 
+        map.clear();
         itemToMarkerMappings.clear();
-        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager(), newTaxis);
+        for (Taxi t : newTaxis) {
+            TaxiItem item = TaxiItem.create(parentActivity, thisClient, t);
+            Pair<Marker, TaxiItem> pair = TravisUtils.newPair(null, item);
+            itemToMarkerMappings.put(t.id(), pair);
+        }
 
-        // FIX-ME app might crash below for some unspecified reason (not frequent)
+        String oldSelectedId = taxiPagerAdapter.currentlySelectedId;
+
+        taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager());
         taxiPager.setAdapter(taxiPagerAdapter);
-
         taxiPagerAdapter.notifyDataSetChanged();
         updateMarkers(newTaxis);
+
+        Pair<Marker, TaxiItem> pair = itemToMarkerMappings.get(oldSelectedId);
+        if (pair != null) {
+            select(pair.first);
+        } else {
+            select(0);
+        }
     }
 
 
@@ -307,46 +313,33 @@ public class TaxiChooserFragment extends BaseFragment
      *
      * @param taxis the specified taxi list whose markers will be added to the map
      */
-    protected final void updateMarkers(List<Taxi> taxis){
-        map.clear();
+    public final void updateMarkers(List<Taxi> taxis){
+        String oldSelectedId = taxiPagerAdapter.currentlySelectedId;
 
         for (Taxi t : taxis) {
-            Marker m = map.addMarker(getMarkerOptions(t));
-            TaxiItem item = taxiPagerAdapter.idsToItems.get(t.id());
-            itemToMarkerMappings.put(t.id(), TravisUtils.newPair(m, item));
-        }
-
-    }
-
-
-    public final void updateTaxiLocationsOnly(List<Taxi> taxis) {
-        int selectedIndex = taxiPagerAdapter.currentlySelectedIndex;
-        for (Taxi t : taxis) {
-            String id = t.id();
-
-            Pair<Marker, TaxiItem> pair = itemToMarkerMappings.get(id);
+            Pair<Marker, TaxiItem> pair = itemToMarkerMappings.get(t.id());
             if(pair == null){
                 // taxi to update could not be found, probably because the list was updated again
                 continue;
             }
-
             Marker oldM = pair.first;
-            oldM.setVisible(false);
-            oldM.remove();
+            if(oldM != null) {
+                oldM.setVisible(false);
+                oldM.remove();
+            }
 
-            Marker newM = map.addMarker(getMarkerOptions(t));
+            Marker newM = map.addMarker(instantiateMarkerForTaxi(t));
+            TaxiItem item = pair.second;
+            itemToMarkerMappings.put(t.id(), TravisUtils.newPair(newM, item));
 
-            itemToMarkerMappings.put(id, TravisUtils.newPair(newM, pair.second));
-
-
-            int thisItemIndex = taxiPagerAdapter.getItemPosition(pair.second);
-            if (thisItemIndex == selectedIndex) {
-                moveMapToMarker(newM);
+            if (t.id().equals(oldSelectedId)) {
+                moveMapToMarker(pair.first);
+                taxiPagerAdapter.setCurrentlySelectedTaxiId(t.id());
             }
         }
     }
 
-    private MarkerOptions getMarkerOptions(Taxi t) {
+    private MarkerOptions instantiateMarkerForTaxi(Taxi t) {
         MarkerOptions options = new MarkerOptions()
                 .data(t.id())
                 .position(t.currentPosition())
@@ -379,6 +372,7 @@ public class TaxiChooserFragment extends BaseFragment
         String selectedItemID = selectedItem.getTaxiObject().id();
 
         Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedItemID);
+        taxiPagerAdapter.setCurrentlySelectedTaxiId(matchedPair.second.getTaxiObject().id());
         finishSelect(position, matchedPair.first);
     }
 
@@ -399,6 +393,7 @@ public class TaxiChooserFragment extends BaseFragment
 
         Pair<Marker, TaxiItem> matchedPair = itemToMarkerMappings.get(selectedMarkerID);
         int position = taxiPagerAdapter.getItemPosition(matchedPair.second);
+        taxiPagerAdapter.setCurrentlySelectedTaxiId(matchedPair.second.getTaxiObject().id());
         finishSelect(position, marker);
     }
 
@@ -413,7 +408,6 @@ public class TaxiChooserFragment extends BaseFragment
      */
     protected void finishSelect(int position, Marker marker){
         taxiPager.setCurrentItem(position, true);
-        taxiPagerAdapter.setCurrentPosition(position);
         myLocationToggle = false;
         moveMapToMarker(marker);
     }
@@ -502,7 +496,6 @@ public class TaxiChooserFragment extends BaseFragment
             public void onResult(List<Taxi> result) {
                 updateTaxis(result);
                 pullToRefreshLayout.setRefreshComplete();
-//                select(0);
             }
         };
         pullToRefreshLayout.setRefreshing(true);
@@ -546,45 +539,24 @@ public class TaxiChooserFragment extends BaseFragment
 
     private class TaxiItemAdapter extends FragmentStatePagerAdapter {
 
-        private Map<String, TaxiItem> idsToItems = TravisUtils.newMap();
-        private List<Taxi> taxiList;
-        private int currentlySelectedIndex;
+        private String currentlySelectedId;
 
-        private Client thisClient;
-
-        private TaxiItemAdapter(FragmentManager manager, List<Taxi> taxiList){
+        private TaxiItemAdapter(FragmentManager manager){
             super(manager);
-            this.taxiList = taxiList;
-            this.currentlySelectedIndex = 0;
-
-            thisClient = PersistenceManager.getCurrentlyLoggedInUser();
-        }
-
-        public void update(List<Taxi> newTaxiList){
-            taxiList.clear();
-            idsToItems.clear();
-            taxiList.addAll(newTaxiList);
-            notifyDataSetChanged();
+            this.currentlySelectedId = null;
         }
 
         @Override
         public TaxiItem getItem(int position) {
-            String id = getItemId(position);
-
-            if(idsToItems.containsKey(id)) {
-                // caching to prevent multiple instances of the same fragment
-                // for the same position/id
-                return idsToItems.get(id);
+            int i = 0;
+            Collection<Pair<Marker, TaxiItem>> orderedItems = itemToMarkerMappings.values();
+            for (Pair<Marker, TaxiItem> pair : orderedItems) {
+                if(i == position){
+                    return pair.second;
+                }
+                i++;
             }
-
-            TaxiItem f = TaxiItem.create(parentActivity, thisClient, taxiList.get(position));
-            idsToItems.put(id, f);
-            return f;
-        }
-
-        public String getItemId(int position) {
-            // return a unique id
-            return taxiList.get(position).id();
+            return null;
         }
 
         @Override
@@ -616,9 +588,9 @@ public class TaxiChooserFragment extends BaseFragment
             // does not exist anymore.
 
             // Also, cleanup: remove reference to Fragment from mItems
-            for(Map.Entry<String, TaxiItem> entry : idsToItems.entrySet()) {
-                if(entry.getValue().equals(f)) {
-                    idsToItems.remove(entry.getKey());
+            for(Map.Entry<String, Pair<Marker, TaxiItem>> entry : itemToMarkerMappings.entrySet()) {
+                if(entry.getValue().second.equals(f)) {
+                    itemToMarkerMappings.remove(entry.getKey());
                     break;
                 }
             }
@@ -629,15 +601,15 @@ public class TaxiChooserFragment extends BaseFragment
 
         @Override
         public int getCount() {
-            return taxiList.size();
+            return itemToMarkerMappings.size();
         }
 
-        public void setCurrentPosition(int position) {
-            currentlySelectedIndex = position;
+        public void setCurrentlySelectedTaxiId(String id) {
+            currentlySelectedId = id;
         }
 
-        public int getCurrentPosition(){
-            return currentlySelectedIndex;
+        public String getCurrentlySelectedTaxiId(){
+            return currentlySelectedId;
         }
     }
 }

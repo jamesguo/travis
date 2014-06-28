@@ -1,4 +1,4 @@
-package pt.ua.travis.ui.riderequest;
+package pt.ua.travis.riderequest;
 
 import com.google.android.gms.maps.model.LatLng;
 import pt.ua.travis.backend.Client;

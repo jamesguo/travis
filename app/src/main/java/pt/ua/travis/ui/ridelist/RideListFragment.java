@@ -2,13 +2,15 @@ package pt.ua.travis.ui.ridelist;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import com.fortysevendeg.swipelistview.SwipeListView;
 import com.google.common.collect.Lists;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Callback;
 import pt.ua.travis.backend.Ride;
 import pt.ua.travis.core.BaseFragment;
+import pt.ua.travis.ui.customviews.CustomViewDelegate;
 import pt.ua.travis.ui.main.MainActivity;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
@@ -31,7 +33,8 @@ public class RideListFragment extends BaseFragment implements OnRefreshListener 
 
     private MainActivity parentActivity;
     private PullToRefreshLayout pullToRefreshLayout;
-    private SwipeListView listView;
+    private RecyclerView listView;
+    private RecyclerView.LayoutManager layoutManager;
     private RideListAdapter adapter;
 
     public static RideListFragment newInstance(int showWhat) {
@@ -55,7 +58,17 @@ public class RideListFragment extends BaseFragment implements OnRefreshListener 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setContentView(R.layout.fragment_ride_list);
-        listView = (SwipeListView) parentActivity.findViewById(R.id.ride_list);
+        listView = (RecyclerView) parentActivity.findViewById(R.id.ride_list);
+
+        // improves performance since changes in content do not change the size of the RecyclerView
+        listView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(parentActivity);
+        listView.setLayoutManager(layoutManager);
+
+
+
 
         parentActivity.getRideList(false, new Callback<List<Ride>>() {
             @Override
@@ -68,7 +81,7 @@ public class RideListFragment extends BaseFragment implements OnRefreshListener 
                         .options(Options.create()
                                 .refreshOnUp(true)
                                 .build())
-                        .allChildrenArePullable()
+                        .useViewDelegate(RecyclerView.class, new CustomViewDelegate())
                         .listener(RideListFragment.this)
                         .setup(pullToRefreshLayout);
 

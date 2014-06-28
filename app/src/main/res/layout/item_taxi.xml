@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/taxi_item_height"
-    android:background="@color/white_transp">
+    android:background="@android:color/transparent">
 
     <pt.ua.travis.ui.customviews.SquareCircularImageView
         android:id="@+id/taxi_photo"
@@ -19,8 +19,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
         app:border="true"
-        app:border_width="1dp"
-        app:shadow="true"/>
+        app:border_width="3dp"
+        app:shadow="false"/>
 
     <ImageView
         android:id="@+id/taxi_favorite_flag"

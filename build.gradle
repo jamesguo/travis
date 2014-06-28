@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.11.1'
+        classpath 'com.android.tools.build:gradle:0.11.+'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.3'
     }
 }
@@ -14,6 +14,6 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' }
+        maven { url 'http://clinker.47deg.com/nexus/content/groups/public' } // for swipe view
     }
 }

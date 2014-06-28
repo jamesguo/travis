@@ -74,13 +74,26 @@ public final class TravisUtils {
     /**
      * Convenience method for creating an appropriately typed pair, which
      * also reduces the code length when instantiating a new Pair.
-     * For example, using this constructor will convertLater
-     *      "new Pair< Object, Pair< Object > >(first, second);"
+     * For example, using this constructor will convert
+     *      "new Pair< Object, Object >(first, second);"
      * into
      *      "TravisUtils.newPair(first, second);"
      */
     public static <F, S> Pair<F, S> newPair(F first, S second){
         return new Pair<F, S>(first, second);
+    }
+
+
+    /**
+     * Convenience method for creating an appropriately typed triple, which
+     * also reduces the code length when instantiating a new Triple.
+     * For example, using this constructor will convert
+     *      "new Triple< Object, Object, Object >(first, second, third);"
+     * into
+     *      "TravisUtils.newTriple(first, second, third);"
+     */
+    public static <F, S, T> Triple<F, S, T> newTriple(F first, S second, T third){
+        return new Triple<F, S, T>(first, second, third);
     }
 
 

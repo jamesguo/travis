@@ -1,4 +1,4 @@
-package pt.ua.travis.ui.riderequest;
+package pt.ua.travis.riderequest;
 
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;

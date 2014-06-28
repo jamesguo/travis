@@ -1,7 +1,6 @@
 package pt.ua.travis.ui.main;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -36,8 +35,8 @@ import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
-import pt.ua.travis.ui.riderequest.RideBuilder;
-import pt.ua.travis.ui.riderequest.RideRequestTask;
+import pt.ua.travis.riderequest.RideBuilder;
+import pt.ua.travis.riderequest.RideRequestTask;
 import pt.ua.travis.ui.taxichooser.TaxiChooserFragment;
 import pt.ua.travis.ui.taxiinstant.TaxiInstantFragment;
 import pt.ua.travis.utils.CommonKeys;
@@ -53,9 +52,7 @@ import java.util.List;
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))
  * @version 1.0
  */
-public class MainClientActivity extends MainActivity
-        implements ActionBar.TabListener,
-        TimePickerDialog.OnTimeSetListener {
+public class MainClientActivity extends MainActivity implements TimePickerDialog.OnTimeSetListener {
 
     private static List<Taxi> nearTaxiList;
     private static List<Taxi> highestRatedTaxiList;
@@ -115,29 +112,7 @@ public class MainClientActivity extends MainActivity
         currentlyShownChooserFragment = new TaxiChooserFragment();
         currentlyShownTravelFragment = new CurrentTravelFragment();
         currentlyShownRideListFragment = RideListFragment.newInstance(RideItem.SHOW_TAXI);
-        tabPager.setAdapter(new TabPagerAdapter() {
-
-            @Override
-            public Fragment getFragment(int position) {
-                switch (position) {
-                    case 0:
-                        return currentlyShownInstantFragment;
-                    case 1:
-                        return currentlyShownChooserFragment;
-                    case 2:
-                        return currentlyShownTravelFragment;
-                    case 3:
-                        return currentlyShownRideListFragment;
-                }
-                return null;
-            }
-
-            @Override
-            public int getCount() {
-                return 4;
-            }
-        });
-        tabPager.setOffscreenPageLimit(4);
+//        tabPager.setOffscreenPageLimit(4);
 ////        tabPager.setPagingEnabled(false);
 //        tabPager.setFadeEnabled(false);
 //        tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
@@ -158,6 +133,32 @@ public class MainClientActivity extends MainActivity
         String loggedInString = getString(R.string.logged_in_as_X);
         loggedInString += " " + thisClient.name();
         showTravisNotification(loggedInString, thisClient.imageUri(), NotificationColor.DEFAULT);
+    }
+
+    @Override
+    protected TabPagerAdapter getTabPagerAdapter() {
+        return new TabPagerAdapter() {
+
+            @Override
+            public Fragment getFragment(int position) {
+                switch (position) {
+                    case 0:
+                        return currentlyShownInstantFragment;
+                    case 1:
+                        return currentlyShownChooserFragment;
+                    case 2:
+                        return currentlyShownTravelFragment;
+                    case 3:
+                        return currentlyShownRideListFragment;
+                }
+                return null;
+            }
+
+            @Override
+            public int getCount() {
+                return 4;
+            }
+        };
     }
 
     @Override
@@ -406,7 +407,7 @@ public class MainClientActivity extends MainActivity
         PersistenceManager.watchTaxis(taxiList, new WatchEvent<List<Taxi>>() {
             @Override
             public void onEvent(List<Taxi> changedObjects) {
-                currentlyShownChooserFragment.updateTaxiLocationsOnly(changedObjects);
+                currentlyShownChooserFragment.updateMarkers(changedObjects);
             }
         });
     }
@@ -572,7 +573,7 @@ public class MainClientActivity extends MainActivity
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        tabPager.setCurrentItem(tab.getPosition(), true);
+        super.onTabSelected(tab, fragmentTransaction);
         currentlyShownFragmentIndex = tab.getPosition();
     }
 

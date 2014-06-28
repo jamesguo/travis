@@ -54,17 +54,17 @@
         <item name="dialogBackground">@android:color/white</item>
     </style>
 
-    <style name="CustomShowcaseTheme" parent="ShowcaseView.Light">
-        <item name="sv_backgroundColor">@color/travis_color_darker</item>
-        <item name="sv_showcaseColor">@color/travis_color</item>
-        <item name="sv_buttonText">Hide</item>
-        <item name="sv_tintButtonColor">false</item>
-        <item name="sv_titleTextAppearance">@style/CustomTitle</item>
-    </style>
+    <!--<style name="CustomShowcaseTheme" parent="ShowcaseView.Light">-->
+        <!--<item name="sv_backgroundColor">@color/travis_color_darker</item>-->
+        <!--<item name="sv_showcaseColor">@color/travis_color</item>-->
+        <!--<item name="sv_buttonText">Hide</item>-->
+        <!--<item name="sv_tintButtonColor">false</item>-->
+        <!--<item name="sv_titleTextAppearance">@style/CustomTitle</item>-->
+    <!--</style>-->
 
-    <style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title">
-        <item name="android:textColor">@color/travis_color</item>
-    </style>
+    <!--<style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title">-->
+        <!--<item name="android:textColor">@color/travis_color</item>-->
+    <!--</style>-->
 
     <style name="ActionBar.Solid.Travis" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">
         <item name="android:background">@color/travis_color</item>

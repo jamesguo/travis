@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.1.0'
+    buildToolsVersion '20.0.0'
 
     defaultConfig {
         minSdkVersion 14
@@ -56,27 +56,51 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-core:1.9.5'
 
     // SupportLib v4
-    compile 'com.android.support:support-v4:+'
+    compile ('com.android.support:support-v4:20.+')
+
+    // Card view for map overlay info
+    compile ('com.android.support:cardview-v7:+'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
+
+    // Recycler view for high-performance ride list
+    compile ('com.android.support:recyclerview-v7:+'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
+
+//    //
+//    compile ('com.android.support:palette-v7:+'){
+//        exclude group: 'com.android.support', module:'support-v4'
+//    }
 
     // SupportLib v4 extension library that facilitates action bar implementation
     compile ('com.actionbarsherlock:actionbarsherlock:4.4.0@aar'){
-        exclude group: 'com.android.support'
+        exclude group: 'com.android.support', module:'support-v4'
     }
 
     // Parse API to manage persistence of entities
     compile fileTree(dir: '../libraries/Parse-1.5.0', include: '*.jar')
 
     // Firebase API to manage real-time push-based queries
-    compile 'com.firebase:firebase-client:1.0.12'
+    compile ('com.firebase:firebase-client:1.0.12'){
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
 
     // Google Play services library to provide maps
-    compile 'com.google.android.gms:play-services:+'
+    compile ('com.google.android.gms:play-services:+'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Maps v2 extension library that supports data storage in Markers and clustering management
-    compile 'com.androidmapsextensions:android-maps-extensions:2.1.1-SNAPSHOT'
+    compile ('com.androidmapsextensions:android-maps-extensions:2.1.0'){
+        exclude group: 'com.android.support', module:'support-v4'
+        exclude group: 'com.google.android.gms', module:'support-v4'
+    }
 
     // Asynchronous image downloading, handling and caching
-    compile 'com.squareup.picasso:picasso:2.2.0'
+    compile ('com.squareup.picasso:picasso:2.2.0'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Photo picker API to pick user photos from gallery, camera or social networks
     compile files('../libraries/image-chooser-library-1.3.0.jar')
@@ -85,38 +109,42 @@ dependencies {
     compile project(':ProgressWheel-master')
 
     // "Pull action bar to refresh" feature
-    compile 'com.github.chrisbanes.actionbarpulltorefresh:extra-abs:0.9.3'
+    compile ('com.github.chrisbanes.actionbarpulltorefresh:extra-abs:0.9.3'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Honeycomb animation compatibility for SDK versions lower than 3.0
-    compile 'com.nineoldandroids:library:2.4.0'
+    compile ('com.nineoldandroids:library:2.4.0'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Custom styled dialogs
-    compile 'eu.inmite.android.lib:android-styled-dialogs:1.1.2@aar'
+    compile ('eu.inmite.android.lib:android-styled-dialogs:1.1.2@aar'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Java primitives and data structure utils
-    compile 'com.google.guava:guava:17.0'
-    compile 'org.apache.commons:commons-io:1.3.2'
+    compile ('com.google.guava:guava:17.0')
+    compile ('org.apache.commons:commons-io:1.3.2')
 
     // Better time picker for ride scheduling
-    compile 'com.github.flavienlaurent.datetimepicker:library:0.0.1'
+    compile ('com.github.flavienlaurent.datetimepicker:library:0.0.1'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Styled buttons and edit-texts
     compile project(':AndroidBootstrap')
 
     // Login button with progress bar
-    compile 'com.github.dmytrodanylyk.android-process-button:library:0.0.7'
+    compile ('com.github.dmytrodanylyk.android-process-button:library:0.0.7'){
+        exclude group: 'com.android.support', module:'support-v4'
+    }
 
     // Dropbox SDK for photo picking
     compile project(':DropboxChooserSDK')
 
-    // Showcase wheel for tutorials
-    compile 'com.github.amlcurran.showcaseview:library:5.0.0-SNAPSHOT'
-
     // Image View with Ken Burns effect
     compile files('../libraries/KenBurnsView-1.0.1.jar')
-
-    // Swipe list view to present scheduled rides
-    compile ('com.fortysevendeg.swipelistview:swipelistview:1.0-SNAPSHOT@aar')
 
     // Paypal SDK for payment
     compile fileTree(dir: '../libraries/PayPalSDK', include: '*.jar')

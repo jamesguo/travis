@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Travis</string>
     <string name="taxi">Taxista</string>
     <string name="client">Cliente</string>
     <string name="users">pessoas</string>

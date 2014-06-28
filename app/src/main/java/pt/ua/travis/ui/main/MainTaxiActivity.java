@@ -69,25 +69,6 @@ public class MainTaxiActivity extends MainActivity
 
         currentlyShownTravelFragment = new CurrentTravelFragment();
         currentlyShownRideListFragment = RideListFragment.newInstance(RideItem.SHOW_CLIENT);
-        tabPager.setAdapter(new TabPagerAdapter() {
-
-            @Override
-            public Fragment getFragment(int position) {
-                switch (position) {
-                    case 0:
-                        return currentlyShownTravelFragment;
-                    case 1:
-                        return currentlyShownRideListFragment;
-                }
-                return null;
-            }
-
-            @Override
-            public int getCount() {
-                return 2;
-            }
-        });
-        tabPager.setOffscreenPageLimit(2);
 ////        tabPager.setPagingEnabled(false);
 //        tabPager.setFadeEnabled(false);
 //        tabPager.setTransitionEffect(TransitionViewPager.TransitionEffect.ZoomIn);
@@ -108,6 +89,28 @@ public class MainTaxiActivity extends MainActivity
         String loggedInString = getString(R.string.logged_in_as_X);
         loggedInString += " " + thisTaxi.name();
         showTravisNotification(loggedInString, thisTaxi.imageUri(), NotificationColor.DEFAULT);
+    }
+
+    @Override
+    protected TabPagerAdapter getTabPagerAdapter() {
+        return new TabPagerAdapter() {
+
+            @Override
+            public Fragment getFragment(int position) {
+                switch (position) {
+                    case 0:
+                        return currentlyShownTravelFragment;
+                    case 1:
+                        return currentlyShownRideListFragment;
+                }
+                return null;
+            }
+
+            @Override
+            public int getCount() {
+                return 2;
+            }
+        };
     }
 
     @Override
@@ -191,12 +194,6 @@ public class MainTaxiActivity extends MainActivity
     public void startTravel(Ride ride) {
         goToTab(0);
         currentlyShownTravelFragment.goToOrigin(ride);
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        Log.e("ddddddddddddddddd", tab.getPosition()+"");
-        tabPager.setCurrentItem(tab.getPosition(), true);
     }
 
     @Override

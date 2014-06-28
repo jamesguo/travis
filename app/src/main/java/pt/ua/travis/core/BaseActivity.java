@@ -3,15 +3,16 @@ package pt.ua.travis.core;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.*;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -34,6 +35,12 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     private static final int REQUEST_CODE_PAYMENT = 1;
 
     private Dialog wifiNotification;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     protected void onResume() {
@@ -87,51 +94,40 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
     }
 
     public void showTravisNotification(String text, String imageUri, NotificationColor color){
-        final Dialog overlayInfo = new Dialog(this);
-        overlayInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        int statusBarHeight = (int) Math.ceil(25 * getResources().getDisplayMetrics().density);
 
-        Window window = overlayInfo.getWindow();
-        window.setBackgroundDrawable(new ColorDrawable(getResources().getColor(color.resID)));
-        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
-        WindowManager.LayoutParams params = overlayInfo.getWindow().getAttributes();
-        params.gravity = Gravity.TOP | Gravity.LEFT;
-        params.x = 0;
-        params.y = 0;
-        params.width = TravisUtils.getScreenWidth(this);
-        overlayInfo.setCancelable(false);
-        overlayInfo.setContentView(R.layout.notification_bar);
-
-        TextView textView = (TextView) overlayInfo.findViewById(R.id.travis_notification_text);
+        final View statusBarView = LayoutInflater.from(this).inflate(R.layout.notification_bar, null);
+        statusBarView.setBackgroundDrawable(new ColorDrawable(getResources().getColor(color.resID)));
+        TextView textView = (TextView) statusBarView.findViewById(R.id.travis_notification_text);
         textView.setText(text);
 
         if(imageUri != null) {
-            CircularImageView imageView = (CircularImageView) overlayInfo.findViewById(R.id.travis_notification_photo);
+            CircularImageView imageView = (CircularImageView) statusBarView.findViewById(R.id.travis_notification_photo);
             Picasso.with(this).load(imageUri).into(imageView);
         }
 
-        overlayInfo.show();
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                statusBarHeight,
+                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                PixelFormat.TRANSLUCENT);
+
+        params.gravity = Gravity.RIGHT | Gravity.TOP;
+        final WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        wm.addView(statusBarView, params);
+
 
         final Handler handler  = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if (overlayInfo.isShowing()) {
-                    overlayInfo.dismiss();
-                }
+                wm.removeViewImmediate(statusBarView);
             }
         };
 
-        overlayInfo.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                handler.removeCallbacks(runnable);
-            }
-        });
-
-        handler.postDelayed(runnable, 2500);
+        handler.postDelayed(runnable, 2700);
     }
 
     public void showWirelessNotification(){
@@ -184,7 +180,7 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 
 
     public enum NotificationColor {
-        DEFAULT(R.color.travis_color),
+        DEFAULT(android.R.color.black),
         GREEN(R.color.taxi_available_border),
         RED(R.color.taxi_unavailable_border);
 
