@@ -2,8 +2,10 @@ package pt.ua.travis.core;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.*;
-import android.graphics.Color;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;

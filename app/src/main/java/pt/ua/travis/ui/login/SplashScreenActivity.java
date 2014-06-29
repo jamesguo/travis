@@ -1,6 +1,7 @@
 package pt.ua.travis.ui.login;
 
-import android.content.*;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import com.google.common.base.Strings;

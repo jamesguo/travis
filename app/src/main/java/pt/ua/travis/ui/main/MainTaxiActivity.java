@@ -1,7 +1,6 @@
 package pt.ua.travis.ui.main;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -19,23 +18,22 @@ import com.actionbarsherlock.view.Menu;
 import com.google.android.gms.maps.model.LatLng;
 import org.apache.commons.io.IOUtils;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.*;
+import pt.ua.travis.backend.PersistenceManager;
+import pt.ua.travis.backend.Ride;
+import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.travel.CurrentTravelFragment;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerItem;
 import pt.ua.travis.ui.navigationdrawer.BlurDrawerObject;
 import pt.ua.travis.ui.ridelist.RideItem;
 import pt.ua.travis.ui.ridelist.RideListFragment;
+import pt.ua.travis.ui.travel.CurrentTravelFragment;
 import pt.ua.travis.utils.CommonKeys;
-import pt.ua.travis.utils.TravisUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

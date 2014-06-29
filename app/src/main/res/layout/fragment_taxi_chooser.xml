@@ -27,17 +27,18 @@
     <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
         android:id="@+id/pull_to_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/taxi_item_height"
+        android:layout_height="100dp"
         android:layout_marginTop="?attr/actionBarSize"
         ptr:ptrProgressBarColor="@color/travis_color">
 
         <pt.ua.travis.ui.customviews.TaxiItemViewPager
             android:id="@+id/taxi_pager"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/taxi_item_height"
+            android:layout_height="160dp"
+            android:layout_marginTop="10dp"
             android:fadingEdge="horizontal"
             android:animateLayoutChanges="true"
-            android:background="@drawable/shadow_taxi_item"/>
+            android:background="@android:color/transparent"/>
 
     </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
 

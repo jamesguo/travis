@@ -10,11 +10,11 @@ import com.firebase.client.*;
 import com.google.common.collect.Lists;
 import com.parse.*;
 import org.apache.commons.io.output.ByteArrayOutputStream;
-import pt.ua.travis.ui.login.LoginTask;
 import pt.ua.travis.riderequest.RideRequestTask;
+import pt.ua.travis.ui.login.LoginTask;
 import pt.ua.travis.utils.Pair;
-import pt.ua.travis.utils.Uno;
 import pt.ua.travis.utils.TravisUtils;
+import pt.ua.travis.utils.Uno;
 
 import java.util.*;
 

@@ -27,7 +27,8 @@ import com.kbeanie.imagechooser.api.ImageChooserManager;
 import org.apache.commons.io.IOUtils;
 import pt.ua.travis.R;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicReference;

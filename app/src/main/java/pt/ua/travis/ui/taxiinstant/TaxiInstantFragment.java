@@ -14,8 +14,8 @@ import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.core.TravisApplication;
-import pt.ua.travis.ui.main.MainClientActivity;
 import pt.ua.travis.riderequest.RideBuilder;
+import pt.ua.travis.ui.main.MainClientActivity;
 
 import java.util.List;
 

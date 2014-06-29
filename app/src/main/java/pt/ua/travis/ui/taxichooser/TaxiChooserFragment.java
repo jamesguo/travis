@@ -7,7 +7,6 @@ import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -172,8 +171,9 @@ public class TaxiChooserFragment extends BaseFragment
         taxiPagerAdapter = new TaxiItemAdapter(getChildFragmentManager());
         taxiPager.setAdapter(taxiPagerAdapter);
         taxiPager.setOffscreenPageLimit(3);
-//        taxiPager.setTransitionEffect(TransitionViewPager.TransitionEffect.Standard);
-//        taxiPager.setFadeEnabled(true);
+        taxiPager.setPageMargin(-60);
+        taxiPager.setHorizontalFadingEdgeEnabled(true);
+        taxiPager.setFadingEdgeLength(30);
         taxiPager.setOnPageChangeListener(new TaxiItemViewPager.OnPageChangeListener() {
 
             @Override

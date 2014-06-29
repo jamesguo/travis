@@ -3,8 +3,6 @@ package pt.ua.travis.ui.taxichooser;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import pt.ua.travis.ui.taxichooser.RideRequestButtonsFragment;
-import pt.ua.travis.ui.taxichooser.RideRequestOptionsFragment;
 
 /**
  * @author Eduardo Duarte (<a href="mailto:emod@ua.pt">emod@ua.pt</a>))

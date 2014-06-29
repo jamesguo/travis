@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
-import com.paypal.android.sdk.payments.*;
+import com.paypal.android.sdk.payments.PayPalAuthorization;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalService;
 import pt.ua.travis.R;
 import pt.ua.travis.ui.main.MainActivity;
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.parse.ParseException;
 import pt.ua.travis.R;
-import pt.ua.travis.backend.*;
+import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.core.BaseFragment;
 import pt.ua.travis.ui.customviews.SquareImageView;
 

@@ -1,25 +1,20 @@
 package pt.ua.travis.ui.taxichooser;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import pt.ua.travis.R;
 import pt.ua.travis.backend.Client;
-import pt.ua.travis.backend.PersistenceManager;
 import pt.ua.travis.backend.Taxi;
 import pt.ua.travis.ui.customviews.CircularImageView;
 import pt.ua.travis.ui.main.MainActivity;
-import pt.ua.travis.ui.main.MainClientActivity;
-import pt.ua.travis.utils.CommonKeys;
 import pt.ua.travis.utils.CommonRes;
 
 /**
