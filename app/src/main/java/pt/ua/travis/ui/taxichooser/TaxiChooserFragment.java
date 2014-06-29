@@ -424,23 +424,6 @@ public class TaxiChooserFragment extends BaseFragment
     }
 
 
-    public void attemptCloseSlidingPane(MotionEvent event){
-        if(slidingPaneLayout!=null && slidingPaneLayout.isOpened()){
-
-            int location[] = { 0, 0 };
-            slidingPaneLayout.getLocationOnScreen(location);
-
-            if(((int)event.getRawY()) < location[1]) {
-                slidingPaneLayout.closeLayer(true);
-            }
-        }
-    }
-
-    public void closeSlidingPane() {
-        slidingPaneLayout.closeLayer(true);
-    }
-
-
     /**
      * Slides the options page into view.
      */
@@ -467,6 +450,29 @@ public class TaxiChooserFragment extends BaseFragment
                 slidingPaneLayout.openLayer(true);
             }
         });
+    }
+
+
+    public void attemptCloseOptionsPane(MotionEvent event){
+        if(slidingPaneLayout!=null && slidingPaneLayout.isOpened()){
+
+            int location[] = { 0, 0 };
+            slidingPaneLayout.getLocationOnScreen(location);
+
+            if(((int)event.getRawY()) < location[1]) {
+                slidingPaneLayout.closeLayer(true);
+            }
+        }
+    }
+
+
+    public boolean closeOptionsPane() {
+        if(slidingPaneLayout.isOpened()) {
+            slidingPaneLayout.closeLayer(true);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

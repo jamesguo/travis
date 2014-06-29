@@ -286,7 +286,7 @@ public class MainClientActivity extends MainActivity implements TimePickerDialog
 //                break;
 //            case 1:
                 if (currentlyShownChooserFragment != null) {
-                    currentlyShownChooserFragment.attemptCloseSlidingPane(event);
+                    currentlyShownChooserFragment.attemptCloseOptionsPane(event);
                 }
 //                break;
 //            case 2:
@@ -480,7 +480,7 @@ public class MainClientActivity extends MainActivity implements TimePickerDialog
         });
         rideRequest.execute();
 
-        currentlyShownChooserFragment.closeSlidingPane();
+        currentlyShownChooserFragment.closeOptionsPane();
     }
 
     @Override
@@ -578,13 +578,16 @@ public class MainClientActivity extends MainActivity implements TimePickerDialog
     }
 
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-    }
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {}
 
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {}
 
+    @Override
+    public void onBackPressed() {
+        if(!currentlyShownChooserFragment.closeOptionsPane()) {
+            super.onBackPressed();
+        }
     }
 
     @Override
